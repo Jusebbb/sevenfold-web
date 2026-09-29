@@ -1,0 +1,62 @@
+<section class="sec dark" style="padding-top:170px">
+  <div class="pitch-lines" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a><span>/</span><span>Contacto</span></nav>
+    <div class="contact">
+      <div class="cinfo">
+        <span class="eyebrow">Contacto</span>
+        <h1 class="h-xl">Hablemos</h1>
+        <p class="lead">Donaciones, patrocinios, alianzas, voluntariado, prensa o si quieres que tu hijo haga parte del proceso. Te respondemos pronto.</p>
+        <div class="row"><div class="ico">{{icon:mail}}</div><div><b>Correo</b><span id="mail-txt">fundacionsevenfold@gmail.com</span> <button class="btn line" style="padding:.35rem .8rem;font-size:.72rem;color:var(--chalk);border-color:rgba(255,255,255,.4);margin-left:6px" data-copy="fundacionsevenfold@gmail.com">Copiar</button></div></div>
+        <div class="row"><div class="ico">{{icon:pin}}</div><div><b>Dirección</b><span>Carrera 51 # 24-35, Bogotá D.C.</span></div></div>
+        <div class="row"><div class="ico">{{icon:id}}</div><div><b>NIT</b><span>901.965.467-5 · ESAL</span></div></div>
+        <div class="row" data-wa-row><div class="ico">{{icon:wa}}</div><div><b>WhatsApp</b><a data-wa href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></div></div>
+      </div>
+      <form class="form" novalidate>
+        <label class="full">¿Cómo quieres participar?
+          <select name="tipo" id="f-tipo" required>
+            <option value="Donación">Quiero donar</option>
+            <option value="Apadrinar un talento">Quiero apadrinar un talento</option>
+            <option value="Patrocinio">Soy empresa y quiero patrocinar</option>
+            <option value="Alianza">Quiero proponer una alianza</option>
+            <option value="Donación en especie">Quiero donar en especie</option>
+            <option value="Voluntariado">Quiero ser voluntario</option>
+            <option value="Inscripción de un deportista">Quiero inscribir a un niño o joven</option>
+            <option value="Prensa">Prensa y medios</option>
+            <option value="Otro">Otro tema</option>
+          </select>
+        </label>
+        <label>Nombre completo<input id="f-nombre" name="nombre" required autocomplete="name"></label>
+        <label>Empresa u organización<input id="f-empresa" name="empresa" autocomplete="organization" placeholder="Opcional"></label>
+        <label>Correo<input id="f-correo" type="email" name="correo" required autocomplete="email"></label>
+        <label>Teléfono<input id="f-tel" type="tel" name="telefono" autocomplete="tel" placeholder="Opcional"></label>
+        <fieldset class="full" style="border:0;padding:0;margin:0;display:grid;gap:8px">
+          <legend style="font-weight:700;font-size:.85rem;margin-bottom:8px">Me interesa apoyar en</legend>
+          <div class="interest">
+            <label><input type="checkbox" name="interes" value="Bogotá">Bogotá</label>
+            <label><input type="checkbox" name="interes" value="Huila">Huila</label>
+            <label><input type="checkbox" name="interes" value="Vaupés">Vaupés</label>
+            <label><input type="checkbox" name="interes" value="Chocó">Chocó</label>
+            <label><input type="checkbox" name="interes" value="Delegaciones internacionales">Delegaciones internacionales</label>
+            <label><input type="checkbox" name="interes" value="Educación">Educación</label>
+          </div>
+        </fieldset>
+        <label class="full">Mensaje<textarea id="f-msg" name="mensaje" placeholder="Cuéntanos un poco más"></textarea></label>
+        <div class="full row-cta"><button class="btn dark-btn" type="submit">Enviar mensaje {{icon:arrow}}</button><span class="note">Al enviar se abrirá tu correo con el mensaje listo para fundacionsevenfold@gmail.com.</span></div>
+        <p class="ok" hidden>Abrimos tu aplicación de correo con el mensaje listo. Si no se abrió, escríbenos directamente a fundacionsevenfold@gmail.com.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec white">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Otras formas de sumarte</span><h2 class="h-md mt-s">¿Buscas algo más específico?</h2></div>
+    <div class="ways">
+      <article class="way"><div class="ico">{{icon:brief}}</div><h3>Empresas</h3><p>Patrocinios, alianzas ESG y beneficio tributario.</p><a class="link-arrow" href="apoya.html#patrocinio">Ver patrocinio {{icon:arrow}}</a></article>
+      <article class="way"><div class="ico">{{icon:ball}}</div><h3>Familias</h3><p>Si tu hijo o hija quiere entrenar con nosotros en Bogotá, escríbenos y te contamos los horarios.</p><a class="link-arrow" href="seven-colombia.html">Conocer Seven {{icon:arrow}}</a></article>
+      <article class="way"><div class="ico">{{icon:hands}}</div><h3>Organizaciones</h3><p>¿Trabajas con jóvenes en un territorio? Llevemos juntos el modelo a tu comunidad.</p><a class="link-arrow" href="nosotros.html">Ver el modelo {{icon:arrow}}</a></article>
+      <article class="way"><div class="ico">{{icon:star}}</div><h3>Prensa</h3><p>Historias, cifras y fotografías de nuestros procesos y resultados.</p><a class="link-arrow" href="impacto.html">Ver historias {{icon:arrow}}</a></article>
+    </div>
+  </div>
+</section>

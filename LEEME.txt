@@ -1,0 +1,36 @@
+SITIO WEB · FUNDACIÓN SEVENFOLD COLOMBIA
+========================================
+
+Cómo verlo
+----------
+Abre index.html en el navegador (doble clic). Todo funciona sin internet:
+fotos, videos y tipografías están dentro de la carpeta assets/.
+
+Páginas
+-------
+index.html            Inicio (problema, líneas, mapa de territorios, casos de éxito, historias, videos, cómo apoyar, aliados)
+nosotros.html         Propósito, objetivos, historia 2010–2026, modelo, equipo, metas a 36 meses, transparencia
+seven-colombia.html   Fútbol 7, categorías, palmarés completo, Kings League, agenda 2026, galerías campamento y Roma
+impacto.html          Cifras 2025, 3 historias largas, bitácora filtrable con 11 jornadas y galerías
+apoya.html            A dónde va el aporte, formas de apoyar, beneficio tributario, patrocinio Porto Alegre, pasos, FAQ
+contacto.html         Formulario (abre el correo con el mensaje listo) y datos de contacto
+
+Pendientes antes de publicar (hay que pedírselos a la fundación)
+-----------------------------------------------------------------
+1. Redes sociales y WhatsApp: se completan en assets/js/main.js, bloque SITE al inicio del archivo.
+   Mientras estén vacíos, los íconos y el botón de WhatsApp no aparecen.
+2. Fotos en alta resolución: varias fotos salieron de los PDF y Word de eventos (≈400–600 px).
+   Si en los Drive están los originales, se reemplazan en assets/img/ con el MISMO nombre de archivo.
+3. Nombres de menores: la historia "De Mitú al mundo" usa los nombres de Jesed Nicolás y Yeison Mateo
+   (tomados del informe de gestión). Confirmar autorización de las familias o cambiarlos por iniciales.
+4. "Apadrina un talento": la página lo propone como programa. Validar con la fundación qué incluye y si tiene valor fijo.
+5. Beneficio tributario: se redactó como "descuento de hasta el 25 % (art. 257 E.T.)". Que lo valide su contador.
+6. Agenda 2026: Porto Alegre (noviembre) aparece como "Próximo". Actualizar resultados después del torneo.
+7. Formulario: hoy abre el correo del visitante. Si quieren que llegue solo, conectar un servicio como
+   Formspree o el formulario del hosting (se cambia en assets/js/main.js).
+8. Dominio y hosting: el sitio es estático; sirve en Netlify, Vercel, GitHub Pages o cualquier hosting con cPanel.
+
+Editar textos
+-------------
+Los textos están en los archivos .html. Si se usa la carpeta src/ + build.py (Python 3):
+editar src/*.html y correr  python3 build.py  para regenerar las páginas con el mismo menú y pie.
