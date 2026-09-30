@@ -1,19 +1,28 @@
 <!-- ============ HERO ============ -->
 <section class="hero dark" aria-label="Presentación">
+  <!-- Carrusel: la primera foto usa src y las demás data-src (se descargan en su turno). --pos = encuadre de cada foto. -->
   <div class="hero-slides" aria-hidden="true">
-    <img src="assets/img/hero-seleccion.webp" alt="" fetchpriority="high">
-    <img src="assets/img/hero-choco.webp" alt="" loading="lazy">
-    <img src="assets/img/hero-cancha.webp" alt="" loading="lazy">
+    <img src="assets/img/hero-jugador7.webp" alt="" fetchpriority="high" style="--pos:51% 20%">
+    <img data-src="assets/img/hero-choco.webp" alt="" style="--pos:57% 50%">
+    <img data-src="assets/img/hero-intercontinental.webp" alt="" style="--pos:50% 60%">
+    <img data-src="assets/img/hero-cancha.webp" alt="" style="--pos:54% 70%">
+    <img data-src="assets/img/hero-banca.webp" alt="" style="--pos:28% 50%">
+    <img data-src="assets/img/hero-seleccion.webp" alt="" style="--pos:50% 70%">
   </div>
-  <div class="hero-tag">Bogotá · Huila · Vaupés · Chocó</div>
   <div class="wrap hero-inner">
     <span class="eyebrow">Fundación Sevenfold Colombia</span>
-    <h1 class="h-xl mt-s">Llegar <span class="hl">antes</span> que la violencia</h1>
-    <p class="lead">Fútbol 7, educación y acompañamiento para que niños y jóvenes de los territorios más olvidados de Colombia encuentren otro camino.</p>
+    <h1 class="h-xl mt-s">Formamos talento,<br><span class="hl">abrimos caminos</span></h1>
+    <p class="lead">Fútbol 7, educación y oportunidades reales para niños y jóvenes de Bogotá, Huila, Vaupés y Chocó.</p>
     <div class="hero-cta">
       <a class="btn" href="#historias">Conoce sus historias {{icon:arrow}}</a>
       <a class="btn ghost" href="seven-colombia.html">Seven Colombia</a>
     </div>
+  </div>
+</section>
+
+<!-- ============ CIFRAS ============ -->
+<section class="stats-band dark" aria-label="Cifras">
+  <div class="wrap">
     <div class="scoreboard" role="list">
       <div role="listitem"><b>280+</b><span>jóvenes en los primeros seis meses</span></div>
       <div role="listitem"><b>4</b><span>territorios del país</span></div>
@@ -219,7 +228,7 @@
 </section>
 
 <!-- ============ REELS ============ -->
-<section class="sec dark">
+<section class="sec dark" id="videos">
   <div class="wrap">
     <div class="sec-head split">
       <div>
@@ -239,7 +248,7 @@
 </section>
 
 <!-- ============ ALIADOS ============ -->
-<section class="sec white" style="padding-block:clamp(56px,7vw,88px)">
+<section class="sec white" style="padding-block:clamp(56px,7vw,88px)" id="aliados">
   <div class="wrap">
     <div class="sec-head" style="margin-bottom:32px">
       <span class="eyebrow">Respaldo y aliados</span>

@@ -37,16 +37,52 @@ if (menuBtn) {
   }));
 }
 
-/* Hero: carrusel de fotos */
+/* Menú: desplegables con lo que hay en cada pestaña.
+   Con mouse se abren al pasar por encima (CSS); la flechita los abre con clic, toque o teclado. */
+const subBtns = document.querySelectorAll(".sub-btn");
+const closeSubs = (except) => subBtns.forEach(b => {
+  if (b === except) return;
+  b.setAttribute("aria-expanded", "false");
+  b.closest(".nav-item").classList.remove("open");
+});
+subBtns.forEach(b => b.addEventListener("click", () => {
+  const open = b.getAttribute("aria-expanded") !== "true";
+  closeSubs(b);
+  b.setAttribute("aria-expanded", open);
+  b.closest(".nav-item").classList.toggle("open", open);
+}));
+document.querySelectorAll(".nav-item").forEach(item => item.addEventListener("focusout", e => {
+  if (!item.contains(e.relatedTarget) && !matchMedia("(max-width:1020px)").matches) closeSubs();
+}));
+// al elegir una sección de la misma página, el desplegable se cierra aunque el mouse siga encima
+document.querySelectorAll(".sub a").forEach(a => a.addEventListener("click", () => {
+  closeSubs();
+  const item = a.closest(".nav-item");
+  item.classList.add("hush");
+  item.addEventListener("mouseleave", () => item.classList.remove("hush"), { once: true });
+}));
+document.addEventListener("click", e => { if (!e.target.closest(".nav-item")) closeSubs(); });
+document.addEventListener("keydown", e => {
+  const b = document.querySelector('.sub-btn[aria-expanded="true"]');
+  if (e.key === "Escape" && b) { closeSubs(); b.focus(); }
+});
+
+/* Hero: carrusel de fotos. Cada foto (data-src) se descarga un turno antes de que le toque
+   y solo entra cuando ya cargó; si la conexión va lenta, la foto actual espera. */
 const slides = document.querySelectorAll(".hero-slides img");
 if (slides.length > 1) {
   let i = 0;
+  const load = n => { const im = slides[n]; if (im.dataset.src) { im.src = im.dataset.src; im.removeAttribute("data-src"); } };
   slides[0].classList.add("on");
   slides[0].parentElement.classList.add("ready");
+  load(1);
   setInterval(() => {
+    const n = (i + 1) % slides.length;
+    if (!slides[n].complete || !slides[n].naturalWidth) return;
     slides[i].classList.remove("on");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("on");
+    slides[n].classList.add("on");
+    i = n;
+    load((i + 1) % slides.length);
   }, 7000);
 }
 
@@ -104,7 +140,7 @@ try { const f = new URLSearchParams(location.search).get("f"); const b = f && [.
 
 /* Aparición suave al hacer scroll: encabezados y tarjetas entran en escalonado */
 if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const sel = ".sec-head, .problem > *, .lines > *, .results > *, .stories > *, .territory > *, .reels, .allies, .cta-band .in, .feature > *, .duo > *, .cats > *, .model > *, .team > *, .goals > *, .ways > *, .packs > *, .steps > *, .tl-item, .ev";
+  const sel = ".sec-head, .problem > *, .lines > *, .results > *, .stories > *, .territory > *, .reels, .allies, .cta-band .in, .feature > *, .duo > *, .cats > *, .model > *, .team > *, .goals > *, .ways > *, .gives > *, .sponsor, .gways > *, .tax-note, .packs > *, .steps > *, .tl-item, .ev";
   const els = [...document.querySelectorAll(sel)].filter(el => el.getBoundingClientRect().top > innerHeight);
   const reveal = el => {
     if (!el.classList.contains("pre")) return;

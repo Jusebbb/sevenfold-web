@@ -87,22 +87,58 @@ p{margin:0}
 .site-head .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px}
 .site-head.solid,.site-head.always{background:rgba(11,19,32,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line-d)}
 .brand img{height:52px;width:auto}
-.nav{display:flex;align-items:center;gap:4px}
-.nav a{color:var(--chalk);text-decoration:none;font-weight:600;font-size:.95rem;padding:.6rem .85rem;border-radius:999px;transition:background .2s}
-.nav a:hover{background:rgba(255,255,255,.1)}
-.nav a[aria-current="page"]{color:var(--sun)}
-.nav .nav-soft{margin-left:10px;display:inline-flex;align-items:center;gap:.55em;border:1px solid rgba(255,255,255,.26);transition:border-color .25s,color .25s}
-.nav .nav-soft::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sun)}
-.nav .nav-soft:hover{background:transparent;border-color:var(--sun);color:var(--sun)}
+/* al saltar a una sección (ej. nosotros.html#equipo) queda justo debajo del encabezado fijo */
+[id]{scroll-margin-top:84px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav-item{position:relative}
+.nav-top{display:flex;align-items:center;border-radius:999px;transition:background .2s,border-color .25s}
+.nav-top:hover{background:rgba(255,255,255,.1)}
+.nav-top a{color:var(--chalk);text-decoration:none;font-weight:600;font-size:.95rem;padding:.6rem .1rem .6rem .85rem;transition:color .2s}
+.nav-top a[aria-current="page"]{color:var(--sun)}
+.sub-btn{display:grid;place-items:center;width:26px;height:36px;margin-right:5px;padding:0;background:none;border:0;border-radius:999px;color:rgba(255,255,255,.75);cursor:pointer}
+.sub-btn svg{width:14px;height:14px;transition:transform .2s}
+.nav-item.open .sub-btn svg{transform:rotate(180deg)}
+/* Súmate: botón destacado */
+.nav-soft .nav-top{margin-left:10px;border:1px solid rgba(255,255,255,.26)}
+.nav-soft .nav-top::before{content:"";width:6px;height:6px;margin-left:.85rem;border-radius:50%;background:var(--sun)}
+.nav-soft .nav-top a{padding-left:.55em}
+.nav-soft .nav-top:hover{background:transparent;border-color:var(--sun)}
+.nav-soft .nav-top:hover a{color:var(--sun)}
+/* Desplegable: lo que hay en cada pestaña. El padding de arriba es el "puente" para que el mouse no lo cierre al bajar */
+.sub{position:absolute;top:100%;left:0;padding-top:20px;min-width:240px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s,transform .18s,visibility .18s}
+.nav-item:nth-last-child(-n+2) .sub{left:auto;right:0}
+.sub ul{list-style:none;margin:0;padding:10px 0;background:var(--chalk);border-top:3px solid var(--sun);border-radius:0 0 12px 12px;box-shadow:0 18px 40px rgba(11,19,32,.28)}
+.sub a{display:block;padding:.6rem 1.3rem;color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;white-space:nowrap;transition:background .15s,color .15s}
+.sub a:hover{background:var(--paper);color:var(--pitch)}
+.nav-item.open > .sub{opacity:1;visibility:visible;transform:none}
+@media (hover:hover) and (pointer:fine) and (min-width:1021px){
+  .nav-item:hover > .sub{opacity:1;visibility:visible;transform:none}
+  .nav-item:hover .sub-btn svg{transform:rotate(180deg)}
+  .nav-item.hush:hover > .sub{opacity:0;visibility:hidden}
+  .nav-item.hush:hover .sub-btn svg{transform:none}
+}
 .menu-btn{display:none;background:none;border:0;color:var(--chalk);width:48px;height:48px;cursor:pointer;padding:10px}
 .menu-btn span{display:block;height:2px;background:currentColor;margin:6px 0;transition:transform .25s,opacity .25s}
 @media (max-width:1020px){
   .menu-btn{display:block}
   /* el desenfoque convertía al encabezado en contenedor del menú fijo: el menú quedaba asomado y se abría roto tras hacer scroll */
   .site-head.solid,.site-head.always{backdrop-filter:none;background:rgba(11,19,32,.97)}
-  .nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;justify-content:center;gap:6px;transform:translateY(-100%);transition:transform .35s ease;padding:env(safe-area-inset-top,0px) 24px 24px}
-  .nav a{font-family:var(--display);font-size:2.2rem;font-weight:800;text-transform:uppercase}
-  .nav .nav-soft{font-family:var(--body);font-size:.95rem;font-weight:700;letter-spacing:.08em;margin:18px 0 0;padding:.8rem 1.3rem}
+  /* menú a pantalla completa; los márgenes automáticos lo centran sin cortar el inicio cuando un desplegable lo alarga */
+  .nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;justify-content:flex-start;gap:6px;overflow-y:auto;overscroll-behavior:contain;transform:translateY(-100%);transition:transform .35s ease;padding:calc(84px + env(safe-area-inset-top,0px)) 24px 32px}
+  .nav > :first-child{margin-top:auto}
+  .nav > :last-child{margin-bottom:auto}
+  .nav-item{display:flex;flex-direction:column;align-items:center}
+  .nav-top:hover{background:none}
+  .nav-top a{font-family:var(--display);font-size:2.2rem;font-weight:800;text-transform:uppercase;padding:.3rem .1rem .3rem .6rem}
+  .sub-btn{width:40px;height:40px;margin-right:0;color:var(--muted-d)}
+  .sub-btn svg{width:20px;height:20px}
+  .sub{position:static;display:none;min-width:0;padding:0 0 10px;opacity:1;visibility:visible;transform:none;transition:none}
+  .nav-item.open > .sub{display:block}
+  .sub ul{padding:0;background:none;border:0;border-radius:0;box-shadow:none;text-align:center}
+  .sub a{padding:.4rem .8rem;color:var(--muted-d);font-size:1.02rem;white-space:normal}
+  .sub a:hover{background:none;color:var(--sun)}
+  .nav-soft .nav-top{margin:18px 0 0}
+  .nav-soft .nav-top a{font-family:var(--body);font-size:.95rem;font-weight:700;letter-spacing:.08em;padding:.8rem .1rem .8rem .55em}
   body.menu-open .nav{transform:none}
   body.menu-open{overflow:hidden}
   body.menu-open .menu-btn{position:relative;z-index:60}
@@ -125,28 +161,33 @@ p{margin:0}
 /* Marca de agua: líneas de cancha de fútbol 7 */
 .pitch-lines{position:absolute;inset:0;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400' fill='none' stroke='%23fff' stroke-width='2'%3E%3Crect x='10' y='10' width='580' height='380'/%3E%3Cline x1='300' y1='10' x2='300' y2='390'/%3E%3Ccircle cx='300' cy='200' r='50'/%3E%3Ccircle cx='300' cy='200' r='3' fill='%23fff'/%3E%3Cpath d='M10 110 H90 V290 H10 M590 110 H510 V290 H590'/%3E%3Cpath d='M10 165 H40 V235 H10 M590 165 H560 V235 H590'/%3E%3C/svg%3E");background-size:760px auto;background-position:right -220px bottom -120px;background-repeat:no-repeat}
 
-/* ---------- Hero ---------- */
-.hero{position:relative;min-height:clamp(640px,96vh,980px);display:flex;align-items:flex-end;color:var(--chalk);background:var(--ink);overflow:hidden;isolation:isolate}
+/* ---------- Hero ----------
+   Fotos a pantalla completa que rotan; el texto va abajo a la izquierda sobre un velo suave.
+   --pos (en cada <img>): encuadre de la foto. El % horizontal decide qué se ve en celular; el vertical, en pantallas anchas. */
+.hero{position:relative;min-height:clamp(600px,100svh,1200px);display:flex;align-items:flex-end;color:var(--chalk);background:var(--ink);overflow:hidden;isolation:isolate}
 .hero-slides{position:absolute;inset:0;z-index:-2}
-.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;transform:scale(1.06)}
+.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);opacity:0;transition:opacity 1.6s ease;transform:scale(1.06)}
 .hero-slides img.on{opacity:1;animation:kb 9s ease-out forwards}
 .hero-slides img:first-child{opacity:1}
 .hero-slides.ready img:first-child:not(.on){opacity:0}
 @keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,19,32,.72) 0%,rgba(11,19,32,.25) 35%,rgba(11,19,32,.55) 62%,rgba(11,19,32,.97) 100%),linear-gradient(90deg,rgba(11,19,32,.7),transparent 60%)}
-.hero-inner{padding-block:150px 40px;width:100%}
-.hero h1{max-width:12ch}
-.hero .lead{color:#D8DEE8;margin-top:22px;max-width:56ch}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.scoreboard{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-d)}
-.scoreboard > div{padding:22px 20px 6px 0;display:grid;gap:4px;min-width:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,19,32,.55) 0,rgba(11,19,32,0) 25%),linear-gradient(0deg,var(--ink) 0,rgba(11,19,32,.62) 30%,rgba(11,19,32,0) 60%),linear-gradient(90deg,rgba(11,19,32,.65) 0,rgba(11,19,32,0) 60%)}
+.hero-inner{padding-block:140px clamp(56px,10vh,104px);width:100%}
+.hero h1{font-size:clamp(2.5rem,4.8vw,4.6rem);font-weight:800;text-shadow:0 2px 28px rgba(11,19,32,.5)}
+.hero .eyebrow,.hero .lead{text-shadow:0 1px 14px rgba(11,19,32,.8)}
+.hero .lead{color:#D8DEE8;margin-top:20px;max-width:48ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+/* Pantalla vertical: la foto se recorta angosta y el texto cae sobre los jugadores; el velo de abajo sube y se oscurece */
+@media (orientation:portrait){.hero::after{background:linear-gradient(180deg,rgba(11,19,32,.55) 0,rgba(11,19,32,0) 22%),linear-gradient(0deg,var(--ink) 0,rgba(11,19,32,.88) 38%,rgba(11,19,32,.5) 58%,rgba(11,19,32,0) 78%)}}
+@media (max-width:760px){.hero-inner{padding-bottom:40px}}
+/* Cifras bajo el hero */
+.stats-band{padding-bottom:clamp(40px,6vw,72px)}
+.scoreboard{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-d)}
+.scoreboard > div{padding:22px 20px 6px 0;display:grid;align-content:start;gap:4px;min-width:0}
 .scoreboard > div + div{padding-left:22px;border-left:1px solid var(--line-d)}
 .scoreboard b{font-family:var(--display);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1;color:var(--sun);font-variant-numeric:tabular-nums}
 .scoreboard span{font-size:.9rem;color:var(--muted-d);line-height:1.35}
 @media (max-width:760px){.scoreboard{grid-template-columns:1fr 1fr}.scoreboard > div:nth-child(3){padding-left:0;border-left:0}.scoreboard > div:nth-child(n+3){border-top:1px solid var(--line-d)}}
-.hero-tag{position:absolute;right:var(--gut);top:120px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);writing-mode:vertical-rl;display:flex;gap:10px;align-items:center}
-.hero-tag::before{content:"";width:1px;height:60px;background:rgba(255,255,255,.4)}
-@media (max-width:760px){.hero-tag{display:none}}
 
 /* Page hero (páginas internas) */
 .page-hero{position:relative;color:var(--chalk);background:var(--ink);padding-block:170px 80px;overflow:hidden;isolation:isolate}
@@ -332,20 +373,67 @@ a.result .body{grid-template-rows:auto auto 1fr}
 .way .ico svg{width:26px;height:26px}
 .way h3{font-size:1.7rem;font-weight:800;text-transform:uppercase}
 .way p{color:var(--muted);font-size:.95rem}
-.way ul{margin:0;padding-left:1.1em;color:var(--muted);font-size:.9rem;display:grid;gap:4px}
 .way .link-arrow{margin-top:auto;justify-self:start}
-.way.feat{background:var(--ink);color:var(--chalk);border-color:var(--ink)}
-.way.feat p,.way.feat ul{color:var(--muted-d)}
-.way.feat .ico{background:var(--sun);color:var(--ink)}
 @media (max-width:1060px){.ways{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.ways{grid-template-columns:1fr}}
 
-.tax{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,4vw,48px);align-items:center;background:var(--sun);color:var(--ink);border-radius:calc(var(--r) + 6px);padding:clamp(28px,4vw,48px)}
-.tax .pct{font-family:var(--display);font-weight:900;font-size:clamp(5rem,12vw,9rem);line-height:.8}
-.tax h3{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;text-transform:uppercase}
-.tax p{margin-top:8px;max-width:60ch}
-.tax small{display:block;margin-top:10px;font-size:.8rem;opacity:.8}
-@media (max-width:860px){.tax{grid-template-columns:1fr}}
+/* ---------- Súmate: donar ----------
+   Primero los niños y lo que tu aporte hace posible; nada de tarjetas con viñetas tipo "plan". */
+.give-hero{position:relative;padding-block:150px clamp(64px,8vw,112px);overflow:hidden;isolation:isolate}
+.give-hero-in{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,6vw,88px);align-items:center}
+.give-hero h1{font-size:clamp(2.8rem,5.6vw,5.2rem)}
+.give-hero .lead{color:#D2D9E4;margin-top:22px;max-width:46ch}
+/* fotos como impresas: una grande y dos con marco blanco, un poco giradas */
+.give-mosaic{position:relative;width:100%;max-width:540px;aspect-ratio:1/1.08;justify-self:end}
+.give-mosaic img{position:absolute;object-fit:cover;border-radius:14px;box-shadow:0 30px 60px -28px rgba(0,0,0,.75)}
+.give-mosaic .m1{left:13%;top:7%;width:74%;height:80%}
+.give-mosaic .m2,.give-mosaic .m3{height:auto;border:6px solid var(--chalk);border-radius:10px}
+.give-mosaic .m2{left:0;bottom:0;width:48%;aspect-ratio:4/3;transform:rotate(-4deg)}
+.give-mosaic .m3{right:0;top:0;width:34%;aspect-ratio:3/4;transform:rotate(3deg)}
+@media (max-width:900px){.give-hero-in{grid-template-columns:1fr}.give-mosaic{justify-self:center;max-width:440px}}
+
+/* A dónde va tu aporte: fotos con leyenda */
+.gives{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.give{position:relative;margin:0;aspect-ratio:3/4;border-radius:var(--r);overflow:hidden;isolation:isolate;color:var(--chalk);background:var(--ink)}
+.give img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .9s var(--ease)}
+.give:hover img{transform:scale(1.05)}
+.give::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,19,32,0) 38%,rgba(11,19,32,.92))}
+.give figcaption{position:absolute;inset:auto 0 0;padding:22px;display:grid;gap:6px}
+.give b{font-family:var(--display);font-size:1.75rem;font-weight:800;line-height:1;text-transform:uppercase}
+.give span{font-size:.92rem;line-height:1.45;color:#D5DCE6}
+@media (max-width:980px){.gives{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.gives{gap:10px}.give figcaption{padding:14px;gap:4px}.give b{font-size:1.3rem}.give span{font-size:.8rem}}
+
+/* Formas de apoyar: apadrinar destacado + tres formas con foto */
+.sponsor{display:grid;grid-template-columns:1fr 1.15fr;border-radius:calc(var(--r) + 4px);overflow:hidden;background:var(--ink);color:var(--chalk)}
+/* height:0 + min-height:100%: la foto llena el alto que marca el texto, sin estirar la tarjeta */
+.sponsor{min-height:440px}
+.sponsor > img{width:100%;height:0;min-height:100%;object-fit:cover;object-position:center 68%}
+.sponsor .in{padding:clamp(28px,4.5vw,64px);display:grid;gap:16px;align-content:center}
+.sponsor .kicker{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sun)}
+.sponsor h3{font-size:clamp(2.2rem,4.2vw,3.6rem);font-weight:900;text-transform:uppercase}
+.sponsor p{color:#D5DCE6;font-size:1.06rem;max-width:50ch}
+.sponsor .btn{justify-self:start;margin-top:10px}
+@media (max-width:860px){.sponsor{grid-template-columns:1fr;min-height:0}.sponsor > img{height:auto;min-height:0;aspect-ratio:4/3}}
+.gways{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.gway{display:flex;flex-direction:column;background:var(--chalk);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.gway > img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.gway .in{flex:1;display:flex;flex-direction:column;gap:12px;padding:24px 24px 26px}
+.gway h3{font-size:1.9rem;font-weight:800;text-transform:uppercase}
+.gway p{color:var(--muted);font-size:.97rem}
+.gway .link-arrow{align-self:flex-start;margin-top:auto}
+@media (max-width:760px){.gways{grid-template-columns:1fr}}
+
+/* Beneficio tributario: una nota tranquila, no una promoción */
+.tax-note{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(18px,3vw,40px);align-items:center;padding:clamp(24px,3.5vw,40px);border-radius:calc(var(--r) + 4px);background:var(--paper);border:1px solid var(--line)}
+.tax-note .ico{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(30,122,75,.12);color:var(--pitch)}
+.tax-note .ico svg{width:30px;height:30px}
+.tax-note h3{font-family:var(--body);font-size:1.3rem;font-weight:800;line-height:1.3}
+.tax-note p{margin-top:6px;color:var(--muted);max-width:68ch}
+.tax-note p strong{color:var(--text)}
+.tax-note small{display:block;margin-top:8px;font-size:.8rem;color:var(--muted)}
+.tax-note .link-arrow{white-space:nowrap}
+@media (max-width:860px){.tax-note{grid-template-columns:1fr;justify-items:start}}
 
 /* Paquetes de patrocinio */
 .packs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}

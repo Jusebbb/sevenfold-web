@@ -24,11 +24,32 @@ PAGES = [
    "Tres títulos, un subcampeonato y un tercer lugar: la delegación de Seven Colombia en el Torneo Internacional de Fútbol 7 de Mérida, México.", "seven"),
 ]
 
-NAV = [("index.html","Inicio","inicio"),("nosotros.html","Nosotros","nosotros"),("seven-colombia.html","Seven Colombia","seven"),
-       ("impacto.html","Impacto e historias","impacto"),("contacto.html","Contacto","contacto")]
+# Menú principal: página, texto, clave y el desplegable con lo que hay en cada pestaña.
+# Un enlace que empieza con # o ? apunta a esa misma página (ej. "#historia" -> "nosotros.html#historia").
+NAV = [
+  ("index.html", "Inicio", "inicio", [
+    ("#lineas", "Qué hacemos"), ("#territorios", "Dónde estamos"), ("#resultados", "Casos de éxito"),
+    ("#historias", "Historias"), ("#videos", "Videos"), ("#aliados", "Aliados")]),
+  ("nosotros.html", "Nosotros", "nosotros", [
+    ("#proposito", "Propósito y objetivos"), ("#historia", "Historia"), ("#modelo", "Cómo trabajamos"),
+    ("#equipo", "Equipo"), ("#metas", "Metas a 36 meses"), ("#transparencia", "Transparencia")]),
+  ("seven-colombia.html", "Seven Colombia", "seven", [
+    ("#futbol-7", "Qué es el fútbol 7"), ("#categorias", "Categorías"), ("#palmares", "Palmarés"),
+    ("#agenda", "Agenda 2026"), ("kings-league.html", "Kings League"), ("merida-2025.html", "Mérida 2025")]),
+  ("impacto.html", "Impacto e historias", "impacto", [
+    ("#informe", "Informe 2025"), ("#mitu", "De Mitú al mundo"), ("#kings", "De Seven a la Kings League"),
+    ("#choco", "Solidaridad con el Chocó"), ("#bitacora", "Bitácora")]),
+  ("contacto.html", "Contacto", "contacto", [
+    ("#formulario", "Escríbenos"), ("?tipo=voluntariado#formulario", "Voluntariado"),
+    ("?tipo=alianza#formulario", "Alianzas"), ("#otras-formas", "Empresas, familias y prensa")]),
+  ("apoya.html", "Súmate", "apoya", [
+    ("#aporte", "A dónde va tu aporte"), ("#formas", "Formas de apoyar"), ("#beneficio", "Beneficio tributario"),
+    ("#patrocinio", "Patrocinio 2026"), ("#como-funciona", "Cómo funciona"), ("#preguntas", "Preguntas frecuentes")]),
+]
 
 ICONS = {
  "arrow":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+ "chev":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
  "ball":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l4.2 3-1.6 5h-5.2l-1.6-5z"/><path d="M12 3v4.5M20.4 9.6l-4.2 1M17.5 19.5l-2.9-4M6.5 19.5l2.9-4M3.6 9.6l4.2 1"/></svg>',
  "book":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg>',
  "heart":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7.5-4.6-9.3-9.4C1.4 7 3.6 4 6.8 4c2 0 3.6 1.1 4.2 2.7h2C13.6 5.1 15.2 4 17.2 4c3.2 0 5.4 3 4.1 6.6C19.5 15.4 12 20 12 20z"/></svg>',
@@ -38,6 +59,7 @@ ICONS = {
  "star":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>',
  "brief":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
  "hands":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 11l3-3 2 2 3-3 5 5-6 6-3-3"/><path d="M3 12l5-5 3 3M3 12l5 5 2-2"/></svg>',
+ "cert":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 14l2 2 4-4"/></svg>',
  "mail":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
  "pin":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>',
  "id":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.5 1.7-2.2 3-2.2s2.4.7 3 2.2M15 10h3M15 13h3"/></svg>',
@@ -53,14 +75,21 @@ def social():
     items = [("instagram","ig","Instagram"),("facebook","fb","Facebook"),("youtube","yt","YouTube"),("tiktok","tt","TikTok"),("linkedin","in","LinkedIn")]
     return '<div class="social">' + "".join(f'<a data-social="{k}" href="#" target="_blank" rel="noopener" aria-label="{n}">{ICONS[i]}</a>' for k,i,n in items) + "</div>"
 
+def nav_item(page, text, key, subs, active):
+    cur = ' aria-current="page"' if key == active else ""
+    soft = " nav-soft" if key == "apoya" else ""
+    items = "".join(f'<li><a href="{page + h if h[0] in "#?" else h}">{t}</a></li>' for h, t in subs)
+    return (f'<div class="nav-item{soft}"><div class="nav-top"><a href="{page}"{cur}>{text}</a>'
+            f'<button class="sub-btn" aria-expanded="false" aria-controls="sub-{key}" aria-label="Secciones de {text}">{ICONS["chev"]}</button></div>'
+            f'<div class="sub" id="sub-{key}"><ul>{items}</ul></div></div>')
+
 def header(active, solid):
-    cur = ' aria-current="page"'
-    links = "".join(f'<a href="{h}"{cur if k==active else ""}>{t}</a>' for h,t,k in NAV)
+    links = "".join(nav_item(*n, active) for n in NAV)
     return f'''<a class="skip" href="#main">Saltar al contenido</a>
 <header class="site-head{' always' if solid else ''}">
   <div class="wrap bar">
     <a class="brand" href="index.html" aria-label="Fundación Sevenfold Colombia, inicio"><img src="assets/logo-white.png" alt="Fundación Sevenfold · Creemos en el futuro" width="409" height="161"></a>
-    <nav class="nav" id="nav" aria-label="Principal">{links}<a class="nav-soft" href="apoya.html"{' aria-current="page"' if active=="apoya" else ''}>Súmate</a></nav>
+    <nav class="nav" id="nav" aria-label="Principal">{links}</nav>
     <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   </div>
 </header>'''
