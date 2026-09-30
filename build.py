@@ -18,6 +18,10 @@ PAGES = [
    "Dona, apadrina un talento o patrocina a Seven Colombia. Beneficio tributario para aliados: descuento del 25% en renta con certificado.", "apoya"),
   ("contacto.html", "Contacto | Fundación Sevenfold Colombia",
    "Escríbenos para donar, patrocinar, hacer alianzas o sumarte como voluntario a la Fundación Sevenfold Colombia.", "contacto"),
+  ("kings-league.html", "Kings League | Seven Colombia · Fundación Sevenfold",
+   "Jugadores formados en Seven Colombia que llegaron a la Kings League Américas: el camino del barrio a las grandes vitrinas del fútbol 7.", "seven"),
+  ("merida-2025.html", "Campeones en Mérida 2025 | Fundación Sevenfold Colombia",
+   "Tres títulos, un subcampeonato y un tercer lugar: la delegación de Seven Colombia en el Torneo Internacional de Fútbol 7 de Mérida, México.", "seven"),
 ]
 
 NAV = [("index.html","Inicio","inicio"),("nosotros.html","Nosotros","nosotros"),("seven-colombia.html","Seven Colombia","seven"),
@@ -56,7 +60,7 @@ def header(active, solid):
 <header class="site-head{' always' if solid else ''}">
   <div class="wrap bar">
     <a class="brand" href="index.html" aria-label="Fundación Sevenfold Colombia, inicio"><img src="assets/logo-white.png" alt="Fundación Sevenfold · Creemos en el futuro" width="409" height="161"></a>
-    <nav class="nav" id="nav" aria-label="Principal">{links}<a class="btn" href="apoya.html"{' aria-current="page"' if active=="apoya" else ''}>Apoya</a></nav>
+    <nav class="nav" id="nav" aria-label="Principal">{links}<a class="nav-soft" href="apoya.html"{' aria-current="page"' if active=="apoya" else ''}>Súmate</a></nav>
     <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   </div>
 </header>'''
@@ -94,7 +98,6 @@ FOOTER = f'''<footer class="foot">
   </div>
 </footer>
 <div class="tricolor" aria-hidden="true"></div>
-<a class="btn float-cta" href="apoya.html">{ICONS["heart"]} Apoya un talento</a>
 <div class="lb" hidden role="dialog" aria-modal="true" aria-label="Visor de fotos">
   <button class="x" aria-label="Cerrar">×</button><button class="pv" aria-label="Anterior">‹</button><button class="nx" aria-label="Siguiente">›</button>
   <figure style="margin:0"><img src="" alt=""><p></p></figure>

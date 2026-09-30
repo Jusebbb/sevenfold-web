@@ -9,6 +9,8 @@ Sitio institucional de la Fundación Sevenfold Colombia (FUNSEVEN): deporte, edu
 - `impacto.html` · Cifras, historias y bitácora de actividades
 - `apoya.html` · Donaciones, padrinazgo, patrocinio y beneficio tributario
 - `contacto.html` · Formulario y datos de contacto
+- `kings-league.html` · Historia dedicada: del barrio a la Kings League
+- `merida-2025.html` · Historia dedicada: campeones en Mérida 2025
 
 ## Cómo editar
 El sitio es 100 % estático (HTML, CSS y JS, sin dependencias).

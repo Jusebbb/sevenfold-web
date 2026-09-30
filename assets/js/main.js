@@ -18,11 +18,8 @@ document.documentElement.classList.add("js");
 
 /* Header sólido al hacer scroll */
 const head = document.querySelector(".site-head");
-const floatCta = document.querySelector(".float-cta");
 const onScroll = () => {
-  const y = window.scrollY;
-  if (head && !head.classList.contains("always")) head.classList.toggle("solid", y > 40);
-  if (floatCta) floatCta.classList.toggle("show", y > 700);
+  if (head && !head.classList.contains("always")) head.classList.toggle("solid", window.scrollY > 40);
 };
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
@@ -96,13 +93,37 @@ if ("IntersectionObserver" in window && vids.length) {
   vids.forEach(v => io.observe(v));
 }
 
-/* Bitácora: filtros */
+/* Bitácora: filtros (y preselección desde el enlace: impacto.html?f=educacion#bitacora) */
 const fbtns = document.querySelectorAll(".filters button");
 fbtns.forEach(b => b.addEventListener("click", () => {
   fbtns.forEach(x => x.setAttribute("aria-pressed", x === b));
   const f = b.dataset.f;
   document.querySelectorAll(".ev").forEach(ev => ev.hidden = f !== "all" && !ev.dataset.tags.includes(f));
 }));
+try { const f = new URLSearchParams(location.search).get("f"); const b = f && [...fbtns].find(x => x.dataset.f === f); if (b) b.click(); } catch {}
+
+/* Aparición suave al hacer scroll: encabezados y tarjetas entran en escalonado */
+if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const sel = ".sec-head, .problem > *, .lines > *, .results > *, .stories > *, .territory > *, .reels, .allies, .cta-band .in, .feature > *, .duo > *, .cats > *, .model > *, .team > *, .goals > *, .ways > *, .packs > *, .steps > *, .tl-item, .ev";
+  const els = [...document.querySelectorAll(sel)].filter(el => el.getBoundingClientRect().top > innerHeight);
+  const reveal = el => {
+    if (!el.classList.contains("pre")) return;
+    el.classList.remove("pre"); ro.unobserve(el);
+    // al terminar, devuelve el elemento a sus transiciones propias (hover de tarjetas)
+    setTimeout(() => { el.classList.remove("rv"); el.style.transitionDelay = ""; }, 1300);
+  };
+  const ro = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && reveal(e.target)), { rootMargin: "0px 0px -8% 0px" });
+  // respaldo: si se baja muy rápido (tecla Fin, anclas), nada queda oculto por encima de la pantalla
+  let tick = 0;
+  addEventListener("scroll", () => { if (tick) return; tick = setTimeout(() => {
+    tick = 0; document.querySelectorAll(".rv.pre").forEach(el => { if (el.getBoundingClientRect().top < innerHeight) reveal(el); });
+  }, 150); }, { passive: true });
+  els.forEach(el => {
+    const sibs = [...el.parentElement.children].filter(c => c.classList.contains("rv") || els.includes(c));
+    el.style.transitionDelay = Math.min(sibs.indexOf(el), 5) * 70 + "ms";
+    el.classList.add("rv", "pre"); ro.observe(el);
+  });
+}
 
 /* Formulario: arma un correo con la información (sitio informativo, sin servidor) */
 document.querySelectorAll("form.form").forEach(form => {

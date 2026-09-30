@@ -8,12 +8,14 @@ fotos, videos y tipografías están dentro de la carpeta assets/.
 
 Páginas
 -------
-index.html            Inicio (problema, líneas, mapa de territorios, casos de éxito, historias, videos, cómo apoyar, aliados)
+index.html            Inicio (problema, líneas, mapa de territorios, casos de éxito, historias, videos, aliados)
 nosotros.html         Propósito, objetivos, historia 2010–2026, modelo, equipo, metas a 36 meses, transparencia
 seven-colombia.html   Fútbol 7, categorías, palmarés completo, Kings League, agenda 2026, galerías campamento y Roma
 impacto.html          Cifras 2025, 3 historias largas, bitácora filtrable con 11 jornadas y galerías
 apoya.html            A dónde va el aporte, formas de apoyar, beneficio tributario, patrocinio Porto Alegre, pasos, FAQ
 contacto.html         Formulario (abre el correo con el mensaje listo) y datos de contacto
+kings-league.html     Historia dedicada: jugadores formados en Seven que llegaron a la Kings League
+merida-2025.html      Historia dedicada: campeones en Mérida 2025 (marcador, Mitú y galería)
 
 Pendientes antes de publicar (hay que pedírselos a la fundación)
 -----------------------------------------------------------------
