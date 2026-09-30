@@ -9,7 +9,7 @@ fotos, videos y tipografías están dentro de la carpeta assets/.
 Páginas
 -------
 index.html            Inicio (problema, líneas, mapa de territorios, casos de éxito, historias, videos, aliados)
-nosotros.html         Propósito, objetivos, historia 2010–2026, modelo, equipo, metas a 36 meses, transparencia
+nosotros.html         Equipo, propósito, objetivos, historia 2010–2026, modelo, metas a 36 meses
 seven-colombia.html   Fútbol 7, categorías, palmarés completo, Kings League, agenda 2026, galerías campamento y Roma
 impacto.html          Cifras 2025, 3 historias largas, bitácora filtrable con 11 jornadas y galerías
 apoya.html            A dónde va el aporte, formas de apoyar, beneficio tributario, patrocinio Porto Alegre, pasos, FAQ

@@ -4,7 +4,7 @@ Sitio institucional de la Fundación Sevenfold Colombia (FUNSEVEN): deporte, edu
 
 ## Páginas
 - `index.html` · Inicio
-- `nosotros.html` · Propósito, historia, modelo, equipo y transparencia
+- `nosotros.html` · Equipo, propósito, historia, modelo y metas
 - `seven-colombia.html` · Fútbol 7, categorías, palmarés y agenda 2026
 - `impacto.html` · Cifras, historias y bitácora de actividades
 - `apoya.html` · Donaciones, padrinazgo, patrocinio y beneficio tributario

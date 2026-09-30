@@ -9,7 +9,7 @@ PAGES = [
   ("index.html", "Fundación Sevenfold Colombia | Fútbol 7, educación y oportunidades",
    "Fundación Sevenfold Colombia: llevamos el fútbol 7, la educación y oportunidades reales a niños y jóvenes de Bogotá, Huila, Vaupés y Chocó.", "inicio"),
   ("nosotros.html", "Nosotros | Fundación Sevenfold Colombia",
-   "Quiénes somos, nuestra historia desde Engativá, el modelo de intervención, el equipo y la transparencia de la Fundación Sevenfold Colombia.", "nosotros"),
+   "Quiénes somos, nuestra historia desde Engativá, el modelo de intervención y el equipo de la Fundación Sevenfold Colombia.", "nosotros"),
   ("seven-colombia.html", "Seven Colombia · Fútbol 7 | Fundación Sevenfold",
    "Seven Colombia: la línea deportiva de la Fundación Sevenfold. Categorías, palmarés internacional FIF7, Kings League y agenda 2026.", "seven"),
   ("impacto.html", "Impacto e historias | Fundación Sevenfold Colombia",
@@ -31,8 +31,8 @@ NAV = [
     ("#lineas", "Qué hacemos"), ("#territorios", "Dónde estamos"), ("#resultados", "Casos de éxito"),
     ("#historias", "Historias"), ("#videos", "Videos"), ("#aliados", "Aliados")]),
   ("nosotros.html", "Nosotros", "nosotros", [
-    ("#proposito", "Propósito y objetivos"), ("#historia", "Historia"), ("#modelo", "Cómo trabajamos"),
-    ("#equipo", "Equipo"), ("#metas", "Metas a 36 meses"), ("#transparencia", "Transparencia")]),
+    ("#equipo", "Equipo"), ("#proposito", "Propósito y objetivos"), ("#historia", "Historia"),
+    ("#modelo", "Cómo trabajamos"), ("#metas", "Metas a 36 meses")]),
   ("seven-colombia.html", "Seven Colombia", "seven", [
     ("#futbol-7", "Qué es el fútbol 7"), ("#categorias", "Categorías"), ("#palmares", "Palmarés"),
     ("#agenda", "Agenda 2026"), ("kings-league.html", "Kings League"), ("merida-2025.html", "Mérida 2025")]),
@@ -104,7 +104,7 @@ FOOTER = f'''<footer class="foot">
       </div>
       <div>
         <h4>Explora</h4>
-        <ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="seven-colombia.html">Seven Colombia · Fútbol 7</a></li><li><a href="impacto.html">Impacto e historias</a></li><li><a href="impacto.html#bitacora">Bitácora</a></li><li><a href="nosotros.html#transparencia">Transparencia</a></li></ul>
+        <ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="seven-colombia.html">Seven Colombia · Fútbol 7</a></li><li><a href="impacto.html">Impacto e historias</a></li><li><a href="impacto.html#bitacora">Bitácora</a></li></ul>
       </div>
       <div>
         <h4>Súmate</h4>

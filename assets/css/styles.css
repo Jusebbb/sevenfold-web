@@ -502,19 +502,6 @@ a.result .body{grid-template-rows:auto auto 1fr}
 @media (max-width:900px){.team{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.team{grid-template-columns:1fr}}
 
-/* ---------- Transparencia ---------- */
-.ledger{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
-.ledger dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:0}
-.ledger dt,.ledger dd{padding:14px 0;border-bottom:1px solid var(--line);margin:0}
-.ledger dt{font-weight:700;padding-right:24px;font-size:.92rem}
-.ledger dd{color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
-.ledger table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-.ledger th,.ledger td{text-align:left;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.ledger td:last-child,.ledger th:last-child{text-align:right}
-.ledger tfoot td{font-weight:800;border-bottom:2px solid var(--ink)}
-.ledger caption{text-align:left;font-weight:800;padding-bottom:10px;font-size:1.05rem}
-@media (max-width:820px){.ledger{grid-template-columns:1fr}}
-
 /* ---------- Galería + lightbox ---------- */
 .gallery{columns:4 220px;column-gap:10px}
 .gallery button{display:block;width:100%;padding:0;border:0;background:none;margin:0 0 10px;cursor:zoom-in;border-radius:10px;overflow:hidden;break-inside:avoid}
