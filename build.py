@@ -3,6 +3,10 @@
 import re, pathlib, json
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "src"
+# versión de CSS/JS para que el navegador no use una copia vieja guardada
+import hashlib
+VER = hashlib.md5((ROOT/'assets/css/styles.css').read_bytes()+(ROOT/'assets/js/main.js').read_bytes()).hexdigest()[:8]
+
 
 PAGES = [
   # archivo, título, descripción, clave nav
@@ -128,7 +132,7 @@ FOOTER = f'''<footer class="foot">
   <figure style="margin:0"><img src="" alt=""><figcaption class="lb-cap" hidden></figcaption></figure>
   <span class="lb-count" aria-live="polite"></span>
 </div>
-<script src="assets/js/main.js"></script>'''
+<script src="assets/js/main.js?v={VER}"></script>'''
 
 FAVICON = "data:image/svg+xml," + ("%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1320'/%3E"
   "%3Cpath d='M50 20A22 22 0 1 0 52 40' fill='none' stroke='%231E7A4B' stroke-width='7' stroke-linecap='round'/%3E"
@@ -151,7 +155,7 @@ def head(title, desc):
 <link rel="icon" href="{FAVICON}">
 <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css?v={VER}">
 </head>
 <body>'''
 
