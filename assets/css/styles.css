@@ -931,3 +931,7 @@ img{height:auto}
 .lb button[hidden]{display:none}
 .lb button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 .car-dots{gap:0}.car-dots button{width:44px}
+/* "Qué hacemos" en una sola línea, con la flecha al lado (como las demás pestañas) */
+.nav .nav-top .group-btn{display:inline-flex;flex-direction:row;align-items:center;width:auto;white-space:nowrap;gap:.35em;padding:.6rem .85rem;margin:0}
+@media (max-width:1020px){.nav .nav-top .group-btn{padding:.3rem .6rem}}
+.nav-soft .nav-top a{padding-right:1rem}
