@@ -930,3 +930,4 @@ img{height:auto}
 .lb-count{position:absolute;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);color:var(--muted-d);font:600 .82rem var(--body);letter-spacing:.08em}
 .lb button[hidden]{display:none}
 .lb button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.car-dots{gap:0}.car-dots button{width:44px}
