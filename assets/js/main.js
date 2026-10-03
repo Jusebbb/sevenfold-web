@@ -211,3 +211,38 @@ if (tipoSel) {
 
 /* Año actual */
 document.querySelectorAll("[data-year]").forEach(s => s.textContent = new Date().getFullYear());
+
+/* Carruseles: puntos, flechas (escritorio), teclado y arrastre con el dedo (scroll nativo con snap). */
+document.querySelectorAll("[data-carousel]").forEach((track, n) => {
+  const items = [...track.children];
+  track.tabIndex = 0;
+  track.setAttribute("role", "region");
+  track.setAttribute("aria-roledescription", "carrusel");
+  const arrow = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+  const ui = document.createElement("div");
+  ui.className = "car-ui";
+  ui.innerHTML = `<div class="car-dots" role="group" aria-label="Elegir elemento">${items.map((_, i) => `<button type="button" aria-label="Ir al ${i + 1} de ${items.length}"></button>`).join("")}</div>
+    <div class="car-arrows"><button type="button" class="pv" aria-label="Anterior">${arrow("M15 6l-6 6 6 6")}</button><button type="button" class="nx" aria-label="Siguiente">${arrow("M9 6l6 6-6 6")}</button></div>`;
+  track.after(ui);
+  const dots = [...ui.querySelectorAll(".car-dots button")];
+  const pv = ui.querySelector(".pv"), nx = ui.querySelector(".nx");
+  const go = i => { const it = items[Math.max(0, Math.min(items.length - 1, i))]; track.scrollTo({ left: it.offsetLeft - items[0].offsetLeft, behavior: "smooth" }); };
+  const current = () => { const x = track.scrollLeft; let best = 0; items.forEach((it, i) => { if (Math.abs(it.offsetLeft - items[0].offsetLeft - x) < Math.abs(items[best].offsetLeft - items[0].offsetLeft - x)) best = i; }); return best; };
+  const update = () => {
+    const scrollable = track.scrollWidth > track.clientWidth + 4;
+    ui.hidden = !scrollable;
+    const c = current(), end = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    dots.forEach((d, i) => d.setAttribute("aria-current", String(end ? i === items.length - 1 : i === c)));
+    pv.disabled = track.scrollLeft <= 4; nx.disabled = end;
+  };
+  dots.forEach((d, i) => d.addEventListener("click", () => go(i)));
+  pv.addEventListener("click", () => go(current() - 1));
+  nx.addEventListener("click", () => go(current() + 1));
+  track.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
+  });
+  let t; track.addEventListener("scroll", () => { cancelAnimationFrame(t); t = requestAnimationFrame(update); }, { passive: true });
+  addEventListener("resize", update);
+  update();
+});

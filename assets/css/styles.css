@@ -859,3 +859,34 @@ img{height:auto}
 [data-copy]{min-height:44px;min-width:44px}
 .crumbs a{justify-content:flex-start}
 @media (max-width:1020px){.sub a{justify-content:center;text-align:center}.nav-soft .nav-top{padding-right:.6rem}}
+
+/* ---------- Fase 3 · Carruseles ---------- */
+[data-carousel]{scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scroll-padding-inline:0}
+[data-carousel]::-webkit-scrollbar{display:none}
+[data-carousel]:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:var(--r)}
+[data-carousel] > *{scroll-snap-align:start}
+.reels{grid-auto-columns:minmax(240px,calc((100% - 14px * 3.5) / 4.5));padding-bottom:0}
+@media (max-width:760px){.reels{grid-auto-columns:68%}}
+@media (max-width:900px){
+  .ahead{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:84%;overflow-x:auto}
+}
+.car-ui{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px}
+.car-ui[hidden]{display:none}
+.car-dots{display:flex;gap:2px;flex-wrap:wrap}
+.car-dots button{width:28px;height:44px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.car-dots button::before{content:"";width:8px;height:8px;border-radius:999px;background:currentColor;opacity:.3;transition:width .3s var(--ease),opacity .3s}
+.car-dots button[aria-current="true"]::before{width:22px;opacity:1}
+.dark .car-dots,.dark-2 .car-dots{color:var(--chalk)}
+.car-dots{color:var(--ink)}
+.car-arrows{display:none;gap:8px}
+.car-arrows button{width:44px;height:44px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;display:grid;place-items:center;opacity:.85;transition:opacity .2s,background .2s}
+.car-arrows button:disabled{opacity:.25;cursor:default}
+.car-arrows svg{width:18px;height:18px}
+.dark .car-arrows,.dark-2 .car-arrows{color:var(--chalk)}
+@media (hover:hover) and (min-width:761px){.car-arrows{display:flex}.car-arrows button:not(:disabled):hover{background:rgba(255,255,255,.12)}}
+/* Texto de apoyo junto al título: alineado en escritorio, debajo en móvil, ancho legible */
+.sec-head.split .lead{max-width:46ch;justify-self:end;align-self:end}
+@media (max-width:860px){.sec-head.split .lead{justify-self:start}}
+.reel{margin:0}
+.car-dots button{color:inherit}
+.dark-2 .eyebrow{color:var(--sun)}
