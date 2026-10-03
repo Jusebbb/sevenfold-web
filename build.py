@@ -80,7 +80,7 @@ def nav_item(page, text, key, subs, active):
         return f'<div class="nav-item{soft}"><div class="nav-top"><a href="{page}"{cur}>{text}</a></div></div>'
     items = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in subs)
     current = " current" if key == active else ""
-    return (f'<div class="nav-item group"><div class="nav-top"><button class="sub-btn group-btn{current}" aria-expanded="false" aria-controls="sub-{key}">{text}{ICONS["chev"]}</button></div>'
+    return (f'<div class="nav-item group"><div class="nav-top"><button type="button" class="group-btn{current}" aria-expanded="false" aria-controls="sub-{key}">{text}{ICONS["chev"]}</button></div>'
             f'<div class="sub" id="sub-{key}"><ul>{items}</ul></div></div>')
 
 def header(active, solid):

@@ -39,7 +39,7 @@ if (menuBtn) {
 
 /* Menú: desplegables con lo que hay en cada pestaña.
    Con mouse se abren al pasar por encima (CSS); la flechita los abre con clic, toque o teclado. */
-const subBtns = document.querySelectorAll(".sub-btn");
+const subBtns = document.querySelectorAll(".sub-btn, .group-btn");
 const closeSubs = (except) => subBtns.forEach(b => {
   if (b === except) return;
   b.setAttribute("aria-expanded", "false");
@@ -63,7 +63,7 @@ document.querySelectorAll(".sub a").forEach(a => a.addEventListener("click", () 
 }));
 document.addEventListener("click", e => { if (!e.target.closest(".nav-item")) closeSubs(); });
 document.addEventListener("keydown", e => {
-  const b = document.querySelector('.sub-btn[aria-expanded="true"]');
+  const b = document.querySelector('.sub-btn[aria-expanded="true"], .group-btn[aria-expanded="true"]');
   if (e.key === "Escape" && b) { closeSubs(); b.focus(); }
 });
 
