@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fundación Sevenfold Colombia · Muy pronto</title>
+<meta name="description" content="Fundación Sevenfold Colombia: deporte, educación y sostenibilidad. Nuestro sitio web está en construcción.">
+<meta name="theme-color" content="#0B1320">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1320'/%3E%3Cpath d='M50 20A22 22 0 1 0 52 40' fill='none' stroke='%231E7A4B' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M44 13A22 22 0 0 1 53 27' fill='none' stroke='%23F2C40F' stroke-width='7' stroke-linecap='round'/%3E%3Ctext x='32' y='42' font-family='Arial Black,Arial' font-weight='900' font-size='26' text-anchor='middle' fill='%23fff'%3E7%3C/text%3E%3C/svg%3E">
+<style>
+/* Página temporal "en construcción". Usa la misma identidad del sitio (colores y tipografías). */
+@font-face{font-family:'Big Shoulders Display';font-weight:900;font-display:swap;src:url(assets/big-shoulders-display-latin-900-normal.woff2) format('woff2')}
+@font-face{font-family:'Figtree';font-weight:400;font-display:swap;src:url(assets/figtree-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Figtree';font-weight:700;font-display:swap;src:url(assets/figtree-latin-700-normal.woff2) format('woff2')}
+:root{--ink:#0B1320;--sun:#F2C40F;--edu:#A6C93A;--amb:#3DAA6A;--chalk:#fff;--muted:#C9D1DD}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--ink);color:var(--chalk);font:400 17px/1.6 Figtree,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;min-height:100svh;position:relative;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-2;background:url(assets/fondo.webp) center 60%/cover no-repeat;transform:scale(1.04);animation:kb 18s ease-out forwards}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,19,32,.82),rgba(11,19,32,.55) 45%,rgba(11,19,32,.96)),linear-gradient(90deg,rgba(11,19,32,.85),transparent 75%)}
+@keyframes kb{to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.bg{animation:none}}
+header,main,footer{width:100%;max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+header{padding-top:max(28px,env(safe-area-inset-top))}
+header img{height:58px;width:auto;display:block}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-block:48px}
+.tag{font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sun);display:flex;align-items:center;gap:.7em}
+.tag::before{content:"";width:28px;height:3px;background:linear-gradient(90deg,#FCD116 0 50%,#003893 50% 75%,#CE1126 75%)}
+h1{font-family:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;font-weight:900;text-transform:uppercase;line-height:.92;font-size:clamp(3.2rem,10vw,7.4rem);margin:18px 0 0;max-width:11ch}
+h1 span{color:var(--sun)}
+p.lead{font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--muted);max-width:52ch;margin:22px 0 0}
+.lines{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;padding:0;list-style:none}
+.lines li{display:inline-flex;align-items:center;gap:.55em;padding:.5rem .95rem;border-radius:999px;border:1px solid rgba(255,255,255,.2);font-weight:700;font-size:.9rem;background:rgba(11,19,32,.35)}
+.lines i{width:10px;height:10px;border-radius:50%}
+.contact{margin-top:38px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.6em;font:700 .95rem/1 Figtree,sans-serif;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:1rem 1.4rem;border-radius:999px;background:var(--sun);color:var(--ink);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+.contact small{color:var(--muted)}
+footer{padding-block:24px max(24px,env(safe-area-inset-bottom));font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;border-top:1px solid rgba(255,255,255,.12)}
+.tricolor{height:6px;background:linear-gradient(90deg,#FCD116 0 50%,#003893 50% 75%,#CE1126 75%)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<header><img src="assets/logo-white.png" alt="Fundación Sevenfold · Creemos en el futuro" width="409" height="161"></header>
+<main>
+  <span class="tag">Sitio en construcción</span>
+  <h1>Muy pronto, <span>nuestra nueva casa</span></h1>
+  <p class="lead">Estamos preparando un espacio para contarte cómo creamos oportunidades que transforman vidas en los territorios de Colombia.</p>
+  <ul class="lines" aria-label="Nuestras líneas">
+    <li><i style="background:var(--sun)"></i>Deporte</li>
+    <li><i style="background:var(--edu)"></i>Educación</li>
+    <li><i style="background:var(--amb)"></i>Sostenibilidad</li>
+  </ul>
+  <div class="contact">
+    <a class="btn" href="mailto:fundacionsevenfold@gmail.com">Escríbenos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <small>fundacionsevenfold@gmail.com</small>
+  </div>
+</main>
+<footer><span>© 2026 Fundación Sevenfold Colombia (FUNSEVEN) · NIT 901.965.467-5</span><span>Bogotá, Colombia</span></footer>
+<div class="tricolor" aria-hidden="true"></div>
+</body>
+</html>
