@@ -4,7 +4,19 @@
     <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a><span>/</span><span>Impacto e historias</span></nav>
     <span class="eyebrow">Impacto 2025 – 2026</span>
     <h1 class="h-xl mt-s">Cómo hemos <span class="hl">cambiado vidas</span></h1>
-    <p class="lead">Cifras, historias y cada jornada en Bogotá, Huila, Vaupés y Chocó. Todo documentado.</p>
+    <p class="lead">Deporte, educación y ambiente: cifras, historias y cada jornada en Bogotá, Huila, Vaupés y Chocó.</p>
+  </div>
+</section>
+
+<!-- Impacto por línea -->
+<section class="sec" id="lineas">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Impacto por línea</span><h2 class="h-lg mt-s">Tres frentes, un propósito</h2></div>
+    <div class="by-line">
+      <a class="bl ln-dep" href="seven-colombia.html"><span class="k"><i class="dot"></i>Deporte · Seven Colombia</span><h3>En la cancha</h3><ul><li><b>69</b>deportistas por Colombia en torneos FIF7 (2025)</li><li><b>30+</b>jóvenes en clubes profesionales</li><li><b>3</b>títulos en Mérida 2025</li></ul><span class="go">Ver la línea <i>{{icon:arrow}}</i></span></a>
+      <a class="bl ln-edu" href="educacion.html"><span class="k"><i class="dot"></i>Educación</span><h3>En el aula</h3><ul><li><b>170+</b>kits escolares en Vaupés</li><li><b>110</b>pares de zapatos con Nestlé</li></ul><span class="go">Ver la línea <i>{{icon:arrow}}</i></span></a>
+      <a class="bl ln-amb" href="ambiente.html"><span class="k"><i class="dot"></i>Ambiente</span><h3>En el territorio</h3><ul><li><b>2026</b>línea en estructuración</li><li><b>2</b>regiones megadiversas: Pacífico y Amazonía</li></ul><span class="go">Ver la línea <i>{{icon:arrow}}</i></span></a>
+    </div>
   </div>
 </section>
 
@@ -48,21 +60,22 @@
   </div>
 </section>
 
-<!-- Historia 2: Kings League -->
-<section class="sec dark" id="kings">
+<!-- Historia 2: Educación (la de Kings League vive en kings-league.html) -->
+<section class="sec dark ln-edu" id="educacion">
   <div class="wrap feature rev">
     <div class="media">
-      <img src="assets/img/kings-league.webp" alt="Afiche de los jugadores Axur, Velandia y Brayan, campeones de la Kings League" loading="lazy" style="aspect-ratio:1">
+      <img src="assets/img/mitu-kits-grupo.webp" alt="Foto grupal de la entrega de kits escolares en Mitú" loading="lazy">
+      <img class="inset" src="assets/img/mitu-kits-ninos2.webp" alt="Niños de Mitú con sus maletas nuevas" loading="lazy">
     </div>
     <div class="txt">
-      <span class="eyebrow">Historia · Proyección profesional</span>
-      <h2 class="h-lg">Formados en Seven, campeones en la Kings League</h2>
+      <span class="eyebrow" style="color:var(--c-edu)">Historia · Educación</span>
+      <h2 class="h-lg">Un morral para todo el año</h2>
       <div class="prose">
-        <p>La Kings League es uno de los torneos más mediáticos del fútbol 7 en el mundo. Más de cinco jugadores acompañados en nuestros procesos han llegado a la Kings League Américas y varios se han coronado campeones.</p>
-        <p>Son referentes para los niños que hoy entrenan en Engativá: la muestra de que el talento colombiano, con acompañamiento y oportunidades, llega a las grandes vitrinas.</p>
+        <p>En Mitú, en plena Amazonía, conseguir útiles escolares puede ser difícil para muchas familias. En febrero de 2026 entregamos más de 150 kits a niños, niñas y adolescentes de distintas comunidades, y en mayo llegaron 20 más.</p>
+        <p>Luego, en alianza con Nestlé, gestionamos 110 pares de zapatos para niños de Mitú y Pereira: lo básico para llegar al colegio.</p>
       </div>
-      <div class="stat-row"><div><b>30+</b><span>jóvenes en clubes profesionales</span></div><div><b>5+</b><span>jugadores en la Kings League</span></div><div><b>4+</b><span>campeones del Mundialido Italia</span></div></div>
-      <a class="link-arrow" href="kings-league.html" style="justify-self:start">Conoce su historia {{icon:arrow}}</a>
+      <div class="stat-row"><div><b style="color:var(--c-edu)">170+</b><span>kits escolares</span></div><div><b style="color:var(--c-edu)">110</b><span>pares de zapatos</span></div></div>
+      <a class="link-arrow" href="educacion.html" style="justify-self:start">Conoce la línea de educación {{icon:arrow}}</a>
     </div>
   </div>
 </section>
@@ -96,12 +109,23 @@
     </div>
     <div class="filters" role="group" aria-label="Filtrar bitácora">
       <button data-f="all" aria-pressed="true">Todo</button>
-      <button data-f="deporte" aria-pressed="false">Deporte</button>
-      <button data-f="internacional" aria-pressed="false">Internacional</button>
-      <button data-f="educacion" aria-pressed="false">Educación</button>
+      <button data-f="deporte" aria-pressed="false" class="ln-dep"><i class="dot"></i>Deporte</button>
+      <button data-f="educacion" aria-pressed="false" class="ln-edu"><i class="dot"></i>Educación</button>
       <button data-f="solidaridad" aria-pressed="false">Solidaridad</button>
+      <button data-f="internacional" aria-pressed="false">Internacional</button>
     </div>
     <div class="log">
+
+      <!-- PENDIENTE: fecha exacta y fotos de la entrega de calzado -->
+      <article class="ev" data-tags="educacion">
+        <div class="when"><span>2026 · Mitú y Pereira</span><b>Calzado para ir a clase</b>
+          <div class="kpis"><div><strong>110</strong><small>pares de zapatos</small></div><div><strong>2</strong><small>ciudades</small></div></div></div>
+        <div class="what">
+          <h3>Zapatos nuevos, junto a Nestlé</h3>
+          <p>Gestionamos 110 pares de zapatos en alianza con Nestlé para niños y niñas de Mitú y Pereira.</p>
+          <div class="chips"><span class="chip">Nestlé</span><span class="chip">Educación</span></div>
+        </div>
+      </article>
 
       <article class="ev" data-tags="solidaridad">
         <div class="when"><span>Agosto 2026 · Chocó</span><b>Ayuda humanitaria al Chocó</b>

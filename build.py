@@ -9,9 +9,13 @@ PAGES = [
   ("index.html", "Fundación Sevenfold Colombia | Fútbol 7, educación y oportunidades",
    "Fundación Sevenfold Colombia: llevamos el fútbol 7, la educación y oportunidades reales a niños y jóvenes de Bogotá, Huila, Vaupés y Chocó.", "inicio"),
   ("nosotros.html", "Nosotros | Fundación Sevenfold Colombia",
-   "Quiénes somos, nuestra historia desde Engativá, el modelo de intervención y el equipo de la Fundación Sevenfold Colombia.", "nosotros"),
+   "Propósito, misión y visión, equipo, historia, casos y hacia dónde va la Fundación Sevenfold Colombia.", "nosotros"),
   ("seven-colombia.html", "Seven Colombia · Fútbol 7 | Fundación Sevenfold",
-   "Seven Colombia: la línea deportiva de la Fundación Sevenfold. Categorías, palmarés internacional FIF7, Kings League y agenda 2026.", "seven"),
+   "Seven Colombia: la línea deportiva de la Fundación Sevenfold, avalada por la FIF7. Categorías, palmarés internacional, Kings League y temporada 2026.", "lineas"),
+  ("educacion.html", "Educación | Fundación Sevenfold Colombia",
+   "La línea de educación de la Fundación Sevenfold: kits escolares, calzado y formación para niños y jóvenes de Vaupés y otros territorios.", "lineas"),
+  ("ambiente.html", "Ambiente y desarrollo sostenible | Fundación Sevenfold Colombia",
+   "Ambiente y desarrollo sostenible: iniciativas de conservación de la biodiversidad y cuidado del territorio de la Fundación Sevenfold.", "lineas"),
   ("impacto.html", "Impacto e historias | Fundación Sevenfold Colombia",
    "Resultados 2025-2026, historias de jóvenes que llegaron lejos y la bitácora de acciones en Bogotá, Huila, Vaupés y Chocó.", "impacto"),
   ("apoya.html", "Apoya y patrocina | Fundación Sevenfold Colombia",
@@ -19,9 +23,9 @@ PAGES = [
   ("contacto.html", "Contacto | Fundación Sevenfold Colombia",
    "Escríbenos para donar, patrocinar, hacer alianzas o sumarte como voluntario a la Fundación Sevenfold Colombia.", "contacto"),
   ("kings-league.html", "Kings League | Seven Colombia · Fundación Sevenfold",
-   "Jugadores formados en Seven Colombia que llegaron a la Kings League Américas: el camino del barrio a las grandes vitrinas del fútbol 7.", "seven"),
+   "Jugadores formados en Seven Colombia que llegaron a la Kings League Américas: el camino del barrio a las grandes vitrinas del fútbol 7.", "lineas"),
   ("merida-2025.html", "Campeones en Mérida 2025 | Fundación Sevenfold Colombia",
-   "Tres títulos, un subcampeonato y un tercer lugar: la delegación de Seven Colombia en el Torneo Internacional de Fútbol 7 de Mérida, México.", "seven"),
+   "Tres títulos, un subcampeonato y un tercer lugar: la delegación de Seven Colombia en el Torneo Internacional de Fútbol 7 de Mérida, México.", "lineas"),
 ]
 
 # Menú principal: página, texto, clave y el desplegable con lo que hay en cada pestaña.
@@ -31,19 +35,19 @@ NAV = [
     ("#lineas", "Qué hacemos"), ("#territorios", "Dónde estamos"), ("#resultados", "Casos de éxito"),
     ("#historias", "Historias"), ("#videos", "Videos"), ("#aliados", "Aliados")]),
   ("nosotros.html", "Nosotros", "nosotros", [
-    ("#equipo", "Equipo"), ("#proposito", "Propósito y objetivos"), ("#historia", "Historia"),
-    ("#modelo", "Cómo trabajamos"), ("#metas", "Metas a 36 meses")]),
-  ("seven-colombia.html", "Seven Colombia", "seven", [
-    ("#futbol-7", "Qué es el fútbol 7"), ("#categorias", "Categorías"), ("#palmares", "Palmarés"),
-    ("#agenda", "Agenda 2026"), ("kings-league.html", "Kings League"), ("merida-2025.html", "Mérida 2025")]),
+    ("#proposito", "Propósito, misión y visión"), ("#equipo", "Equipo"),
+    ("#historia", "Historia"), ("#casos", "Casos"), ("#proyeccion", "Hacia dónde vamos")]),
+  ("index.html#lineas", "Qué hacemos", "lineas", [
+    ("seven-colombia.html", "Deporte · Seven Colombia"), ("educacion.html", "Educación"), ("ambiente.html", "Ambiente y desarrollo sostenible"),
+    ("seven-colombia.html#temporada", "Temporada 2026"), ("kings-league.html", "Kings League")]),
   ("impacto.html", "Impacto e historias", "impacto", [
-    ("#informe", "Informe 2025"), ("#mitu", "De Mitú al mundo"), ("#kings", "De Seven a la Kings League"),
+    ("#lineas", "Impacto por línea"), ("#informe", "Informe 2025"), ("#mitu", "De Mitú al mundo"), ("#educacion", "Un morral para todo el año"),
     ("#choco", "Solidaridad con el Chocó"), ("#bitacora", "Bitácora")]),
   ("contacto.html", "Contacto", "contacto", [
     ("#formulario", "Escríbenos"), ("?tipo=voluntariado#formulario", "Voluntariado"),
     ("?tipo=alianza#formulario", "Alianzas"), ("#otras-formas", "Empresas, familias y prensa")]),
   ("apoya.html", "Súmate", "apoya", [
-    ("#aporte", "A dónde va tu aporte"), ("#formas", "Formas de apoyar"), ("#beneficio", "Beneficio tributario"),
+    ("#aporte", "A dónde va tu aporte"), ("#formas", "Formas de apoyar"), ("#especie", "Donación en especie"), ("#beneficio", "Beneficio tributario"),
     ("#patrocinio", "Patrocinio 2026"), ("#como-funciona", "Cómo funciona"), ("#preguntas", "Preguntas frecuentes")]),
 ]
 
@@ -104,7 +108,7 @@ FOOTER = f'''<footer class="foot">
       </div>
       <div>
         <h4>Explora</h4>
-        <ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="seven-colombia.html">Seven Colombia · Fútbol 7</a></li><li><a href="impacto.html">Impacto e historias</a></li><li><a href="impacto.html#bitacora">Bitácora</a></li></ul>
+        <ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="seven-colombia.html">Deporte · Seven Colombia</a></li><li><a href="educacion.html">Educación</a></li><li><a href="ambiente.html">Ambiente</a></li><li><a href="impacto.html">Impacto e historias</a></li><li><a href="impacto.html#bitacora">Bitácora</a></li></ul>
       </div>
       <div>
         <h4>Súmate</h4>
@@ -163,9 +167,15 @@ def expand(html):
     html = html.replace("{{map}}", (ROOT/"src/_map.svg").read_text())
     return html
 
+LINE = {"seven-colombia.html": "ln-dep", "kings-league.html": "ln-dep", "merida-2025.html": "ln-dep",
+        "educacion.html": "ln-edu", "ambiente.html": "ln-amb"}
+
 for fn, title, desc, key in PAGES:
     body = expand((SRC/fn).read_text())
     solid = key == "contacto"
-    out = head(title, desc) + "\n" + header(key, False) + '\n<main id="main">\n' + body + "\n</main>\n" + FOOTER + "\n</body>\n</html>\n"
+    # color de la línea (deporte / educación / ambiente) para las páginas de cada línea
+    line = LINE.get(fn, "")
+    main_open = f'\n<main id="main" class="{line}">\n' if line else '\n<main id="main">\n'
+    out = head(title, desc) + "\n" + header(key, False) + main_open + body + "\n</main>\n" + FOOTER + "\n</body>\n</html>\n"
     (ROOT/fn).write_text(out)
     print("ok", fn, len(out))

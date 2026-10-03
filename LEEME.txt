@@ -14,6 +14,8 @@ seven-colombia.html   Fútbol 7, categorías, palmarés completo, Kings League, 
 impacto.html          Cifras 2025, 3 historias largas, bitácora filtrable con 11 jornadas y galerías
 apoya.html            A dónde va el aporte, formas de apoyar, beneficio tributario, patrocinio Porto Alegre, pasos, FAQ
 contacto.html         Formulario (abre el correo con el mensaje listo) y datos de contacto
+educacion.html        Línea 02 · Educación: kits, calzado, formación, galería
+ambiente.html         Línea 03 · Ambiente: por qué, proyección y aliados (línea en estructuración)
 kings-league.html     Historia dedicada: jugadores formados en Seven que llegaron a la Kings League
 merida-2025.html      Historia dedicada: campeones en Mérida 2025 (marcador, Mitú y galería)
 
@@ -31,6 +33,19 @@ Pendientes antes de publicar (hay que pedírselos a la fundación)
 7. Formulario: hoy abre el correo del visitante. Si quieren que llegue solo, conectar un servicio como
    Formspree o el formulario del hosting (se cambia en assets/js/main.js).
 8. Dominio y hosting: el sitio es estático; sirve en Netlify, Vercel, GitHub Pages o cualquier hosting con cPanel.
+
+Pendientes de la revisión del 1 de octubre de 2026 (los envía la fundación)
+--------------------------------------------------------------------------
+- Misión, visión y propósito: ya están los oficiales (Portafolio Sevenfold v1). Los valores no vienen en el documento; si los definen, se agregan en Nosotros.
+- Ambiente: el documento de la línea aún no está listo. Fotos de banco de imágenes libres pendientes de elegir.
+- Fotos del territorio (sobre todo para Educación y Ambiente). También se pueden usar fotos libres de derechos.
+- Historias individuales de Kings League (Brayan, Velandia, Axur): más detalle y fotos propias.
+- Entrega de calzado con Nestlé (Mitú y Pereira): fecha exacta y fotos para la bitácora.
+- Cifras del inicio e Impacto: la fundación las va a revisar y actualizar.
+- Historias con menores de edad: definir cómo se cuentan (autorizaciones de las familias).
+- Temporada 2026: confirmar fechas. Un evento por confirmar se marca con class="tbc" en seven-colombia (src).
+
+Colores por línea: definidos en assets/css/styles.css (--c-dep, --c-edu, --c-amb), tomados del aro del logo.
 
 Editar textos
 -------------
