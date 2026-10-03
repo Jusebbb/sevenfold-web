@@ -205,7 +205,7 @@ if (!SITE.whatsapp) document.querySelectorAll("[data-wa-row]").forEach(r => r.re
 /* Preselección del formulario desde el enlace (contacto.html?tipo=donar) */
 const tipoSel = document.getElementById("f-tipo");
 if (tipoSel) {
-  const map = { donar: "Donación", apadrinar: "Apadrinar un talento", patrocinar: "Patrocinio", especie: "Donación en especie", voluntariado: "Voluntariado", alianza: "Alianza" };
+  const map = { donar: "Donación", apadrinar: "Apadrinar un talento", patrocinar: "Patrocinio", especie: "Donación en especie", voluntariado: "Voluntariado", alianza: "Alianza", inscripcion: "Inscripción de un deportista", prensa: "Prensa" };
   try { const t = new URLSearchParams(location.search).get("tipo"); if (t && map[t]) tipoSel.value = map[t]; } catch {}
 }
 

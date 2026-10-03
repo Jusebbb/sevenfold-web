@@ -17,9 +17,9 @@ PAGES = [
   ("ambiente.html", "Ambiente y desarrollo sostenible | Fundación Sevenfold Colombia",
    "Ambiente y desarrollo sostenible: iniciativas de conservación de la biodiversidad y cuidado del territorio de la Fundación Sevenfold.", "lineas"),
   ("impacto.html", "Impacto e historias | Fundación Sevenfold Colombia",
-   "Resultados 2025-2026, historias de jóvenes que llegaron lejos y la bitácora de acciones en Bogotá, Huila, Vaupés y Chocó.", "impacto"),
+   "Resultados 2025-2026, historias de jóvenes que llegaron lejos y la bitácora de acciones en Bogotá, Huila, Vaupés y Chocó.", "lineas"),
   ("apoya.html", "Apoya y patrocina | Fundación Sevenfold Colombia",
-   "Dona, apadrina un talento o patrocina a Seven Colombia. Beneficio tributario para aliados: descuento del 25% en renta con certificado.", "apoya"),
+   "Dona, apadrina un talento, dona en especie o patrocina. Las donaciones reciben certificado y pueden dar lugar a beneficios tributarios.", "apoya"),
   ("contacto.html", "Contacto | Fundación Sevenfold Colombia",
    "Escríbenos para donar, patrocinar, hacer alianzas o sumarte como voluntario a la Fundación Sevenfold Colombia.", "contacto"),
   ("kings-league.html", "Kings League | Seven Colombia · Fundación Sevenfold",
@@ -28,27 +28,17 @@ PAGES = [
    "Tres títulos, un subcampeonato y un tercer lugar: la delegación de Seven Colombia en el Torneo Internacional de Fútbol 7 de Mérida, México.", "lineas"),
 ]
 
-# Menú principal: página, texto, clave y el desplegable con lo que hay en cada pestaña.
-# Un enlace que empieza con # o ? apunta a esa misma página (ej. "#historia" -> "nosotros.html#historia").
+# Menú principal: página, texto, clave y desplegable.
+# Pestañas sin desplegable llevan directo a su página. "Qué hacemos" no es una página:
+# solo abre el desplegable con las tres líneas y el impacto (nada lleva a una pestaña intermedia).
 NAV = [
-  ("index.html", "Inicio", "inicio", [
-    ("#lineas", "Qué hacemos"), ("#territorios", "Dónde estamos"), ("#resultados", "Casos de éxito"),
-    ("#historias", "Historias"), ("#videos", "Videos"), ("#aliados", "Aliados")]),
-  ("nosotros.html", "Nosotros", "nosotros", [
-    ("#proposito", "Propósito, misión y visión"), ("#equipo", "Equipo"),
-    ("#historia", "Historia"), ("#casos", "Casos"), ("#proyeccion", "Hacia dónde vamos")]),
-  ("index.html#lineas", "Qué hacemos", "lineas", [
-    ("seven-colombia.html", "Deporte · Seven Colombia"), ("educacion.html", "Educación"), ("ambiente.html", "Ambiente y desarrollo sostenible"),
-    ("seven-colombia.html#temporada", "Temporada 2026"), ("kings-league.html", "Kings League")]),
-  ("impacto.html", "Impacto e historias", "impacto", [
-    ("#lineas", "Impacto por línea"), ("#informe", "Informe 2025"), ("#mitu", "De Mitú al mundo"), ("#educacion", "Un morral para todo el año"),
-    ("#choco", "Solidaridad con el Chocó"), ("#bitacora", "Bitácora")]),
-  ("contacto.html", "Contacto", "contacto", [
-    ("#formulario", "Escríbenos"), ("?tipo=voluntariado#formulario", "Voluntariado"),
-    ("?tipo=alianza#formulario", "Alianzas"), ("#otras-formas", "Empresas, familias y prensa")]),
-  ("apoya.html", "Súmate", "apoya", [
-    ("#aporte", "A dónde va tu aporte"), ("#formas", "Formas de apoyar"), ("#especie", "Donación en especie"), ("#beneficio", "Beneficio tributario"),
-    ("#patrocinio", "Patrocinio 2026"), ("#como-funciona", "Cómo funciona"), ("#preguntas", "Preguntas frecuentes")]),
+  ("index.html", "Inicio", "inicio", []),
+  ("nosotros.html", "Nosotros", "nosotros", []),
+  (None, "Qué hacemos", "lineas", [
+    ("seven-colombia.html", "Deporte · Seven Colombia"), ("educacion.html", "Educación"),
+    ("ambiente.html", "Ambiente y desarrollo sostenible"), ("impacto.html", "Impacto e historias")]),
+  ("contacto.html", "Contacto", "contacto", []),
+  ("apoya.html", "Súmate", "apoya", []),
 ]
 
 ICONS = {
@@ -82,9 +72,11 @@ def social():
 def nav_item(page, text, key, subs, active):
     cur = ' aria-current="page"' if key == active else ""
     soft = " nav-soft" if key == "apoya" else ""
-    items = "".join(f'<li><a href="{page + h if h[0] in "#?" else h}">{t}</a></li>' for h, t in subs)
-    return (f'<div class="nav-item{soft}"><div class="nav-top"><a href="{page}"{cur}>{text}</a>'
-            f'<button class="sub-btn" aria-expanded="false" aria-controls="sub-{key}" aria-label="Secciones de {text}">{ICONS["chev"]}</button></div>'
+    if not subs:
+        return f'<div class="nav-item{soft}"><div class="nav-top"><a href="{page}"{cur}>{text}</a></div></div>'
+    items = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in subs)
+    current = " current" if key == active else ""
+    return (f'<div class="nav-item group"><div class="nav-top"><button class="sub-btn group-btn{current}" aria-expanded="false" aria-controls="sub-{key}">{text}{ICONS["chev"]}</button></div>'
             f'<div class="sub" id="sub-{key}"><ul>{items}</ul></div></div>')
 
 def header(active, solid):
@@ -112,7 +104,7 @@ FOOTER = f'''<footer class="foot">
       </div>
       <div>
         <h4>Súmate</h4>
-        <ul><li><a href="apoya.html#formas">Donar</a></li><li><a href="apoya.html#formas">Apadrinar un talento</a></li><li><a href="apoya.html#patrocinio">Patrocinar</a></li><li><a href="apoya.html#beneficio">Beneficio tributario</a></li><li><a href="contacto.html">Voluntariado</a></li></ul>
+        <ul><li><a href="contacto.html?tipo=donar#formulario">Donar</a></li><li><a href="contacto.html?tipo=apadrinar#formulario">Apadrinar un talento</a></li><li><a href="contacto.html?tipo=especie#formulario">Donar en especie</a></li><li><a href="apoya.html#patrocinio">Patrocinar</a></li><li><a href="apoya.html#beneficio">Beneficio tributario</a></li><li><a href="contacto.html">Voluntariado</a></li></ul>
       </div>
       <div>
         <h4>Contacto</h4>
