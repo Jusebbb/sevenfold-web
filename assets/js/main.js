@@ -72,7 +72,7 @@ document.addEventListener("keydown", e => {
 const slides = document.querySelectorAll(".hero-slides img");
 if (slides.length > 1) {
   let i = 0;
-  const load = n => { const im = slides[n]; if (im.dataset.src) { im.src = im.dataset.src; im.removeAttribute("data-src"); } };
+  const load = n => { const im = slides[n]; if (im.dataset.src) { if (im.dataset.srcset) { im.srcset = im.dataset.srcset; im.removeAttribute("data-srcset"); } im.src = im.dataset.src; im.removeAttribute("data-src"); } };
   slides[0].classList.add("on");
   slides[0].parentElement.classList.add("ready");
   load(1);
@@ -97,26 +97,52 @@ tabs.forEach(t => t.addEventListener("click", () => selectTerr(t.dataset.k)));
 document.querySelectorAll(".map-box [data-dep], .map-box .pin").forEach(el =>
   el.addEventListener("click", () => selectTerr(el.dataset.dep || el.dataset.k)));
 
-/* Galerías con visor (lightbox) */
+/* Galerías con visor (lightbox).
+   Pie de foto solo si el botón trae data-caption con texto real (el alt no se muestra).
+   Cerrar con X, Esc o clic fuera; flechas y teclado; deslizar en móvil; contador 3/12; foco atrapado. */
 const lb = document.querySelector(".lb");
 if (lb) {
-  const lbImg = lb.querySelector("img"), lbCap = lb.querySelector("p");
+  const lbImg = lb.querySelector("img"), lbCap = lb.querySelector(".lb-cap"), lbCount = lb.querySelector(".lb-count");
+  const btns = [...lb.querySelectorAll("button")];
   let group = [], idx = 0, lastFocus = null;
-  const show = () => { const b = group[idx]; const im = b.querySelector("img"); lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt; lbCap.textContent = im.alt; };
+  const show = () => {
+    const b = group[idx], im = b.querySelector("img");
+    lbImg.removeAttribute("style");
+    lbImg.src = im.dataset.full || im.currentSrc || im.src; lbImg.alt = im.alt;
+    // nunca más grande que su tamaño real
+    const fit = () => { if (lbImg.naturalWidth) lbImg.style.maxWidth = `min(${lbImg.naturalWidth}px, 100%)`; };
+    lbImg.complete ? fit() : lbImg.addEventListener("load", fit, { once: true });
+    const cap = (b.dataset.caption || "").trim();
+    lbCap.textContent = cap; lbCap.hidden = !cap;
+    lbCount.textContent = group.length > 1 ? `${idx + 1} / ${group.length}` : "";
+    lb.querySelector(".pv").hidden = lb.querySelector(".nx").hidden = group.length < 2;
+  };
+  const step = d => { idx = (idx + d + group.length) % group.length; show(); };
   document.querySelectorAll("[data-lb]").forEach(b => b.addEventListener("click", () => {
     group = [...document.querySelectorAll(`[data-lb="${b.dataset.lb}"]`)];
-    idx = group.indexOf(b); lastFocus = b; show(); lb.hidden = false; lb.querySelector(".x").focus();
+    idx = group.indexOf(b); lastFocus = b; show(); lb.hidden = false;
+    document.body.style.overflow = "hidden"; lb.querySelector(".x").focus();
   }));
-  const close = () => { lb.hidden = true; lastFocus && lastFocus.focus(); };
+  const close = () => { lb.hidden = true; document.body.style.overflow = ""; lastFocus && lastFocus.focus(); };
   lb.querySelector(".x").addEventListener("click", close);
-  lb.querySelector(".pv").addEventListener("click", () => { idx = (idx - 1 + group.length) % group.length; show(); });
-  lb.querySelector(".nx").addEventListener("click", () => { idx = (idx + 1) % group.length; show(); });
-  lb.addEventListener("click", e => { if (e.target === lb) close(); });
+  lb.querySelector(".pv").addEventListener("click", () => step(-1));
+  lb.querySelector(".nx").addEventListener("click", () => step(1));
+  lb.addEventListener("click", e => { if (e.target === lb || e.target.tagName === "FIGURE") close(); });
   document.addEventListener("keydown", e => {
     if (lb.hidden) return;
     if (e.key === "Escape") close();
-    if (e.key === "ArrowRight") lb.querySelector(".nx").click();
-    if (e.key === "ArrowLeft") lb.querySelector(".pv").click();
+    if (e.key === "ArrowRight") step(1);
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "Tab") { // foco atrapado dentro del visor
+      const vis = btns.filter(x => !x.hidden), i = vis.indexOf(document.activeElement);
+      e.preventDefault(); vis[(i + (e.shiftKey ? -1 : 1) + vis.length) % vis.length].focus();
+    }
+  });
+  let x0 = null;
+  lb.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", e => {
+    if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 45 && group.length > 1) step(dx < 0 ? 1 : -1);
   });
 }
 

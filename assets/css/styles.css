@@ -905,3 +905,28 @@ img{height:auto}
 .line-card .go,.story .go{text-shadow:none}
 @media (max-width:520px){.give figcaption{padding:56px 14px 14px}}
 .line-card .num{color:color-mix(in srgb,var(--lc,var(--sun)) 70%,#fff)}
+
+/* ---------- Fase 5 · Galerías unificadas ----------
+   Una sola cuadrícula para todas las galerías: mismos gaps, proporción, bordes y zoom.
+   El contenedor recorta (radio + overflow + máscara para Safari) y el zoom va SOLO en la <img>. */
+.gallery,.ev .strip,.terr-photos,.players{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));columns:auto}
+@media (min-width:768px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.ev .strip,.players{grid-template-columns:repeat(4,minmax(0,1fr))}.terr-photos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1024px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.players.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery button,.ev .strip button,.players button,.terr-photos img{
+  display:block;width:100%;margin:0;padding:0;border:0;background:var(--ink-3);cursor:zoom-in;
+  aspect-ratio:1;border-radius:12px;overflow:hidden;isolation:isolate;
+  -webkit-mask-image:-webkit-radial-gradient(white,black);transform:translateZ(0)
+}
+.players button{aspect-ratio:3/4}
+.terr-photos img{cursor:default;object-fit:cover;height:auto}
+.gallery img,.ev .strip img,.players button img{width:100%;height:100%;object-fit:cover;border-radius:inherit;transition:transform .6s var(--ease)}
+@media (hover:hover){.gallery button:hover img,.ev .strip button:hover img,.players button:hover img{transform:scale(1.05)}}
+.gallery button:focus-visible,.ev .strip button:focus-visible,.players button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+/* Visor */
+.lb img{max-height:min(84vh,84dvh);width:auto;height:auto}
+.lb figure{display:grid;justify-items:center;gap:10px}
+.lb-cap{color:var(--muted-d);font-size:.9rem;text-align:center;max-width:60ch}
+.lb-count{position:absolute;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);color:var(--muted-d);font:600 .82rem var(--body);letter-spacing:.08em}
+.lb button[hidden]{display:none}
+.lb button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}

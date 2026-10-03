@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Ensambla las páginas del sitio: head + header + contenido (src/*.html) + footer."""
-import re, pathlib
+import re, pathlib, json
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "src"
 
@@ -125,7 +125,8 @@ FOOTER = f'''<footer class="foot">
 <div class="tricolor" aria-hidden="true"></div>
 <div class="lb" hidden role="dialog" aria-modal="true" aria-label="Visor de fotos">
   <button class="x" aria-label="Cerrar">×</button><button class="pv" aria-label="Anterior">‹</button><button class="nx" aria-label="Siguiente">›</button>
-  <figure style="margin:0"><img src="" alt=""><p></p></figure>
+  <figure style="margin:0"><img src="" alt=""><figcaption class="lb-cap" hidden></figcaption></figure>
+  <span class="lb-count" aria-live="polite"></span>
 </div>
 <script src="assets/js/main.js"></script>'''
 
@@ -154,10 +155,33 @@ def head(title, desc):
 </head>
 <body>'''
 
+OPT = json.loads((ROOT/"assets/img/opt/manifest.json").read_text()) if (ROOT/"assets/img/opt/manifest.json").exists() else {}
+
+def images(html):
+    """srcset con las versiones optimizadas (assets/img/opt, generadas aparte) y carga diferida.
+    La primera imagen de cada página (fondo del encabezado) carga de inmediato."""
+    first = [True]
+    def fix(m):
+        tag = m.group(0)
+        src = re.search(r'(data-src|src)="assets/img/([\w\-]+)\.webp"', tag)
+        if src and src.group(2) in OPT and "srcset" not in tag:
+            o = OPT[src.group(2)]
+            cands = ", ".join(f"assets/img/opt/{src.group(2)}-{w}.webp {w}w" for w in o["v"]) + f", assets/img/{src.group(2)}.webp {o['w']}w"
+            full = 'alt=""' in tag or "fetchpriority" in tag
+            sizes = "100vw" if full else "(max-width: 760px) 100vw, 50vw"
+            attr = "data-srcset" if src.group(1) == "data-src" else "srcset"
+            tag = tag.replace("<img ", f'<img {attr}="{cands}" sizes="{sizes}" ', 1)
+        if first[0]:
+            first[0] = False
+        elif "loading=" not in tag and "fetchpriority" not in tag and "data-src" not in tag:
+            tag = tag.replace("<img ", '<img loading="lazy" ', 1)
+        return tag
+    return re.sub(r"<img [^>]*>", fix, html)
+
 def expand(html):
     html = re.sub(r"\{\{icon:(\w+)\}\}", lambda m: ICONS[m.group(1)], html)
     html = html.replace("{{map}}", (ROOT/"src/_map.svg").read_text())
-    return html
+    return images(html)
 
 LINE = {"seven-colombia.html": "ln-dep", "kings-league.html": "ln-dep", "merida-2025.html": "ln-dep",
         "educacion.html": "ln-edu", "ambiente.html": "ln-amb"}

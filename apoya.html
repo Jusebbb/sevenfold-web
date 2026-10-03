@@ -37,8 +37,8 @@
     </div>
     <div class="give-mosaic">
       <img class="m1" src="assets/img/merida-ninos.webp" alt="Niños de Seven Colombia sonríen con sus medallas en Mérida">
-      <img class="m2" src="assets/img/mitu-kits-ninos.webp" alt="Niñas y niños de Mitú con sus nuevos morrales escolares">
-      <img class="m3" src="assets/img/mitu-trofeo.webp" alt="Joven de Mitú sonríe con su trofeo en la cancha">
+      <img loading="lazy" class="m2" src="assets/img/mitu-kits-ninos.webp" alt="Niñas y niños de Mitú con sus nuevos morrales escolares">
+      <img loading="lazy" class="m3" src="assets/img/mitu-trofeo.webp" alt="Joven de Mitú sonríe con su trofeo en la cancha">
     </div>
   </div>
 </section>
@@ -81,7 +81,7 @@
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">Formas de apoyar</span><h2 class="h-lg mt-s">Elige cómo quieres ayudar</h2></div>
     <article class="sponsor">
-      <img src="assets/img/nino-10b.webp" alt="Niño con la camiseta 10 de Seven Colombia frente a la cancha" loading="lazy">
+      <img srcset="assets/img/opt/nino-10b-800.webp 800w, assets/img/nino-10b.webp 1200w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/nino-10b.webp" alt="Niño con la camiseta 10 de Seven Colombia frente a la cancha" loading="lazy">
       <div class="in">
         <span class="kicker">Un año a su lado</span>
         <h3>Apadrina un talento</h3>
@@ -149,7 +149,7 @@
     </div>
     <div class="packs">
       <article class="pack">
-        <div class="ph"><img src="assets/img/floripa-rojo.webp" alt="Equipo juvenil de Seven Colombia" loading="lazy"><span>19–22 Nov · Porto Alegre</span></div>
+        <div class="ph"><img srcset="assets/img/opt/floripa-rojo-800.webp 800w, assets/img/floripa-rojo.webp 1200w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/floripa-rojo.webp" alt="Equipo juvenil de Seven Colombia" loading="lazy"><span>19–22 Nov · Porto Alegre</span></div>
         <div class="body">
           <div class="money">USD 28.000<small>presupuesto total por gestionar</small></div>
           <h3>Liga de las Américas y Copa Sudamericana</h3>
@@ -158,7 +158,7 @@
         </div>
       </article>
       <article class="pack">
-        <div class="ph"><img src="assets/img/merida-campeones.webp" alt="Selección Colombia de Fútbol 7 campeona" loading="lazy"><span>23–25 Nov · Porto Alegre</span></div>
+        <div class="ph"><img srcset="assets/img/opt/merida-campeones-800.webp 800w, assets/img/merida-campeones.webp 1210w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/merida-campeones.webp" alt="Selección Colombia de Fútbol 7 campeona" loading="lazy"><span>23–25 Nov · Porto Alegre</span></div>
         <div class="body">
           <div class="money">USD 28.000<small>presupuesto total por gestionar</small></div>
           <h3>Copa América FIF7 · Selección Colombia</h3>
@@ -249,7 +249,8 @@
 <div class="tricolor" aria-hidden="true"></div>
 <div class="lb" hidden role="dialog" aria-modal="true" aria-label="Visor de fotos">
   <button class="x" aria-label="Cerrar">×</button><button class="pv" aria-label="Anterior">‹</button><button class="nx" aria-label="Siguiente">›</button>
-  <figure style="margin:0"><img src="" alt=""><p></p></figure>
+  <figure style="margin:0"><img src="" alt=""><figcaption class="lb-cap" hidden></figcaption></figure>
+  <span class="lb-count" aria-live="polite"></span>
 </div>
 <script src="assets/js/main.js"></script>
 </body>

@@ -26,7 +26,7 @@
 </header>
 <main id="main">
 <section class="page-hero dark">
-  <img src="assets/img/sobre-fundacion.webp" alt="" style="object-position:center 30%">
+  <img srcset="assets/img/opt/sobre-fundacion-800.webp 800w, assets/img/sobre-fundacion.webp 1210w" sizes="100vw" src="assets/img/sobre-fundacion.webp" alt="" style="object-position:center 30%">
   <div class="wrap">
     <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a><span>/</span><span>Nosotros</span></nav>
     <span class="eyebrow">Fundación Sevenfold Colombia · FUNSEVEN</span>
@@ -50,13 +50,13 @@
         <p>Licenciado en Deportes de la Universidad Pedagógica Nacional y exjugador profesional de Independiente Santa Fe. Desde 2010 lidera procesos de formación de jóvenes talentos, con reconocimiento nacional e internacional. Preside la Junta Directiva de la Fundación.</p>
       </article>
       <article class="member">
-        <img src="assets/img/equipo-robayo.webp" alt="Rafael Robayo en la cancha con la camiseta de Seven" loading="lazy" style="object-position:center 30%">
+        <img srcset="assets/img/opt/equipo-robayo-800.webp 800w, assets/img/equipo-robayo.webp 1100w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/equipo-robayo.webp" alt="Rafael Robayo en la cancha con la camiseta de Seven" loading="lazy" style="object-position:center 30%">
         <span class="role">Embajador · Seven Colombia</span>
         <h3>Rafael Robayo</h3>
         <p>Exjugador profesional con una destacada trayectoria en el fútbol colombiano y reconocido por su liderazgo como capitán de Millonarios F.C. Es referente para las nuevas generaciones y clave en la formación y proyección de jóvenes talentos.</p>
       </article>
       <article class="member">
-        <img src="assets/img/equipo-chacon.webp" alt="Andrés Chacón en la cancha" loading="lazy" style="object-position:center 35%">
+        <img srcset="assets/img/opt/equipo-chacon-800.webp 800w, assets/img/equipo-chacon.webp 1100w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/equipo-chacon.webp" alt="Andrés Chacón en la cancha" loading="lazy" style="object-position:center 35%">
         <span class="role">Vicepresidente · Seven Colombia</span>
         <h3>Andrés Chacón</h3>
         <p>Experto en formulación y gestión de proyectos de inversión social, con amplia experiencia en recursos públicos y privados. Lidera la dirección estratégica y la estructuración de proyectos deportivos con enfoque social y comunitario.</p>
@@ -133,7 +133,7 @@
         </div>
       </a>
       <a class="story" href="impacto.html#choco">
-        <img src="assets/img/choco-lancha.webp" alt="Voluntarios descargando ayudas desde una lancha en el Chocó" loading="lazy">
+        <img srcset="assets/img/opt/choco-lancha-800.webp 800w, assets/img/choco-lancha.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-lancha.webp" alt="Voluntarios descargando ayudas desde una lancha en el Chocó" loading="lazy">
         <div class="in">
           <span class="kicker">Chocó · Pacífico</span>
           <h3>15 toneladas hasta Río Pepé</h3>
@@ -162,7 +162,7 @@
     <div class="ahead" data-carousel aria-label="Hacia dónde vamos">
       <article><img src="assets/img/vaupes-grupo.webp" alt="Jóvenes del club Seven Sporting Vaupés" loading="lazy"><div class="in"><span class="k">2026 – 2027</span><h3>Consolidar</h3><p>Fortalecer los procesos deportivos, educativos y ambientales que ya están en marcha.</p></div></article>
       <article><img src="assets/img/simon-bolivar2.webp" alt="Equipos y voluntarios aliados en el Polideportivo Simón Bolívar" loading="lazy"><div class="in"><span class="k">Nacional</span><h3>Más territorio</h3><p>Ampliar nuestra presencia en el país y fortalecer alianzas estratégicas.</p></div></article>
-      <article><img src="assets/img/hero-intercontinental.webp" alt="Jugadores de Seven Colombia en un torneo internacional" loading="lazy"><div class="in"><span class="k">Internacional</span><h3>Más puentes</h3><p>Nuevas oportunidades de intercambio y cooperación más allá de Colombia.</p></div></article>
+      <article><img srcset="assets/img/opt/hero-intercontinental-800.webp 800w, assets/img/opt/hero-intercontinental-1400.webp 1400w, assets/img/hero-intercontinental.webp 2000w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/hero-intercontinental.webp" alt="Jugadores de Seven Colombia en un torneo internacional" loading="lazy"><div class="in"><span class="k">Internacional</span><h3>Más puentes</h3><p>Nuevas oportunidades de intercambio y cooperación más allá de Colombia.</p></div></article>
     </div>
     <div class="row-cta mt-l"><a class="link-arrow" style="color:var(--chalk)" href="contacto.html?tipo=alianza#formulario">¿Qué podemos construir juntos? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
@@ -204,7 +204,8 @@
 <div class="tricolor" aria-hidden="true"></div>
 <div class="lb" hidden role="dialog" aria-modal="true" aria-label="Visor de fotos">
   <button class="x" aria-label="Cerrar">×</button><button class="pv" aria-label="Anterior">‹</button><button class="nx" aria-label="Siguiente">›</button>
-  <figure style="margin:0"><img src="" alt=""><p></p></figure>
+  <figure style="margin:0"><img src="" alt=""><figcaption class="lb-cap" hidden></figcaption></figure>
+  <span class="lb-count" aria-live="polite"></span>
 </div>
 <script src="assets/js/main.js"></script>
 </body>

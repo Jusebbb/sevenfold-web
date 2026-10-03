@@ -119,7 +119,7 @@
 <section class="sec white" id="choco">
   <div class="wrap feature">
     <div class="media">
-      <img src="assets/img/choco-lancha2.webp" alt="Voluntarios cargando ayudas en una lancha en un río del Chocó" loading="lazy" style="aspect-ratio:4/4.4">
+      <img srcset="assets/img/opt/choco-lancha2-800.webp 800w, assets/img/choco-lancha2.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-lancha2.webp" alt="Voluntarios cargando ayudas en una lancha en un río del Chocó" loading="lazy" style="aspect-ratio:4/4.4">
       <img class="inset" src="assets/img/choco-kit2.webp" alt="Entrega de ayudas a una familia en el Chocó" loading="lazy">
     </div>
     <div class="txt">
@@ -170,11 +170,11 @@
           <p>Recolectamos mercados, agua y elementos básicos en Bogotá con la comunidad, aliados y ciudadanos. Luego los llevamos hasta las comunidades afectadas por el sismo, incluido el municipio de Río Pepé.</p>
           <div class="chips"><span class="chip">R8R Rafa Robayo</span><span class="chip">Fundación Artistas F.C.</span><span class="chip">Polideportivo Simón Bolívar</span></div>
           <div class="strip">
-            <button data-lb="choco"><img src="assets/img/choco-lancha.webp" alt="Descarga de ayudas desde la lancha" loading="lazy"></button>
+            <button data-lb="choco"><img srcset="assets/img/opt/choco-lancha-800.webp 800w, assets/img/choco-lancha.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-lancha.webp" alt="Descarga de ayudas desde la lancha" loading="lazy"></button>
             <button data-lb="choco"><img src="assets/img/simon-bolivar.webp" alt="Jornada solidaria en el Polideportivo Simón Bolívar" loading="lazy"></button>
-            <button data-lb="choco"><img src="assets/img/choco-camion.webp" alt="Ayudas cargadas en el camión" loading="lazy"></button>
+            <button data-lb="choco"><img srcset="assets/img/opt/choco-camion-800.webp 800w, assets/img/choco-camion.webp 1400w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-camion.webp" alt="Ayudas cargadas en el camión" loading="lazy"></button>
             <button data-lb="choco"><img src="assets/img/choco-kit3.webp" alt="Entrega de ayudas a un niño" loading="lazy"></button>
-            <button data-lb="choco"><img src="assets/img/choco-rio.webp" alt="Voluntario cargando ayudas junto al río" loading="lazy"></button>
+            <button data-lb="choco"><img srcset="assets/img/opt/choco-rio-800.webp 800w, assets/img/opt/choco-rio-1400.webp 1400w, assets/img/choco-rio.webp 2000w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-rio.webp" alt="Voluntario cargando ayudas junto al río" loading="lazy"></button>
             <button data-lb="choco"><img src="assets/img/simon-bolivar2.webp" alt="Equipos y voluntarios en Simón Bolívar" loading="lazy"></button>
             <button data-lb="choco"><img src="assets/img/choco-kit1.webp" alt="Entrega de mercado a una niña" loading="lazy"></button>
             <button data-lb="choco"><img src="assets/img/choco-acopio.webp" alt="Voluntarios en el centro de acopio" loading="lazy"></button>
@@ -338,7 +338,7 @@
 </section>
 
 <section class="sec cta-band">
-  <img src="assets/img/choco-lancha.webp" alt="" loading="lazy">
+  <img srcset="assets/img/opt/choco-lancha-800.webp 800w, assets/img/choco-lancha.webp 1280w" sizes="100vw" src="assets/img/choco-lancha.webp" alt="" loading="lazy">
   <div class="wrap in">
     <div><h2 class="h-lg">La próxima historia puede llevar tu nombre</h2><p>Si quieres ser parte de lo que viene, hay un lugar para ti.</p>
       <div class="soft-links"><a class="link-arrow" href="contacto.html?tipo=apadrinar#formulario">Apadrina un talento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="link-arrow" href="contacto.html?tipo=patrocinar#formulario">Soy empresa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
@@ -381,7 +381,8 @@
 <div class="tricolor" aria-hidden="true"></div>
 <div class="lb" hidden role="dialog" aria-modal="true" aria-label="Visor de fotos">
   <button class="x" aria-label="Cerrar">×</button><button class="pv" aria-label="Anterior">‹</button><button class="nx" aria-label="Siguiente">›</button>
-  <figure style="margin:0"><img src="" alt=""><p></p></figure>
+  <figure style="margin:0"><img src="" alt=""><figcaption class="lb-cap" hidden></figcaption></figure>
+  <span class="lb-count" aria-live="polite"></span>
 </div>
 <script src="assets/js/main.js"></script>
 </body>
