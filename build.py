@@ -322,3 +322,19 @@ for fn, to in REDIRECTS.items():
 '''
     (ROOT/fn).write_text(out)
     print("ok", fn, "→", to)
+
+# Vista previa del sitio completo en docs/preview (fundacionsevenfold.com/preview/) mientras
+# la portada del dominio muestra "en construcción". No se indexa en buscadores.
+import shutil
+PREVIEW = ROOT / "docs" / "preview"
+if PREVIEW.exists():
+    shutil.rmtree(PREVIEW)
+PREVIEW.mkdir(parents=True)
+shutil.copytree(ROOT / "assets", PREVIEW / "assets")
+for page in ROOT.glob("*.html"):
+    html = page.read_text()
+    if 'name="robots"' not in html:
+        html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
+    (PREVIEW / page.name).write_text(html)
+(PREVIEW / ".nojekyll").write_text("")
+print("ok vista previa en docs/preview")
