@@ -1,73 +1,32 @@
-/* Fundación Sevenfold Colombia — interacciones del sitio */
-
-/* === CONFIGURACIÓN EDITABLE ===
-   Completa aquí los enlaces reales de redes y el WhatsApp. Los que queden vacíos se ocultan solos. */
-const SITE = {
-  email: "fundacionsevenfold@gmail.com",
-  whatsapp: "",            // ej: "573001234567" (solo números, con indicativo 57)
-  social: {
-    instagram: "",         // ej: "https://instagram.com/usuario"
-    facebook: "",
-    youtube: "",
-    tiktok: "",
-    linkedin: ""
-  }
-};
-
+/* Fundación Sevenfold Colombia — interacciones del sitio
+   Contacto y redes se editan en build.py (bloque SITE); aquí llegan como window.SITE. */
+const SITE = window.SITE || { email: "fundacionsevenfold@gmail.com" };
 document.documentElement.classList.add("js");
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const ARROW = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+const LEFT = ARROW("M15 6l-6 6 6 6"), RIGHT = ARROW("M9 6l6 6-6 6");
+const button = (cls, label, html) => { const b = document.createElement("button"); b.type = "button"; b.className = cls; b.setAttribute("aria-label", label); b.innerHTML = html; return b; };
 
 /* Header sólido al hacer scroll */
 const head = document.querySelector(".site-head");
-const onScroll = () => {
-  if (head && !head.classList.contains("always")) head.classList.toggle("solid", window.scrollY > 40);
-};
+const onScroll = () => { if (head) head.classList.toggle("solid", window.scrollY > 40); };
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
 /* Menú móvil */
 const menuBtn = document.querySelector(".menu-btn");
 if (menuBtn) {
-  menuBtn.addEventListener("click", () => {
-    const open = document.body.classList.toggle("menu-open");
+  const setMenu = open => {
+    document.body.classList.toggle("menu-open", open);
     menuBtn.setAttribute("aria-expanded", open);
-  });
-  document.querySelectorAll(".nav a").forEach(a => a.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-    menuBtn.setAttribute("aria-expanded", "false");
-  }));
+    menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  };
+  menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
+  document.querySelectorAll(".nav a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && document.body.classList.contains("menu-open")) { setMenu(false); menuBtn.focus(); } });
 }
 
-/* Menú: desplegables con lo que hay en cada pestaña.
-   Con mouse se abren al pasar por encima (CSS); la flechita los abre con clic, toque o teclado. */
-const subBtns = document.querySelectorAll(".sub-btn, .group-btn");
-const closeSubs = (except) => subBtns.forEach(b => {
-  if (b === except) return;
-  b.setAttribute("aria-expanded", "false");
-  b.closest(".nav-item").classList.remove("open");
-});
-subBtns.forEach(b => b.addEventListener("click", () => {
-  const open = b.getAttribute("aria-expanded") !== "true";
-  closeSubs(b);
-  b.setAttribute("aria-expanded", open);
-  b.closest(".nav-item").classList.toggle("open", open);
-}));
-document.querySelectorAll(".nav-item").forEach(item => item.addEventListener("focusout", e => {
-  if (!item.contains(e.relatedTarget) && !matchMedia("(max-width:1020px)").matches) closeSubs();
-}));
-// al elegir una sección de la misma página, el desplegable se cierra aunque el mouse siga encima
-document.querySelectorAll(".sub a").forEach(a => a.addEventListener("click", () => {
-  closeSubs();
-  const item = a.closest(".nav-item");
-  item.classList.add("hush");
-  item.addEventListener("mouseleave", () => item.classList.remove("hush"), { once: true });
-}));
-document.addEventListener("click", e => { if (!e.target.closest(".nav-item")) closeSubs(); });
-document.addEventListener("keydown", e => {
-  const b = document.querySelector('.sub-btn[aria-expanded="true"], .group-btn[aria-expanded="true"]');
-  if (e.key === "Escape" && b) { closeSubs(); b.focus(); }
-});
-
-/* Hero: carrusel de fotos. Cada foto (data-src) se descarga un turno antes de que le toque
+/* Hero: fotos que rotan. Cada foto (data-src) se descarga un turno antes de que le toque
    y solo entra cuando ya cargó; si la conexión va lenta, la foto actual espera. */
 const slides = document.querySelectorAll(".hero-slides img");
 if (slides.length > 1) {
@@ -86,44 +45,32 @@ if (slides.length > 1) {
   }, 7000);
 }
 
-/* Territorios: pestañas + mapa */
-const tabs = document.querySelectorAll(".terr-tabs [role=tab]");
-function selectTerr(key) {
-  tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.k === key));
-  document.querySelectorAll(".terr-panel").forEach(p => p.hidden = p.dataset.k !== key);
-  document.querySelectorAll(".map-box path[data-dep]").forEach(p => p.classList.toggle("dim", p.dataset.dep !== key));
-}
-tabs.forEach(t => t.addEventListener("click", () => selectTerr(t.dataset.k)));
-document.querySelectorAll(".map-box [data-dep], .map-box .pin").forEach(el =>
-  el.addEventListener("click", () => selectTerr(el.dataset.dep || el.dataset.k)));
-
-/* Galerías con visor (lightbox).
-   Pie de foto solo si el botón trae data-caption con texto real (el alt no se muestra).
+/* Visor de fotos (lightbox): se abre al tocar una foto de un carrusel.
    Cerrar con X, Esc o clic fuera; flechas y teclado; deslizar en móvil; contador 3/12; foco atrapado. */
+let openLB = () => {};
 const lb = document.querySelector(".lb");
 if (lb) {
   const lbImg = lb.querySelector("img"), lbCap = lb.querySelector(".lb-cap"), lbCount = lb.querySelector(".lb-count");
   const btns = [...lb.querySelectorAll("button")];
   let group = [], idx = 0, lastFocus = null;
   const show = () => {
-    const b = group[idx], im = b.querySelector("img");
+    const im = group[idx];
     lbImg.removeAttribute("style");
     lbImg.src = im.dataset.full || im.currentSrc || im.src; lbImg.alt = im.alt;
     // nunca más grande que su tamaño real
     const fit = () => { if (lbImg.naturalWidth) lbImg.style.maxWidth = `min(${lbImg.naturalWidth}px, 100%)`; };
     lbImg.complete ? fit() : lbImg.addEventListener("load", fit, { once: true });
-    const cap = (b.dataset.caption || "").trim();
+    const cap = (im.closest("figure")?.querySelector("figcaption")?.textContent || "").trim();
     lbCap.textContent = cap; lbCap.hidden = !cap;
     lbCount.textContent = group.length > 1 ? `${idx + 1} / ${group.length}` : "";
     lb.querySelector(".pv").hidden = lb.querySelector(".nx").hidden = group.length < 2;
   };
   const step = d => { idx = (idx + d + group.length) % group.length; show(); };
-  document.querySelectorAll("[data-lb]").forEach(b => b.addEventListener("click", () => {
-    group = [...document.querySelectorAll(`[data-lb="${b.dataset.lb}"]`)];
-    idx = group.indexOf(b); lastFocus = b; show(); lb.hidden = false;
-    document.body.style.overflow = "hidden"; lb.querySelector(".x").focus();
-  }));
-  const close = () => { lb.hidden = true; document.body.style.overflow = ""; lastFocus && lastFocus.focus(); };
+  openLB = (imgs, i, from) => {
+    group = imgs; idx = i; lastFocus = from; show(); lb.hidden = false;
+    document.documentElement.classList.add("lb-open"); lb.querySelector(".x").focus();
+  };
+  const close = () => { lb.hidden = true; document.documentElement.classList.remove("lb-open"); lastFocus && lastFocus.focus({ preventScroll: true }); };
   lb.querySelector(".x").addEventListener("click", close);
   lb.querySelector(".pv").addEventListener("click", () => step(-1));
   lb.querySelector(".nx").addEventListener("click", () => step(1));
@@ -146,7 +93,253 @@ if (lb) {
   });
 }
 
-/* Reels: se reproducen solo cuando están en pantalla */
+/* Carrusel de fotos: una foto a la vez, flechas a los lados, contador, deslizar con el dedo y teclado.
+   Las fotos cercanas se descargan solo cuando el carrusel está cerca de la pantalla.
+   .fit = foto completa sobre un fondo difuminado (fotos verticales y horizontales mezcladas).
+   data-autoplay="6000" = avanza solo hasta que la persona lo toca. */
+const nearIO = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
+  const api = e.target._pc; if (!api) return; api.near = e.isIntersecting; if (e.isIntersecting) api.refresh();
+}), { rootMargin: "400px 0px" }) : null;
+function initPC(pc) {
+  if (pc._pc) return pc._pc;
+  const track = pc.querySelector(".pc-track");
+  const slidesEl = [...track.children], imgs = slidesEl.map(s => s.querySelector("img")), n = slidesEl.length;
+  const api = { near: !nearIO };
+  pc._pc = api;
+  track.tabIndex = 0;
+  track.setAttribute("role", "region");
+  track.setAttribute("aria-roledescription", "carrusel");
+  if (pc.getAttribute("aria-label")) track.setAttribute("aria-label", pc.getAttribute("aria-label"));
+  let prev, next, count, auto = null;
+  if (n > 1) {
+    prev = button("pc-btn pc-prev", "Foto anterior", LEFT);
+    next = button("pc-btn pc-next", "Foto siguiente", RIGHT);
+    count = document.createElement("span"); count.className = "pc-count"; count.setAttribute("aria-hidden", "true");
+    pc.append(prev, next, count);
+  }
+  const w = () => track.clientWidth || 1;
+  const cur = () => Math.min(n - 1, Math.max(0, Math.round(track.scrollLeft / w())));
+  const go = i => { const j = ((i % n) + n) % n; track.scrollTo({ left: j * w(), behavior: reduced ? "auto" : "smooth" }); };
+  const warm = c => [c - 1, c, c + 1].forEach(k => { const im = imgs[(k + n) % n]; if (im && im.loading === "lazy") im.loading = "eager"; });
+  api.refresh = () => {
+    const c = cur();
+    if (count) count.textContent = `${c + 1} / ${n}`;
+    slidesEl.forEach((s, k) => s.setAttribute("aria-hidden", String(k !== c)));
+    if (api.near) warm(c);
+  };
+  api.go = go;
+  const stop = () => { if (auto) { clearInterval(auto); auto = null; } };
+  if (n > 1) {
+    prev.addEventListener("click", () => { stop(); go(cur() - 1); });
+    next.addEventListener("click", () => { stop(); go(cur() + 1); });
+  }
+  let raf; track.addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(api.refresh); }, { passive: true });
+  track.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") { e.preventDefault(); stop(); go(cur() + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); stop(); go(cur() - 1); }
+    if (e.key === "Enter" && !pc.closest("dialog")) openLB(imgs, cur(), track);
+  });
+  track.addEventListener("pointerdown", stop, { passive: true });
+  // tocar la foto la abre en grande (dentro de una historia ya se ve grande)
+  imgs.forEach((im, i) => im.addEventListener("click", () => { if (!pc.closest("dialog")) openLB(imgs, i, track); }));
+  if (pc.classList.contains("fit")) slidesEl.forEach((s, k) => {
+    const im = imgs[k], set = () => s.style.setProperty("--bg", `url("${im.currentSrc || im.src}")`);
+    im.complete && im.naturalWidth ? set() : im.addEventListener("load", set, { once: true });
+  });
+  const ms = +pc.dataset.autoplay;
+  if (ms && n > 1 && !reduced) {
+    auto = setInterval(() => {
+      if (!api.near || document.hidden || pc.matches(":hover") || pc.contains(document.activeElement)) return;
+      go(cur() + 1);
+    }, ms);
+  }
+  addEventListener("resize", () => api.refresh());
+  nearIO ? nearIO.observe(pc) : api.refresh();
+  api.refresh();
+  return api;
+}
+document.querySelectorAll("[data-pc]").forEach(initPC);
+const refreshIn = el => el && el.querySelectorAll("[data-pc]").forEach(pc => pc._pc && pc._pc.refresh());
+
+/* Carruseles de tarjetas: flechas a los lados, puntos debajo, teclado y arrastre con el dedo (scroll nativo). */
+document.querySelectorAll("[data-carousel]").forEach(track => {
+  const items = [...track.children];
+  // .car-wrap = carrusel + puntos (ocupan un solo lugar en la cuadrícula de la sección)
+  const outer = document.createElement("div"), box = document.createElement("div");
+  outer.className = "car-wrap"; box.className = "car";
+  track.before(outer); outer.append(box); box.append(track);
+  track.tabIndex = 0;
+  track.setAttribute("role", "region");
+  track.setAttribute("aria-roledescription", "carrusel");
+  const pv = button("car-btn car-prev", "Anterior", LEFT), nx = button("car-btn car-next", "Siguiente", RIGHT);
+  box.append(pv, nx);
+  const dotsBox = document.createElement("div");
+  dotsBox.className = "car-dots";
+  dotsBox.setAttribute("role", "group"); dotsBox.setAttribute("aria-label", "Elegir elemento");
+  dotsBox.innerHTML = items.map((_, i) => `<button type="button" aria-label="Ir al ${i + 1} de ${items.length}"></button>`).join("");
+  box.after(dotsBox);
+  const dots = [...dotsBox.children];
+  const x0 = () => items[0].offsetLeft;
+  const go = i => { const it = items[Math.max(0, Math.min(items.length - 1, i))]; track.scrollTo({ left: it.offsetLeft - x0(), behavior: reduced ? "auto" : "smooth" }); };
+  const current = () => { const x = track.scrollLeft; let best = 0; items.forEach((it, i) => { if (Math.abs(it.offsetLeft - x0() - x) < Math.abs(items[best].offsetLeft - x0() - x)) best = i; }); return best; };
+  const update = () => {
+    const scrollable = track.scrollWidth > track.clientWidth + 4;
+    box.classList.toggle("scrollable", scrollable);
+    dotsBox.hidden = !scrollable;
+    const c = current(), end = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    dots.forEach((d, i) => d.setAttribute("aria-current", String(end ? i === items.length - 1 : i === c)));
+    pv.disabled = track.scrollLeft <= 4; nx.disabled = end;
+  };
+  dots.forEach((d, i) => d.addEventListener("click", () => go(i)));
+  pv.addEventListener("click", () => go(current() - 1));
+  nx.addEventListener("click", () => go(current() + 1));
+  track.addEventListener("keydown", e => {
+    if (e.target !== track) return;
+    if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
+  });
+  let t; track.addEventListener("scroll", () => { cancelAnimationFrame(t); t = requestAnimationFrame(update); }, { passive: true });
+  addEventListener("resize", update);
+  update();
+});
+
+/* Territorios: pestañas + mapa */
+const tabs = document.querySelectorAll(".terr-tabs [role=tab]");
+function selectTerr(key) {
+  tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.k === key));
+  document.querySelectorAll(".terr-panel").forEach(p => { p.hidden = p.dataset.k !== key; if (!p.hidden) refreshIn(p); });
+  document.querySelectorAll(".map-box path[data-dep]").forEach(p => p.classList.toggle("dim", p.dataset.dep !== key));
+}
+tabs.forEach(t => t.addEventListener("click", () => selectTerr(t.dataset.k)));
+document.querySelectorAll(".map-box [data-dep], .map-box .pin").forEach(el =>
+  el.addEventListener("click", () => selectTerr(el.dataset.dep || el.dataset.k)));
+
+/* Pestañas (clubes, álbumes de fotos): todo se muestra en el mismo lugar, sin cambiar de página */
+document.querySelectorAll("[data-tabs]").forEach(list => {
+  const tbs = [...list.querySelectorAll("[role=tab]")];
+  const select = (t, focus) => {
+    tbs.forEach(x => {
+      const on = x === t;
+      x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1;
+      const p = document.getElementById(x.getAttribute("aria-controls"));
+      if (p) p.hidden = !on;
+    });
+    refreshIn(document.getElementById(t.getAttribute("aria-controls")));
+    if (focus) t.focus();
+  };
+  tbs.forEach((t, i) => {
+    t.addEventListener("click", () => select(t));
+    t.addEventListener("keydown", e => {
+      const j = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tbs.length - 1 }[e.key];
+      if (j === undefined) return;
+      e.preventDefault(); select(tbs[(j + tbs.length) % tbs.length], true);
+    });
+  });
+  list._select = select;
+});
+// enlaces que abren un álbum de la galería (data-album="roma")
+document.querySelectorAll("[data-album]").forEach(a => a.addEventListener("click", () => {
+  const t = document.getElementById("a-" + a.dataset.album), list = t && t.closest("[data-tabs]");
+  if (list && list._select) list._select(t);
+}));
+
+/* Ventanas sobre la página (historias y formulario). El botón "atrás" del celular las cierra. */
+const dlgForm = document.getElementById("dlg-form"), dlgStory = document.getElementById("dlg-story");
+let lastTrigger = null;
+function openSheet(dlg, hash) {
+  if (!dlg || typeof dlg.showModal !== "function") return false;
+  if (!dlg.open) {
+    lastTrigger = document.activeElement;
+    dlg.showModal();
+    if (hash) history.pushState({ sheet: dlg.id }, "", hash);
+  }
+  dlg.querySelector(".sheet-in").scrollTop = 0;
+  return true;
+}
+function closeSheet(dlg) {
+  if (!dlg.open) return;
+  if (history.state && history.state.sheet === dlg.id) history.back();
+  else { dlg.close(); if (/^#(historia-|escribenos)/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search); }
+}
+addEventListener("popstate", () => document.querySelectorAll("dialog.sheet[open]").forEach(d => d.close()));
+document.querySelectorAll("dialog.sheet").forEach(dlg => {
+  dlg.addEventListener("click", e => { if (e.target === dlg || e.target.closest("[data-close]")) closeSheet(dlg); });
+  dlg.addEventListener("cancel", e => { e.preventDefault(); closeSheet(dlg); });
+  dlg.addEventListener("close", () => { if (lastTrigger && document.contains(lastTrigger)) lastTrigger.focus({ preventScroll: true }); });
+});
+
+// Historias: "Leer más" abre la historia completa aquí mismo
+function openStory(key, push = true) {
+  const tpl = document.getElementById("story-" + key);
+  if (!tpl || !dlgStory) return false;
+  const body = dlgStory.querySelector(".sheet-body");
+  body.replaceChildren(tpl.content.cloneNode(true));
+  const h = body.querySelector("h2[id]");
+  if (h) dlgStory.setAttribute("aria-labelledby", h.id);
+  if (!openSheet(dlgStory, push ? "#historia-" + key : null)) return false;
+  body.querySelectorAll("[data-pc]").forEach(pc => { initPC(pc).near = true; pc._pc.refresh(); });
+  return true;
+}
+document.querySelectorAll("[data-story]").forEach(a => a.addEventListener("click", e => { if (openStory(a.dataset.story)) e.preventDefault(); }));
+
+// Formulario: donar, apadrinar, patrocinar... se abre aquí mismo con la opción ya elegida
+const TIPOS = {
+  donar: ["Donación", "Quiero donar"], apadrinar: ["Apadrinar un talento", "Apadrina un talento"],
+  patrocinar: ["Patrocinio", "Patrocina con tu marca"], especie: ["Donación en especie", "Dona en especie"],
+  voluntariado: ["Voluntariado", "Sé voluntario"], alianza: ["Alianza", "Construyamos juntos"],
+  inscripcion: ["Inscripción de un deportista", "Inscribe a tu hijo"], prensa: ["Prensa", "Prensa y medios"]
+};
+function openForm(tipo) {
+  if (!dlgForm) return false;
+  const t = TIPOS[tipo], form = dlgForm.querySelector("form");
+  if (t) form.elements.tipo.value = t[0];
+  dlgForm.querySelector("[data-form-title]").textContent = t ? t[1] : "Hablemos";
+  form.querySelector(".ok").hidden = true;
+  return openSheet(dlgForm, "#escribenos");
+}
+document.querySelectorAll("[data-form]").forEach(a => a.addEventListener("click", e => { if (openForm(a.dataset.form)) e.preventDefault(); }));
+
+// enlaces compartidos: …#historia-mitu o …#escribenos abren su ventana al cargar
+const deep = location.hash.match(/^#historia-([\w-]+)$/);
+if (deep) openStory(deep[1], false);
+else if (location.hash === "#escribenos") openForm();
+
+/* Preselección del formulario desde el enlace (apoya.html?tipo=donar#formulario) */
+try {
+  const t = TIPOS[new URLSearchParams(location.search).get("tipo")];
+  if (t) document.querySelectorAll("#formulario select[name=tipo]").forEach(s => s.value = t[0]);
+} catch {}
+
+/* Formulario: arma un correo con la información (sitio informativo, sin servidor) */
+document.querySelectorAll("form.form").forEach(form => {
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const d = new FormData(form);
+    const intereses = d.getAll("interes").join(", ") || "No especificado";
+    const asunto = `Sitio web · ${d.get("tipo") || "Contacto"} · ${d.get("nombre")}`;
+    const cuerpo = [
+      `Nombre: ${d.get("nombre")}`,
+      d.get("empresa") ? `Empresa / organización: ${d.get("empresa")}` : "",
+      `Correo: ${d.get("correo")}`,
+      d.get("telefono") ? `Teléfono: ${d.get("telefono")}` : "",
+      `Me interesa: ${intereses}`,
+      "", d.get("mensaje") || ""
+    ].filter(Boolean).join("\n");
+    const ok = form.querySelector(".ok");
+    if (ok) ok.hidden = false;
+    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+  });
+});
+
+/* Copiar correo */
+document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "Copiado"; }
+  catch { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  setTimeout(() => b.textContent = "Copiar", 1800);
+}));
+
+/* Videos: se reproducen solo cuando están en pantalla (al tocarlos se abre Instagram) */
 const vids = document.querySelectorAll(".reel video");
 if ("IntersectionObserver" in window && vids.length) {
   const io = new IntersectionObserver(es => es.forEach(e => {
@@ -155,19 +348,39 @@ if ("IntersectionObserver" in window && vids.length) {
   vids.forEach(v => io.observe(v));
 }
 
+/* Aliados: franja de logos en movimiento (la lista se duplica para que el giro no tenga cortes) */
+document.querySelectorAll("[data-marquee] .marquee-track").forEach(ul => {
+  if (reduced) return;
+  [...ul.children].forEach(li => { const c = li.cloneNode(true); c.setAttribute("aria-hidden", "true"); c.querySelectorAll("img").forEach(i => i.alt = ""); ul.append(c); });
+  ul.classList.add("moving");
+});
+
 /* Bitácora: filtros (y preselección desde el enlace: impacto.html?f=educacion#bitacora) */
 const fbtns = document.querySelectorAll(".filters button");
 fbtns.forEach(b => b.addEventListener("click", () => {
   fbtns.forEach(x => x.setAttribute("aria-pressed", x === b));
   const f = b.dataset.f;
-  document.querySelectorAll(".ev").forEach(ev => ev.hidden = f !== "all" && !ev.dataset.tags.includes(f));
+  document.querySelectorAll(".ev").forEach(ev => { ev.hidden = f !== "all" && !ev.dataset.tags.includes(f); if (!ev.hidden) refreshIn(ev); });
 }));
 try { const f = new URLSearchParams(location.search).get("f"); const b = f && [...fbtns].find(x => x.dataset.f === f); if (b) b.click(); } catch {}
 
+/* Recorrido de la página (Seven Colombia): marca la sección en la que vas */
+const pnav = document.querySelector(".page-nav");
+if (pnav && "IntersectionObserver" in window) {
+  const links = [...pnav.querySelectorAll("a")], secs = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const a = links.find(l => l.getAttribute("href") === "#" + e.target.id);
+    links.forEach(l => l.toggleAttribute("aria-current", l === a));
+    if (a) { const w = pnav.querySelector(".wrap"); w.scrollTo({ left: a.offsetLeft - 16, behavior: reduced ? "auto" : "smooth" }); }
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  secs.forEach(s => io.observe(s));
+}
+
 /* Aparición suave al hacer scroll: encabezados y tarjetas entran en escalonado */
-if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const sel = ".sec-head, .problem > *, .lines > *, .results > *, .stories > *, .territory > *, .reels, .allies, .cta-band .in, .feature > *, .duo > *, .cats > *, .model > *, .team > *, .goals > *, .ways > *, .gives > *, .sponsor, .gways > *, .tax-note, .packs > *, .steps > *, .tl-item, .ev";
-  const els = [...document.querySelectorAll(sel)].filter(el => el.getBoundingClientRect().top > innerHeight);
+if ("IntersectionObserver" in window && !reduced) {
+  const sel = ".sec-head, .problem > *, .lines > *, .s7 > *, .territory > *, .car-wrap, .cta-band .in, .feature > *, .duo > *, .goals > *, .gives, .sponsor, .gways > *, .tax-note, .steps > *, .tl-item, .ev, .aval > li, .aval-why, .club-tabs, .club-panel, .backers > *, .logos > *, .orgs > *, .contact > *, .next-note, .mv > *, .values";
+  const els = [...document.querySelectorAll(sel)].filter(el => !el.closest("dialog, template") && el.getBoundingClientRect().top > innerHeight);
   const reveal = el => {
     if (!el.classList.contains("pre")) return;
     el.classList.remove("pre"); ro.unobserve(el);
@@ -187,88 +400,5 @@ if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: re
   });
 }
 
-/* Formulario: arma un correo con la información (sitio informativo, sin servidor) */
-document.querySelectorAll("form.form").forEach(form => {
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    if (!form.reportValidity()) return;
-    const d = new FormData(form);
-    const intereses = d.getAll("interes").join(", ") || "No especificado";
-    const asunto = `Sitio web · ${d.get("tipo") || "Contacto"} · ${d.get("nombre")}`;
-    const cuerpo = [
-      `Nombre: ${d.get("nombre")}`,
-      d.get("empresa") ? `Empresa / organización: ${d.get("empresa")}` : "",
-      `Correo: ${d.get("correo")}`,
-      d.get("telefono") ? `Teléfono: ${d.get("telefono")}` : "",
-      `Me interesa: ${intereses}`,
-      "", d.get("mensaje") || ""
-    ].filter(Boolean).join("\n");
-    const ok = form.querySelector(".ok");
-    if (ok) { ok.hidden = false; }
-    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
-  });
-});
-
-/* Copiar correo */
-document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", async () => {
-  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "Copiado"; }
-  catch { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
-  setTimeout(() => b.textContent = "Copiar", 1800);
-}));
-
-/* Redes y WhatsApp desde la configuración */
-document.querySelectorAll("[data-social]").forEach(a => {
-  const url = SITE.social[a.dataset.social];
-  if (url) a.href = url; else a.remove();
-});
-document.querySelectorAll(".social").forEach(s => { if (!s.children.length) s.remove(); });
-document.querySelectorAll("[data-wa]").forEach(a => {
-  if (SITE.whatsapp) a.href = `https://wa.me/${SITE.whatsapp}`; else a.remove();
-});
-
-if (!SITE.whatsapp) document.querySelectorAll("[data-wa-row]").forEach(r => r.remove());
-
-/* Preselección del formulario desde el enlace (contacto.html?tipo=donar) */
-const tipoSel = document.getElementById("f-tipo");
-if (tipoSel) {
-  const map = { donar: "Donación", apadrinar: "Apadrinar un talento", patrocinar: "Patrocinio", especie: "Donación en especie", voluntariado: "Voluntariado", alianza: "Alianza", inscripcion: "Inscripción de un deportista", prensa: "Prensa" };
-  try { const t = new URLSearchParams(location.search).get("tipo"); if (t && map[t]) tipoSel.value = map[t]; } catch {}
-}
-
 /* Año actual */
 document.querySelectorAll("[data-year]").forEach(s => s.textContent = new Date().getFullYear());
-
-/* Carruseles: puntos, flechas (escritorio), teclado y arrastre con el dedo (scroll nativo con snap). */
-document.querySelectorAll("[data-carousel]").forEach((track, n) => {
-  const items = [...track.children];
-  track.tabIndex = 0;
-  track.setAttribute("role", "region");
-  track.setAttribute("aria-roledescription", "carrusel");
-  const arrow = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
-  const ui = document.createElement("div");
-  ui.className = "car-ui";
-  ui.innerHTML = `<div class="car-dots" role="group" aria-label="Elegir elemento">${items.map((_, i) => `<button type="button" aria-label="Ir al ${i + 1} de ${items.length}"></button>`).join("")}</div>
-    <div class="car-arrows"><button type="button" class="pv" aria-label="Anterior">${arrow("M15 6l-6 6 6 6")}</button><button type="button" class="nx" aria-label="Siguiente">${arrow("M9 6l6 6-6 6")}</button></div>`;
-  track.after(ui);
-  const dots = [...ui.querySelectorAll(".car-dots button")];
-  const pv = ui.querySelector(".pv"), nx = ui.querySelector(".nx");
-  const go = i => { const it = items[Math.max(0, Math.min(items.length - 1, i))]; track.scrollTo({ left: it.offsetLeft - items[0].offsetLeft, behavior: "smooth" }); };
-  const current = () => { const x = track.scrollLeft; let best = 0; items.forEach((it, i) => { if (Math.abs(it.offsetLeft - items[0].offsetLeft - x) < Math.abs(items[best].offsetLeft - items[0].offsetLeft - x)) best = i; }); return best; };
-  const update = () => {
-    const scrollable = track.scrollWidth > track.clientWidth + 4;
-    ui.hidden = !scrollable;
-    const c = current(), end = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
-    dots.forEach((d, i) => d.setAttribute("aria-current", String(end ? i === items.length - 1 : i === c)));
-    pv.disabled = track.scrollLeft <= 4; nx.disabled = end;
-  };
-  dots.forEach((d, i) => d.addEventListener("click", () => go(i)));
-  pv.addEventListener("click", () => go(current() - 1));
-  nx.addEventListener("click", () => go(current() + 1));
-  track.addEventListener("keydown", e => {
-    if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
-    if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
-  });
-  let t; track.addEventListener("scroll", () => { cancelAnimationFrame(t); t = requestAnimationFrame(update); }, { passive: true });
-  addEventListener("resize", update);
-  update();
-});
