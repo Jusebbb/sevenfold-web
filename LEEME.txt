@@ -72,3 +72,13 @@ Pendientes que envía la fundación
 11. Cifras del inicio e Impacto: la fundación las va a revisar y actualizar.
 
 Colores por línea: definidos en assets/css/styles.css (--c-dep, --c-edu, --c-amb), tomados del aro del logo.
+
+Historias y palmarés (formato blog) — desde el 17 de octubre de 2026
+--------------------------------------------------------------------
+Cada historia es un archivo en content/historias/ y cada resultado del palmarés uno en content/palmares/.
+Todos tienen la misma estructura (título, fecha, fotos, párrafos, cifras...). Para agregar uno: copia un archivo,
+cámbiale el "id" y el contenido, y corre  python3 build.py. Las tarjetas y las ventanas se generan solas.
+"pendiente": texto que se muestra en un recuadro amarillo; déjalo vacío ("") para ocultarlo.
+Gestor de contenidos: el archivo .pages.yml permite editar todo esto desde https://pagescms.org (iniciar sesión
+con la cuenta de GitHub que tenga acceso al repositorio).
+Informes de gestión: assets/docs/ y la lista INFORMES en build.py.

@@ -1,0 +1,68 @@
+# Gestor de contenidos (Pages CMS, https://pagescms.org): edita historias y palmarés desde el navegador.
+# Cada cambio queda como commit en GitHub; después se corre `python3 build.py` (o lo hace quien publique).
+media:
+  input: assets/img
+  output: assets/img
+content:
+  - name: historias
+    label: Historias (blog)
+    type: collection
+    path: content/historias
+    format: json
+    filename: "{fields.id}.json"
+    fields:
+      - { name: id, label: "Identificador (sin espacios, ej. pasos)", type: string, required: true }
+      - { name: orden, label: Orden, type: number }
+      - { name: publicada, label: Publicada, type: boolean, default: true }
+      - { name: linea, label: Línea, type: select, options: { values: [deporte, educacion, ambiente, solidaridad] } }
+      - { name: etiqueta, label: "Etiqueta (lugar o tema)", type: string }
+      - { name: fecha, label: Fecha, type: string }
+      - { name: titulo, label: Título, type: string, required: true }
+      - { name: resumen, label: "Resumen de la tarjeta", type: text }
+      - name: portada
+        label: Foto de portada
+        type: object
+        fields: [ { name: src, label: Foto, type: image }, { name: alt, label: "Descripción de la foto", type: string }, { name: pos, label: "Encuadre (ej. center 30%)", type: string } ]
+      - name: fotos
+        label: Fotos de la historia
+        type: object
+        list: true
+        fields: [ { name: src, label: Foto, type: image }, { name: alt, label: "Descripción de la foto", type: string }, { name: pos, label: Encuadre, type: string } ]
+      - { name: texto, label: Párrafos, type: text, list: true }
+      - name: cita
+        label: Cita (opcional)
+        type: object
+        fields: [ { name: texto, label: Cita, type: text }, { name: fuente, label: Fuente, type: string } ]
+      - name: podios
+        label: Podios (opcional)
+        type: object
+        list: true
+        fields: [ { name: categoria, label: Categoría, type: string }, { name: resultado, label: Resultado, type: string }, { name: oro, label: "¿Título?", type: boolean } ]
+      - name: cifras
+        label: Cifras (opcional)
+        type: object
+        list: true
+        fields: [ { name: valor, label: Valor, type: string }, { name: texto, label: Texto, type: string } ]
+      - { name: pendiente, label: "Nota de pendiente (visible; dejar vacío para ocultar)", type: string }
+  - name: palmares
+    label: Palmarés
+    type: collection
+    path: content/palmares
+    format: json
+    filename: "{fields.id}.json"
+    fields:
+      - { name: id, label: Identificador, type: string, required: true }
+      - { name: orden, label: Orden, type: number }
+      - { name: publicada, label: Publicado, type: boolean, default: true }
+      - { name: medalla, label: "Etiqueta (ej. 3 títulos)", type: string }
+      - { name: color, label: Color de la etiqueta, type: select, options: { values: [oro, azul, plata, bronce] } }
+      - { name: lugar, label: Lugar, type: string }
+      - { name: fecha, label: Fecha, type: string }
+      - { name: titulo, label: Título, type: string }
+      - { name: texto, label: Texto, type: text }
+      - name: foto
+        label: Foto
+        type: object
+        fields: [ { name: src, label: Foto, type: image }, { name: alt, label: Descripción, type: string }, { name: pos, label: Encuadre, type: string } ]
+      - { name: historia, label: "Abre la historia (id, opcional)", type: string }
+      - { name: album, label: "Abre el álbum de la galería (opcional)", type: string }
