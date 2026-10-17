@@ -1,0 +1,15 @@
+{
+  "id": "tabora",
+  "orden": 8,
+  "publicada": true,
+  "medalla": "3.er lugar",
+  "color": "bronce",
+  "lugar": "Bogotá",
+  "fecha": "2025 – 2026",
+  "titulo": "Octagonal Tabora",
+  "texto": "Con el respaldo de Movilser, un equipo competitivo que se quedó con el tercer lugar.",
+  "foto": {
+    "src": "assets/img/tabora.webp",
+    "alt": "Movilser Seven en el Octagonal Tabora"
+  }
+}

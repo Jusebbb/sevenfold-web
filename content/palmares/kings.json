@@ -1,0 +1,16 @@
+{
+  "id": "kings",
+  "orden": 4,
+  "publicada": true,
+  "medalla": "Campeones",
+  "color": "oro",
+  "lugar": "Kings League Américas",
+  "fecha": "2025 · 2026",
+  "titulo": "Jugadores Seven en la Kings League",
+  "texto": "Más de cinco jugadores formados con nosotros, en uno de los torneos más innovadores del fútbol 7.",
+  "foto": {
+    "src": "assets/img/kings-league.webp",
+    "alt": "Jugadores formados en Seven, campeones de la Kings League"
+  },
+  "historia": "kings"
+}

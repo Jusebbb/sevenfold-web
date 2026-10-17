@@ -3,27 +3,43 @@
   <div class="wrap">
     <span class="eyebrow">Impacto 2025 – 2026</span>
     <h1 class="h-xl mt-s">Cómo hemos <span class="hl">cambiado vidas</span></h1>
-    <p class="lead">Deporte, educación y ambiente: cifras, historias y cada jornada en Bogotá, Huila, Vaupés y Chocó.</p>
+    <p class="lead">Deporte, educación y ambiente: cifras, historias y cada jornada en Bogotá, Vaupés y Chocó.</p>
   </div>
 </section>
 
-<!-- Cifras -->
+<!-- Avance 2025 + eventos 2026 + informes -->
 <section class="sec white" id="informe">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Primer informe de gestión · 2025</span>
-      <h2 class="h-lg mt-s">Seis meses, 280 jóvenes</h2>
+    <div class="sec-head split">
+      <div><span class="eyebrow">Nuestro avance</span><h2 class="h-lg mt-s">De 2025 a hoy</h2></div>
+      <p class="lead">La Fundación nació legalmente en julio de 2025. Esto es lo que hemos logrado desde entonces, con cada aliado, familia y voluntario.</p>
     </div>
-    <div class="goals">
-      <div class="goal"><b>280+</b><span>jóvenes beneficiados directamente en Bogotá, Huila y Vaupés</span></div>
-      <div class="goal"><b>69</b><span>deportistas representando a Colombia en torneos internacionales</span></div>
-      <div class="goal"><b>5</b><span>resultados destacados en México: 3 campeonatos, 1 subcampeonato y 1 tercer lugar</span></div>
-      <div class="goal"><b>1</b><span>club deportivo creado: Seven Vaupés F.C., con 35 jóvenes</span></div>
-      <div class="goal"><b>120</b><span>jóvenes con entrenamiento gratuito permanente en Bogotá</span></div>
-      <div class="goal"><b>60</b><span>jóvenes y 4 equipos en el primer torneo de fútbol 7 en Garzón</span></div>
-      <div class="goal"><b>2</b><span>torneos internacionales: Curitiba (Brasil) y Mérida (México)</span></div>
-      <div class="goal"><b>2</b><span>jóvenes de Vaupés proyectados a la Selección Colombia</span></div>
+    <div class="progress">
+      <article class="progress-year">
+        <span class="py">2025</span>
+        <div>
+          <h3>Un primer año para echar raíces</h3>
+          <p>Le dimos estructura institucional a un proceso de más de quince años en las canchas de Bogotá. Acompañamos a más de 280 niños y jóvenes, creamos Seven Vaupés F.C. en Mitú con 35 jóvenes y llevamos a 69 deportistas a representar a Colombia en Curitiba (Brasil) y Mérida (México), de donde la delegación volvió con tres títulos.</p>
+          <ul class="mini-stats"><li><b>280+</b>niños y jóvenes</li><li><b>69</b>deportistas por Colombia</li><li><b>3</b>títulos en Mérida</li></ul>
+        </div>
+      </article>
+      <article class="progress-year">
+        <span class="py">2026</span>
+        <div>
+          <h3>Lo que hemos hecho este año</h3>
+          <ol class="ev-list">
+            <li><b>Febrero</b>Más de 150 kits escolares para niños y jóvenes de Mitú.</li>
+            <li><b>Mayo</b>20 kits escolares más para el Vaupés.</li>
+            <li><b>Junio</b>Campamento Nacional de Fútbol 7 en Bogotá, con el equipo de Seven Vaupés F.C.</li>
+            <li><b>Julio – agosto</b>Colombia en la F7 Intercontinental Cup, en Roma.</li>
+            <li><b>Agosto</b>Tres camiones de ayuda humanitaria para el Chocó y la jornada «Juntos por Chocó».</li>
+            <li><b>Septiembre</b>Subcampeones de la Superliga.</li>
+            <li><b>2026</b>420 pares de zapatos de Milo Shoes (Nestlé) en Chocó, Mitú, Bogotá y Pereira.</li>
+          </ol>
+        </div>
+      </article>
     </div>
+    <div class="mt-l">{{informes}}</div>
   </div>
 </section>
 
@@ -34,7 +50,7 @@
       <div><span class="eyebrow">Historias</span><h2 class="h-lg mt-s">Vidas que cambiaron de rumbo</h2></div>
       <p class="lead">Toca una historia para leerla completa, sin salir de esta página.</p>
     </div>
-    {{include:_historias.html}}
+    {{historias}}
   </div>
 </section>
 
@@ -65,17 +81,18 @@
       </article>
 
       <article class="ev" data-tags="deporte">
-        <div class="when"><span>Agosto 2026 · Bogotá</span><b>Exhibición de fútbol 7</b></div>
+        <div class="when"><span>Agosto 2026 · Bogotá</span><b>Juntos por Chocó</b></div>
         <div class="what">
-          <h3>Una cancha compartida</h3>
-          <p>Seven Bogotá F.C., la escuela de Rafa Robayo y exjugadores profesionales se encontraron en una exhibición de fútbol 7.</p>
-          <div class="chips"><span class="chip">R8R Rafa Robayo</span><span class="chip">Seven Bogotá F.C.</span></div>
+          <h3>El fútbol que nos une</h3>
+          <p>Exfutbolistas profesionales, artistas y las selecciones Colombia de Fútbol 7 masculina y femenina compartieron la cancha en el Polideportivo Simón Bolívar, en una jornada de recolección de donaciones para el Chocó.</p>
+          <div class="chips"><span class="chip">Fundación Artistas F.C.</span><span class="chip">R8R Rafa Robayo</span></div>
+          <a class="link-arrow" href="#historia-juntos" data-story="juntos">Leer la historia {{icon:arrow}}</a>
         </div>
       </article>
 
       <article class="ev" data-tags="solidaridad">
         <div class="when"><span>Agosto 2026 · Chocó</span><b>Ayuda humanitaria al Chocó</b>
-          <div class="kpis"><div><strong>15 t+</strong><small>de ayudas</small></div><div><strong>2</strong><small>centros de acopio</small></div><div><strong>30+</strong><small>voluntarios</small></div></div></div>
+          <div class="kpis"><div><strong>3</strong><small>camiones de ayuda</small></div></div></div>
         <div class="what">
           <h3>Del centro de acopio al río</h3>
           <p>Recolectamos mercados, agua y elementos básicos en Bogotá con la comunidad, aliados y ciudadanos. Luego los llevamos a las comunidades afectadas por el sismo en San Juan, Río Pepé y Baudó.</p>
@@ -84,14 +101,14 @@
         </div>
         <div class="pc pc-ev" data-pc aria-label="Fotos de la ayuda al Chocó"><div class="pc-track">
           <figure class="pc-slide"><img src="assets/img/choco-lancha.webp" alt="Descarga de ayudas desde la lancha"></figure>
-          <figure class="pc-slide"><img src="assets/img/simon-bolivar.webp" alt="Jornada solidaria en el Polideportivo Simón Bolívar"></figure>
+          
           <figure class="pc-slide"><img src="assets/img/choco-camion.webp" alt="Ayudas cargadas en el camión"></figure>
-          <figure class="pc-slide"><img src="assets/img/choco-kit3.webp" alt="Entrega de ayudas a un niño"></figure>
+          
           <figure class="pc-slide"><img src="assets/img/choco-rio.webp" alt="Voluntario cargando ayudas junto al río"></figure>
           <figure class="pc-slide"><img src="assets/img/simon-bolivar2.webp" alt="Equipos y voluntarios en Simón Bolívar"></figure>
           <figure class="pc-slide"><img src="assets/img/simon-bolivar3.webp" alt="Equipo femenino aliado en la jornada solidaria"></figure>
           <figure class="pc-slide"><img src="assets/img/choco-donaciones.webp" alt="Caja de donaciones Kit-Mercado de la Fundación"></figure>
-          <figure class="pc-slide"><img src="assets/img/choco-kit1.webp" alt="Entrega de mercado a una niña"></figure>
+          
           <figure class="pc-slide"><img src="assets/img/choco-acopio.webp" alt="Voluntarios en el centro de acopio"></figure>
         </div></div>
       </article>
@@ -127,13 +144,20 @@
       </article>
 
       <article class="ev" data-tags="educacion">
-        <div class="when"><span>2026 · Mitú y Pereira</span><b>Calzado para ir a clase</b>
-          <div class="kpis"><div><strong>110</strong><small>pares de zapatos</small></div><div><strong>2</strong><small>ciudades</small></div></div></div>
+        <div class="when"><span>2026 · Chocó, Mitú, Bogotá y Pereira</span><b>Pasos que llegan más lejos</b>
+          <div class="kpis"><div><strong>420</strong><small>pares de zapatos</small></div><div><strong>4</strong><small>territorios</small></div></div></div>
         <div class="what">
           <h3>Zapatos nuevos, junto a Nestlé</h3>
-          <p>Gestionamos 110 pares de zapatos en alianza con Nestlé para niños y niñas de Mitú y Pereira.</p>
-          <div class="chips"><span class="chip">Nestlé</span><span class="chip">Educación</span></div>
+          <p>Con la donación de Milo Shoes de Nestlé entregamos zapatos a niños y jóvenes de Río Pepé (Chocó), una comunidad indígena de Mitú (Vaupés), Bogotá y Pereira.</p>
+          <div class="chips"><span class="chip">Nestlé · Milo Shoes</span><span class="chip">Educación</span></div>
+          <a class="link-arrow" href="#historia-pasos" data-story="pasos">Leer la historia {{icon:arrow}}</a>
         </div>
+        <div class="pc pc-ev" data-pc aria-label="Fotos de la entrega de zapatos"><div class="pc-track">
+          <figure class="pc-slide"><img src="assets/img/choco-kit2.webp" alt="Entrega de zapatos Milo Shoes en el Chocó"></figure>
+          <figure class="pc-slide"><img src="assets/img/kits-colegio.webp" alt="Niños de Bogotá con sus zapatos Milo Shoes"></figure>
+          <figure class="pc-slide"><img src="assets/img/choco-kit1.webp" alt="Niña del Chocó con sus zapatos nuevos"></figure>
+          <figure class="pc-slide"><img src="assets/img/simon-bolivar.webp" alt="Entrega de zapatos en Bogotá con la Escuela R8R"></figure>
+        </div></div>
       </article>
 
       <article class="ev" data-tags="educacion">
@@ -155,8 +179,8 @@
         <div class="when"><span>6 May 2026 · Bogotá</span><b>Encuentro Deportivo Sub‑13</b>
           <div class="kpis"><div><strong>78+</strong><small>jugadores</small></div><div><strong>6</strong><small>equipos</small></div></div></div>
         <div class="what">
-          <h3>Garzón y Bogotá en la misma cancha</h3>
-          <p>Patrocinamos un torneo relámpago en el Parque Metrópolis: organización deportiva, alquiler del escenario y transporte del equipo de Garzón, Huila, hasta Bogotá. Hubo premios al mejor equipo y al mejor entrenador.</p>
+          <h3>Un torneo relámpago en Bogotá</h3>
+          <p>Patrocinamos un torneo relámpago en el Parque Metrópolis: organización deportiva, alquiler del escenario y transporte de un equipo invitado. Hubo premios al mejor equipo y al mejor entrenador.</p>
         </div>
         <div class="pc pc-ev" data-pc aria-label="Fotos del encuentro Sub-13"><div class="pc-track">
           <figure class="pc-slide"><img src="assets/img/sub13-grupo.webp" alt="Equipos del encuentro Sub-13"></figure>
@@ -234,20 +258,7 @@
         </div></div>
       </article>
 
-      <article class="ev" data-tags="deporte">
-        <div class="when"><span>2025 · Garzón, Huila</span><b>Primer torneo de fútbol 7 en Huila</b>
-          <div class="kpis"><div><strong>60</strong><small>jóvenes</small></div><div><strong>4</strong><small>equipos</small></div></div></div>
-        <div class="what">
-          <h3>El fútbol 7 llega al sur del país</h3>
-          <p>Con la Fundación Triunfadores y la visita de Jhon Cárdenas, el exjugador profesional Óscar Castiblanco y Andrés Chacón, sentamos las bases de un proceso permanente en el territorio.</p>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Fotos del torneo en Garzón"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/huila-premiacion.webp" alt="Premiación en Garzón"></figure>
-          <figure class="pc-slide"><img src="assets/img/huila-campeones.webp" alt="Equipo campeón en Garzón"></figure>
-          <figure class="pc-slide"><img src="assets/img/huila-cancha.webp" alt="Cancha del torneo"></figure>
-          <figure class="pc-slide"><img src="assets/img/huila-equipo.webp" alt="Equipo participante"></figure>
-        </div></div>
-      </article>
+      
 
       <article class="ev" data-tags="deporte">
         <div class="when"><span>2025 · Mitú, Vaupés</span><b>Nace Seven Vaupés F.C.</b>

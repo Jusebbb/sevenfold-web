@@ -1,0 +1,56 @@
+{
+  "id": "pasos",
+  "orden": 5,
+  "publicada": true,
+  "linea": "educacion",
+  "etiqueta": "Nestlé · Milo Shoes",
+  "fecha": "2026",
+  "titulo": "Pasos que llegan más lejos",
+  "resumen": "420 pares de zapatos, junto a Nestlé y Milo Shoes, en cuatro territorios de Colombia.",
+  "portada": {
+    "src": "assets/img/kits-colegio.webp",
+    "alt": "Niños en Bogotá con sus zapatos Milo Shoes, donación de Nestlé"
+  },
+  "fotos": [
+    {
+      "src": "assets/img/choco-kit2.webp",
+      "alt": "Entrega de zapatos Milo Shoes a un joven en Río Pepé, Chocó"
+    },
+    {
+      "src": "assets/img/choco-kit1.webp",
+      "alt": "Niña de Río Pepé, Chocó, recibe sus zapatos Milo Shoes"
+    },
+    {
+      "src": "assets/img/choco-kit3.webp",
+      "alt": "Niño del Chocó con sus zapatos nuevos de Milo Shoes"
+    },
+    {
+      "src": "assets/img/kits-colegio.webp",
+      "alt": "Niños en Bogotá con sus zapatos Milo Shoes"
+    },
+    {
+      "src": "assets/img/simon-bolivar.webp",
+      "alt": "Entrega de zapatos Milo Shoes en Bogotá con la Escuela R8R Rafa Robayo"
+    },
+    {
+      "src": "assets/img/kits-colegio2.webp",
+      "alt": "Niños y familias de Bogotá en la entrega de zapatos Milo Shoes"
+    }
+  ],
+  "texto": [
+    "Un par de zapatos puede marcar una diferencia en la vida de un niño: le permite caminar con comodidad, jugar, compartir y disfrutar de sus actividades cotidianas con mayor bienestar. Por eso, junto a Nestlé y su donación de Milo Shoes, llevamos esta iniciativa a diferentes territorios de Colombia.",
+    "La entrega llegó a Río Pepé, en Chocó; a una comunidad indígena de Mitú, Vaupés, y a niños y jóvenes de Bogotá y Pereira. Cuatro destinos donde esta donación se convirtió en un aporte concreto para sus comunidades.",
+    "En total entregamos 420 pares de zapatos: 150 en Chocó, 100 en Mitú, 60 en Bogotá y 110 en Pereira. Esta alianza demuestra cómo el trabajo conjunto puede conectar recursos con quienes los necesitan y contribuir al bienestar de niños y jóvenes en distintas regiones del país."
+  ],
+  "cifras": [
+    {
+      "valor": "420",
+      "texto": "pares de zapatos"
+    },
+    {
+      "valor": "4",
+      "texto": "territorios"
+    }
+  ],
+  "pendiente": "Faltan fotos de las entregas en Mitú y Pereira"
+}

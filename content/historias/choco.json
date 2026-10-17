@@ -1,0 +1,52 @@
+{
+  "id": "choco",
+  "orden": 6,
+  "publicada": true,
+  "linea": "solidaridad",
+  "etiqueta": "Chocó · Agosto 2026",
+  "fecha": "Agosto de 2026",
+  "titulo": "15 toneladas de solidaridad",
+  "resumen": "Del centro de acopio en Bogotá hasta los ríos del Pacífico: tres camiones de ayuda humanitaria.",
+  "portada": {
+    "src": "assets/img/choco-entrega.webp",
+    "alt": "Voluntarios entregando ayudas humanitarias en el río, en el Chocó"
+  },
+  "fotos": [
+    {
+      "src": "assets/img/choco-lancha2.webp",
+      "alt": "Voluntarios cargando ayudas en una lancha en un río del Chocó"
+    },
+    {
+      "src": "assets/img/choco-entrega.webp",
+      "alt": "Voluntarios entregando ayudas humanitarias en el río"
+    },
+    {
+      "src": "assets/img/choco-acopio.webp",
+      "alt": "Voluntarios y aliados con el camión cargado de ayudas para el Chocó"
+    },
+    {
+      "src": "assets/img/choco-camion.webp",
+      "alt": "Ayudas cargadas en el camión rumbo al Chocó"
+    },
+    {
+      "src": "assets/img/choco-lancha.webp",
+      "alt": "Descarga de ayudas desde la lancha"
+    },
+    {
+      "src": "assets/img/choco-donaciones.webp",
+      "alt": "Caja de donaciones marcada para el Chocó"
+    }
+  ],
+  "texto": [
+    "Tras la emergencia que afectó a comunidades del Chocó, movilizamos una iniciativa solidaria para reunir y llevar ayuda humanitaria a las familias afectadas. A través de jornadas de recolección y centros de acopio en Bogotá, convocamos a personas, organizaciones y aliados que se sumaron con sus donaciones y su disposición para ayudar.",
+    "A esta movilización se sumó una jornada deportiva de recolección, realizada junto a la Fundación Artistas Fútbol Club, la escuela deportiva R8R Rafa Robayo y otros aliados, que unieron esfuerzos para ampliar el alcance de la iniciativa.",
+    "Gracias al trabajo conjunto de voluntarios y colaboradores, reunimos y organizamos las donaciones para llenar tres camiones con ayuda para las comunidades de San Juan, Río Pepé y Baudó. Los suministros viajaron por carretera y por río para entregarlos directamente a las familias.",
+    "Esta experiencia demuestra la fuerza de la solidaridad colectiva y acompaña nuestra proyección en el departamento, donde avanzamos en la creación de Seven Chocó."
+  ],
+  "cifras": [
+    {
+      "valor": "3",
+      "texto": "camiones de ayuda humanitaria"
+    }
+  ]
+}

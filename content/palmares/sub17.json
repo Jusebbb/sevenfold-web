@@ -1,0 +1,16 @@
+{
+  "id": "sub17",
+  "orden": 6,
+  "publicada": true,
+  "medalla": "Campeón Sub-17",
+  "color": "oro",
+  "lugar": "Seven Bogotá F.C.",
+  "fecha": "2025",
+  "titulo": "Generación Sub-17",
+  "texto": "La categoría Sub-17 se consagró campeona internacional en Mérida. Son la muestra de lo que viene.",
+  "foto": {
+    "src": "assets/img/sub17.webp",
+    "alt": "Afiche del equipo Seven Bogotá F.C. Sub 17",
+    "pos": "center 30%"
+  }
+}

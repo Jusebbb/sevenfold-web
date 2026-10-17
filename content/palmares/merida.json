@@ -1,0 +1,16 @@
+{
+  "id": "merida",
+  "orden": 1,
+  "publicada": true,
+  "medalla": "3 títulos",
+  "color": "oro",
+  "lugar": "Mérida, México",
+  "fecha": "Nov 2025",
+  "titulo": "Torneo Internacional de Fútbol 7",
+  "texto": "Tres títulos, un subcampeonato y un tercer lugar con 41 deportistas de cuatro regiones.",
+  "foto": {
+    "src": "assets/img/merida-campeones2.webp",
+    "alt": "Delegación colombiana campeona en Mérida"
+  },
+  "historia": "merida"
+}

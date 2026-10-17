@@ -1,0 +1,15 @@
+{
+  "id": "florianopolis-2024",
+  "orden": 7,
+  "publicada": true,
+  "medalla": "Participación",
+  "color": "azul",
+  "lugar": "Florianópolis, Brasil",
+  "fecha": "2024",
+  "titulo": "Mundial de Clubes y Copa de las Américas FIF7",
+  "texto": "Seven Bogotá F.C. (Única), Selección Colombia, Sub-13, Sub-15 y equipo femenino.",
+  "foto": {
+    "src": "assets/img/floripa-rojo.webp",
+    "alt": "Equipo de Seven en Florianópolis"
+  }
+}

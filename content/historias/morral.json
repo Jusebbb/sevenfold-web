@@ -1,0 +1,60 @@
+{
+  "id": "morral",
+  "orden": 4,
+  "publicada": true,
+  "linea": "educacion",
+  "etiqueta": "Vaupés · Educación",
+  "fecha": "Febrero y mayo de 2026",
+  "titulo": "Un morral para todo el año",
+  "resumen": "Dos jornadas de entrega de kits escolares para estudiantes de distintas comunidades de Mitú.",
+  "portada": {
+    "src": "assets/img/mitu-kits-ninos2.webp",
+    "alt": "Niños de Mitú con sus maletas escolares nuevas"
+  },
+  "fotos": [
+    {
+      "src": "assets/img/mitu-kits-grupo.webp",
+      "alt": "Foto grupal de la entrega de kits escolares en Mitú, febrero de 2026"
+    },
+    {
+      "src": "assets/img/mitu-kits-ninos2.webp",
+      "alt": "Niños de Mitú con sus maletas escolares nuevas"
+    },
+    {
+      "src": "assets/img/mitu-kits-entrega.webp",
+      "alt": "Entrega de los kits escolares en Mitú"
+    },
+    {
+      "src": "assets/img/mitu-kits-fila.webp",
+      "alt": "Niños recibiendo sus kits en fila"
+    },
+    {
+      "src": "assets/img/mitu-kits-banca.webp",
+      "alt": "Niños de Mitú con sus kits en el salón"
+    },
+    {
+      "src": "assets/img/mitu-kits-banca2.webp",
+      "alt": "Jóvenes del Vaupés con sus kits, entrega de mayo de 2026"
+    },
+    {
+      "src": "assets/img/mitu-kits-mesa.webp",
+      "alt": "Kits escolares listos para entregar"
+    }
+  ],
+  "texto": [
+    "En Mitú, Vaupés, acompañar los procesos educativos también significa acercar herramientas que apoyen el aprendizaje de niños, niñas y jóvenes. En febrero de 2026 hicimos una jornada de entrega de más de 150 kits escolares para estudiantes de distintas comunidades del municipio. Cada kit incluía morral, cuadernos, colores, tajalápiz, cartuchera y borrador.",
+    "En mayo continuamos con una nueva entrega de 20 kits escolares, ampliando el apoyo educativo a jóvenes del territorio.",
+    "Con estas acciones buscamos brindar herramientas para las actividades académicas y acompañar a las nuevas generaciones en su proceso de aprendizaje."
+  ],
+  "cifras": [
+    {
+      "valor": "170+",
+      "texto": "kits escolares entregados"
+    },
+    {
+      "valor": "2",
+      "texto": "jornadas de entrega en Mitú"
+    }
+  ],
+  "pendiente": "Confirmar con el cliente: 150 o 120 kits en febrero (los documentos no coinciden)"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "roma-2026",
+  "orden": 2,
+  "publicada": true,
+  "medalla": "Mundial FIF7",
+  "color": "azul",
+  "lugar": "Roma, Italia",
+  "fecha": "Jul – Ago 2026",
+  "titulo": "F7 Intercontinental Cup",
+  "texto": "La Copa Mundial de fútbol 7 de la FIF7, con equipos profesional masculino, femenino y mayores de 35.",
+  "foto": {
+    "src": "assets/img/roma-campeones.webp",
+    "alt": "Ceremonia de la F7 Intercontinental Cup en Roma"
+  },
+  "album": "roma"
+}

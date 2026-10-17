@@ -1,0 +1,52 @@
+{
+  "id": "kings",
+  "orden": 3,
+  "publicada": true,
+  "linea": "deporte",
+  "etiqueta": "Proyección profesional",
+  "fecha": "2025 – 2026",
+  "titulo": "Del barrio a la Kings League",
+  "resumen": "Formados en nuestras canchas, hoy juegan en uno de los torneos más vistos del fútbol 7.",
+  "portada": {
+    "src": "assets/img/kings-2.webp",
+    "alt": "Jugador formado en Seven con la camiseta de su club de la Kings League",
+    "pos": "center 20%"
+  },
+  "fotos": [
+    {
+      "src": "assets/img/kings-league.webp",
+      "alt": "Afiche de la Kings League con jugadores formados en Seven"
+    },
+    {
+      "src": "assets/img/kings-2.webp",
+      "alt": "Jugador formado en Seven con la camiseta de su club de la Kings League",
+      "pos": "center 20%"
+    },
+    {
+      "src": "assets/img/kings-3.webp",
+      "alt": "Jugador formado en Seven en la Kings League, camiseta blanca",
+      "pos": "center 20%"
+    },
+    {
+      "src": "assets/img/jugador-1.webp",
+      "alt": "Arquero formado en Seven con la camiseta verde de su club",
+      "pos": "center 15%"
+    }
+  ],
+  "texto": [
+    "Jugadores formados en nuestros procesos llegaron a uno de los torneos más mediáticos del fútbol 7 en el mundo. Varios se coronaron campeones.",
+    "Stiven Velandia se formó en Seven y llegó a la Kings League. Hoy está del otro lado: es formador de los niños que vienen detrás.",
+    "Brayan viene de un barrio muy marginado. Hoy es titular y ya lo han fichado tres equipos."
+  ],
+  "cifras": [
+    {
+      "valor": "5+",
+      "texto": "jugadores en la Kings League Américas"
+    },
+    {
+      "valor": "30+",
+      "texto": "jóvenes en clubes profesionales"
+    }
+  ],
+  "pendiente": "Historia por ampliar con información de Daniela (cliente)"
+}

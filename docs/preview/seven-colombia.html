@@ -14,7 +14,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1320'/%3E%3Cpath d='M50 20A22 22 0 1 0 52 40' fill='none' stroke='%231E7A4B' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M44 13A22 22 0 0 1 53 27' fill='none' stroke='%23F2C40F' stroke-width='7' stroke-linecap='round'/%3E%3Ctext x='32' y='42' font-family='Arial Black,Arial' font-weight='900' font-size='26' text-anchor='middle' fill='%23fff'%3E7%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/styles.css?v=7d0d9b68">
+<link rel="stylesheet" href="assets/css/styles.css?v=48e77815">
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -42,20 +42,32 @@
 
 <!-- Recorrido de la página: saltos dentro de la misma página -->
 <nav class="page-nav" aria-label="En esta página"><div class="wrap">
-  <a href="#aval">El aval</a><a href="#clubes">Clubes</a><a href="#categorias">Categorías</a><a href="#palmares">Palmarés</a><a href="#kings">Kings League</a><a href="#temporada">Temporada</a><a href="#galeria">Galería</a>
+  <a href="#asociacion">La Asociación</a><a href="#aval">El aval</a><a href="#clubes">Clubes</a><a href="#categorias">Categorías</a><a href="#palmares">Palmarés</a><a href="#kings">Kings League</a><a href="#temporada">Temporada</a><a href="#galeria">Galería</a>
 </div></nav>
+
+<!-- Qué es la Asociación Colombiana de Fútbol 7 -->
+<section class="sec" id="asociacion">
+  <div class="wrap assoc">
+    <span class="assoc-logo"><img loading="lazy" src="assets/logos/asociacion-f7.webp" alt="Escudo de la Asociación Colombiana de Fútbol 7"></span>
+    <div>
+      <span class="eyebrow">Quiénes nos avalan</span>
+      <h2 class="h-md mt-s">Asociación Colombiana de Fútbol 7</h2>
+      <p class="lead mt-s">La Asociación Colombiana de Fútbol 7, avalada por la Federación Internacional de Fútbol 7 (FIF7), es la entidad encargada de representar oficialmente a Colombia en las competencias internacionales de esta disciplina, promoviendo el desarrollo, la proyección y el posicionamiento del fútbol 7 colombiano en el mundo.</p>
+    </div>
+  </div>
+</section>
 
 <!-- El aval: cómo funciona el ecosistema -->
 <section class="sec white" id="aval">
   <div class="wrap">
     <div class="sec-head split">
-      <div><span class="eyebrow">El aval</span><h2 class="h-lg mt-s">Un proceso oficial, de la cancha al mundo</h2></div>
+      <div><span class="eyebrow">El aval</span><h2 class="h-lg mt-s">Del barrio a los grandes escenarios del fútbol 7 profesional mundial</h2></div>
       <p class="lead">Cada jugador que forma Seven Colombia compite dentro del sistema oficial del fútbol 7. Así funciona:</p>
     </div>
     <ol class="aval">
       <li><span class="crest"><img loading="lazy" src="assets/logos/fif7.webp" alt=""></span><span class="k">Federación internacional</span><h3>FIF7</h3><p>Máxima autoridad mundial del fútbol 7: organiza la Copa del Mundo y el Mundial de Clubes.</p></li>
       <li><span class="crest"><img loading="lazy" src="assets/logos/asociacion-f7.webp" alt=""></span><span class="k">Representante oficial en Colombia</span><h3>Asociación Colombiana de Fútbol 7</h3><p>Seven Colombia: regula, promueve y desarrolla el fútbol 7 en el país y conforma la Selección Colombia.</p></li>
-      <li><span class="crest duo-crest"><img loading="lazy" src="assets/logos/seven-fc.webp" alt=""><img loading="lazy" src="assets/logos/seven-vaupes.webp" alt=""></span><span class="k">Formación y competencia</span><h3>Clubes Seven</h3><p>Seven Bogotá F.C. y Seven Vaupés F.C., de Sub 11 a la categoría única. Seven Chocó, en camino.</p></li>
+      <li><span class="crest duo-crest"><img loading="lazy" src="assets/logos/seven-fc.webp" alt=""><img loading="lazy" src="assets/logos/seven-vaupes.webp" alt=""></span><span class="k">Formación y competencia</span><h3>Nuestros clubes</h3><p>Seven Bogotá F.C., Seven Vaupés F.C., Gol7 Colombia y Cafeteros Fut Talla Baja. Seven Chocó, en camino.</p></li>
       <li><span class="crest"><img loading="lazy" src="assets/logo-dark.png" alt=""></span><span class="k">Brazo social · ESAL</span><h3>Fundación Sevenfold</h3><p>Hace posible que los niños entrenen gratis, sigan estudiando y viajen a competir.</p></li>
     </ol>
     <div class="aval-why">
@@ -74,12 +86,14 @@
   <div class="pitch-lines" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head split">
-      <div><span class="eyebrow">Nuestros clubes</span><h2 class="h-lg mt-s">Tres territorios, una sola camiseta</h2></div>
+      <div><span class="eyebrow">Nuestros clubes</span><h2 class="h-lg mt-s">Una sola camiseta, muchas historias</h2></div>
       <p class="lead">Toca un escudo para conocer cada club.</p>
     </div>
-    <div class="club-tabs" role="tablist" aria-label="Clubes de Seven Colombia" data-tabs>
+    <div class="club-tabs five" role="tablist" aria-label="Clubes de Seven Colombia" data-tabs>
       <button type="button" role="tab" id="t-bogota" aria-selected="true" aria-controls="p-bogota"><span class="crest"><img loading="lazy" src="assets/logos/seven-fc.webp" alt=""></span><span><b>Seven Bogotá F.C.</b><small>Bogotá · desde 2012</small></span></button>
       <button type="button" role="tab" id="t-vaupes" aria-selected="false" aria-controls="p-vaupes" tabindex="-1"><span class="crest"><img loading="lazy" src="assets/logos/seven-vaupes.webp" alt=""></span><span><b>Seven Vaupés F.C.</b><small>Mitú · desde 2025</small></span></button>
+      <button type="button" role="tab" id="t-gol7" aria-selected="false" aria-controls="p-gol7" tabindex="-1"><span class="crest soon" aria-hidden="true">G7</span><span><b>Gol7 Colombia</b><small>Selección femenina</small></span></button>
+      <button type="button" role="tab" id="t-cafeteros" aria-selected="false" aria-controls="p-cafeteros" tabindex="-1"><span class="crest"><img loading="lazy" src="assets/logos/cafeteros.webp" alt=""></span><span><b>Cafeteros Fut TB</b><small>Fútbol talla baja</small></span></button>
       <button type="button" role="tab" id="t-choco" aria-selected="false" aria-controls="p-choco" tabindex="-1"><span class="crest soon" aria-hidden="true">7</span><span><b>Seven Chocó</b><small>Pacífico · próximamente</small></span></button>
     </div>
 
@@ -93,12 +107,12 @@
         <figure class="pc-slide"><img loading="lazy" src="assets/img/camp-grupo2.webp" alt="Participantes y entrenadores del campamento en Bogotá"></figure>
       </div></div>
       <div class="club-txt">
-        <span class="eyebrow">Bogotá · Engativá</span>
+        <span class="eyebrow">Bogotá · Engativá y Barrios Unidos</span>
         <h3 class="h-md">Seven Bogotá F.C.</h3>
-        <p>Donde nació todo. Desde 2012 forma a niños y jóvenes de barrios golpeados por la pobreza y la violencia, que entrenan gratis de lunes a viernes. Los mejores integran las delegaciones que representan a Colombia.</p>
+        <p>Equipo profesional de fútbol 7 con reconocimiento internacional desde 2015. Reúne a niños y jóvenes de barrios populares y de distintas realidades sociales y culturales, que encuentran en el fútbol 7 un espacio para crecer, fortalecer su carácter y construir un proyecto de vida.</p>
         <ul class="club-facts">
           <li><b>120+</b>jóvenes con entrenamiento gratuito</li>
-          <li><b>Sub 11 – Única</b>todas las categorías</li>
+          <li><b>7</b>categorías deportivas</li>
           <li><b>Cuartos</b>de final en el Mundial de Clubes FIF7, Curitiba 2025</li>
         </ul>
       </div>
@@ -116,13 +130,46 @@
       <div class="club-txt">
         <span class="eyebrow">Mitú · Amazonía</span>
         <h3 class="h-md">Seven Vaupés F.C.</h3>
-        <p>La Amazonía también juega. Creado en 2025 en Mitú, ofrece formación gratuita en fútbol 7 para identificar, formar y proyectar talentos del Vaupés. En junio de 2026 el equipo viajó a Bogotá para el campamento nacional.</p>
+        <p>El talento de la Amazonía también juega para Colombia. En Mitú impulsamos Seven Vaupés F.C., un proceso deportivo que abre oportunidades para jóvenes de comunidades indígenas. Con el fútbol 7 fortalecemos sus capacidades, promovemos el trabajo en equipo y proyectamos nuevos talentos hacia escenarios nacionales e internacionales.</p>
         <ul class="club-facts">
-          <li><b>35</b>jóvenes de 17 a 23 años</li>
-          <li><b>2</b>representaron a Colombia en Mérida 2025</li>
-          <li><b>170+</b>kits escolares para sus comunidades</li>
+          <li><b>35</b>jóvenes vinculados al club</li>
+          <li><b>2</b>jóvenes ya llegaron a escenarios internacionales</li>
         </ul>
         <a class="link-arrow" href="#historia-mitu" data-story="mitu">Leer: De Mitú al mundo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="club-panel" role="tabpanel" id="p-gol7" aria-labelledby="t-gol7" hidden>
+      <div class="pc" data-pc aria-label="Fotos de Gol7 Colombia"><div class="pc-track">
+        <figure class="pc-slide"><img loading="lazy" src="assets/img/floripa-fem.webp" alt="Equipo femenino de fútbol 7 de Colombia (foto provisional)"></figure>
+      </div></div>
+      <div class="club-txt">
+        <span class="eyebrow">Selección femenina de fútbol 7</span>
+        <h3 class="h-md">Gol7 Colombia</h3>
+        <p>Las chicas que llevan la camiseta de Colombia en el fútbol 7. Muy pronto te contaremos su historia, sus jugadoras y sus resultados.</p>
+        <p class="pendiente">Pendiente del cliente: texto, cifras y fotos de la selección femenina (la foto actual es provisional).</p>
+        <a class="btn ghost" href="https://www.instagram.com/gol7colombia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg> Síguelas en Instagram</a>
+      </div>
+    </div>
+
+    <div class="club-panel" role="tabpanel" id="p-cafeteros" aria-labelledby="t-cafeteros" hidden>
+      <div class="pc" data-pc aria-label="Fotos de Cafeteros Fut Talla Baja"><div class="pc-track">
+        <figure class="pc-slide"><img loading="lazy" src="assets/img/clubes/cafeteros-equipo.webp" alt="Jugadores de Cafeteros Fut Talla Baja con la camiseta amarilla de Colombia"></figure>
+        <figure class="pc-slide"><img loading="lazy" src="assets/img/clubes/cafeteros-torneo.webp" alt="Cafeteros Fut Talla Baja en un coliseo durante un torneo" style="object-position:center 60%"></figure>
+        <figure class="pc-slide"><img loading="lazy" src="assets/img/clubes/cafeteros-aeropuerto.webp" alt="Delegación de Cafeteros Fut Talla Baja con sus chaquetas en el aeropuerto" style="object-position:center 65%"></figure>
+        <figure class="pc-slide"><img loading="lazy" src="assets/img/clubes/cafeteros-directivas.webp" alt="Directivos y deportistas de Cafeteros Fut Talla Baja" style="object-position:center 45%"></figure>
+      </div></div>
+      <div class="club-txt">
+        <span class="eyebrow">Deporte adaptado · Inclusión · Representación internacional</span>
+        <h3 class="h-md">Cafeteros Fut Talla Baja</h3>
+        <p>La selección colombiana de fútbol adaptado integrada por personas de talla baja: un proceso deportivo construido por personas con acondroplasia, hipocondroplasia y otras displasias esqueléticas, que hoy representa a Colombia en escenarios internacionales. Se constituyó formalmente a finales de 2025 y ya ha estado en medios como Win Sports y Buen Día Colombia.</p>
+        <ul class="club-facts">
+          <li><b>24</b>deportistas y 6 integrantes del cuerpo directivo y técnico</li>
+          <li><b>7</b>ciudades: Bogotá, Medellín, Cali, Barranquilla, Duitama, Pereira y Tunja</li>
+          <li><b>2</b>equipos en la 1.ª Copa Internacional Sin Límites, Guatemala 2026</li>
+        </ul>
+        <p class="pendiente">Pendiente del cliente: resultado en la Copa Internacional Sin Límites (Guatemala, julio de 2026).</p>
+        <a class="btn ghost" href="https://www.instagram.com/cafeterosfuttallabaja" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg> Síguelos en Instagram</a>
       </div>
     </div>
 
@@ -130,23 +177,20 @@
       <div class="pc" data-pc aria-label="Fotos del Chocó"><div class="pc-track">
         <figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-entrega-800.webp 800w, assets/img/choco-entrega.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-entrega.webp" alt="Voluntarios entregando ayudas en el río, en el Chocó"></figure>
         <figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-lancha-800.webp 800w, assets/img/choco-lancha.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-lancha.webp" alt="Llegada de la Fundación al Chocó por el río"></figure>
-        <figure class="pc-slide"><img loading="lazy" src="assets/img/choco-kit3.webp" alt="Entrega de ayudas a un niño en el Chocó"></figure>
+        <figure class="pc-slide"><img loading="lazy" src="assets/img/choco-kit2.webp" alt="Entrega de zapatos Milo Shoes a un joven del Chocó"></figure>
         <figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-rio2-800.webp 800w, assets/img/choco-rio2.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-rio2.webp" alt="Río del Chocó rodeado de selva"></figure>
       </div></div>
       <div class="club-txt">
         <span class="eyebrow">Pacífico · Próximamente</span>
         <h3 class="h-md">Seven Chocó</h3>
-        <p>Nuestro próximo club. Tras el sismo de agosto de 2026 llevamos más de 15 toneladas de ayudas a San Juan, Río Pepé y Baudó. Ese vínculo con las comunidades es el comienzo de Seven Chocó: un equipo para que los niños y jóvenes del Pacífico entrenen, estudien y compitan.</p>
-        <ul class="club-facts">
-          <li><b>15 t+</b>de ayudas humanitarias entregadas</li>
-          <li><b>30+</b>voluntarios en la jornada</li>
-        </ul>
+        <p>Iniciamos nuestra apuesta en el Pacífico colombiano. Con Seven Chocó abriremos las puertas del fútbol 7 a jóvenes afrocolombianos, promesas del fútbol, con la meta de que puedan competir a nivel internacional.</p>
         <div class="row-cta">
           <a class="link-arrow" href="#historia-choco" data-story="choco">Leer: 15 toneladas de solidaridad <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn" href="apoya.html?tipo=donar#formulario" data-form="donar">Ayúdanos a crear Seven Chocó</a>
         </div>
       </div>
     </div>
+    <div class="row-cta mt-m"><a class="btn" href="apoya.html?tipo=inscripcion#formulario" data-form="inscripcion">¿Quieres hacer parte? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
@@ -174,44 +218,7 @@
       <div><span class="eyebrow">Palmarés y participaciones</span><h2 class="h-lg mt-s">Resultados que hablan</h2></div>
       <p class="lead">Competimos cada año en torneos internacionales desde 2015. En 2025, 69 deportistas representaron a Colombia en competencias internacionales de fútbol 7.</p>
     </div>
-    <div class="results rail" data-carousel aria-label="Palmarés">
-      <a class="result" href="#historia-merida" data-story="merida">
-        <div class="ph"><img loading="lazy" srcset="assets/img/opt/merida-campeones2-800.webp 800w, assets/img/merida-campeones2.webp 1210w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/merida-campeones2.webp" alt="Delegación colombiana campeona en Mérida"><span class="medal">3 títulos</span></div>
-        <div class="body"><div class="meta"><span>Mérida, México</span><span>Nov 2025</span></div><h3>Torneo Internacional de Fútbol 7</h3><p>Tres títulos, un subcampeonato y un tercer lugar con 41 deportistas de cuatro regiones.</p><span class="go">Leer la historia <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div>
-      </a>
-      <a class="result" href="#galeria" data-album="roma">
-        <div class="ph"><img loading="lazy" src="assets/img/roma-campeones.webp" alt="Ceremonia de la F7 Intercontinental Cup en Roma"><span class="medal blue">Mundial FIF7</span></div>
-        <div class="body"><div class="meta"><span>Roma, Italia</span><span>Jul – Ago 2026</span></div><h3>F7 Intercontinental Cup</h3><p>La Copa Mundial de fútbol 7 de la FIF7, con equipos profesional masculino, femenino y mayores de 35.</p><span class="go">Ver fotos <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div>
-      </a>
-      <article class="result">
-        <div class="ph"><img loading="lazy" src="assets/img/curitiba-rojo.webp" alt="Seven Bogotá F.C. en el Mundial de Clubes de Curitiba"><span class="medal blue">Cuartos de final</span></div>
-        <div class="body"><div class="meta"><span>Curitiba, Brasil</span><span>Ago 2025</span></div><h3>Mundial de Clubes y Copa del Mundo FIF7</h3><p>Seven Bogotá F.C. superó a equipos de Argentina, Brasil y El Salvador. La Selección enfrentó a Hong Kong, México, Mozambique y Brasil.</p></div>
-      </article>
-      <a class="result" href="#kings">
-        <div class="ph"><img loading="lazy" srcset="assets/img/opt/kings-league-800.webp 800w, assets/img/kings-league.webp 1600w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/kings-league.webp" alt="Axur, Velandia y Brayan, jugadores formados en Seven, campeones de la Kings League"><span class="medal">Campeones</span></div>
-        <div class="body"><div class="meta"><span>Kings League Américas</span><span>2025 · 2026</span></div><h3>Jugadores Seven en la Kings League</h3><p>Más de cinco jugadores formados con nosotros, en uno de los torneos más innovadores del fútbol 7.</p><span class="go">Conocerlos <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div>
-      </a>
-      <article class="result">
-        <div class="ph"><img loading="lazy" src="assets/img/mundialido.webp" alt="Jugadores colombianos campeones del Mundialito de Roma"><span class="medal">Campeones</span></div>
-        <div class="body"><div class="meta"><span>Roma, Italia</span><span>2025</span></div><h3>Mundialito de Roma</h3><p>Más de cuatro jugadores formados con nosotros, campeones con la Selección Colombia en el primer trimestre de 2025.</p></div>
-      </article>
-      <article class="result">
-        <div class="ph"><img loading="lazy" src="assets/img/sub17.webp" alt="Afiche del equipo Seven Bogotá F.C. Sub 17" style="object-position:center 30%"><span class="medal">Campeón Sub-17</span></div>
-        <div class="body"><div class="meta"><span>Seven Bogotá F.C.</span><span>2025</span></div><h3>Generación Sub-17</h3><p>La categoría Sub-17 se consagró campeona internacional en Mérida. Son la muestra de lo que viene.</p></div>
-      </article>
-      <article class="result">
-        <div class="ph"><img loading="lazy" srcset="assets/img/opt/floripa-rojo-800.webp 800w, assets/img/floripa-rojo.webp 1200w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/floripa-rojo.webp" alt="Equipo de Seven en Florianópolis"><span class="medal blue">Participación</span></div>
-        <div class="body"><div class="meta"><span>Florianópolis, Brasil</span><span>2024</span></div><h3>Mundial de Clubes y Copa de las Américas FIF7</h3><p>Seven Bogotá F.C. (Única), Selección Colombia, Sub-13, Sub-15 y equipo femenino.</p></div>
-      </article>
-      <article class="result">
-        <div class="ph"><img loading="lazy" src="assets/img/tabora.webp" alt="Movilser Seven en el Octagonal Tabora"><span class="medal bronze">3.er lugar</span></div>
-        <div class="body"><div class="meta"><span>Bogotá</span><span>2025 – 2026</span></div><h3>Octagonal Tabora</h3><p>Con el respaldo de Movilser, un equipo competitivo que se quedó con el tercer lugar.</p></div>
-      </article>
-      <article class="result">
-        <div class="ph"><img loading="lazy" src="assets/img/trinche.webp" alt="Equipo en la Copa Trinche"><span class="medal silver">Semifinalistas</span></div>
-        <div class="body"><div class="meta"><span>Colombia</span><span>2023 – 2025</span></div><h3>Copa Trinche</h3><p>Tres ediciones con Movilser, llegando hasta semifinales.</p></div>
-      </article>
-    </div>
+    <div class="results rail" data-carousel aria-label="Palmarés"><a class="result" href="#historia-merida" data-story="merida"><div class="ph"><img loading="lazy" srcset="assets/img/opt/merida-campeones2-800.webp 800w, assets/img/merida-campeones2.webp 1210w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/merida-campeones2.webp" alt="Delegación colombiana campeona en Mérida"><span class="medal">3 títulos</span></div><div class="body"><div class="meta"><span>Mérida, México</span><span>Nov 2025</span></div><h3>Torneo Internacional de Fútbol 7</h3><p>Tres títulos, un subcampeonato y un tercer lugar con 41 deportistas de cuatro regiones.</p><span class="go">Leer la historia <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></a><a class="result" href="#galeria" data-album="roma"><div class="ph"><img loading="lazy" src="assets/img/roma-campeones.webp" alt="Ceremonia de la F7 Intercontinental Cup en Roma"><span class="medal blue">Mundial FIF7</span></div><div class="body"><div class="meta"><span>Roma, Italia</span><span>Jul – Ago 2026</span></div><h3>F7 Intercontinental Cup</h3><p>La Copa Mundial de fútbol 7 de la FIF7, con equipos profesional masculino, femenino y mayores de 35.</p><span class="go">Ver fotos <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></a><article class="result"><div class="ph"><img loading="lazy" src="assets/img/curitiba-rojo.webp" alt="Seven Bogotá F.C. en el Mundial de Clubes de Curitiba"><span class="medal blue">Cuartos de final</span></div><div class="body"><div class="meta"><span>Curitiba, Brasil</span><span>Ago 2025</span></div><h3>Mundial de Clubes y Copa del Mundo FIF7</h3><p>Seven Bogotá F.C. superó a equipos de Argentina, Brasil y El Salvador. La Selección enfrentó a Hong Kong, México, Mozambique y Brasil.</p></div></article><a class="result" href="#historia-kings" data-story="kings"><div class="ph"><img loading="lazy" srcset="assets/img/opt/kings-league-800.webp 800w, assets/img/kings-league.webp 1600w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/kings-league.webp" alt="Jugadores formados en Seven, campeones de la Kings League"><span class="medal">Campeones</span></div><div class="body"><div class="meta"><span>Kings League Américas</span><span>2025 · 2026</span></div><h3>Jugadores Seven en la Kings League</h3><p>Más de cinco jugadores formados con nosotros, en uno de los torneos más innovadores del fútbol 7.</p><span class="go">Leer la historia <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></a><article class="result"><div class="ph"><img loading="lazy" src="assets/img/mundialido.webp" alt="Jugadores colombianos campeones del Mundialito de Roma"><span class="medal">Campeones</span></div><div class="body"><div class="meta"><span>Roma, Italia</span><span>2025</span></div><h3>Mundialito de Roma</h3><p>Más de cuatro jugadores formados con nosotros, campeones con la Selección Colombia en el primer trimestre de 2025.</p></div></article><article class="result"><div class="ph"><img loading="lazy" src="assets/img/sub17.webp" alt="Afiche del equipo Seven Bogotá F.C. Sub 17" style="object-position:center 30%"><span class="medal">Campeón Sub-17</span></div><div class="body"><div class="meta"><span>Seven Bogotá F.C.</span><span>2025</span></div><h3>Generación Sub-17</h3><p>La categoría Sub-17 se consagró campeona internacional en Mérida. Son la muestra de lo que viene.</p></div></article><article class="result"><div class="ph"><img loading="lazy" srcset="assets/img/opt/floripa-rojo-800.webp 800w, assets/img/floripa-rojo.webp 1200w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/floripa-rojo.webp" alt="Equipo de Seven en Florianópolis"><span class="medal blue">Participación</span></div><div class="body"><div class="meta"><span>Florianópolis, Brasil</span><span>2024</span></div><h3>Mundial de Clubes y Copa de las Américas FIF7</h3><p>Seven Bogotá F.C. (Única), Selección Colombia, Sub-13, Sub-15 y equipo femenino.</p></div></article><article class="result"><div class="ph"><img loading="lazy" src="assets/img/tabora.webp" alt="Movilser Seven en el Octagonal Tabora"><span class="medal bronze">3.er lugar</span></div><div class="body"><div class="meta"><span>Bogotá</span><span>2025 – 2026</span></div><h3>Octagonal Tabora</h3><p>Con el respaldo de Movilser, un equipo competitivo que se quedó con el tercer lugar.</p></div></article><article class="result"><div class="ph"><img loading="lazy" src="assets/img/trinche.webp" alt="Equipo en la Copa Trinche"><span class="medal silver">Semifinalistas</span></div><div class="body"><div class="meta"><span>Colombia</span><span>2023 – 2025</span></div><h3>Copa Trinche</h3><p>Tres ediciones con Movilser, llegando hasta semifinales.</p></div></article></div>
   </div>
 </section>
 
@@ -227,6 +234,7 @@
         <div><h3>Brayan</h3><p>Viene de un barrio muy marginado. Hoy es titular y ya lo han fichado tres equipos.</p></div>
       </div>
       <div class="stat-row mt-m"><div><b>5+</b><span>jugadores en la Kings League Américas</span></div><div><b>4+</b><span>campeones del Mundialito de Roma</span></div></div>
+      <p class="pendiente">Pendiente del cliente: ampliar esta sección con más información de los jugadores (Daniela).</p>
     </div>
     <div class="players-rail" data-carousel aria-label="Jugadores formados en Seven">
       <img loading="lazy" src="assets/img/kings-1.webp" alt="Jugador formado en Seven en la Kings League, camiseta verde">
@@ -367,82 +375,26 @@
 
 <template id="story-mitu">
 <article class="story-sheet">
-  <div class="pc" data-pc aria-label="Fotos de la historia De Mitú al mundo">
-    <div class="pc-track">
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/mitu-aeropuerto2.webp" alt="Joven de Mitú con la chaqueta de la delegación en el aeropuerto internacional" style="object-position:center 25%"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/mitu-avion.webp" alt="Jóvenes de Mitú en el avión rumbo a su primer torneo internacional"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/mitu-medallas.webp" alt="Los jóvenes de Mitú con sus medallas en Mérida"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/mitu-merida.webp" alt="Jóvenes de la delegación con sus medallas en el estadio de Mérida" style="object-position:center 40%"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/vaupes-grupo.webp" alt="Jóvenes del club Seven Vaupés F.C. en Mitú"></figure>
-    </div>
-  </div>
-  <div class="story-txt">
-    <span class="eyebrow">Historia · Vaupés → México</span>
-    <h2 class="h-lg" id="st-mitu">De Mitú al mundo</h2>
-    <p class="lead">Dos jóvenes del club Seven Vaupés F.C. crecieron en Mitú, en plena Amazonía colombiana, donde las oportunidades de deporte estructurado, formación y competencia casi no existen.</p>
-    <div class="prose">
-      <p>Ambos hacían parte de los 35 jóvenes del club. Tras los procesos de evaluación, fueron invitados a Bogotá para pruebas de alto rendimiento: entrenaron con los demás integrantes de la Fundación, compartieron espacios de convivencia y se ganaron un lugar en la delegación.</p>
-      <p>En noviembre de 2025 tomaron un vuelo internacional por primera vez. En Mérida, Yucatán, fueron parte de una delegación que regresó con tres títulos.</p>
-    </div>
-    <blockquote>“Esta experiencia representa el verdadero propósito de nuestra labor: usar el fútbol como herramienta de transformación social.”<small>Informe de gestión 2025</small></blockquote>
-  </div>
+  <div class="pc" data-pc aria-label="Fotos: De Mitú al mundo"><div class="pc-track"><figure class="pc-slide"><img loading="lazy" src="assets/img/mitu-aeropuerto2.webp" alt="Joven de Mitú con la chaqueta de la delegación en el aeropuerto internacional" style="object-position:center 25%"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/mitu-avion.webp" alt="Jóvenes de Mitú en el avión rumbo a su primer torneo internacional"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/mitu-medallas.webp" alt="Los jóvenes de Mitú con sus medallas en Mérida"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/mitu-merida.webp" alt="Jóvenes de la delegación con sus medallas en el estadio de Mérida" style="object-position:center 40%"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/vaupes-grupo.webp" alt="Jóvenes del club Seven Vaupés F.C. en Mitú"></figure></div></div>
+  <div class="story-txt"><span class="eyebrow">Vaupés → México · Noviembre 2025</span><h2 class="h-lg" id="st-mitu">De Mitú al mundo</h2><div class="prose"><p>Dos jóvenes de Seven Vaupés F.C. crecieron en Mitú, en plena Amazonía colombiana, donde el acceso a procesos deportivos competitivos se convirtió en una oportunidad para ampliar sus horizontes.</p><p>Ambos hacían parte de los 35 jóvenes del club. Tras un proceso de evaluación, fueron convocados a Bogotá para hacer pruebas deportivas y entrenar con otros jugadores, demostrando su talento.</p><p>En noviembre de 2025 viajaron por primera vez para representar a Colombia y a su territorio en Mérida, México, junto a deportistas de distintas regiones del país. Allí hicieron parte de una delegación que regresó con tres títulos.</p></div><blockquote>“Esta experiencia representa el verdadero propósito de nuestra labor: usar el fútbol como herramienta de transformación social.”<small>Informe de gestión 2025</small></blockquote></div>
 </article>
 </template>
 <template id="story-choco">
 <article class="story-sheet">
-  <div class="pc" data-pc aria-label="Fotos de la ayuda humanitaria al Chocó">
-    <div class="pc-track">
-      <figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-lancha2-800.webp 800w, assets/img/choco-lancha2.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-lancha2.webp" alt="Voluntarios cargando ayudas en una lancha en un río del Chocó"></figure>
-      <figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-entrega-800.webp 800w, assets/img/choco-entrega.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-entrega.webp" alt="Voluntarios entregando ayudas humanitarias en el río"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/choco-kit2.webp" alt="Entrega de ayudas a una familia en el Chocó"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/simon-bolivar.webp" alt="Jornada solidaria en el Polideportivo Simón Bolívar, en Bogotá"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/choco-acopio.webp" alt="Voluntarios en el centro de acopio"></figure>
-      <figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-camion-800.webp 800w, assets/img/choco-camion.webp 1400w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-camion.webp" alt="Ayudas cargadas en el camión rumbo al Chocó"></figure>
-      <figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-lancha-800.webp 800w, assets/img/choco-lancha.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-lancha.webp" alt="Descarga de ayudas desde la lancha"></figure>
-    </div>
-  </div>
-  <div class="story-txt">
-    <span class="eyebrow">Historia · Chocó · Agosto 2026</span>
-    <h2 class="h-lg" id="st-choco">15 toneladas de solidaridad</h2>
-    <div class="prose">
-      <p>El 10 de agosto de 2026 un sismo de magnitud 7,4 golpeó San José del Palmar, en el Chocó, un departamento que ya enfrentaba la pobreza más alta del país. La Fundación habilitó un centro de acopio en Bogotá entre el 17 y el 21 de agosto, y el 23 de agosto abrió un segundo en el Polideportivo del barrio Simón Bolívar, junto a las Escuelas deportivas R8R Rafa Robayo y la Fundación Artistas Fútbol Club.</p>
-      <p>Más de 30 voluntarios recibieron, clasificaron y empacaron las donaciones. Luego viajaron en camión y lancha hasta comunidades de San Juan, Río Pepé y Baudó para entregarlas familia por familia.</p>
-      <p><strong>Allí, en el Pacífico, empieza nuestro próximo club: Seven Chocó.</strong></p>
-    </div>
-    <div class="stat-row"><div><b>8 t+</b><span>primer centro de acopio</span></div><div><b>7 t+</b><span>jornada Simón Bolívar</span></div><div><b>30+</b><span>voluntarios</span></div></div>
-  </div>
+  <div class="pc" data-pc aria-label="Fotos: 15 toneladas de solidaridad"><div class="pc-track"><figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-lancha2-800.webp 800w, assets/img/choco-lancha2.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-lancha2.webp" alt="Voluntarios cargando ayudas en una lancha en un río del Chocó"></figure><figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-entrega-800.webp 800w, assets/img/choco-entrega.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-entrega.webp" alt="Voluntarios entregando ayudas humanitarias en el río"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/choco-acopio.webp" alt="Voluntarios y aliados con el camión cargado de ayudas para el Chocó"></figure><figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-camion-800.webp 800w, assets/img/choco-camion.webp 1400w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-camion.webp" alt="Ayudas cargadas en el camión rumbo al Chocó"></figure><figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/choco-lancha-800.webp 800w, assets/img/choco-lancha.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/choco-lancha.webp" alt="Descarga de ayudas desde la lancha"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/choco-donaciones.webp" alt="Caja de donaciones marcada para el Chocó"></figure></div></div>
+  <div class="story-txt"><span class="eyebrow">Chocó · Agosto 2026 · Agosto de 2026</span><h2 class="h-lg" id="st-choco">15 toneladas de solidaridad</h2><div class="prose"><p>Tras la emergencia que afectó a comunidades del Chocó, movilizamos una iniciativa solidaria para reunir y llevar ayuda humanitaria a las familias afectadas. A través de jornadas de recolección y centros de acopio en Bogotá, convocamos a personas, organizaciones y aliados que se sumaron con sus donaciones y su disposición para ayudar.</p><p>A esta movilización se sumó una jornada deportiva de recolección, realizada junto a la Fundación Artistas Fútbol Club, la escuela deportiva R8R Rafa Robayo y otros aliados, que unieron esfuerzos para ampliar el alcance de la iniciativa.</p><p>Gracias al trabajo conjunto de voluntarios y colaboradores, reunimos y organizamos las donaciones para llenar tres camiones con ayuda para las comunidades de San Juan, Río Pepé y Baudó. Los suministros viajaron por carretera y por río para entregarlos directamente a las familias.</p><p>Esta experiencia demuestra la fuerza de la solidaridad colectiva y acompaña nuestra proyección en el departamento, donde avanzamos en la creación de Seven Chocó.</p></div><div class="stat-row"><div><b>3</b><span>camiones de ayuda humanitaria</span></div></div></div>
 </article>
 </template>
 <template id="story-merida">
 <article class="story-sheet">
-  <div class="pc" data-pc aria-label="Fotos de Mérida 2025">
-    <div class="pc-track">
-      <figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/merida-campeones2-800.webp 800w, assets/img/merida-campeones2.webp 1210w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/merida-campeones2.webp" alt="Delegación colombiana campeona en Mérida"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/merida-copa.webp" alt="Jugador colombiano levantando la copa en Mérida" style="object-position:center 30%"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/merida-trofeos.webp" alt="Entrenadores con los trofeos obtenidos en Mérida" style="object-position:center 35%"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/merida-bandera.webp" alt="Delegación con la bandera de Colombia en Mérida"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/merida-ninos.webp" alt="Niños de la delegación con sus medallas" style="object-position:center 30%"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/merida-accion.webp" alt="Jugada durante el torneo en Mérida"></figure>
-      <figure class="pc-slide"><img loading="lazy" src="assets/img/merida-podio.webp" alt="Podio de premiación en Mérida"></figure>
-      <figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/merida-noche-800.webp 800w, assets/img/merida-noche.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/merida-noche.webp" alt="Partido nocturno en Mérida"></figure>
-    </div>
-  </div>
-  <div class="story-txt">
-    <span class="eyebrow">Mérida, Yucatán · 10–18 Nov 2025</span>
-    <h2 class="h-lg" id="st-merida">Campeones en Mérida</h2>
-    <p class="lead">La mejor semana del año: una delegación de Bogotá, Mitú, Boyacá y Medellín volvió de México con tres títulos.</p>
-    <ul class="tally">
-      <li class="gold">Selección Colombia <b>Campeón</b></li>
-      <li class="gold">Categoría Única <b>Campeón</b></li>
-      <li class="gold">Sub-17 <b>Campeón</b></li>
-      <li>Sub-13 <b>Subcampeón</b></li>
-      <li>Sub-15 <b>3.er lugar</b></li>
-    </ul>
-    <div class="prose">
-      <p>Acompañamos a la Selección Colombia de Fútbol 7 y a las categorías Sub-13, Sub-15, Sub-17 y Única. Antes, apoyamos la convocatoria para que jóvenes de distintas regiones pudieran representar al país; entre ellos viajaron dos jóvenes de Seven Vaupés F.C., que tomaron un avión por primera vez.</p>
-    </div>
-    <div class="stat-row"><div><b>3</b><span>títulos</span></div><div><b>5</b><span>podios</span></div><div><b>41</b><span>deportistas</span></div></div>
-  </div>
+  <div class="pc" data-pc aria-label="Fotos: Campeones en Mérida"><div class="pc-track"><figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/merida-campeones2-800.webp 800w, assets/img/merida-campeones2.webp 1210w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/merida-campeones2.webp" alt="Delegación colombiana campeona en Mérida"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/merida-copa.webp" alt="Jugador colombiano levantando la copa en Mérida" style="object-position:center 30%"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/merida-trofeos.webp" alt="Entrenadores con los trofeos obtenidos en Mérida" style="object-position:center 35%"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/merida-bandera.webp" alt="Delegación con la bandera de Colombia en Mérida"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/merida-ninos.webp" alt="Niños de la delegación con sus medallas" style="object-position:center 30%"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/merida-accion.webp" alt="Jugada durante el torneo en Mérida"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/merida-podio.webp" alt="Podio de premiación en Mérida"></figure></div></div>
+  <div class="story-txt"><span class="eyebrow">Mérida · Nov 2025 · 10–18 de noviembre de 2025</span><h2 class="h-lg" id="st-merida">Campeones en Mérida</h2><ul class="tally"><li class="gold">Selección Colombia <b>Campeón</b></li><li class="gold">Categoría Única <b>Campeón</b></li><li class="gold">Sub-17 <b>Campeón</b></li><li>Sub-13 <b>Subcampeón</b></li><li>Sub-15 <b>3.er lugar</b></li></ul><div class="prose"><p>En noviembre de 2025, el fútbol 7 llevó a una delegación colombiana hasta Mérida, Yucatán, México, para competir en un torneo internacional. Acompañamos a la Selección Colombia y a las categorías Sub-13, Sub-15, Sub-17 y Única, en un proceso que reunió a deportistas de Bogotá, Mitú (Vaupés), Boyacá y Medellín.</p><p>Desde Sevenfold apoyamos la convocatoria para que jóvenes de distintas regiones tuvieran la oportunidad de representar al país. Entre ellos viajaron dos deportistas de Seven Vaupés F.C., que llevaron el talento de su territorio a un escenario internacional por primera vez.</p><p>La delegación regresó con tres títulos de campeón, un subcampeonato y un tercer lugar, además de reconocimientos individuales que destacaron el desempeño de nuestros jugadores.</p></div><div class="stat-row"><div><b>3</b><span>títulos</span></div><div><b>5</b><span>podios</span></div><div><b>41</b><span>deportistas</span></div></div></div>
+</article>
+</template>
+<template id="story-kings">
+<article class="story-sheet">
+  <div class="pc" data-pc aria-label="Fotos: Del barrio a la Kings League"><div class="pc-track"><figure class="pc-slide"><img loading="lazy" srcset="assets/img/opt/kings-league-800.webp 800w, assets/img/kings-league.webp 1600w" sizes="(max-width: 760px) 100vw, 50vw" src="assets/img/kings-league.webp" alt="Afiche de la Kings League con jugadores formados en Seven"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/kings-2.webp" alt="Jugador formado en Seven con la camiseta de su club de la Kings League" style="object-position:center 20%"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/kings-3.webp" alt="Jugador formado en Seven en la Kings League, camiseta blanca" style="object-position:center 20%"></figure><figure class="pc-slide"><img loading="lazy" src="assets/img/jugador-1.webp" alt="Arquero formado en Seven con la camiseta verde de su club" style="object-position:center 15%"></figure></div></div>
+  <div class="story-txt"><span class="eyebrow">Proyección profesional · 2025 – 2026</span><h2 class="h-lg" id="st-kings">Del barrio a la Kings League</h2><div class="prose"><p>Jugadores formados en nuestros procesos llegaron a uno de los torneos más mediáticos del fútbol 7 en el mundo. Varios se coronaron campeones.</p><p>Stiven Velandia se formó en Seven y llegó a la Kings League. Hoy está del otro lado: es formador de los niños que vienen detrás.</p><p>Brayan viene de un barrio muy marginado. Hoy es titular y ya lo han fichado tres equipos.</p></div><div class="stat-row"><div><b>5+</b><span>jugadores en la Kings League Américas</span></div><div><b>30+</b><span>jóvenes en clubes profesionales</span></div></div><p class="pendiente">Pendiente: Historia por ampliar con información de Daniela (cliente)</p></div>
 </article>
 </template>
 </main>
@@ -532,6 +484,6 @@
   </div>
 </dialog>
 <script>window.SITE={"email": "fundacionsevenfold@gmail.com", "instagram": "https://www.instagram.com/fundacion_sevenfold/"}</script>
-<script src="assets/js/main.js?v=7d0d9b68"></script>
+<script src="assets/js/main.js?v=48e77815"></script>
 </body>
 </html>

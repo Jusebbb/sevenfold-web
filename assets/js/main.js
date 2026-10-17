@@ -402,3 +402,21 @@ if ("IntersectionObserver" in window && !reduced) {
 
 /* Año actual */
 document.querySelectorAll("[data-year]").forEach(s => s.textContent = new Date().getFullYear());
+
+/* Cifras como contador: al aparecer en pantalla suben desde 0 hasta su valor (data-count) */
+const counters = document.querySelectorAll("[data-count]");
+if (counters.length) {
+  const fmt = n => n.toLocaleString("es-CO");
+  const run = el => {
+    const to = +el.dataset.count, suf = el.dataset.suffix || "", t0 = performance.now(), dur = 1600;
+    const tick = t => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = fmt(Math.round(to * e)) + (k === 1 ? suf : ""); if (k < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  };
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if ("IntersectionObserver" in window && !reducedMotion) {
+    counters.forEach(el => { el.textContent = "0"; });
+    const cio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); cio.unobserve(e.target); } }), { threshold: .4 });
+    counters.forEach(el => cio.observe(el));
+  }
+}

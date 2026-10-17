@@ -1,0 +1,35 @@
+{
+  "id": "juntos",
+  "orden": 7,
+  "publicada": true,
+  "linea": "solidaridad",
+  "etiqueta": "Bogotá · Agosto 2026",
+  "fecha": "Agosto de 2026",
+  "titulo": "Juntos por Chocó: el fútbol que nos une",
+  "resumen": "Exfutbolistas, artistas y las selecciones de fútbol 7 en una misma cancha, por las familias del Chocó.",
+  "portada": {
+    "src": "assets/img/simon-bolivar2.webp",
+    "alt": "Exfutbolistas profesionales en la jornada Juntos por Chocó, en el Polideportivo Simón Bolívar"
+  },
+  "fotos": [
+    {
+      "src": "assets/img/simon-bolivar2.webp",
+      "alt": "Exfutbolistas profesionales en la jornada Juntos por Chocó"
+    },
+    {
+      "src": "assets/img/simon-bolivar3.webp",
+      "alt": "Equipo femenino de la Fundación Artistas Fútbol Club en la jornada"
+    },
+    {
+      "src": "assets/img/choco-acopio.webp",
+      "alt": "Foto grupal con el camión de donaciones para el Chocó"
+    }
+  ],
+  "texto": [
+    "En agosto de 2026, el Polideportivo del barrio Simón Bolívar, en Bogotá, fue escenario de una jornada que reunió deporte, comunidad y solidaridad. Bajo la iniciativa «Juntos por Chocó», hicimos una exhibición de fútbol 7 que llevó a reconocidas figuras del deporte y del entretenimiento a compartir la cancha con nuestra comunidad.",
+    "Participaron las selecciones Colombia de Fútbol 7 masculina y femenina y un equipo de exfutbolistas profesionales con figuras como Fabián Vargas, Rafael Robayo, Stalin Motta y Wason Rentería, entre otros. También jugaron los equipos masculino y femenino de la Fundación Artistas Fútbol Club, conformados por artistas y personalidades reconocidas.",
+    "Más allá del espectáculo, la jornada acercó a niños y jóvenes de un barrio popular a referentes del fútbol colombiano, demostrando que estos escenarios también les pertenecen.",
+    "El encuentro fue además un espacio de recolección de donaciones para las familias afectadas en Chocó, que unió a deportistas, artistas, aliados y comunidad alrededor de una misma causa."
+  ],
+  "pendiente": "Faltan fotos del evento: exjugadores, figuras invitadas y selecciones masculina y femenina"
+}

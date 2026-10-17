@@ -1,0 +1,15 @@
+{
+  "id": "curitiba-2025",
+  "orden": 3,
+  "publicada": true,
+  "medalla": "Cuartos de final",
+  "color": "azul",
+  "lugar": "Curitiba, Brasil",
+  "fecha": "Ago 2025",
+  "titulo": "Mundial de Clubes y Copa del Mundo FIF7",
+  "texto": "Seven Bogotá F.C. superó a equipos de Argentina, Brasil y El Salvador. La Selección enfrentó a Hong Kong, México, Mozambique y Brasil.",
+  "foto": {
+    "src": "assets/img/curitiba-rojo.webp",
+    "alt": "Seven Bogotá F.C. en el Mundial de Clubes de Curitiba"
+  }
+}

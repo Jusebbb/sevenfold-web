@@ -1,0 +1,91 @@
+{
+  "id": "merida",
+  "orden": 2,
+  "publicada": true,
+  "linea": "deporte",
+  "etiqueta": "Mérida · Nov 2025",
+  "fecha": "10–18 de noviembre de 2025",
+  "titulo": "Campeones en Mérida",
+  "resumen": "Tres títulos, un subcampeonato y un tercer lugar con deportistas de cuatro regiones.",
+  "portada": {
+    "src": "assets/img/merida-campeones.webp",
+    "alt": "Delegación colombiana celebrando con trofeos en Mérida, México"
+  },
+  "fotos": [
+    {
+      "src": "assets/img/merida-campeones2.webp",
+      "alt": "Delegación colombiana campeona en Mérida"
+    },
+    {
+      "src": "assets/img/merida-copa.webp",
+      "alt": "Jugador colombiano levantando la copa en Mérida",
+      "pos": "center 30%"
+    },
+    {
+      "src": "assets/img/merida-trofeos.webp",
+      "alt": "Entrenadores con los trofeos obtenidos en Mérida",
+      "pos": "center 35%"
+    },
+    {
+      "src": "assets/img/merida-bandera.webp",
+      "alt": "Delegación con la bandera de Colombia en Mérida"
+    },
+    {
+      "src": "assets/img/merida-ninos.webp",
+      "alt": "Niños de la delegación con sus medallas",
+      "pos": "center 30%"
+    },
+    {
+      "src": "assets/img/merida-accion.webp",
+      "alt": "Jugada durante el torneo en Mérida"
+    },
+    {
+      "src": "assets/img/merida-podio.webp",
+      "alt": "Podio de premiación en Mérida"
+    }
+  ],
+  "texto": [
+    "En noviembre de 2025, el fútbol 7 llevó a una delegación colombiana hasta Mérida, Yucatán, México, para competir en un torneo internacional. Acompañamos a la Selección Colombia y a las categorías Sub-13, Sub-15, Sub-17 y Única, en un proceso que reunió a deportistas de Bogotá, Mitú (Vaupés), Boyacá y Medellín.",
+    "Desde Sevenfold apoyamos la convocatoria para que jóvenes de distintas regiones tuvieran la oportunidad de representar al país. Entre ellos viajaron dos deportistas de Seven Vaupés F.C., que llevaron el talento de su territorio a un escenario internacional por primera vez.",
+    "La delegación regresó con tres títulos de campeón, un subcampeonato y un tercer lugar, además de reconocimientos individuales que destacaron el desempeño de nuestros jugadores."
+  ],
+  "podios": [
+    {
+      "categoria": "Selección Colombia",
+      "resultado": "Campeón",
+      "oro": true
+    },
+    {
+      "categoria": "Categoría Única",
+      "resultado": "Campeón",
+      "oro": true
+    },
+    {
+      "categoria": "Sub-17",
+      "resultado": "Campeón",
+      "oro": true
+    },
+    {
+      "categoria": "Sub-13",
+      "resultado": "Subcampeón"
+    },
+    {
+      "categoria": "Sub-15",
+      "resultado": "3.er lugar"
+    }
+  ],
+  "cifras": [
+    {
+      "valor": "3",
+      "texto": "títulos"
+    },
+    {
+      "valor": "5",
+      "texto": "podios"
+    },
+    {
+      "valor": "41",
+      "texto": "deportistas"
+    }
+  ]
+}

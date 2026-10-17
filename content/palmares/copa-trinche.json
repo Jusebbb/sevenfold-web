@@ -1,0 +1,15 @@
+{
+  "id": "copa-trinche",
+  "orden": 9,
+  "publicada": true,
+  "medalla": "Semifinalistas",
+  "color": "plata",
+  "lugar": "Colombia",
+  "fecha": "2023 – 2025",
+  "titulo": "Copa Trinche",
+  "texto": "Tres ediciones con Movilser, llegando hasta semifinales.",
+  "foto": {
+    "src": "assets/img/trinche.webp",
+    "alt": "Equipo en la Copa Trinche"
+  }
+}

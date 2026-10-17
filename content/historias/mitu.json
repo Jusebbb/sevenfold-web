@@ -1,0 +1,48 @@
+{
+  "id": "mitu",
+  "orden": 1,
+  "publicada": true,
+  "linea": "deporte",
+  "etiqueta": "Vaupés → México",
+  "fecha": "Noviembre 2025",
+  "titulo": "De Mitú al mundo",
+  "resumen": "Dos jóvenes de Seven Vaupés F.C. viajaron por primera vez para representar a Colombia y volvieron con títulos.",
+  "portada": {
+    "src": "assets/img/mitu-aeropuerto.webp",
+    "alt": "Joven de Mitú en el aeropuerto antes de su vuelo internacional",
+    "pos": "center 30%"
+  },
+  "fotos": [
+    {
+      "src": "assets/img/mitu-aeropuerto2.webp",
+      "alt": "Joven de Mitú con la chaqueta de la delegación en el aeropuerto internacional",
+      "pos": "center 25%"
+    },
+    {
+      "src": "assets/img/mitu-avion.webp",
+      "alt": "Jóvenes de Mitú en el avión rumbo a su primer torneo internacional"
+    },
+    {
+      "src": "assets/img/mitu-medallas.webp",
+      "alt": "Los jóvenes de Mitú con sus medallas en Mérida"
+    },
+    {
+      "src": "assets/img/mitu-merida.webp",
+      "alt": "Jóvenes de la delegación con sus medallas en el estadio de Mérida",
+      "pos": "center 40%"
+    },
+    {
+      "src": "assets/img/vaupes-grupo.webp",
+      "alt": "Jóvenes del club Seven Vaupés F.C. en Mitú"
+    }
+  ],
+  "texto": [
+    "Dos jóvenes de Seven Vaupés F.C. crecieron en Mitú, en plena Amazonía colombiana, donde el acceso a procesos deportivos competitivos se convirtió en una oportunidad para ampliar sus horizontes.",
+    "Ambos hacían parte de los 35 jóvenes del club. Tras un proceso de evaluación, fueron convocados a Bogotá para hacer pruebas deportivas y entrenar con otros jugadores, demostrando su talento.",
+    "En noviembre de 2025 viajaron por primera vez para representar a Colombia y a su territorio en Mérida, México, junto a deportistas de distintas regiones del país. Allí hicieron parte de una delegación que regresó con tres títulos."
+  ],
+  "cita": {
+    "texto": "Esta experiencia representa el verdadero propósito de nuestra labor: usar el fútbol como herramienta de transformación social.",
+    "fuente": "Informe de gestión 2025"
+  }
+}

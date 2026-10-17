@@ -1,0 +1,15 @@
+{
+  "id": "mundialito-roma",
+  "orden": 5,
+  "publicada": true,
+  "medalla": "Campeones",
+  "color": "oro",
+  "lugar": "Roma, Italia",
+  "fecha": "2025",
+  "titulo": "Mundialito de Roma",
+  "texto": "Más de cuatro jugadores formados con nosotros, campeones con la Selección Colombia en el primer trimestre de 2025.",
+  "foto": {
+    "src": "assets/img/mundialido.webp",
+    "alt": "Jugadores colombianos campeones del Mundialito de Roma"
+  }
+}

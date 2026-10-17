@@ -21,7 +21,7 @@ SITE = {
 PAGES = [
   # archivo, título, descripción, clave del menú
   ("index.html", "Fundación Sevenfold Colombia | Fútbol 7, educación y oportunidades",
-   "Fundación Sevenfold Colombia: llevamos el fútbol 7, la educación y oportunidades reales a niños y jóvenes de Bogotá, Huila, Vaupés y Chocó.", "inicio"),
+   "Fundación Sevenfold Colombia: llevamos el fútbol 7, la educación y oportunidades reales a niños y jóvenes de Bogotá, Vaupés y Chocó.", "inicio"),
   ("nosotros.html", "Nosotros | Fundación Sevenfold Colombia",
    "Equipo, propósito, misión, visión, valores, historia y hacia dónde va la Fundación Sevenfold Colombia.", "nosotros"),
   ("seven-colombia.html", "Seven Colombia · Fútbol 7 | Fundación Sevenfold",
@@ -31,7 +31,7 @@ PAGES = [
   ("ambiente.html", "Ambiente y desarrollo sostenible | Fundación Sevenfold Colombia",
    "Ambiente y desarrollo sostenible: iniciativas de conservación de la biodiversidad y cuidado del territorio de la Fundación Sevenfold.", "ambiente"),
   ("impacto.html", "Impacto e historias | Fundación Sevenfold Colombia",
-   "Resultados 2025-2026, historias de jóvenes que llegaron lejos y la bitácora de acciones en Bogotá, Huila, Vaupés y Chocó.", "impacto"),
+   "Resultados 2025-2026, historias de jóvenes que llegaron lejos y la bitácora de acciones en Bogotá, Vaupés y Chocó.", "impacto"),
   ("aliados.html", "Aliados | Fundación Sevenfold Colombia",
    "La FIF7, la Asociación Colombiana de Fútbol 7, Nestlé y las marcas y organizaciones que juegan con la Fundación Sevenfold.", "aliados"),
   ("apoya.html", "Súmate: dona, apadrina o patrocina | Fundación Sevenfold Colombia",
@@ -69,6 +69,7 @@ ICONS = {
  "star":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>',
  "brief":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
  "hands":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 11l3-3 2 2 3-3 5 5-6 6-3-3"/><path d="M3 12l5-5 3 3M3 12l5 5 2-2"/></svg>',
+ "download":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>',
  "cert":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 14l2 2 4-4"/></svg>',
  "shield":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>',
  "mail":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
@@ -271,17 +272,77 @@ def images(html):
         return tag
     return re.sub(r"<img [^>]*>", fix, html)
 
-STORIES = (SRC/"_stories.html").read_text()
+# === Contenido tipo blog: un archivo por historia (content/historias) y por resultado (content/palmares) ===
+# Todos tienen la misma estructura; se editan a mano o desde el gestor de contenidos (.pages.yml).
+from html import escape as esc
+def load(folder):
+    items = [json.loads(f.read_text()) for f in sorted((ROOT/"content"/folder).glob("*.json"))]
+    return sorted([i for i in items if i.get("publicada", True)], key=lambda i: (i.get("orden", 99), i["id"]))
+HISTORIAS = {h["id"]: h for h in load("historias")}
+PALMARES = load("palmares")
+
+def img(f, extra=""):
+    pos = f' style="object-position:{esc(f["pos"])}"' if f.get("pos") else ""
+    return f'<img src="{esc(f["src"])}" alt="{esc(f.get("alt",""))}"{pos}{extra}>'
+
+def pendiente(texto):
+    return f'<p class="pendiente">Pendiente: {esc(texto)}</p>' if texto else ""
+
+def story_card(h):
+    return (f'<a class="story" href="#historia-{h["id"]}" data-story="{h["id"]}">{img(h["portada"])}'
+            f'<div class="in"><span class="kicker">{esc(h["etiqueta"])}</span><h3>{esc(h["titulo"])}</h3>'
+            f'<p>{esc(h["resumen"])}</p><span class="go">Leer historia <i>{ICONS["arrow"]}</i></span></div></a>')
+
+def story_cards(linea=""):
+    hs = [h for h in HISTORIAS.values() if not linea or h["linea"] in linea.split("+")]
+    return f'<div class="stories rail" data-carousel aria-label="Historias">{"".join(story_card(h) for h in hs)}</div>'
+
+def story_sheet(h):
+    k = h["id"]
+    fotos = "".join(f'<figure class="pc-slide">{img(f)}</figure>' for f in h["fotos"])
+    podios = ""
+    if h.get("podios"):
+        podios = '<ul class="tally">' + "".join(f'<li{" class=\"gold\"" if x.get("oro") else ""}>{esc(x["categoria"])} <b>{esc(x["resultado"])}</b></li>' for x in h["podios"]) + "</ul>"
+    texto = "".join(f"<p>{esc(t)}</p>" for t in h["texto"])
+    cita = f'<blockquote>“{esc(h["cita"]["texto"])}”<small>{esc(h["cita"]["fuente"])}</small></blockquote>' if h.get("cita") else ""
+    cifras = ('<div class="stat-row">' + "".join(f'<div><b>{esc(c["valor"])}</b><span>{esc(c["texto"])}</span></div>' for c in h["cifras"]) + "</div>") if h.get("cifras") else ""
+    ln = {"educacion": " ln-edu", "ambiente": " ln-amb"}.get(h["linea"], "")
+    return (f'<template id="story-{k}">\n<article class="story-sheet{ln}">\n'
+            f'  <div class="pc" data-pc aria-label="Fotos: {esc(h["titulo"])}"><div class="pc-track">{fotos}</div></div>\n'
+            f'  <div class="story-txt"><span class="eyebrow">{esc(h["etiqueta"])} · {esc(h["fecha"])}</span>'
+            f'<h2 class="h-lg" id="st-{k}">{esc(h["titulo"])}</h2>{podios}<div class="prose">{texto}</div>{cita}{cifras}{pendiente(h.get("pendiente",""))}</div>\n'
+            f'</article>\n</template>')
 
 def stories_for(html):
     """Agrega a la página las historias que abre (data-story="x"): se leen en una ventana, sin salir de la página."""
     keys = list(dict.fromkeys(re.findall(r'data-story="([\w-]+)"', html)))
-    out = []
     for k in keys:
-        m = re.search(rf'<template id="story-{k}">.*?</template>', STORIES, re.S)
-        if not m: raise SystemExit(f"falta la historia '{k}' en src/_stories.html")
-        out.append(m.group(0))
-    return "\n".join(out)
+        if k not in HISTORIAS: raise SystemExit(f"falta la historia '{k}' en content/historias")
+    return "\n".join(story_sheet(HISTORIAS[k]) for k in keys)
+
+# Informes de gestión para descargar (assets/docs). Para sumar un año, agrega una fila.
+INFORMES = [
+  ("2025", "Informe de gestión y resultados", [("Español", "assets/docs/informe-gestion-2025-es.pdf"), ("English", "assets/docs/management-report-2025-en.pdf")]),
+]
+def informes():
+    cards = []
+    for year, title, files in INFORMES:
+        links = "".join(f'<a class="btn{" ghost-dark" if i else ""}" href="{f}" download>{ICONS["download"]} {lang} · PDF</a>' for i, (lang, f) in enumerate(files))
+        size = " · ".join(f'{lang}: {round((ROOT/f).stat().st_size/1048576,1)} MB' for lang, f in files)
+        cards.append(f'<article class="report"><span class="report-year">{year}</span><div><h3>{title} {year}</h3><p>Fundación Sevenfold Colombia · {size}</p><div class="row-cta">{links}</div></div></article>')
+    return '<div class="reports">' + "".join(cards) + "</div>"
+
+COLOR = {"oro": "", "azul": " blue", "plata": " silver", "bronce": " bronze"}
+def palmares():
+    out = []
+    for r in PALMARES:
+        if r.get("historia"): tag, attrs, go = "a", f' href="#historia-{r["historia"]}" data-story="{r["historia"]}"', "Leer la historia"
+        elif r.get("album"): tag, attrs, go = "a", f' href="#galeria" data-album="{r["album"]}"', "Ver fotos"
+        else: tag, attrs, go = "article", "", ""
+        go = f'<span class="go">{go} <i>{ICONS["arrow"]}</i></span>' if go else ""
+        out.append(f'<{tag} class="result"{attrs}><div class="ph">{img(r["foto"])}<span class="medal{COLOR.get(r.get("color","oro"),"")}">{esc(r["medalla"])}</span></div>'
+                   f'<div class="body"><div class="meta"><span>{esc(r["lugar"])}</span><span>{esc(r["fecha"])}</span></div><h3>{esc(r["titulo"])}</h3><p>{esc(r["texto"])}</p>{go}</div></{tag}>')
+    return f'<div class="results rail" data-carousel aria-label="Palmarés">{"".join(out)}</div>'
 
 def reels(html):
     """Videos: cada uno lleva a su post de Instagram (data-ig="enlace del post"); vacío = perfil de la Fundación."""
@@ -290,6 +351,8 @@ def reels(html):
 
 def expand(html):
     html = re.sub(r"\{\{include:([\w\-]+\.html)\}\}", lambda m: (SRC/m.group(1)).read_text(), html)
+    html = re.sub(r"\{\{historias(?::([\w+]+))?\}\}", lambda m: story_cards(m.group(1) or ""), html)
+    html = html.replace("{{palmares}}", palmares()).replace("{{informes}}", informes())
     html += "\n" + stories_for(html)
     html = reels(html)
     html = re.sub(r"\{\{icon:(\w+)\}\}", lambda m: ICONS[m.group(1)], html)
