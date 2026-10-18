@@ -56,5 +56,36 @@
       "texto": "jornadas de entrega en Mitú"
     }
   ],
-  "pendiente": ""
+  "pendiente": "",
+  "en": {
+    "etiqueta": "Vaupés · Education",
+    "fecha": "February and May 2026",
+    "titulo": "A backpack for the whole year",
+    "resumen": "Two school kit deliveries for students from different communities in Mitú.",
+    "portada": "Children in Mitú with their new school backpacks",
+    "fotos": [
+      "Group photo of the school kit delivery in a community in Mitú, February 2026",
+      "Children in Mitú with their new backpacks, February 2026",
+      "School kit delivery in Mitú, February 2026",
+      "Children lining up to receive their kits, February 2026",
+      "Students from a school in Mitú with their kits, May 2026",
+      "Young people from a school in Vaupés at the May 2026 delivery",
+      "School kits ready for the May 2026 delivery"
+    ],
+    "texto": [
+      "In Mitú, Vaupés, supporting education also means providing tools that help children and young people learn. In February 2026, in a community in Mitú, we delivered 150 school kits to students from different communities in the municipality. Each kit included a backpack, notebooks, colored pencils, a sharpener, a pencil case and an eraser.",
+      "In May we continued at a school with a new delivery of 20 school kits, extending educational support to young people in the territory.",
+      "Through these actions we aim to provide tools for schoolwork and to support the new generations in their learning."
+    ],
+    "cifras": [
+      {
+        "valor": "170+",
+        "texto": "school kits delivered"
+      },
+      {
+        "valor": "2",
+        "texto": "deliveries in Mitú"
+      }
+    ]
+  }
 }

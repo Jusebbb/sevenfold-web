@@ -1384,3 +1384,9 @@ a.club{text-decoration:none;color:inherit;transition:transform .3s var(--ease),b
 .give-ways b{display:block;color:var(--ink);font-weight:800;margin-bottom:2px}
 .tax-note p + p{margin-top:8px}
 .bw-mark.fill img{width:100%;height:100%;object-fit:cover}
+
+/* Cambio de idioma ES / EN */
+.lang-switch{flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:36px;padding:0 10px;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;color:var(--chalk);font-weight:700;font-size:.82rem;letter-spacing:.08em;text-decoration:none;transition:border-color .2s,color .2s}
+@media (hover:hover){.lang-switch:hover{border-color:var(--sun);color:var(--sun)}}
+.site-head .bar .nav{margin-left:auto}
+@media (max-width:1180px){.lang-switch{margin-left:auto;position:relative;z-index:60}.site-head .bar{gap:12px}}

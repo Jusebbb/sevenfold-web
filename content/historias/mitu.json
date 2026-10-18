@@ -44,5 +44,28 @@
   "cita": {
     "texto": "Esta experiencia representa el verdadero propósito de nuestra labor: usar el fútbol como herramienta de transformación social.",
     "fuente": "Informe de gestión 2025"
+  },
+  "en": {
+    "etiqueta": "Vaupés → Mexico",
+    "fecha": "November 2025",
+    "titulo": "From Mitú to the world",
+    "resumen": "Two young players from Seven Vaupés F.C. traveled abroad for the first time to represent Colombia and came home with titles.",
+    "portada": "A young player from Mitú at the airport before his international flight",
+    "fotos": [
+      "A young player from Mitú in the delegation jacket at the international airport",
+      "Young players from Mitú on the plane to their first international tournament",
+      "The young players from Mitú with their medals in Mérida",
+      "Young members of the delegation with their medals at the stadium in Mérida",
+      "Young players of Seven Vaupés F.C. in Mitú"
+    ],
+    "texto": [
+      "Two young players from Seven Vaupés F.C. grew up in Mitú, deep in the Colombian Amazon, where access to competitive sports programs became an opportunity to broaden their horizons.",
+      "Both were among the club's 35 young players. After an evaluation process, they were called up to Bogotá for trials and to train with other players, where they showed their talent.",
+      "In November 2025 they traveled abroad for the first time to represent Colombia and their territory in Mérida, Mexico, alongside athletes from different regions of the country. There they were part of a delegation that came home with three titles."
+    ],
+    "cita": {
+      "texto": "This experience embodies the true purpose of our work: using football as a tool for social transformation.",
+      "fuente": "2025 Management Report"
+    }
   }
 }

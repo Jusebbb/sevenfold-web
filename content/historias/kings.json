@@ -48,5 +48,34 @@
       "texto": "jóvenes en clubes profesionales"
     }
   ],
-  "pendiente": "Historia por ampliar con información de Daniela (cliente)"
+  "pendiente": "Historia por ampliar con información de Daniela (cliente)",
+  "en": {
+    "etiqueta": "Going pro",
+    "fecha": "2025 – 2026",
+    "titulo": "From the neighborhood to the Kings League",
+    "resumen": "Trained on our pitches, they now play in one of the most-watched 7-a-side tournaments.",
+    "portada": "Seven-trained player in his Kings League club jersey",
+    "fotos": [
+      "Kings League poster featuring Seven-trained players",
+      "Seven-trained player in his Kings League club jersey",
+      "Seven-trained player in the Kings League, white jersey",
+      "Seven-trained goalkeeper in his club's green jersey"
+    ],
+    "texto": [
+      "Players trained in our programs made it to one of the most high-profile 7-a-side tournaments in the world. Several were crowned champions.",
+      "Stiven Velandia came up through Seven and made it to the Kings League. Today he's on the other side: he coaches the kids coming up behind him.",
+      "Brayan comes from a deeply marginalized neighborhood. Today he's a starter and three teams have already signed him."
+    ],
+    "cifras": [
+      {
+        "valor": "5+",
+        "texto": "players in the Kings League Americas"
+      },
+      {
+        "valor": "30+",
+        "texto": "young players at professional clubs"
+      }
+    ],
+    "pendiente": "Story to be expanded with information from the client"
+  }
 }

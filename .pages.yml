@@ -44,6 +44,32 @@ content:
         list: true
         fields: [ { name: valor, label: Valor, type: string }, { name: texto, label: Texto, type: string } ]
       - { name: pendiente, label: "Nota de pendiente (visible; dejar vacío para ocultar)", type: string }
+      - name: en
+        label: "Inglés (versión /en)"
+        type: object
+        fields:
+          - { name: etiqueta, label: Etiqueta, type: string }
+          - { name: fecha, label: Fecha, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: resumen, label: Resumen, type: text }
+          - { name: portada, label: "Descripción de la portada", type: string }
+          - { name: fotos, label: "Descripciones de las fotos (mismo orden)", type: string, list: true }
+          - { name: texto, label: Párrafos, type: text, list: true }
+          - name: cita
+            label: Cita
+            type: object
+            fields: [ { name: texto, label: Cita, type: text }, { name: fuente, label: Fuente, type: string } ]
+          - name: podios
+            label: Podios
+            type: object
+            list: true
+            fields: [ { name: categoria, label: Categoría, type: string }, { name: resultado, label: Resultado, type: string }, { name: oro, label: "¿Título?", type: boolean } ]
+          - name: cifras
+            label: Cifras
+            type: object
+            list: true
+            fields: [ { name: valor, label: Valor, type: string }, { name: texto, label: Texto, type: string } ]
+          - { name: pendiente, label: "Nota de pendiente", type: string }
   - name: palmares
     label: Palmarés
     type: collection
@@ -66,3 +92,13 @@ content:
         fields: [ { name: src, label: Foto, type: image }, { name: alt, label: Descripción, type: string }, { name: pos, label: Encuadre, type: string } ]
       - { name: historia, label: "Abre la historia (id, opcional)", type: string }
       - { name: album, label: "Abre el álbum de la galería (opcional)", type: string }
+      - name: en
+        label: "Inglés (versión /en)"
+        type: object
+        fields:
+          - { name: medalla, label: Etiqueta, type: string }
+          - { name: lugar, label: Lugar, type: string }
+          - { name: fecha, label: Fecha, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Texto, type: text }
+          - { name: foto, label: "Descripción de la foto", type: string }

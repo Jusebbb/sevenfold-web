@@ -12,5 +12,11 @@
     "src": "assets/img/sub17.webp",
     "alt": "Afiche del equipo Seven Bogotá F.C. Sub 17",
     "pos": "center 30%"
+  },
+  "en": {
+    "medalla": "Under-17 champions",
+    "titulo": "The Under-17 generation",
+    "texto": "The Under-17 category became international champions in Mérida. They show what's coming next.",
+    "foto": "Poster of the Seven Bogotá F.C. Under-17 team"
   }
 }

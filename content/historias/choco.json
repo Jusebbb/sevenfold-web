@@ -48,5 +48,32 @@
       "valor": "3",
       "texto": "camiones de ayuda humanitaria"
     }
-  ]
+  ],
+  "en": {
+    "etiqueta": "Chocó · August 2026",
+    "fecha": "August 2026",
+    "titulo": "15 tonnes of solidarity",
+    "resumen": "From the collection point in Bogotá to the rivers of the Pacific: three trucks of humanitarian aid.",
+    "portada": "Volunteers delivering humanitarian aid on the river in Chocó",
+    "fotos": [
+      "Volunteers loading aid onto a boat on a river in Chocó",
+      "Volunteers delivering humanitarian aid on the river",
+      "Volunteers and partners with the truck loaded with aid for Chocó",
+      "Aid loaded onto the truck bound for Chocó",
+      "Unloading aid from the boat",
+      "Donation box marked for Chocó"
+    ],
+    "texto": [
+      "After the emergency that hit communities in Chocó, we mobilized a solidarity initiative to collect humanitarian aid and bring it to the affected families. Through collection drives and collection points in Bogotá, we rallied individuals, organizations and partners who joined with their donations and their willingness to help.",
+      "The effort was joined by a sports day for collecting donations, organized with Fundación Artistas Fútbol Club, the R8R Rafa Robayo sports academy and other partners, who joined forces to extend the initiative's reach.",
+      "Thanks to the joint work of volunteers and collaborators, we gathered and organized the donations to fill three trucks with aid for the communities of San Juan, Río Pepé and Baudó. The supplies traveled by road and by river to be delivered directly to the families.",
+      "This experience shows the power of collective solidarity and supports our plans in the department, where we're working toward creating Seven Chocó."
+    ],
+    "cifras": [
+      {
+        "valor": "3",
+        "texto": "trucks of humanitarian aid"
+      }
+    ]
+  }
 }

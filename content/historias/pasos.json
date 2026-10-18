@@ -52,5 +52,36 @@
       "texto": "territorios"
     }
   ],
-  "pendiente": "Faltan fotos de las entregas en Mitú y Pereira"
+  "pendiente": "Faltan fotos de las entregas en Mitú y Pereira",
+  "en": {
+    "etiqueta": "Nestlé · Milo Shoes",
+    "fecha": "2026",
+    "titulo": "Steps that go further",
+    "resumen": "420 pairs of shoes, with Nestlé and Milo Shoes, across four territories in Colombia.",
+    "portada": "Children in Bogotá with their Milo Shoes, donated by Nestlé",
+    "fotos": [
+      "Milo Shoes delivered to a young person in Río Pepé, Chocó",
+      "A girl from Río Pepé, Chocó, receives her Milo Shoes",
+      "A boy from Chocó with his new Milo Shoes",
+      "Children in Bogotá with their Milo Shoes",
+      "Milo Shoes delivery in Bogotá with the R8R Rafa Robayo academy",
+      "Children and families in Bogotá at the Milo Shoes delivery"
+    ],
+    "texto": [
+      "A pair of shoes can make a difference in a child's life: it lets them walk comfortably, play, spend time with others and enjoy their daily activities with greater well-being. That's why, together with Nestlé and its donation of Milo Shoes, we took this initiative to different territories in Colombia.",
+      "The delivery reached Río Pepé in Chocó, an Indigenous community in Mitú, Vaupés, and children and young people in Bogotá and Pereira: four destinations where this donation became a concrete contribution to their communities.",
+      "In total we delivered 420 pairs of shoes: 150 in Chocó, 100 in Mitú, 60 in Bogotá and 110 in Pereira. This partnership shows how working together can connect resources with those who need them and contribute to the well-being of children and young people across the country."
+    ],
+    "cifras": [
+      {
+        "valor": "420",
+        "texto": "pairs of shoes"
+      },
+      {
+        "valor": "4",
+        "texto": "territories"
+      }
+    ],
+    "pendiente": "Photos of the deliveries in Mitú and Pereira"
+  }
 }

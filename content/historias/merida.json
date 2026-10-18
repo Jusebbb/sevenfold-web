@@ -87,5 +87,65 @@
       "valor": "41",
       "texto": "deportistas"
     }
-  ]
+  ],
+  "en": {
+    "etiqueta": "Mérida · Nov 2025",
+    "fecha": "November 10–18, 2025",
+    "titulo": "Champions in Mérida",
+    "resumen": "Three titles, a runner-up finish and a third place with athletes from four regions.",
+    "portada": "The Colombian delegation celebrating with trophies in Mérida, Mexico",
+    "fotos": [
+      "The champion Colombian delegation in Mérida",
+      "Colombian player lifting the cup in Mérida",
+      "Coaches with the trophies won in Mérida",
+      "The delegation with the Colombian flag in Mérida",
+      "Kids from the delegation with their medals",
+      "A play during the tournament in Mérida",
+      "Awards podium in Mérida"
+    ],
+    "texto": [
+      "In November 2025, 7-a-side football took a Colombian delegation to Mérida, Yucatán, Mexico, to compete in an international tournament. We supported the national team and the Under-13, Under-15, Under-17 and Open categories, in a program that brought together athletes from Bogotá, Mitú (Vaupés), Boyacá and Medellín.",
+      "At Sevenfold we supported the selection process so young people from different regions would have the chance to represent the country. Among them were two athletes from Seven Vaupés F.C., who took the talent of their territory to an international stage for the first time.",
+      "The delegation came home with three championship titles, a runner-up finish and a third place, plus individual awards recognizing our players' performance."
+    ],
+    "podios": [
+      {
+        "categoria": "National team",
+        "resultado": "Champion",
+        "oro": true
+      },
+      {
+        "categoria": "Open category",
+        "resultado": "Champion",
+        "oro": true
+      },
+      {
+        "categoria": "Under-17",
+        "resultado": "Champion",
+        "oro": true
+      },
+      {
+        "categoria": "Under-13",
+        "resultado": "Runner-up"
+      },
+      {
+        "categoria": "Under-15",
+        "resultado": "3rd place"
+      }
+    ],
+    "cifras": [
+      {
+        "valor": "3",
+        "texto": "titles"
+      },
+      {
+        "valor": "5",
+        "texto": "podiums"
+      },
+      {
+        "valor": "41",
+        "texto": "athletes"
+      }
+    ]
+  }
 }

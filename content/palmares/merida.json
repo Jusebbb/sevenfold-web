@@ -12,5 +12,12 @@
     "src": "assets/img/merida-campeones2.webp",
     "alt": "Delegación colombiana campeona en Mérida"
   },
-  "historia": "merida"
+  "historia": "merida",
+  "en": {
+    "medalla": "3 titles",
+    "lugar": "Mérida, Mexico",
+    "titulo": "International 7-a-side Football Tournament",
+    "texto": "Three titles, a runner-up finish and a third place with 41 athletes from four regions.",
+    "foto": "The champion Colombian delegation in Mérida"
+  }
 }

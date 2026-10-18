@@ -11,5 +11,12 @@
   "foto": {
     "src": "assets/img/mundialido.webp",
     "alt": "Jugadores colombianos campeones del Mundialito de Roma"
+  },
+  "en": {
+    "medalla": "Champions",
+    "lugar": "Rome, Italy",
+    "titulo": "Rome Mundialito",
+    "texto": "More than four players trained with us were champions with Colombia's national team in the first quarter of 2025.",
+    "foto": "Colombian players, Rome Mundialito champions"
   }
 }

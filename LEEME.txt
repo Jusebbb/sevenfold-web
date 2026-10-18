@@ -82,3 +82,12 @@ cámbiale el "id" y el contenido, y corre  python3 build.py. Las tarjetas y las 
 Gestor de contenidos: el archivo .pages.yml permite editar todo esto desde https://pagescms.org (iniciar sesión
 con la cuenta de GitHub que tenga acceso al repositorio).
 Informes de gestión: assets/docs/ y la lista INFORMES en build.py.
+
+VERSIÓN EN INGLÉS (/en/)
+- Los textos de cada página en inglés están en src/en/ (mismo nombre de archivo que en español).
+  Si cambias un texto en src/<página>.html, cambia también src/en/<página>.html.
+- Menú, pie de página, formulario y ventanas: bloque T en build.py ("es" y "en").
+- Historias y palmarés: cada archivo de content/ tiene un campo "en" con los textos en inglés
+  (también se edita desde el gestor de contenidos, sección "Inglés").
+- El botón EN / ES del encabezado lleva a la misma página en el otro idioma.
+- python3 build.py genera las dos versiones (raíz = español, en/ = inglés).

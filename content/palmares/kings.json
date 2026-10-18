@@ -12,5 +12,12 @@
     "src": "assets/img/kings-league.webp",
     "alt": "Jugadores formados en Seven, campeones de la Kings League"
   },
-  "historia": "kings"
+  "historia": "kings",
+  "en": {
+    "medalla": "Champions",
+    "lugar": "Kings League Americas",
+    "titulo": "Seven players in the Kings League",
+    "texto": "More than five players trained with us, in one of the most innovative 7-a-side tournaments.",
+    "foto": "Seven-trained players, Kings League champions"
+  }
 }

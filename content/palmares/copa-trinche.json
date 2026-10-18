@@ -11,5 +11,11 @@
   "foto": {
     "src": "assets/img/trinche.webp",
     "alt": "Equipo en la Copa Trinche"
+  },
+  "en": {
+    "medalla": "Semifinalists",
+    "fecha": "2023 – 2025",
+    "texto": "Three editions with Movilser, reaching the semifinals.",
+    "foto": "Team at the Copa Trinche"
   }
 }

@@ -12,5 +12,12 @@
     "src": "assets/img/roma-campeones.webp",
     "alt": "Ceremonia de la F7 Intercontinental Cup en Roma"
   },
-  "album": "roma"
+  "album": "roma",
+  "en": {
+    "medalla": "FIF7 World Cup",
+    "lugar": "Rome, Italy",
+    "fecha": "Jul – Aug 2026",
+    "texto": "The FIF7 7-a-side World Cup, with men's professional, women's and over-35 teams.",
+    "foto": "F7 Intercontinental Cup ceremony in Rome"
+  }
 }

@@ -2,6 +2,17 @@
    Contacto y redes se editan en build.py (bloque SITE); aquí llegan como window.SITE. */
 const SITE = window.SITE || { email: "fundacionsevenfold@gmail.com" };
 document.documentElement.classList.add("js");
+// Textos de la interfaz en el idioma de la página (<html lang="...">)
+const EN = document.documentElement.lang.startsWith("en");
+const TX = EN ? {
+  closeMenu: "Close menu", openMenu: "Open menu", pick: "Choose item", goTo: (i, n) => `Go to ${i} of ${n}`,
+  talk: "Let's talk", copied: "Copied", copy: "Copy", none: "Not specified", web: "Website (English)", contact: "Contact",
+  name: "Name", org: "Company / organization", email: "Email", phone: "Phone", interest: "Interested in", prevPhoto: "Previous photo", nextPhoto: "Next photo", prev: "Previous", next: "Next"
+} : {
+  closeMenu: "Cerrar menú", openMenu: "Abrir menú", pick: "Elegir elemento", goTo: (i, n) => `Ir al ${i} de ${n}`,
+  talk: "Hablemos", copied: "Copiado", copy: "Copiar", none: "No especificado", web: "Sitio web", contact: "Contacto",
+  name: "Nombre", org: "Empresa / organización", email: "Correo", phone: "Teléfono", interest: "Me interesa", prevPhoto: "Foto anterior", nextPhoto: "Foto siguiente", prev: "Anterior", next: "Siguiente"
+};
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const ARROW = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
 const LEFT = ARROW("M15 6l-6 6 6 6"), RIGHT = ARROW("M9 6l6 6-6 6");
@@ -19,7 +30,7 @@ if (menuBtn) {
   const setMenu = open => {
     document.body.classList.toggle("menu-open", open);
     menuBtn.setAttribute("aria-expanded", open);
-    menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    menuBtn.setAttribute("aria-label", open ? TX.closeMenu : TX.openMenu);
   };
   menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
   document.querySelectorAll(".nav a").forEach(a => a.addEventListener("click", () => setMenu(false)));
@@ -112,8 +123,8 @@ function initPC(pc) {
   if (pc.getAttribute("aria-label")) track.setAttribute("aria-label", pc.getAttribute("aria-label"));
   let prev, next, count, auto = null;
   if (n > 1) {
-    prev = button("pc-btn pc-prev", "Foto anterior", LEFT);
-    next = button("pc-btn pc-next", "Foto siguiente", RIGHT);
+    prev = button("pc-btn pc-prev", TX.prevPhoto, LEFT);
+    next = button("pc-btn pc-next", TX.nextPhoto, RIGHT);
     count = document.createElement("span"); count.className = "pc-count"; count.setAttribute("aria-hidden", "true");
     pc.append(prev, next, count);
   }
@@ -171,12 +182,12 @@ document.querySelectorAll("[data-carousel]").forEach(track => {
   track.tabIndex = 0;
   track.setAttribute("role", "region");
   track.setAttribute("aria-roledescription", "carrusel");
-  const pv = button("car-btn car-prev", "Anterior", LEFT), nx = button("car-btn car-next", "Siguiente", RIGHT);
+  const pv = button("car-btn car-prev", TX.prev, LEFT), nx = button("car-btn car-next", TX.next, RIGHT);
   box.append(pv, nx);
   const dotsBox = document.createElement("div");
   dotsBox.className = "car-dots";
-  dotsBox.setAttribute("role", "group"); dotsBox.setAttribute("aria-label", "Elegir elemento");
-  dotsBox.innerHTML = items.map((_, i) => `<button type="button" aria-label="Ir al ${i + 1} de ${items.length}"></button>`).join("");
+  dotsBox.setAttribute("role", "group"); dotsBox.setAttribute("aria-label", TX.pick);
+  dotsBox.innerHTML = items.map((_, i) => `<button type="button" aria-label="${TX.goTo(i + 1, items.length)}"></button>`).join("");
   box.after(dotsBox);
   const dots = [...dotsBox.children];
   const x0 = () => items[0].offsetLeft;
@@ -289,11 +300,14 @@ const TIPOS = {
   voluntariado: ["Voluntariado", "Sé voluntario"], alianza: ["Alianza", "Construyamos juntos"],
   inscripcion: ["Inscripción de un deportista", "Inscribe a tu hijo"], prensa: ["Prensa", "Prensa y medios"]
 };
+if (EN) Object.entries({ donar: "I want to donate", apadrinar: "Sponsor a talent", patrocinar: "Sponsor with your brand", especie: "Donate in kind",
+  voluntariado: "Volunteer with us", alianza: "Let's build together", inscripcion: "Sign up your child", prensa: "Press and media" })
+  .forEach(([k, v]) => TIPOS[k][1] = v);
 function openForm(tipo) {
   if (!dlgForm) return false;
   const t = TIPOS[tipo], form = dlgForm.querySelector("form");
   if (t) form.elements.tipo.value = t[0];
-  dlgForm.querySelector("[data-form-title]").textContent = t ? t[1] : "Hablemos";
+  dlgForm.querySelector("[data-form-title]").textContent = t ? t[1] : TX.talk;
   form.querySelector(".ok").hidden = true;
   return openSheet(dlgForm, "#escribenos");
 }
@@ -316,14 +330,14 @@ document.querySelectorAll("form.form").forEach(form => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const d = new FormData(form);
-    const intereses = d.getAll("interes").join(", ") || "No especificado";
-    const asunto = `Sitio web · ${d.get("tipo") || "Contacto"} · ${d.get("nombre")}`;
+    const intereses = d.getAll("interes").join(", ") || TX.none;
+    const asunto = `${TX.web} · ${d.get("tipo") || TX.contact} · ${d.get("nombre")}`;
     const cuerpo = [
-      `Nombre: ${d.get("nombre")}`,
-      d.get("empresa") ? `Empresa / organización: ${d.get("empresa")}` : "",
-      `Correo: ${d.get("correo")}`,
-      d.get("telefono") ? `Teléfono: ${d.get("telefono")}` : "",
-      `Me interesa: ${intereses}`,
+      `${TX.name}: ${d.get("nombre")}`,
+      d.get("empresa") ? `${TX.org}: ${d.get("empresa")}` : "",
+      `${TX.email}: ${d.get("correo")}`,
+      d.get("telefono") ? `${TX.phone}: ${d.get("telefono")}` : "",
+      `${TX.interest}: ${intereses}`,
       "", d.get("mensaje") || ""
     ].filter(Boolean).join("\n");
     const ok = form.querySelector(".ok");
@@ -334,9 +348,9 @@ document.querySelectorAll("form.form").forEach(form => {
 
 /* Copiar correo */
 document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", async () => {
-  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "Copiado"; }
+  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = TX.copied; }
   catch { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
-  setTimeout(() => b.textContent = "Copiar", 1800);
+  setTimeout(() => b.textContent = TX.copy, 1800);
 }));
 
 /* Videos: se reproducen solo cuando están en pantalla (al tocarlos se abre Instagram) */

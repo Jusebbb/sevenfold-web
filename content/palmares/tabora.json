@@ -11,5 +11,10 @@
   "foto": {
     "src": "assets/img/tabora.webp",
     "alt": "Movilser Seven en el Octagonal Tabora"
+  },
+  "en": {
+    "medalla": "3rd place",
+    "texto": "Backed by Movilser, a competitive team that took third place.",
+    "foto": "Movilser Seven at the Octagonal Tabora"
   }
 }

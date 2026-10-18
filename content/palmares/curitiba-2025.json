@@ -11,5 +11,13 @@
   "foto": {
     "src": "assets/img/curitiba-rojo.webp",
     "alt": "Seven Bogotá F.C. en el Mundial de Clubes de Curitiba"
+  },
+  "en": {
+    "medalla": "Quarterfinals",
+    "lugar": "Curitiba, Brazil",
+    "fecha": "Aug 2025",
+    "titulo": "FIF7 Club World Cup and World Cup",
+    "texto": "Seven Bogotá F.C. beat teams from Argentina, Brazil and El Salvador. The national team faced Hong Kong, Mexico, Mozambique and Brazil.",
+    "foto": "Seven Bogotá F.C. at the Club World Cup in Curitiba"
   }
 }

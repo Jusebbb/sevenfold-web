@@ -11,5 +11,12 @@
   "foto": {
     "src": "assets/img/floripa-rojo.webp",
     "alt": "Equipo de Seven en Florianópolis"
+  },
+  "en": {
+    "medalla": "Participation",
+    "lugar": "Florianópolis, Brazil",
+    "titulo": "FIF7 Club World Cup and Copa de las Américas",
+    "texto": "Seven Bogotá F.C. (Open), the national team, Under-13, Under-15 and the women's team.",
+    "foto": "Seven team in Florianópolis"
   }
 }
