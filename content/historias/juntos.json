@@ -3,7 +3,7 @@
   "orden": 7,
   "publicada": true,
   "linea": "solidaridad",
-  "etiqueta": "Bogotá · Agosto 2026",
+  "etiqueta": "Bogotá · Solidaridad",
   "fecha": "Agosto de 2026",
   "titulo": "Juntos por Chocó: el fútbol que nos une",
   "resumen": "Exfutbolistas, artistas y las selecciones de fútbol 7 en una misma cancha, por las familias del Chocó.",
@@ -13,12 +13,28 @@
   },
   "fotos": [
     {
+      "src": "assets/img/juntos-grupo.webp",
+      "alt": "Foto grupal de los equipos de la exhibición en el Polideportivo Simón Bolívar"
+    },
+    {
       "src": "assets/img/simon-bolivar2.webp",
       "alt": "Exfutbolistas profesionales en la jornada Juntos por Chocó"
     },
     {
+      "src": "assets/img/juntos-exjugadores.webp",
+      "alt": "Exfutbolistas e invitados con la camiseta del Chocó"
+    },
+    {
+      "src": "assets/img/juntos-exfutbolistas.webp",
+      "alt": "Equipo de exfutbolistas profesionales antes del partido"
+    },
+    {
       "src": "assets/img/simon-bolivar3.webp",
       "alt": "Equipo femenino de la Fundación Artistas Fútbol Club en la jornada"
+    },
+    {
+      "src": "assets/img/juntos-jugadoras.webp",
+      "alt": "Jugadoras reunidas antes de salir a la cancha"
     },
     {
       "src": "assets/img/choco-acopio.webp",
@@ -31,16 +47,20 @@
     "Más allá del espectáculo, la jornada acercó a niños y jóvenes de un barrio popular a referentes del fútbol colombiano, demostrando que estos escenarios también les pertenecen.",
     "El encuentro fue además un espacio de recolección de donaciones para las familias afectadas en Chocó, que unió a deportistas, artistas, aliados y comunidad alrededor de una misma causa."
   ],
-  "pendiente": "Faltan fotos del evento: exjugadores, figuras invitadas y selecciones masculina y femenina",
+  "pendiente": "",
   "en": {
-    "etiqueta": "Bogotá · August 2026",
+    "etiqueta": "Bogotá · Solidarity",
     "fecha": "August 2026",
     "titulo": "Juntos por Chocó: the football that unites us",
     "resumen": "Former footballers, artists and the 7-a-side national teams on one pitch, for the families of Chocó.",
     "portada": "Former professional footballers at the Juntos por Chocó event at the Simón Bolívar Sports Complex",
     "fotos": [
+      "Group photo of the exhibition teams at the Simón Bolívar Sports Complex",
       "Former professional footballers at the Juntos por Chocó event",
+      "Former footballers and guests wearing the Chocó jersey",
+      "The former professional footballers' team before the match",
       "The Fundación Artistas Fútbol Club women's team at the event",
+      "Players huddling before taking the pitch",
       "Group photo with the donation truck for Chocó"
     ],
     "texto": [
@@ -49,6 +69,6 @@
       "Beyond the show, the day brought children and young people from a working-class neighborhood closer to icons of Colombian football, showing them that these stages belong to them too.",
       "The event was also a donation drive for the families affected in Chocó, uniting athletes, artists, partners and the community around a single cause."
     ],
-    "pendiente": "Photos of the event: former players, guest figures and the men's and women's national teams"
+    "pendiente": ""
   }
 }
