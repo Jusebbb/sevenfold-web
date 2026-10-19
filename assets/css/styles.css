@@ -1034,6 +1034,8 @@ dialog.sheet-form{width:min(760px,calc(100% - 32px))}
 .crest{flex:none;width:64px;height:64px;border-radius:50%;background:var(--chalk);display:grid;place-items:center;overflow:hidden}
 .crest img{width:80%;height:80%;object-fit:contain}
 .crest.soon{background:transparent;border:2px dashed rgba(255,255,255,.5);font-family:var(--display);font-weight:900;font-size:1.9rem;color:rgba(255,255,255,.75)}
+.crest.soon svg{width:46%;height:46%}
+.crest.mono{background:var(--ink);color:var(--sun);font:900 1.5rem/1 var(--display);letter-spacing:.02em;box-shadow:0 0 0 2px rgba(255,255,255,.35)}
 
 /* ---------- Inicio: Seven Colombia (aval y clubes), sobre fondo claro ---------- */
 .s7{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
@@ -1330,6 +1332,8 @@ a.club{text-decoration:none;color:inherit;transition:transform .3s var(--ease),b
 @media (max-width:900px){.actions{grid-auto-columns:78%}}
 .action{border-radius:var(--r);overflow:hidden;background:var(--chalk);border:1px solid var(--line);display:grid;grid-template-rows:200px auto}
 .action img{width:100%;height:100%;object-fit:cover}
+.action-brand{display:grid;place-items:center;height:200px;overflow:hidden;background:#20AD4C}
+.action .action-brand img{width:auto;height:150px;max-width:85%;object-fit:contain}
 .action-ph{display:grid;place-items:center;background:repeating-linear-gradient(45deg,#EEF1EA 0 12px,#E5E9E1 12px 24px);color:#7a8394;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
 .action .in{padding:20px;display:grid;gap:6px;align-content:start}
 .action .k{font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pitch)}

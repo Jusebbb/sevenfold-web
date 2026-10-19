@@ -1,6 +1,6 @@
 # Fundación Sevenfold Colombia · Sitio web
 
-Sitio institucional de la Fundación Sevenfold Colombia (FUNSEVEN): deporte, educación y ambiente para niños y jóvenes de Bogotá, Huila, Vaupés y Chocó.
+Sitio institucional de la Fundación Sevenfold Colombia (FUNSEVEN): deporte, educación y ambiente para niños y jóvenes de Bogotá, Vaupés y Chocó.
 
 ## Páginas (una pestaña del menú = una página)
 - `index.html` · Inicio

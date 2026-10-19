@@ -38,8 +38,8 @@ Después de editar, correr:  python3 build.py
 Videos → Instagram
 ------------------
 Cada video del inicio lleva a Instagram y tiene el botón "Deja tu comentario".
-Hoy llevan al perfil @fundacion_sevenfold. Para que cada uno abra su publicación exacta, pegar el enlace
-del post en data-ig="" de ese video en src/index.html (ej. data-ig="https://www.instagram.com/reel/XXXX/").
+Cada uno abre su reel (enlace en data-ig="" de ese video en src/index.html y src/en/index.html, sin los
+parámetros de rastreo ?xtok=…). Si data-ig queda vacío, el video lleva al perfil @fundacion_sevenfold.
 
 Datos tomados del Portafolio Sevenfold 2026 (9 de octubre) — validar con la fundación
 -------------------------------------------------------------------------------------
@@ -49,27 +49,27 @@ Datos tomados del Portafolio Sevenfold 2026 (9 de octubre) — validar con la fu
 - Categorías Sub 11, Sub 13, Sub 15, Sub 17 y Única (las notas decían "sub 11, sub 12 y 17").
 - Calendario 2026 y Copa América Kids (Porto Alegre, 18–23 nov, 48 niños).
 - Plan padrino USD 1.792 por niño y niveles de patrocinio (USD 5.376 a 21.504) en Súmate.
-- Aliados: Nestlé, EPIC, Movilser, ACEALDA, Te Acerca .travel, Mis Flores Bogotá, FEDETER, BAPRI, GESTA,
-  R8R Rafa Robayo, Fundación Artistas F.C., Fundación Triunfadores y City TV.
+- Aliados: Nestlé, EPIC, Movilser, ACEALDA, Te Acerca .travel, Mis Flores Bogotá, BAPRI, Pivot, Raksgol,
+  R8R Rafa Robayo y Fundación Artistas F.C. (FEDETER, GESTA, Fundación Triunfadores y City TV se quitaron
+  por pedido de la fundación).
 - "Superliga: subcampeones" (septiembre): confirmar con qué equipo.
+- "69 deportistas por Colombia": confirmado por la fundación.
 
-Pendientes que envía la fundación
----------------------------------
-1. Calendario 2027 (hoy aparece "Calendario 2027 · Próximamente" en Seven Colombia).
-2. Educación: próximos proyectos y alianzas (hoy hay un bloque general "Lo que viene").
-3. Equipo de talla baja deportiva: sección dentro de deporte (Seven Colombia) cuando llegue la información.
-4. Equipo: profe Leo, Velandia y Sáenz (el equipo ya es un carrusel listo para sumarlos en Nosotros).
-5. Kings League: más detalle y fotos propias de cada jugador.
-6. Escudo de Seven Chocó (hoy aparece un "7" de "próximamente").
-7. Logos en archivo de Nestlé, FEDETER, BAPRI, GESTA y City TV (hoy aparecen con su nombre en texto).
-   Se guardan en assets/logos/ y se cambian en src/aliados.html y src/index.html.
-8. Fotos en alta resolución: varias fotos salieron de los PDF y Word de eventos (≈400–600 px).
-   Si en los Drive están los originales, se reemplazan en assets/img/ con el MISMO nombre de archivo.
-9. Beneficio tributario: el sitio dice que las donaciones "pueden dar lugar a beneficios tributarios", sin cifra.
-   El portafolio menciona "hasta 25 %": si la fundación quiere mostrarlo, que lo valide su contador.
-10. Formulario: hoy abre el correo del visitante. Si quieren que llegue solo, conectar un servicio como
-    Formspree o el formulario del hosting (se cambia en assets/js/main.js).
-11. Cifras del inicio e Impacto: la fundación las va a revisar y actualizar.
+Pendientes que envía la fundación (actualizado el 19 de octubre de 2026)
+-----------------------------------------------------------------------
+El sitio no muestra notas de pendiente. Cuando llegue la información:
+1. Kings League: datos de los jugadores (sección #kings de Seven Colombia y content/historias/kings.json).
+2. Gol7 Colombia: texto, cifras, fotos y escudo (hoy: texto corto, foto de Florianópolis y monograma "G7").
+3. Natalia Riveros: foto y descripción. Su tarjeta se quitó de Nosotros; volver a agregarla en el carrusel
+   del equipo (cargo: Presidenta · Selección Colombia de Fútbol 7 Femenino, @nataliariveros4).
+4. Fotos de las entregas de zapatos en Mitú y Pereira (Drive: carpetas 10 y 11). Hoy esas dos tarjetas de
+   Educación muestran el logo de Milo; agregarlas también a la historia "Pasos que llegan más lejos".
+5. Fotos en alta resolución: varias fotos salieron de los PDF y Word de eventos (≈300–600 px).
+   Los originales están en el Drive "05_Fotos_SevenColombia"; se reemplazan en assets/img/ con el
+   MISMO nombre de archivo y se corre python3 build.py.
+6. Formulario: hoy abre el correo del visitante. Si quieren que llegue solo, conectar un servicio como
+   Formspree o el formulario del hosting (se cambia en assets/js/main.js).
+Seven Chocó todavía no tiene escudo: en su lugar se muestra un balón (club en formación).
 
 Colores por línea: definidos en assets/css/styles.css (--c-dep, --c-edu, --c-amb), tomados del aro del logo.
 
