@@ -62,11 +62,12 @@ El sitio no muestra notas de pendiente. Cuando llegue la información:
 2. Gol7 Colombia: texto, cifras, fotos y escudo (hoy: texto corto, foto de Florianópolis y monograma "G7").
 3. Natalia Riveros: foto y descripción. Su tarjeta se quitó de Nosotros; volver a agregarla en el carrusel
    del equipo (cargo: Presidenta · Selección Colombia de Fútbol 7 Femenino, @nataliariveros4).
-4. Fotos de las entregas de zapatos en Mitú y Pereira (Drive: carpetas 10 y 11). Hoy esas dos tarjetas de
-   Educación muestran el logo de Milo; agregarlas también a la historia "Pasos que llegan más lejos".
-5. Fotos en alta resolución: varias fotos salieron de los PDF y Word de eventos (≈300–600 px).
-   Los originales están en el Drive "05_Fotos_SevenColombia"; se reemplazan en assets/img/ con el
-   MISMO nombre de archivo y se corre python3 build.py.
+4. Fotos en alta resolución (19 de octubre): 48 fotos se reemplazaron por su original del Drive
+   "05_Fotos_SevenColombia" (campamento, kits de febrero, Sub-13, Roma, Chocó, Curitiba, Juntos por Chocó).
+   Siguen en baja resolución porque no estaban en lo descargado: cierre 2025, Bogotá (bogota-*),
+   Seven Vaupés (vaupes-*), jóvenes de Mitú en el aeropuerto y en Mérida (mitu-*), Kings League (kings-*,
+   jugador-*) y kits de mayo. Para cambiarlas: misma foto, MISMO nombre de archivo en assets/img/,
+   y python3 build.py. Las versiones reducidas para celular van en assets/img/opt (lista en manifest.json).
 6. Formulario: hoy abre el correo del visitante. Si quieren que llegue solo, conectar un servicio como
    Formspree o el formulario del hosting (se cambia en assets/js/main.js).
 Seven Chocó todavía no tiene escudo: en su lugar se muestra un balón (club en formación).

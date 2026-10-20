@@ -67,7 +67,8 @@ if (lb) {
   const show = () => {
     const im = group[idx];
     lbImg.removeAttribute("style");
-    lbImg.src = im.dataset.full || im.currentSrc || im.src; lbImg.alt = im.alt;
+    // en grande va la foto original (src), no la versión reducida que eligió el carrusel
+    lbImg.src = im.dataset.full || im.getAttribute("src") || im.currentSrc; lbImg.alt = im.alt;
     // nunca más grande que su tamaño real
     const fit = () => { if (lbImg.naturalWidth) lbImg.style.maxWidth = `min(${lbImg.naturalWidth}px, 100%)`; };
     lbImg.complete ? fit() : lbImg.addEventListener("load", fit, { once: true });

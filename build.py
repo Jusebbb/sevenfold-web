@@ -302,7 +302,11 @@ OPT = json.loads((ROOT/"assets/img/opt/manifest.json").read_text()) if (ROOT/"as
 
 def images(html):
     """srcset con las versiones optimizadas (assets/img/opt, generadas aparte) y carga diferida.
-    La primera imagen de cada página (fondo del encabezado) carga de inmediato."""
+    La primera imagen de cada página (fondo del encabezado) carga de inmediato.
+    Un carrusel con data-sizes="…" (p. ej. la galería a todo el ancho) pasa ese tamaño a sus fotos."""
+    def carousel_sizes(m):
+        return re.sub(r"<img (?![^>]*sizes=)", f'<img sizes="{m.group(1)}" ', m.group(0))
+    html = re.sub(r'<div class="pc[^"]*"[^>]*data-sizes="([^"]+)"[^>]*>.*?</div></div>', carousel_sizes, html, flags=re.S)
     first = [True]
     def fix(m):
         tag = m.group(0)
@@ -311,9 +315,9 @@ def images(html):
             o = OPT[src.group(2)]
             cands = ", ".join(f"assets/img/opt/{src.group(2)}-{w}.webp {w}w" for w in o["v"]) + f", assets/img/{src.group(2)}.webp {o['w']}w"
             full = 'alt=""' in tag or "fetchpriority" in tag
-            sizes = "100vw" if full else "(max-width: 760px) 100vw, 50vw"
+            sizes = "" if "sizes=" in tag else ' sizes="' + ("100vw" if full else "(max-width: 760px) 100vw, 50vw") + '"'
             attr = "data-srcset" if src.group(1) == "data-src" else "srcset"
-            tag = tag.replace("<img ", f'<img {attr}="{cands}" sizes="{sizes}" ', 1)
+            tag = tag.replace("<img ", f'<img {attr}="{cands}"{sizes} ', 1)
         if first[0]:
             first[0] = False
         elif "loading=" not in tag and "fetchpriority" not in tag and "data-src" not in tag:
