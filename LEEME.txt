@@ -6,6 +6,17 @@ Cómo verlo
 Abre index.html en el navegador (doble clic). Todo funciona sin internet:
 fotos, videos y tipografías están dentro de la carpeta assets/.
 
+Publicación y lanzamiento
+-------------------------
+GitHub Pages publica la carpeta docs/ en fundacionsevenfold.com (archivo docs/CNAME).
+Hoy: la portada muestra "Muy pronto" y el sitio completo está en fundacionsevenfold.com/preview/ (sin Google).
+Para LANZAR: en build.py cambia  PUBLICAR = False  por  PUBLICAR = True , corre  python3 build.py ,
+y haz commit y push a main. En 1–2 minutos el sitio queda en fundacionsevenfold.com, visible para Google,
+con robots.txt y sitemap.xml; los enlaces viejos a /preview/ redirigen a la página nueva.
+Después del lanzamiento: registrar el sitio en Google Search Console y enviar
+https://fundacionsevenfold.com/sitemap.xml
+Imagen al compartir en redes: assets/og-sevenfold.jpg (1200×630).
+
 Páginas (una pestaña del menú = una página)
 -------------------------------------------
 index.html            Inicio: cifras, lo que está en juego, las tres líneas, Seven Colombia (aval y clubes),

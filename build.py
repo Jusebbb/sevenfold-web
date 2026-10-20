@@ -18,6 +18,13 @@ SITE = {
   "facebook": "", "youtube": "", "tiktok": "", "linkedin": "",
 }
 
+# Dirección pública del sitio (enlaces para Google y para compartir en redes).
+URL = "https://fundacionsevenfold.com/"
+
+# Lanzamiento: con PUBLICAR = True, el sitio completo reemplaza la página "Muy pronto" en
+# fundacionsevenfold.com (carpeta docs/). Con False, se publica solo la vista previa en /preview/.
+PUBLICAR = False
+
 PAGES = [
   # archivo, título, descripción, clave del menú
   ("index.html", "Fundación Sevenfold Colombia | Fútbol 7, educación y oportunidades",
@@ -276,9 +283,15 @@ FAVICON = "data:image/svg+xml," + ("%3Csvg xmlns='http://www.w3.org/2000/svg' vi
   "%3Cpath d='M44 13A22 22 0 0 1 53 27' fill='none' stroke='%23F2C40F' stroke-width='7' stroke-linecap='round'/%3E"
   "%3Ctext x='32' y='42' font-family='Arial Black,Arial' font-weight='900' font-size='26' text-anchor='middle' fill='%23fff'%3E7%3C/text%3E%3C/svg%3E")
 
+def page_url(fn, lang):
+    """Dirección completa de una página: https://fundacionsevenfold.com/ , …/nosotros.html , …/en/"""
+    return URL + ("en/" if lang == "en" else "") + ("" if fn == "index.html" else fn)
+
 def head(title, desc, fn):
-    es, en = (f"../{fn}", fn) if L == "en" else (fn, f"en/{fn}")
-    extra = f'\n<link rel="alternate" hreflang="es" href="{es}">\n<link rel="alternate" hreflang="en" href="{en}">'
+    es, en = page_url(fn, "es"), page_url(fn, "en")
+    extra = (f'\n<link rel="canonical" href="{page_url(fn, L)}">'
+             f'\n<link rel="alternate" hreflang="es" href="{es}">\n<link rel="alternate" hreflang="en" href="{en}">'
+             f'\n<link rel="alternate" hreflang="x-default" href="{es}">')
     return f'''<!doctype html>
 <html lang="{t("lang")}">
 <head>
@@ -287,10 +300,17 @@ def head(title, desc, fn):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="theme-color" content="#0B1320">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fundación Sevenfold Colombia">
+<meta property="og:url" content="{page_url(fn, L)}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="assets/img/hero-seleccion.webp">
+<meta property="og:image" content="{URL}assets/og-sevenfold.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{t("logo_alt")}">
 <meta property="og:locale" content="{t("locale")}">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{FAVICON}">{extra}
 <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -470,19 +490,52 @@ for fn, to in REDIRECTS.items():
     (ROOT/fn).write_text(out)
     print("ok", fn, "→", to)
 
-# Vista previa del sitio completo en docs/preview (fundacionsevenfold.com/preview/) mientras
-# la portada del dominio muestra "en construcción". No se indexa en buscadores.
+# Mapa del sitio y robots.txt para buscadores (las dos versiones de idioma, enlazadas entre sí)
+urls = []
+for fn, *_ in PAGES:
+    alt = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{h}" href="{page_url(fn, l)}"/>' for h, l in (("es", "es"), ("en", "en"), ("x-default", "es")))
+    urls += [f"  <url>\n    <loc>{page_url(fn, l)}</loc>{alt}\n  </url>" for l in ("es", "en")]
+(ROOT/"sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(urls) + "\n</urlset>\n")
+(ROOT/"robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {URL}sitemap.xml\n")
+print("ok sitemap.xml y robots.txt")
+
 import shutil
-PREVIEW = ROOT / "docs" / "preview"
-if PREVIEW.exists():
-    shutil.rmtree(PREVIEW)
-PREVIEW.mkdir(parents=True)
-shutil.copytree(ROOT / "assets", PREVIEW / "assets")
-(PREVIEW / "en").mkdir()
-for page in [*ROOT.glob("*.html"), *(ROOT/"en").glob("*.html")]:
-    html = page.read_text()
-    if 'name="robots"' not in html:
-        html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
-    (PREVIEW / page.relative_to(ROOT)).write_text(html)
-(PREVIEW / ".nojekyll").write_text("")
-print("ok vista previa en docs/preview")
+DOCS = ROOT / "docs"   # lo que GitHub Pages publica en fundacionsevenfold.com
+SERVED = [*ROOT.glob("*.html"), *(ROOT/"en").glob("*.html")]
+
+if PUBLICAR:
+    # Sitio completo en la raíz del dominio. Se conservan CNAME y .nojekyll; la página
+    # "Muy pronto" y la vista previa se reemplazan (los enlaces viejos a /preview/ redirigen).
+    for p in DOCS.iterdir():
+        if p.name in ("CNAME", ".nojekyll"): continue
+        shutil.rmtree(p) if p.is_dir() else p.unlink()
+    shutil.copytree(ROOT / "assets", DOCS / "assets")
+    (DOCS / "en").mkdir()
+    for page in SERVED:
+        (DOCS / page.relative_to(ROOT)).write_text(page.read_text())
+    for f in ("sitemap.xml", "robots.txt"):
+        shutil.copy(ROOT / f, DOCS / f)
+    (DOCS / "preview" / "en").mkdir(parents=True)
+    for page in SERVED:
+        to = "/" + str(page.relative_to(ROOT)).replace("index.html", "")
+        (DOCS / "preview" / page.relative_to(ROOT)).write_text(
+            f'<!doctype html><html lang="es-CO"><head><meta charset="utf-8"><title>Fundación Sevenfold Colombia</title>'
+            f'<meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={to}">'
+            f'<link rel="canonical" href="{URL.rstrip("/")}{to}"></head><body><p><a href="{to}">Continuar</a></p></body></html>\n')
+    print("ok SITIO PUBLICADO en docs/ (fundacionsevenfold.com)")
+else:
+    # Vista previa del sitio completo en docs/preview (fundacionsevenfold.com/preview/) mientras
+    # la portada del dominio muestra "Muy pronto". No se indexa en buscadores.
+    PREVIEW = DOCS / "preview"
+    if PREVIEW.exists():
+        shutil.rmtree(PREVIEW)
+    PREVIEW.mkdir(parents=True)
+    shutil.copytree(ROOT / "assets", PREVIEW / "assets")
+    (PREVIEW / "en").mkdir()
+    for page in SERVED:
+        html = page.read_text().replace(f'="{URL}', f'="{URL}preview/')
+        if 'name="robots"' not in html:
+            html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
+        (PREVIEW / page.relative_to(ROOT)).write_text(html)
+    (PREVIEW / ".nojekyll").write_text("")
+    print("ok vista previa en docs/preview")
