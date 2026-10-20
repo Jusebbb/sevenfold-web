@@ -83,7 +83,7 @@ T = {
  "es": dict(skip="Saltar al contenido", home_label="Fundación Sevenfold Colombia, inicio", logo_alt="Fundación Sevenfold · Creemos en el futuro",
    nav="Principal", open_menu="Abrir menú", close="Cerrar", prev="Anterior", next="Siguiente", viewer="Visor de fotos", story="Historia",
    switch_label="English version", switch="EN", locale="es_CO", lang="es-CO",
-   foot_about="Entidad sin ánimo de lucro que transforma la vida de niños, niñas y jóvenes de Colombia a través del deporte, la educación y el desarrollo sostenible.",
+   foot_about="Entidad sin ánimo de lucro que transforma la vida de niños y jóvenes de Colombia a través del deporte, la educación y el desarrollo sostenible.",
    explore="Explora", join="Súmate", contact="Contacto",
    f_links=[("nosotros.html","Nosotros"),("seven-colombia.html","Seven Colombia"),("educacion.html","Educación"),("ambiente.html","Ambiente"),("impacto.html","Impacto e historias"),("aliados.html","Aliados")],
    f_join=[("donar","Donar"),("apadrinar","Apadrinar un talento"),("especie","Donar en especie"),("patrocinar","Patrocinar"),("voluntariado","Voluntariado")],
