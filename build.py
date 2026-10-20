@@ -16,6 +16,10 @@ SITE = {
   "instagram": "https://www.instagram.com/fundacion_sevenfold/",
   "instagram_seven": "https://www.instagram.com/futbol7colombia_/",  # Seven Colombia
   "facebook": "", "youtube": "", "tiktok": "", "linkedin": "",
+  # Formulario: los mensajes llegan a este correo a través de FormSubmit (gratis, sin cuenta).
+  # La primera vez llega a ese correo un mensaje "Activate Form": hay que darle clic una sola vez.
+  # Vacío ("") = el formulario abre la aplicación de correo del visitante, como antes.
+  "form": "https://formsubmit.co/ajax/fundacionsevenfold@gmail.com",
 }
 
 # Dirección pública del sitio (enlaces para Google y para compartir en redes).
@@ -92,7 +96,7 @@ T = {
    form_q="¿Cómo quieres participar?", form_opts=["Quiero donar","Quiero apadrinar un talento","Soy empresa y quiero patrocinar","Quiero donar en especie","Quiero proponer una alianza","Quiero ser voluntario","Quiero inscribir a un niño o joven","Prensa y medios","Otro tema"],
    name="Nombre completo", org="Empresa u organización", optional="Opcional", email="Correo", phone="Teléfono", interest="Me interesa apoyar en",
    interests=["Seven Colombia","Educación","Ambiente","Bogotá","Vaupés","Chocó","Viajes y torneos"], msg="Mensaje", msg_ph="Cuéntanos un poco más",
-   send="Enviar mensaje", note="Se abrirá tu correo con el mensaje listo para", ok="Abrimos tu aplicación de correo con el mensaje listo. Si no se abrió, escríbenos directamente a",
+   send="Enviar mensaje", note="Te respondemos a tu correo. También puedes escribirnos a", ok="Abrimos tu aplicación de correo con el mensaje listo. Si no se abrió, escríbenos directamente a",
    direct="¿Prefieres escribir directo?", dlg_eyebrow="Súmate", dlg_title="Hablemos", dlg_text="Cuéntanos cómo quieres participar y te respondemos con una propuesta clara.",
    read_story="Leer historia", read_the_story="Leer la historia", see_photos="Ver fotos", pending="Pendiente", photos="Fotos", stories="Historias", palmares="Palmarés",
    report_title="Informe de gestión y resultados"),
@@ -108,7 +112,7 @@ T = {
    form_q="How would you like to take part?", form_opts=["I want to donate","I want to sponsor a talent","I represent a company and want to sponsor","I want to donate in kind","I want to propose a partnership","I want to volunteer","I want to sign up a child or young person","Press and media","Other"],
    name="Full name", org="Company or organization", optional="Optional", email="Email", phone="Phone", interest="I'm interested in supporting",
    interests=["Seven Colombia","Education","Environment","Bogotá","Vaupés","Chocó","Trips and tournaments"], msg="Message", msg_ph="Tell us a bit more",
-   send="Send message", note="Your email app will open with the message ready for", ok="We opened your email app with the message ready. If it didn't open, write to us directly at",
+   send="Send message", note="We'll reply by email. You can also write to us at", ok="We opened your email app with the message ready. If it didn't open, write to us directly at",
    direct="Prefer to write directly?", dlg_eyebrow="Get involved", dlg_title="Let's talk", dlg_text="Tell us how you'd like to take part and we'll reply with a clear proposal.",
    read_story="Read story", read_the_story="Read the story", see_photos="See photos", pending="Pending", photos="Photos", stories="Stories", palmares="Track record",
    report_title="Management and results report"),
@@ -203,6 +207,7 @@ def form():
     </div>
   </fieldset>
   <label class="full">{t("msg")}<textarea name="mensaje" placeholder="{t("msg_ph")}"></textarea></label>
+  <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
   <div class="full row-cta"><button class="btn dark-btn" type="submit">{t("send")} {ICONS["arrow"]}</button><span class="note">{t("note")} {SITE["email"]}.</span></div>
   <p class="ok" hidden>{t("ok")} {SITE["email"]}.</p>
 </form>'''
@@ -275,7 +280,7 @@ def footer(fn):
   <span class="lb-count" aria-live="polite"></span>
 </div>
 {dialogs()}
-<script>window.SITE={json.dumps({"email": SITE["email"], "instagram": SITE["instagram"]})}</script>
+<script>window.SITE={json.dumps({"email": SITE["email"], "instagram": SITE["instagram"], "form": SITE["form"]})}</script>
 <script src="assets/js/main.js?v={VER}"></script>'''
 
 FAVICON = "data:image/svg+xml," + ("%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1320'/%3E"

@@ -79,8 +79,11 @@ El sitio no muestra notas de pendiente. Cuando llegue la información:
    Seven Vaupés (vaupes-*), jóvenes de Mitú en el aeropuerto y en Mérida (mitu-*), Kings League (kings-*,
    jugador-*) y kits de mayo. Para cambiarlas: misma foto, MISMO nombre de archivo en assets/img/,
    y python3 build.py. Las versiones reducidas para celular van en assets/img/opt (lista en manifest.json).
-6. Formulario: hoy abre el correo del visitante. Si quieren que llegue solo, conectar un servicio como
-   Formspree o el formulario del hosting (se cambia en assets/js/main.js).
+6. Formulario (desde el 19 de octubre de 2026): los mensajes llegan directo a fundacionsevenfold@gmail.com
+   por FormSubmit (formsubmit.co, gratis y sin cuenta), con el asunto "Sitio web · <tipo de apoyo> · <nombre>".
+   La primera vez FormSubmit envía a ese correo un mensaje "Activate Form": darle clic una sola vez.
+   Si el envío falla, el formulario abre el correo del visitante como respaldo. Se configura en build.py
+   (SITE["form"]); para usar otro servicio, cambiar ese enlace.
 Escudo de Seven Chocó: assets/logos/seven-choco.webp.
 
 Encuadre de las fotos (que no se corten las caras)

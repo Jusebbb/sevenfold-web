@@ -7,11 +7,13 @@ const EN = document.documentElement.lang.startsWith("en");
 const TX = EN ? {
   closeMenu: "Close menu", openMenu: "Open menu", pick: "Choose item", goTo: (i, n) => `Go to ${i} of ${n}`,
   talk: "Let's talk", copied: "Copied", copy: "Copy", none: "Not specified", web: "Website (English)", contact: "Contact",
-  name: "Name", org: "Company / organization", email: "Email", phone: "Phone", interest: "Interested in", prevPhoto: "Previous photo", nextPhoto: "Next photo", prev: "Previous", next: "Next"
+  name: "Name", org: "Company / organization", email: "Email", phone: "Phone", interest: "Interested in", prevPhoto: "Previous photo", nextPhoto: "Next photo", prev: "Previous", next: "Next",
+  sending: "Sending…", sent: "Message sent! Thank you for writing to us. We'll get back to you soon by email.", kind: "Type of support", msg: "Message", page: "Page"
 } : {
   closeMenu: "Cerrar menú", openMenu: "Abrir menú", pick: "Elegir elemento", goTo: (i, n) => `Ir al ${i} de ${n}`,
   talk: "Hablemos", copied: "Copiado", copy: "Copiar", none: "No especificado", web: "Sitio web", contact: "Contacto",
-  name: "Nombre", org: "Empresa / organización", email: "Correo", phone: "Teléfono", interest: "Me interesa", prevPhoto: "Foto anterior", nextPhoto: "Foto siguiente", prev: "Anterior", next: "Siguiente"
+  name: "Nombre", org: "Empresa / organización", email: "Correo", phone: "Teléfono", interest: "Me interesa", prevPhoto: "Foto anterior", nextPhoto: "Foto siguiente", prev: "Anterior", next: "Siguiente",
+  sending: "Enviando…", sent: "¡Mensaje enviado! Gracias por escribirnos. Te responderemos pronto a tu correo.", kind: "Tipo de apoyo", msg: "Mensaje", page: "Página"
 };
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const ARROW = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
@@ -325,25 +327,53 @@ try {
   if (t) document.querySelectorAll("#formulario select[name=tipo]").forEach(s => s.value = t[0]);
 } catch {}
 
-/* Formulario: arma un correo con la información (sitio informativo, sin servidor) */
+/* Formulario: envía el mensaje directo al correo de la Fundación (SITE.form, servicio FormSubmit).
+   Si el envío falla, o si SITE.form está vacío, abre la aplicación de correo del visitante con el mensaje listo. */
 document.querySelectorAll("form.form").forEach(form => {
-  form.addEventListener("submit", e => {
+  const ok = form.querySelector(".ok"), btn = form.querySelector("button[type=submit]");
+  const mailText = ok ? ok.textContent : "";
+  form.addEventListener("submit", async e => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const d = new FormData(form);
+    if (d.get("_honey")) return;  // campo oculto: solo lo llenan los robots
     const intereses = d.getAll("interes").join(", ") || TX.none;
     const asunto = `${TX.web} · ${d.get("tipo") || TX.contact} · ${d.get("nombre")}`;
-    const cuerpo = [
-      `${TX.name}: ${d.get("nombre")}`,
-      d.get("empresa") ? `${TX.org}: ${d.get("empresa")}` : "",
-      `${TX.email}: ${d.get("correo")}`,
-      d.get("telefono") ? `${TX.phone}: ${d.get("telefono")}` : "",
-      `${TX.interest}: ${intereses}`,
-      "", d.get("mensaje") || ""
-    ].filter(Boolean).join("\n");
-    const ok = form.querySelector(".ok");
-    if (ok) ok.hidden = false;
-    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+    const show = text => { if (ok) { ok.textContent = text; ok.hidden = false; } };
+    const mailto = () => {
+      const cuerpo = [
+        `${TX.name}: ${d.get("nombre")}`,
+        d.get("empresa") ? `${TX.org}: ${d.get("empresa")}` : "",
+        `${TX.email}: ${d.get("correo")}`,
+        d.get("telefono") ? `${TX.phone}: ${d.get("telefono")}` : "",
+        `${TX.interest}: ${intereses}`,
+        "", d.get("mensaje") || ""
+      ].filter(Boolean).join("\n");
+      show(mailText);
+      window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+    };
+    if (!SITE.form) return mailto();
+    const label = btn ? btn.innerHTML : "";
+    if (btn) { btn.disabled = true; btn.textContent = TX.sending; }
+    try {
+      const r = await fetch(SITE.form, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: asunto, _template: "table", _captcha: "false", _replyto: d.get("correo"), email: d.get("correo"),
+          [TX.name]: d.get("nombre"), [TX.org]: d.get("empresa") || "—", [TX.phone]: d.get("telefono") || "—",
+          [TX.kind]: d.get("tipo"), [TX.interest]: intereses, [TX.msg]: d.get("mensaje") || "—", [TX.page]: location.href
+        })
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || String(j.success) !== "true") throw new Error(j.message || r.status);
+      form.reset();
+      show(TX.sent);
+    } catch {
+      mailto();
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = label; }
+    }
   });
 });
 
