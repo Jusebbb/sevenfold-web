@@ -9,7 +9,7 @@ fotos, videos y tipografías están dentro de la carpeta assets/.
 Publicación y lanzamiento
 -------------------------
 GitHub Pages publica la carpeta docs/ en fundacionsevenfold.com (archivo docs/CNAME).
-Hoy: la portada muestra "Muy pronto" y el sitio completo está en fundacionsevenfold.com/preview/ (sin Google).
+Desde el 19 de octubre de 2026 el sitio está publicado (PUBLICAR = True). Con False se vuelve a "Muy pronto".
 Para LANZAR: en build.py cambia  PUBLICAR = False  por  PUBLICAR = True , corre  python3 build.py ,
 y haz commit y push a main. En 1–2 minutos el sitio queda en fundacionsevenfold.com, visible para Google,
 con robots.txt y sitemap.xml; los enlaces viejos a /preview/ redirigen a la página nueva.
@@ -81,7 +81,13 @@ El sitio no muestra notas de pendiente. Cuando llegue la información:
    y python3 build.py. Las versiones reducidas para celular van en assets/img/opt (lista en manifest.json).
 6. Formulario: hoy abre el correo del visitante. Si quieren que llegue solo, conectar un servicio como
    Formspree o el formulario del hosting (se cambia en assets/js/main.js).
-Seven Chocó todavía no tiene escudo: en su lugar se muestra un balón (club en formación).
+Escudo de Seven Chocó: assets/logos/seven-choco.webp.
+
+Encuadre de las fotos (que no se corten las caras)
+--------------------------------------------------
+content/focos.json guarda, para cada foto con personas, dónde están las caras ("50% 30%" = centrada de lado
+y al 30 % desde arriba). build.py lo aplica en todas las páginas. Se calculó con detección de caras; si una foto
+queda mal recortada, cambia su valor y corre python3 build.py. En las historias las fotos se ven completas.
 
 Colores por línea: definidos en assets/css/styles.css (--c-dep, --c-edu, --c-amb), tomados del aro del logo.
 

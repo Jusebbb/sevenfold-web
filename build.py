@@ -23,7 +23,7 @@ URL = "https://fundacionsevenfold.com/"
 
 # Lanzamiento: con PUBLICAR = True, el sitio completo reemplaza la página "Muy pronto" en
 # fundacionsevenfold.com (carpeta docs/). Con False, se publica solo la vista previa en /preview/.
-PUBLICAR = False
+PUBLICAR = True
 
 PAGES = [
   # archivo, título, descripción, clave del menú
@@ -319,6 +319,9 @@ def head(title, desc, fn):
 <body>'''
 
 OPT = json.loads((ROOT/"assets/img/opt/manifest.json").read_text()) if (ROOT/"assets/img/opt/manifest.json").exists() else {}
+# Punto de enfoque de cada foto (donde están las caras), para que los recortes no las corten.
+# Se calcula con detección de caras; para corregir una foto a mano, cambia su valor ("50% 30%" = centro, 30 % desde arriba).
+FOCOS = json.loads((ROOT/"content/focos.json").read_text()) if (ROOT/"content/focos.json").exists() else {}
 
 def images(html):
     """srcset con las versiones optimizadas (assets/img/opt, generadas aparte) y carga diferida.
@@ -327,9 +330,23 @@ def images(html):
     def carousel_sizes(m):
         return re.sub(r"<img (?![^>]*sizes=)", f'<img sizes="{m.group(1)}" ', m.group(0))
     html = re.sub(r'<div class="pc[^"]*"[^>]*data-sizes="([^"]+)"[^>]*>.*?</div></div>', carousel_sizes, html, flags=re.S)
+    # las galerías .fit muestran la foto completa: ahí no se mueve el encuadre
+    html = re.sub(r'<div class="pc fit[^"]*".*?</div></div>', lambda m: m.group(0).replace("<img ", "<img data-nofocus ").replace("<img data-nofocus data-nofocus ", "<img data-nofocus "), html, flags=re.S)
     first = [True]
+    def focus(tag):
+        name = re.search(r'(?:data-src|src)="assets/img/([\w\-/]+)\.webp"', tag)
+        if "data-nofocus" in tag:
+            return tag.replace("<img data-nofocus ", "<img ", 1)
+        if not name or name.group(1) not in FOCOS or "--pos" in tag:
+            return tag
+        pos = FOCOS[name.group(1)]
+        if "object-position:" in tag:
+            return re.sub(r"object-position:[^;\"]*", f"object-position:{pos}", tag, count=1)
+        if 'style="' in tag:
+            return tag.replace('style="', f'style="object-position:{pos};', 1)
+        return tag.replace("<img ", f'<img style="object-position:{pos}" ', 1)
     def fix(m):
-        tag = m.group(0)
+        tag = focus(m.group(0))
         src = re.search(r'(data-src|src)="assets/img/([\w\-]+)\.webp"', tag)
         if src and src.group(2) in OPT and "srcset" not in tag:
             o = OPT[src.group(2)]
@@ -396,7 +413,8 @@ def story_sheet(h):
     cifras = ('<div class="stat-row">' + "".join(f'<div><b>{esc(c["valor"])}</b><span>{esc(c["texto"])}</span></div>' for c in h["cifras"]) + "</div>") if h.get("cifras") else ""
     ln = {"educacion": " ln-edu", "ambiente": " ln-amb"}.get(h["linea"], "")
     return (f'<template id="story-{k}">\n<article class="story-sheet{ln}">\n'
-            f'  <div class="pc" data-pc aria-label="{t("photos")}: {esc(h["titulo"])}"><div class="pc-track">{fotos}</div></div>\n'
+            # .fit: en la historia cada foto se ve completa (sin recortar caras), sobre su propio fondo difuminado
+            f'  <div class="pc fit" data-pc aria-label="{t("photos")}: {esc(h["titulo"])}"><div class="pc-track">{fotos}</div></div>\n'
             f'  <div class="story-txt"><span class="eyebrow">{esc(h["etiqueta"])} · {esc(h["fecha"])}</span>'
             f'<h2 class="h-lg" id="st-{k}">{esc(h["titulo"])}</h2>{podios}<div class="prose">{texto}</div>{cita}{cifras}{pendiente(h.get("pendiente",""))}</div>\n'
             f'</article>\n</template>')
