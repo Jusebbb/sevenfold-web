@@ -519,7 +519,9 @@ print("ok sitemap.xml y robots.txt")
 
 import shutil
 DOCS = ROOT / "docs"   # lo que GitHub Pages publica en fundacionsevenfold.com
-SERVED = [*ROOT.glob("*.html"), *(ROOT/"en").glob("*.html")]
+# Archivos de verificación de Google Search Console (google….html): se publican tal cual y no se borran
+VERIFY = sorted(ROOT.glob("google*.html"))
+SERVED = [p for p in [*ROOT.glob("*.html"), *(ROOT/"en").glob("*.html")] if p not in VERIFY]
 
 if PUBLICAR:
     # Sitio completo en la raíz del dominio. Se conservan CNAME y .nojekyll; la página
@@ -531,7 +533,7 @@ if PUBLICAR:
     (DOCS / "en").mkdir()
     for page in SERVED:
         (DOCS / page.relative_to(ROOT)).write_text(page.read_text())
-    for f in ("sitemap.xml", "robots.txt"):
+    for f in ("sitemap.xml", "robots.txt", *(v.name for v in VERIFY)):
         shutil.copy(ROOT / f, DOCS / f)
     (DOCS / "preview" / "en").mkdir(parents=True)
     for page in SERVED:
