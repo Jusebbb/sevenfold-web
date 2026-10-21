@@ -14,31 +14,38 @@
   "fotos": [
     {
       "src": "assets/img/mitu-kits-grupo.webp",
-      "alt": "Foto grupal de la entrega de kits escolares en una comunidad de Mitú, febrero de 2026"
+      "alt": "Foto grupal de la entrega de kits escolares en una comunidad de Mitú, febrero de 2026",
+      "pie": "Febrero · comunidad"
     },
     {
       "src": "assets/img/mitu-kits-ninos2.webp",
-      "alt": "Niños de Mitú con sus morrales nuevos, febrero de 2026"
+      "alt": "Niños de Mitú con sus morrales nuevos, febrero de 2026",
+      "pie": "Febrero · comunidad"
     },
     {
       "src": "assets/img/mitu-kits-entrega.webp",
-      "alt": "Entrega de kits escolares en Mitú, febrero de 2026"
+      "alt": "Entrega de kits escolares en Mitú, febrero de 2026",
+      "pie": "Febrero · comunidad"
     },
     {
       "src": "assets/img/mitu-kits-fila.webp",
-      "alt": "Niños en fila recibiendo sus kits, febrero de 2026"
+      "alt": "Niños en fila recibiendo sus kits, febrero de 2026",
+      "pie": "Febrero · comunidad"
     },
     {
       "src": "assets/img/mitu-kits-banca.webp",
-      "alt": "Estudiantes de un colegio de Mitú con sus kits, mayo de 2026"
+      "alt": "Estudiantes de un colegio de Mitú con sus kits, mayo de 2026",
+      "pie": "Mayo · colegio"
     },
     {
       "src": "assets/img/mitu-kits-banca2.webp",
-      "alt": "Jóvenes de un colegio del Vaupés en la entrega de mayo de 2026"
+      "alt": "Jóvenes de un colegio del Vaupés en la entrega de mayo de 2026",
+      "pie": "Mayo · colegio"
     },
     {
       "src": "assets/img/mitu-kits-mesa.webp",
-      "alt": "Kits escolares listos para la entrega de mayo de 2026"
+      "alt": "Kits escolares listos para la entrega de mayo de 2026",
+      "pie": "Mayo · colegio"
     }
   ],
   "texto": [
@@ -86,6 +93,15 @@
         "valor": "2",
         "texto": "deliveries in Mitú"
       }
+    ],
+    "pies": [
+      "February · community",
+      "February · community",
+      "February · community",
+      "February · community",
+      "May · school",
+      "May · school",
+      "May · school"
     ]
   }
 }

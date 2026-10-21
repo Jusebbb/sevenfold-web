@@ -35,7 +35,7 @@ PAGES = [
    "Fundación Sevenfold Colombia: llevamos el fútbol 7, la educación y oportunidades reales a niños y jóvenes de Bogotá, Vaupés y Chocó.", "inicio"),
   ("nosotros.html", "Nosotros | Fundación Sevenfold Colombia",
    "Equipo, propósito, misión, visión, valores, historia y hacia dónde va la Fundación Sevenfold Colombia.", "nosotros"),
-  ("seven-colombia.html", "Seven Colombia · Fútbol 7 | Fundación Sevenfold",
+  ("seven-colombia.html", "Seven Colombia · Fútbol 7 Colombia | Selección Colombia de Fútbol 7",
    "Seven Colombia, avalada por la FIF7: Seven Bogotá F.C., Seven Vaupés F.C. y Seven Chocó. Categorías, palmarés, Kings League y temporada 2026.", "seven"),
   ("educacion.html", "Educación | Fundación Sevenfold Colombia",
    "La línea de educación de la Fundación Sevenfold: kits escolares, calzado y formación para niños y jóvenes de Vaupés y otros territorios.", "educacion"),
@@ -54,6 +54,9 @@ REDIRECTS = {
   "contacto.html": "apoya.html#formulario",
   "kings-league.html": "seven-colombia.html#kings",
   "merida-2025.html": "seven-colombia.html#palmares",
+  # enlace corto para Seven Colombia: fundacionsevenfold.com/futbol7colombia
+  "futbol7colombia.html": "seven-colombia.html",
+  "seven.html": "seven-colombia.html",
 }
 
 # Menú: una pestaña = una página. Sin desplegables ni pestañas intermedias.
@@ -380,9 +383,11 @@ def tr(item):
     """Versión del elemento en el idioma actual: en inglés, los campos de "en" reemplazan a los de español."""
     if L != "en" or not item.get("en"): return item
     out = dict(item); en = item["en"]
-    for k, v in en.items():
+    for k, v in sorted(en.items(), key=lambda kv: kv[0] == "pies"):
         if k in ("fotos",) and isinstance(v, list):  # solo textos alternativos, en el mismo orden
             out[k] = [dict(f, alt=a) for f, a in zip(item[k], v)]
+        elif k == "pies":  # leyendas visibles de las fotos, en el mismo orden
+            out["fotos"] = [dict(f, pie=x) for f, x in zip(out["fotos"], v)]
         elif k in ("portada", "foto") and isinstance(v, str):
             out[k] = dict(item[k], alt=v)
         else:
@@ -409,7 +414,8 @@ def story_cards(linea=""):
 def story_sheet(h):
     h = tr(h)
     k = h["id"]
-    fotos = "".join(f'<figure class="pc-slide">{img(f)}</figure>' for f in h["fotos"])
+    pie = lambda f: f'<figcaption>{esc(f["pie"])}</figcaption>' if f.get("pie") else ""
+    fotos = "".join(f'<figure class="pc-slide">{img(f)}{pie(f)}</figure>' for f in h["fotos"])
     podios = ""
     if h.get("podios"):
         podios = '<ul class="tally">' + "".join(f'<li{" class=\"gold\"" if x.get("oro") else ""}>{esc(x["categoria"])} <b>{esc(x["resultado"])}</b></li>' for x in h["podios"]) + "</ul>"
@@ -507,7 +513,7 @@ for fn, to in REDIRECTS.items():
     out = f'''<!doctype html>
 <html lang="es-CO"><head><meta charset="utf-8"><title>Fundación Sevenfold Colombia</title>
 <meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={to}">
-<script>location.replace("{to.split('#')[0]}" + location.search + "#{to.split('#')[1]}")</script></head>
+<script>location.replace("{to.split('#')[0]}" + location.search + "{'#' + to.split('#')[1] if '#' in to else ''}")</script></head>
 <body><p><a href="{to}">Continuar</a></p></body></html>
 '''
     (ROOT/fn).write_text(out)

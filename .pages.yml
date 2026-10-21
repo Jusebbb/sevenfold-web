@@ -27,7 +27,7 @@ content:
         label: Fotos de la historia
         type: object
         list: true
-        fields: [ { name: src, label: Foto, type: image }, { name: alt, label: "Descripción de la foto", type: string }, { name: pos, label: Encuadre, type: string } ]
+        fields: [ { name: src, label: Foto, type: image }, { name: alt, label: "Descripción de la foto", type: string }, { name: pos, label: Encuadre, type: string }, { name: pie, label: "Leyenda visible (opcional)", type: string } ]
       - { name: texto, label: Párrafos, type: text, list: true }
       - name: cita
         label: Cita (opcional)
@@ -54,6 +54,7 @@ content:
           - { name: resumen, label: Resumen, type: text }
           - { name: portada, label: "Descripción de la portada", type: string }
           - { name: fotos, label: "Descripciones de las fotos (mismo orden)", type: string, list: true }
+          - { name: pies, label: "Leyendas visibles de las fotos (mismo orden, opcional)", type: string, list: true }
           - { name: texto, label: Párrafos, type: text, list: true }
           - name: cita
             label: Cita
