@@ -1536,4 +1536,7 @@ ul.values.vcards .value b{font-size:1.3rem;line-height:1.05}
 /* carruseles con muchas tarjetas: puntos más juntos para que quepan en una línea */
 .car-dots:has(button:nth-child(10)) button{width:24px}
 .cats2 .cat2{aspect-ratio:2/3}
+/* Única femenina / Única masculina: título en dos líneas, un poco más pequeño */
+.cats2 .cat2.long b{font-size:clamp(1.7rem,2.1vw,2.1rem);line-height:.92}
 .kings-stats b{min-width:3ch}
+.cats2 .cat2.long::after{background:linear-gradient(180deg,rgba(11,19,32,0) 18%,rgba(11,19,32,.7) 45%,rgba(11,19,32,.95) 72%)}
