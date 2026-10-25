@@ -56,7 +56,7 @@
     <div class="sec-head">
       <span class="eyebrow">Activity log</span>
       <h2 class="h-lg mt-s">What we've done, one activity at a time</h2>
-      <p class="lead">Filter by type of activity. Browse the photos with the arrows or tap them to see them full size.</p>
+      <p class="lead">Filter by type of activity and swipe through the cards. Tap a photo to see every picture from that day.</p>
     </div>
     <div class="filters" role="group" aria-label="Filter the log">
       <button data-f="all" aria-pressed="true">All</button>
@@ -65,205 +65,77 @@
       <button data-f="solidaridad" aria-pressed="false">Solidarity</button>
       <button data-f="internacional" aria-pressed="false">International</button>
     </div>
-    <div class="log">
-
-      <article class="ev" data-tags="deporte">
-        <div class="when"><span>September 2026</span><b>Superliga runners-up</b>
-          <div class="kpis"><div><strong>2nd</strong><small>place in the Superliga</small></div></div></div>
-        <div class="what">
-          <h3>A month of football and gratitude</h3>
-          <p>We finished the Superliga as runners-up and delivered the donations we received from our partners.</p>
-        </div>
+    <div class="log2" data-carousel aria-label="Activity log, event by event">
+      <article class="evc" data-tags="deporte">
+        <div class="evc-ph none" aria-hidden="true">{{icon:star}}<b>2nd</b><span>place in the Superliga</span></div>
+        <div class="evc-in"><span class="evc-when">September 2026</span><h3>Superliga runners-up</h3><p>We finished the Superliga as runners-up and delivered the donations we received from our partners.</p></div>
       </article>
-
-      <article class="ev" data-tags="deporte">
-        <div class="when"><span>August 2026 · Bogotá</span><b>Juntos por Chocó</b></div>
-        <div class="what">
-          <h3>The football that unites us</h3>
-          <p>Former professional footballers, artists and Colombia's men's and women's 7-a-side national teams shared the pitch at the Simón Bolívar Sports Complex, in a day of collecting donations for Chocó.</p>
-          <div class="chips"><span class="chip">Fundación Artistas F.C.</span><span class="chip">R8R Rafa Robayo</span></div>
-          <a class="link-arrow" href="#historia-juntos" data-story="juntos">Read the story {{icon:arrow}}</a>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos of Juntos por Chocó"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/juntos-grupo.webp" alt="Group photo of the exhibition teams"></figure>
-          <figure class="pc-slide"><img src="assets/img/juntos-exjugadores.webp" alt="Former footballers and guests wearing the Chocó jersey"></figure>
-          <figure class="pc-slide"><img src="assets/img/juntos-exfutbolistas.webp" alt="The former professional footballers' team"></figure>
-          <figure class="pc-slide"><img src="assets/img/juntos-jugadoras.webp" alt="Players huddling before taking the pitch"></figure>
-        </div></div>
+      <article class="evc" data-tags="deporte">
+        <button class="evc-ph" type="button" aria-label="See the photos (4): Juntos por Chocó"><img src="assets/img/juntos-exjugadores.webp" alt="Former footballers and guests wearing the Chocó jersey"><span class="evc-count">{{icon:camera}} 4</span></button><div class="evc-photos" hidden><figure><img src="assets/img/juntos-exjugadores.webp" alt="Former footballers and guests wearing the Chocó jersey"></figure><figure><img src="assets/img/juntos-grupo.webp" alt="Group photo of the exhibition teams"></figure><figure><img src="assets/img/juntos-exfutbolistas.webp" alt="The former professional footballers' team"></figure><figure><img src="assets/img/juntos-jugadoras.webp" alt="Players huddling before taking the pitch"></figure></div>
+        <div class="evc-in"><span class="evc-when">August 2026 · Bogotá</span><h3>Juntos por Chocó</h3><p>Former professional footballers, artists and Colombia's men's and women's 7-a-side national teams shared the pitch at the Simón Bolívar Sports Complex, in a day of collecting donations for Chocó.</p><a class="link-arrow" href="#historia-juntos" data-story="juntos">Read the story {{icon:arrow}}</a></div>
       </article>
-
-      <article class="ev" data-tags="solidaridad">
-        <div class="when"><span>August 2026 · Chocó</span><b>Humanitarian aid for Chocó</b>
-          <div class="kpis"><div><strong>3</strong><small>trucks of aid</small></div></div></div>
-        <div class="what">
-          <h3>From the collection point to the river</h3>
-          <p>Together with the community, partners and fellow citizens we collected groceries, water and basic supplies in Bogotá. Then we took them to the communities affected by the earthquake in San Juan, Río Pepé and Baudó.</p>
-          <div class="chips"><span class="chip">R8R Rafa Robayo</span><span class="chip">Fundación Artistas F.C.</span><span class="chip">Simón Bolívar Sports Complex</span></div>
-          <a class="link-arrow" href="#historia-choco" data-story="choco">Read the story {{icon:arrow}}</a>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos of the aid for Chocó"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/choco-lancha.webp" alt="Unloading aid from the boat"></figure>
-          <figure class="pc-slide"><img src="assets/img/choco-camion.webp" alt="Aid loaded onto the truck"></figure>
-          <figure class="pc-slide"><img src="assets/img/choco-rio.webp" alt="A volunteer carrying aid by the river"></figure>
-          <figure class="pc-slide"><img src="assets/img/simon-bolivar2.webp" alt="Teams and volunteers at Simón Bolívar"></figure>
-          <figure class="pc-slide"><img src="assets/img/simon-bolivar3.webp" alt="Partner women's team at the solidarity event"></figure>
-          <figure class="pc-slide"><img src="assets/img/choco-donaciones.webp" alt="A Foundation grocery-kit donation box"></figure>
-          <figure class="pc-slide"><img src="assets/img/choco-acopio.webp" alt="Volunteers at the collection point"></figure>
-        </div></div>
+      <article class="evc" data-tags="solidaridad">
+        <button class="evc-ph" type="button" aria-label="See the photos (7): Humanitarian aid for Chocó"><img src="assets/img/choco-lancha.webp" alt="Unloading aid from the boat"><span class="evc-count">{{icon:camera}} 7</span></button><div class="evc-photos" hidden><figure><img src="assets/img/choco-lancha.webp" alt="Unloading aid from the boat"></figure><figure><img src="assets/img/choco-camion.webp" alt="Aid loaded onto the truck"></figure><figure><img src="assets/img/choco-rio.webp" alt="A volunteer carrying aid by the river"></figure><figure><img src="assets/img/simon-bolivar2.webp" alt="Teams and volunteers at Simón Bolívar"></figure><figure><img src="assets/img/simon-bolivar3.webp" alt="Partner women's team at the solidarity event"></figure><figure><img src="assets/img/choco-donaciones.webp" alt="A Foundation grocery-kit donation box"></figure><figure><img src="assets/img/choco-acopio.webp" alt="Volunteers at the collection point"></figure></div>
+        <div class="evc-in"><span class="evc-when">August 2026 · Chocó</span><h3>Humanitarian aid for Chocó</h3><p>Together with the community, partners and fellow citizens we collected groceries, water and basic supplies in Bogotá. Then we took them to the communities affected by the earthquake in San Juan, Río Pepé and Baudó.</p><ul class="evc-kpis"><li><b>3</b>trucks of aid</li></ul><a class="link-arrow" href="#historia-choco" data-story="choco">Read the story {{icon:arrow}}</a></div>
       </article>
-
-      <article class="ev" data-tags="deporte internacional">
-        <div class="when"><span>Jul 30 – Aug 2, 2026 · Rome</span><b>FIF7 World Cup</b>
-          <div class="kpis"><div><strong>Italy</strong><small>host</small></div><div><strong>3</strong><small>teams: men's, women's and over-35</small></div></div></div>
-        <div class="what">
-          <h3>Colombia in Rome</h3>
-          <p>We took part in the F7 Intercontinental Cup, the FIF7's 7-a-side World Cup, with men's professional, women's and over-35 teams. An opportunity for international exposure and exchange with delegations from many countries.</p>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos from Rome"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/hero-intercontinental.webp" alt="Teams walking out in Rome"></figure>
-          <figure class="pc-slide"><img src="assets/img/roma-duelo.webp" alt="A duel during the match"></figure>
-          <figure class="pc-slide"><img src="assets/img/roma-trofeo.webp" alt="The tournament trophy"></figure>
-          <figure class="pc-slide"><img src="assets/img/roma-28.webp" alt="Colombian player wearing number 28"></figure>
-        </div></div>
+      <article class="evc" data-tags="deporte internacional">
+        <button class="evc-ph" type="button" aria-label="See the photos (4): FIF7 World Cup"><img src="assets/img/hero-intercontinental.webp" alt="Teams walking out in Rome"><span class="evc-count">{{icon:camera}} 4</span></button><div class="evc-photos" hidden><figure><img src="assets/img/hero-intercontinental.webp" alt="Teams walking out in Rome"></figure><figure><img src="assets/img/roma-duelo.webp" alt="A duel during the match"></figure><figure><img src="assets/img/roma-trofeo.webp" alt="The tournament trophy"></figure><figure><img src="assets/img/roma-28.webp" alt="Colombian player wearing number 28"></figure></div>
+        <div class="evc-in"><span class="evc-when">Jul 30 – Aug 2, 2026 · Rome</span><h3>FIF7 World Cup</h3><p>We took part in the F7 Intercontinental Cup, the FIF7's 7-a-side World Cup, with men's professional, women's and over-35 teams. An opportunity for international exposure and exchange with delegations from many countries.</p><ul class="evc-kpis"><li><b>Italy</b>host</li><li><b>3</b>teams: men's, women's and over-35</li></ul></div>
       </article>
-
-      <article class="ev" data-tags="deporte">
-        <div class="when"><span>Jun 26–28, 2026 · Bogotá</span><b>National 7-a-side Football Camp</b>
-          <div class="kpis"><div><strong>30+</strong><small>children and teenagers</small></div><div><strong>3</strong><small>days of preparation</small></div></div></div>
-        <div class="what">
-          <h3>Getting ready to compete abroad</h3>
-          <p>Under-11 to Under-17 categories, with the Seven Vaupés F.C. team. Technical, tactical and physical training and the key concepts of international 7-a-side football, with time together built on discipline, respect and teamwork.</p>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos from the camp"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/camp-grupo.webp" alt="Camp group photo"></figure>
-          <figure class="pc-slide"><img src="assets/img/camp-2.webp" alt="A shot on goal during the camp"></figure>
-          <figure class="pc-slide"><img src="assets/img/camp-7.webp" alt="Goalkeeper at the camp"></figure>
-          <figure class="pc-slide"><img src="assets/img/camp-charla.webp" alt="Talk with the coaches"></figure>
-        </div></div>
+      <article class="evc" data-tags="deporte">
+        <button class="evc-ph" type="button" aria-label="See the photos (4): National 7-a-side Football Camp"><img src="assets/img/camp-grupo.webp" alt="Camp group photo"><span class="evc-count">{{icon:camera}} 4</span></button><div class="evc-photos" hidden><figure><img src="assets/img/camp-grupo.webp" alt="Camp group photo"></figure><figure><img src="assets/img/camp-2.webp" alt="A shot on goal during the camp"></figure><figure><img src="assets/img/camp-7.webp" alt="Goalkeeper at the camp"></figure><figure><img src="assets/img/camp-charla.webp" alt="Talk with the coaches"></figure></div>
+        <div class="evc-in"><span class="evc-when">Jun 26–28, 2026 · Bogotá</span><h3>National 7-a-side Football Camp</h3><p>Under-11 to Under-17 categories, with the Seven Vaupés F.C. team. Technical, tactical and physical training and the key concepts of international 7-a-side football, with time together built on discipline, respect and teamwork.</p><ul class="evc-kpis"><li><b>30+</b>children and teenagers</li><li><b>3</b>days of preparation</li></ul></div>
       </article>
-
-      <article class="ev" data-tags="educacion">
-        <div class="when"><span>2026 · Chocó, Mitú, Bogotá and Pereira</span><b>Steps that go further</b>
-          <div class="kpis"><div><strong>420</strong><small>pairs of shoes</small></div><div><strong>4</strong><small>territories</small></div></div></div>
-        <div class="what">
-          <h3>New shoes, with Nestlé</h3>
-          <p>Thanks to Nestlé's donation of Milo Shoes, we delivered shoes to children and young people in Río Pepé (Chocó), an Indigenous community in Mitú (Vaupés), Bogotá and Pereira.</p>
-          <div class="chips"><span class="chip">Nestlé · Milo Shoes</span><span class="chip">Education</span></div>
-          <a class="link-arrow" href="#historia-pasos" data-story="pasos">Read the story {{icon:arrow}}</a>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos of the shoe delivery"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/choco-kit2.webp" alt="Milo Shoes delivery in Chocó"></figure>
-          <figure class="pc-slide"><img src="assets/img/mitu-zapatos.webp" alt="Children in Mitú with their Milo Shoes"></figure>
-          <figure class="pc-slide"><img src="assets/img/kits-colegio.webp" alt="Children in Bogotá with their Milo Shoes"></figure>
-          <figure class="pc-slide"><img src="assets/img/pereira-zapatos.webp" alt="Girls in Pereira with their Milo Shoes"></figure>
-          <figure class="pc-slide"><img src="assets/img/choco-kit1.webp" alt="A girl in Chocó with her new shoes"></figure>
-          <figure class="pc-slide"><img src="assets/img/simon-bolivar.webp" alt="Shoe delivery in Bogotá with the R8R academy"></figure>
-        </div></div>
+      <article class="evc" data-tags="educacion">
+        <button class="evc-ph" type="button" aria-label="See the photos (6): Steps that go further"><img src="assets/img/choco-kit2.webp" alt="Milo Shoes delivery in Chocó"><span class="evc-count">{{icon:camera}} 6</span></button><div class="evc-photos" hidden><figure><img src="assets/img/choco-kit2.webp" alt="Milo Shoes delivery in Chocó"></figure><figure><img src="assets/img/mitu-zapatos.webp" alt="Children in Mitú with their Milo Shoes"></figure><figure><img src="assets/img/kits-colegio.webp" alt="Children in Bogotá with their Milo Shoes"></figure><figure><img src="assets/img/pereira-zapatos.webp" alt="Girls in Pereira with their Milo Shoes"></figure><figure><img src="assets/img/choco-kit1.webp" alt="A girl in Chocó with her new shoes"></figure><figure><img src="assets/img/simon-bolivar.webp" alt="Shoe delivery in Bogotá with the R8R academy"></figure></div>
+        <div class="evc-in"><span class="evc-when">2026 · Chocó, Mitú, Bogotá and Pereira</span><h3>Steps that go further</h3><p>Thanks to Nestlé's donation of Milo Shoes, we delivered shoes to children and young people in Río Pepé (Chocó), an Indigenous community in Mitú (Vaupés), Bogotá and Pereira.</p><ul class="evc-kpis"><li><b>420</b>pairs of shoes</li><li><b>4</b>territories</li></ul><a class="link-arrow" href="#historia-pasos" data-story="pasos">Read the story {{icon:arrow}}</a></div>
       </article>
-
-      <article class="ev" data-tags="educacion">
-        <div class="when"><span>February and May 2026 · Mitú, Vaupés</span><b>School kits in Mitú</b>
-          <div class="kpis"><div><strong>170</strong><small>school kits</small></div><div><strong>2</strong><small>deliveries</small></div></div></div>
-        <div class="what">
-          <h3>Supplies for the whole year</h3>
-          <p>Two school kit deliveries in Mitú: <strong>150 kits on February 20</strong>, in a community, for students from different communities in the municipality, and <strong>20 kits on May 22</strong>, at a school, to extend support to young people in the territory. Each kit includes a backpack, notebooks, colored pencils, a sharpener, a pencil case and an eraser.</p>
-          <a class="link-arrow" href="#historia-morral" data-story="morral">Read the story {{icon:arrow}}</a>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos of both kit deliveries in Mitú"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/mitu-kits-ninos2.webp" alt="Children in Mitú with their backpacks, February 2026"><figcaption>February · community</figcaption></figure>
-          <figure class="pc-slide"><img src="assets/img/mitu-kits-grupo.webp" alt="Group photo of the February 2026 delivery"><figcaption>February · community</figcaption></figure>
-          <figure class="pc-slide"><img src="assets/img/mitu-kits-entrega.webp" alt="Handing out the kits, February 2026"><figcaption>February · community</figcaption></figure>
-          <figure class="pc-slide"><img src="assets/img/mitu-kits-fila.webp" alt="Children receiving their kits, February 2026"><figcaption>February · community</figcaption></figure>
-          <figure class="pc-slide"><img src="assets/img/mitu-kits-banca.webp" alt="Students from a school in Mitú with their kits, May 2026"><figcaption>May · school</figcaption></figure>
-          <figure class="pc-slide"><img src="assets/img/mitu-kits-banca2.webp" alt="Young people from the school with their kits, May 2026"><figcaption>May · school</figcaption></figure>
-          <figure class="pc-slide"><img src="assets/img/mitu-kits-mesa.webp" alt="Kits ready for the May 2026 delivery"><figcaption>May · school</figcaption></figure>
-          <figure class="pc-slide"><img src="assets/img/mitu-kits-material.webp" alt="Foundation school supplies, May 2026"><figcaption>May · school</figcaption></figure>
-        </div></div>
+      <article class="evc" data-tags="educacion">
+        <button class="evc-ph" type="button" aria-label="See the photos (8): School kits in Mitú"><img src="assets/img/mitu-kits-ninos2.webp" alt="Children in Mitú with their backpacks, February 2026"><span class="evc-count">{{icon:camera}} 8</span></button><div class="evc-photos" hidden><figure><img src="assets/img/mitu-kits-ninos2.webp" alt="Children in Mitú with their backpacks, February 2026"><figcaption>February · community</figcaption></figure><figure><img src="assets/img/mitu-kits-grupo.webp" alt="Group photo of the February 2026 delivery"><figcaption>February · community</figcaption></figure><figure><img src="assets/img/mitu-kits-entrega.webp" alt="Handing out the kits, February 2026"><figcaption>February · community</figcaption></figure><figure><img src="assets/img/mitu-kits-fila.webp" alt="Children receiving their kits, February 2026"><figcaption>February · community</figcaption></figure><figure><img src="assets/img/mitu-kits-banca.webp" alt="Students from a school in Mitú with their kits, May 2026"><figcaption>May · school</figcaption></figure><figure><img src="assets/img/mitu-kits-banca2.webp" alt="Young people from the school with their kits, May 2026"><figcaption>May · school</figcaption></figure><figure><img src="assets/img/mitu-kits-mesa.webp" alt="Kits ready for the May 2026 delivery"><figcaption>May · school</figcaption></figure><figure><img src="assets/img/mitu-kits-material.webp" alt="Foundation school supplies, May 2026"><figcaption>May · school</figcaption></figure></div>
+        <div class="evc-in"><span class="evc-when">February and May 2026 · Mitú, Vaupés</span><h3>School kits in Mitú</h3><p>Two school kit deliveries in Mitú: <strong>150 kits on February 20</strong>, in a community, for students from different communities in the municipality, and <strong>20 kits on May 22</strong>, at a school, to extend support to young people in the territory. Each kit includes a backpack, notebooks, colored pencils, a sharpener, a pencil case and an eraser.</p><ul class="evc-kpis"><li><b>170</b>school kits</li><li><b>2</b>deliveries</li></ul><a class="link-arrow" href="#historia-morral" data-story="morral">Read the story {{icon:arrow}}</a></div>
       </article>
-
-            <article class="ev" data-tags="deporte">
-        <div class="when"><span>May 6, 2026 · Bogotá</span><b>Under-13 Sports Meet</b>
-          <div class="kpis"><div><strong>78+</strong><small>players</small></div><div><strong>6</strong><small>teams</small></div></div></div>
-        <div class="what">
-          <h3>A lightning tournament in Bogotá</h3>
-          <p>We sponsored a lightning tournament at Parque Metrópolis: sports organization, venue rental and transport for a guest team from Huila. There were awards for the best team and the best coach.</p>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos from the Under-13 meet"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/sub13-grupo.webp" alt="Teams at the Under-13 meet"></figure>
-          <figure class="pc-slide"><img src="assets/img/sub13-saludo.webp" alt="Players greeting their coach"></figure>
-          <figure class="pc-slide"><img src="assets/img/sub13-balon.webp" alt="Kids fighting for the ball at the Under-13 meet"></figure>
-          <figure class="pc-slide"><img src="assets/img/sub13-fuerza.webp" alt="A boy celebrating"></figure>
-          <figure class="pc-slide"><img src="assets/img/sub13-grupo2.webp" alt="Teams taking part in the Under-13 meet"></figure>
-          <figure class="pc-slide"><img src="assets/img/sub13-equipo.webp" alt="Under-13 players before the match"></figure>
-          <figure class="pc-slide"><img src="assets/img/sub13-premio.webp" alt="Best team award ceremony"></figure>
-        </div></div>
+      <article class="evc" data-tags="deporte">
+        <button class="evc-ph" type="button" aria-label="See the photos (7): Under-13 Sports Meet"><img src="assets/img/sub13-equipo.webp" alt="Under-13 players before the match"><span class="evc-count">{{icon:camera}} 7</span></button><div class="evc-photos" hidden><figure><img src="assets/img/sub13-equipo.webp" alt="Under-13 players before the match"></figure><figure><img src="assets/img/sub13-grupo.webp" alt="Teams at the Under-13 meet"></figure><figure><img src="assets/img/sub13-saludo.webp" alt="Players greeting their coach"></figure><figure><img src="assets/img/sub13-balon.webp" alt="Kids fighting for the ball at the Under-13 meet"></figure><figure><img src="assets/img/sub13-fuerza.webp" alt="A boy celebrating"></figure><figure><img src="assets/img/sub13-grupo2.webp" alt="Teams taking part in the Under-13 meet"></figure><figure><img src="assets/img/sub13-premio.webp" alt="Best team award ceremony"></figure></div>
+        <div class="evc-in"><span class="evc-when">May 6, 2026 · Bogotá</span><h3>Under-13 Sports Meet</h3><p>We sponsored a lightning tournament at Parque Metrópolis: sports organization, venue rental and transport for a guest team from Huila. There were awards for the best team and the best coach.</p><ul class="evc-kpis"><li><b>78+</b>players</li><li><b>6</b>teams</li></ul></div>
       </article>
-
-            <article class="ev" data-tags="deporte">
-        <div class="when"><span>Dec 22, 2025 · Bogotá</span><b>2025 year-end event</b>
-          <div class="kpis"><div><strong>2026</strong><small>strategy presented</small></div></div></div>
-        <div class="what">
-          <h3>Honoring those who gave it their all</h3>
-          <p>With the Colombian 7-a-side Football Association we recognized our standout athletes, spent time with parents and families, and presented the year's results and our plans for 2026.</p>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos from the 2025 year-end event"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/cierre-1.webp" alt="An athlete receiving an award"></figure>
-          <figure class="pc-slide"><img src="assets/img/cierre-grupo.webp" alt="Group photo at the year-end event"></figure>
-          <figure class="pc-slide"><img src="assets/img/cierre-3.webp" alt="Team gathered before the closing match"></figure>
-          <figure class="pc-slide"><img src="assets/img/cierre-4.webp" alt="A player with his award"></figure>
-          <figure class="pc-slide"><img src="assets/img/cierre-5.webp" alt="Goalkeeper in a Foundation jersey"></figure>
-          <figure class="pc-slide"><img src="assets/img/cierre-2.webp" alt="Award at the year-end event"></figure>
-        </div></div>
+      <article class="evc" data-tags="deporte">
+        <button class="evc-ph" type="button" aria-label="See the photos (6): 2025 year-end event"><img src="assets/img/cierre-grupo.webp" alt="Group photo at the year-end event"><span class="evc-count">{{icon:camera}} 6</span></button><div class="evc-photos" hidden><figure><img src="assets/img/cierre-grupo.webp" alt="Group photo at the year-end event"></figure><figure><img src="assets/img/cierre-1.webp" alt="An athlete receiving an award"></figure><figure><img src="assets/img/cierre-3.webp" alt="Team gathered before the closing match"></figure><figure><img src="assets/img/cierre-4.webp" alt="A player with his award"></figure><figure><img src="assets/img/cierre-5.webp" alt="Goalkeeper in a Foundation jersey"></figure><figure><img src="assets/img/cierre-2.webp" alt="Award at the year-end event"></figure></div>
+        <div class="evc-in"><span class="evc-when">Dec 22, 2025 · Bogotá</span><h3>2025 year-end event</h3><p>With the Colombian 7-a-side Football Association we recognized our standout athletes, spent time with parents and families, and presented the year's results and our plans for 2026.</p><ul class="evc-kpis"><li><b>2026</b>strategy presented</li></ul></div>
       </article>
-
-      <article class="ev" data-tags="deporte internacional">
-        <div class="when"><span>Nov 10–18, 2025 · Mexico</span><b>Champions in Mérida</b>
-          <div class="kpis"><div><strong>44</strong><small>direct beneficiaries</small></div><div><strong>3</strong><small>titles</small></div></div></div>
-        <div class="what">
-          <h3>The best week of the year</h3>
-          <p>We supported Colombia's 7-a-side national team and the Under-13, Under-15, Under-17 and Open categories. Beforehand, we backed the selection process so young people from different regions could represent the country.</p>
-          <a class="link-arrow" href="#historia-merida" data-story="merida">Read the story {{icon:arrow}}</a>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos from Mérida"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/merida-trofeos.webp" alt="Trophies won in Mérida"></figure>
-          <figure class="pc-slide"><img src="assets/img/merida-copa.webp" alt="A player holding the cup"></figure>
-          <figure class="pc-slide"><img src="assets/img/merida-ninos.webp" alt="Kids with medals"></figure>
-          <figure class="pc-slide"><img src="assets/img/mitu-trofeo.webp" alt="A young player with a trophy in Mérida"></figure>
-        </div></div>
+      <article class="evc" data-tags="deporte internacional">
+        <button class="evc-ph" type="button" aria-label="See the photos (4): Champions in Mérida"><img src="assets/img/merida-trofeos.webp" alt="Trophies won in Mérida"><span class="evc-count">{{icon:camera}} 4</span></button><div class="evc-photos" hidden><figure><img src="assets/img/merida-trofeos.webp" alt="Trophies won in Mérida"></figure><figure><img src="assets/img/merida-copa.webp" alt="A player holding the cup"></figure><figure><img src="assets/img/merida-ninos.webp" alt="Kids with medals"></figure><figure><img src="assets/img/mitu-trofeo.webp" alt="A young player with a trophy in Mérida"></figure></div>
+        <div class="evc-in"><span class="evc-when">Nov 10–18, 2025 · Mexico</span><h3>Champions in Mérida</h3><p>We supported Colombia's 7-a-side national team and the Under-13, Under-15, Under-17 and Open categories. Beforehand, we backed the selection process so young people from different regions could represent the country.</p><ul class="evc-kpis"><li><b>44</b>direct beneficiaries</li><li><b>3</b>titles</li></ul><a class="link-arrow" href="#historia-merida" data-story="merida">Read the story {{icon:arrow}}</a></div>
       </article>
-
-      <article class="ev" data-tags="deporte internacional">
-        <div class="when"><span>August 2025 · Brazil</span><b>World Cup in Curitiba</b>
-          <div class="kpis"><div><strong>28</strong><small>direct beneficiaries</small></div><div><strong>Quarter</strong><small>finals, Seven Bogotá F.C.</small></div></div></div>
-        <div class="what">
-          <h3>World Cup and Club World Cup</h3>
-          <p>25 athletes aged 17 to 23, two coaches and one support staff member. Seven Bogotá F.C. reached the quarterfinals after facing teams from Argentina, Brazil and El Salvador.</p>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos from Curitiba"><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/curitiba-seleccion.webp" alt="Colombia's national team with the flag in Curitiba"></figure>
-          <figure class="pc-slide"><img src="assets/img/curitiba-amarillo.webp" alt="Colombia's national team in Curitiba"></figure>
-          <figure class="pc-slide"><img src="assets/img/curitiba-jugador.webp" alt="Colombian player in Curitiba"></figure>
-          <figure class="pc-slide"><img src="assets/img/curitiba-rosado.webp" alt="Team at the Club World Cup"></figure>
-          <figure class="pc-slide"><img src="assets/img/curitiba-azul.webp" alt="The delegation in Brazil"></figure>
-        </div></div>
+      <article class="evc" data-tags="deporte internacional">
+        <button class="evc-ph" type="button" aria-label="See the photos (5): World Cup in Curitiba"><img src="assets/img/curitiba-seleccion.webp" alt="Colombia's national team with the flag in Curitiba"><span class="evc-count">{{icon:camera}} 5</span></button><div class="evc-photos" hidden><figure><img src="assets/img/curitiba-seleccion.webp" alt="Colombia's national team with the flag in Curitiba"></figure><figure><img src="assets/img/curitiba-amarillo.webp" alt="Colombia's national team in Curitiba"></figure><figure><img src="assets/img/curitiba-jugador.webp" alt="Colombian player in Curitiba"></figure><figure><img src="assets/img/curitiba-rosado.webp" alt="Team at the Club World Cup"></figure><figure><img src="assets/img/curitiba-azul.webp" alt="The delegation in Brazil"></figure></div>
+        <div class="evc-in"><span class="evc-when">August 2025 · Brazil</span><h3>World Cup in Curitiba</h3><p>25 athletes aged 17 to 23, two coaches and one support staff member. Seven Bogotá F.C. reached the quarterfinals after facing teams from Argentina, Brazil and El Salvador.</p><ul class="evc-kpis"><li><b>28</b>direct beneficiaries</li></ul></div>
       </article>
-
-      <article class="ev" data-tags="deporte">
-        <div class="when"><span>2025 · Mitú, Vaupés</span><b>Seven Vaupés F.C. is born</b>
-          <div class="kpis"><div><strong>35</strong><small>young people aged 17 to 23</small></div></div></div>
-        <div class="what">
-          <h3>A club in the Amazon</h3>
-          <p>Free 7-a-side football training to identify, develop and promote talent from Vaupés toward selection processes and national and international tournaments.</p>
-          <a class="link-arrow" href="#historia-mitu" data-story="mitu">Read: From Mitú to the world {{icon:arrow}}</a>
-        </div>
-        <div class="pc pc-ev" data-pc aria-label="Photos of Seven Vaupés F.C."><div class="pc-track">
-          <figure class="pc-slide"><img src="assets/img/vaupes-jovenes.webp" alt="Young players of Seven Vaupés F.C."></figure>
-          <figure class="pc-slide"><img src="assets/img/vaupes-jugador.webp" alt="A player at training"></figure>
-          <figure class="pc-slide"><img src="assets/img/vaupes-dos.webp" alt="Players with their coach"></figure>
-          <figure class="pc-slide"><img src="assets/img/vaupes-accion.webp" alt="A player in action"></figure>
-        </div></div>
+      <article class="evc" data-tags="deporte">
+        <button class="evc-ph" type="button" aria-label="See the photos (4): Seven Vaupés F.C. is born"><img src="assets/img/vaupes-jovenes.webp" alt="Young players of Seven Vaupés F.C."><span class="evc-count">{{icon:camera}} 4</span></button><div class="evc-photos" hidden><figure><img src="assets/img/vaupes-jovenes.webp" alt="Young players of Seven Vaupés F.C."></figure><figure><img src="assets/img/vaupes-jugador.webp" alt="A player at training"></figure><figure><img src="assets/img/vaupes-dos.webp" alt="Players with their coach"></figure><figure><img src="assets/img/vaupes-accion.webp" alt="A player in action"></figure></div>
+        <div class="evc-in"><span class="evc-when">2025 · Mitú, Vaupés</span><h3>Seven Vaupés F.C. is born</h3><p>Free 7-a-side football training to identify, develop and promote talent from Vaupés toward selection processes and national and international tournaments.</p><ul class="evc-kpis"><li><b>35</b>young people aged 17 to 23</li></ul><a class="link-arrow" href="#historia-mitu" data-story="mitu">Read: From Mitú to the world {{icon:arrow}}</a></div>
       </article>
+    </div>
+  </div>
+</section>
 
+<section class="sec" id="donar">
+  <div class="wrap duo">
+    <div>
+      <span class="eyebrow">Donation</span>
+      <h2 class="h-lg mt-s">Your donation can change a life</h2>
+      <p class="punch mt-m">Behind every child there's a dream. You can help make it <em>real</em>.</p>
+    </div>
+    <div class="prose">
+      <p>At Fundación Sevenfold Colombia we believe talent shouldn't be held back by a lack of opportunities. With your support we bring sport, education and hope to children and young people who dream of a better future.</p>
+      <h3 class="h-sm">How can you help?</h3>
+      <p>You can donate in two ways:</p>
+      <ul class="give-ways">
+        <li><b>Cash donations</b>Financial contributions that fund our young athletes' international competitions. Minimum donation: COP 500,000.</li>
+        <li><b>In-kind donations</b>Sports facilities, apparel, uniforms, balls, training equipment and other items that support the training and development of our young talent.</li>
+      </ul>
+      <p>Every contribution, big or small, can open the door to new opportunities.</p>
+      <p><strong>Giving also has benefits for you:</strong> we are a non-profit (ESAL) under Colombia's Special Tax Regime, and your donation may qualify for a tax credit of 25% of the amount donated against Colombian income tax, subject to legal requirements and limits.</p>
+      <div class="row-cta"><a class="btn" {{sumate:donar}}>I want to donate {{icon:arrow}}</a><a class="link-arrow" href="apoya.html#beneficio">About the tax benefit {{icon:arrow}}</a></div>
     </div>
   </div>
 </section>

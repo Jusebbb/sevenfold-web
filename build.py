@@ -102,7 +102,7 @@ T = {
    send="Enviar mensaje", note="Te respondemos a tu correo. También puedes escribirnos a", ok="Abrimos tu aplicación de correo con el mensaje listo. Si no se abrió, escríbenos directamente a",
    direct="¿Prefieres escribir directo?", dlg_eyebrow="Súmate", dlg_title="Hablemos", dlg_text="Cuéntanos cómo quieres participar y te respondemos con una propuesta clara.",
    read_story="Leer historia", read_the_story="Leer la historia", see_photos="Ver fotos", pending="Pendiente", photos="Fotos", stories="Historias", palmares="Palmarés",
-   report_title="Informe de gestión y resultados"),
+   report_title="Informe de gestión y resultados", each_story="La historia de cada uno", tap_player="Toca un jugador para leer su historia.", read_his="Leer su historia"),
  "en": dict(skip="Skip to content", home_label="Fundación Sevenfold Colombia, home", logo_alt="Fundación Sevenfold · We believe in the future",
    nav="Main", open_menu="Open menu", close="Close", prev="Previous", next="Next", viewer="Photo viewer", story="Story",
    switch_label="Versión en español", switch="ES", locale="en_US", lang="en",
@@ -118,7 +118,7 @@ T = {
    send="Send message", note="We'll reply by email. You can also write to us at", ok="We opened your email app with the message ready. If it didn't open, write to us directly at",
    direct="Prefer to write directly?", dlg_eyebrow="Get involved", dlg_title="Let's talk", dlg_text="Tell us how you'd like to take part and we'll reply with a clear proposal.",
    read_story="Read story", read_the_story="Read the story", see_photos="See photos", pending="Pending", photos="Photos", stories="Stories", palmares="Track record",
-   report_title="Management and results report"),
+   report_title="Management and results report", each_story="Each player's story", tap_player="Tap a player to read his story.", read_his="Read his story"),
 }
 FORM_VALUES = ["Donación","Apadrinar un talento","Patrocinio","Donación en especie","Alianza","Voluntariado","Inscripción de un deportista","Prensa","Otro"]
 INTEREST_VALUES = ["Seven Colombia","Educación","Ambiente","Bogotá","Vaupés","Chocó","Delegaciones internacionales"]
@@ -141,6 +141,16 @@ ICONS = {
  "mail":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
  "phone":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
  "pin":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+ # valores, objetivos y enfoques
+ "door":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M6 21V4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21"/><path d="M10 3.4l6.3 1.8V21"/><circle cx="13.2" cy="12.5" r=".9" fill="currentColor"/></svg>',
+ "users":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.6-3.4 3-5.5 6-5.5s5.4 2.1 6 5.5"/><circle cx="17.2" cy="9" r="2.5"/><path d="M16.6 14.5c2.4.3 4 2.1 4.6 5"/></svg>',
+ "growth":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18l6-6 4 4 8-8"/><path d="M15 8h6v6"/></svg>',
+ "flag":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4.5L17 13H5"/></svg>',
+ "key":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2L20 3M16 7l3 3M14 9l2 2"/></svg>',
+ "home":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>',
+ "team":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="2.7"/><circle cx="5.2" cy="9.8" r="2.1"/><circle cx="18.8" cy="9.8" r="2.1"/><path d="M7.4 20c.4-3.4 2.2-5.4 4.6-5.4s4.2 2 4.6 5.4"/><path d="M2.4 18.6c.3-2.3 1.5-3.7 3.2-3.9M21.6 18.6c-.3-2.3-1.5-3.7-3.2-3.9"/></svg>',
+ "camera":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4A1.5 1.5 0 0 1 9.8 5h4.4a1.5 1.5 0 0 1 1.2.6L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>',
+ "tools":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12.5h18M10.5 12.5v2h3v-2"/></svg>',
  "id":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.5 1.7-2.2 3-2.2s2.4.7 3 2.2M15 10h3M15 13h3"/></svg>',
  "chat":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.1A8 8 0 1 1 20 12z"/></svg>',
  "play":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.4-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></svg>',
@@ -390,6 +400,9 @@ def tr(item):
             out["fotos"] = [dict(f, pie=x) for f, x in zip(out["fotos"], v)]
         elif k in ("portada", "foto") and isinstance(v, str):
             out[k] = dict(item[k], alt=v)
+        elif k == "jugadores":  # textos de cada jugador, en el mismo orden (nombre, foto e Instagram no cambian)
+            out[k] = [dict(j, **{x: y for x, y in e.items() if x != "alt"}, foto=dict(j["foto"], alt=e["alt"]) if j.get("foto") and e.get("alt") else j.get("foto"))
+                      for j, e in zip(item[k], v)]
         else:
             out[k] = v
     return out
@@ -422,13 +435,42 @@ def story_sheet(h):
     texto = "".join(f"<p>{esc(t)}</p>" for t in h["texto"])
     cita = f'<blockquote>“{esc(h["cita"]["texto"])}”<small>{esc(h["cita"]["fuente"])}</small></blockquote>' if h.get("cita") else ""
     cifras = ('<div class="stat-row">' + "".join(f'<div><b>{esc(c["valor"])}</b><span>{esc(c["texto"])}</span></div>' for c in h["cifras"]) + "</div>") if h.get("cifras") else ""
+    perfiles = ""
+    if h.get("jugadores"):  # la historia de cada jugador, con su foto (Kings League)
+        perfiles = (f'<h3 class="profiles-title">{t("each_story")}</h3><div class="profiles">'
+                    + "".join(f'<article class="profile" id="j-{j["id"]}">{player_photo(j)}<div><span class="k">{esc(j["clubes"])}</span>'
+                              f'<h4>{esc(j["nombre"])}</h4><p class="pf-sub">{esc(j["titular"])}</p><p>{esc(j["texto"])}</p>{player_ig(j)}</div></article>'
+                              for j in h["jugadores"]) + "</div>")
     ln = {"educacion": " ln-edu", "ambiente": " ln-amb"}.get(h["linea"], "")
     return (f'<template id="story-{k}">\n<article class="story-sheet{ln}">\n'
             # .fit: en la historia cada foto se ve completa (sin recortar caras), sobre su propio fondo difuminado
             f'  <div class="pc fit" data-pc aria-label="{t("photos")}: {esc(h["titulo"])}"><div class="pc-track">{fotos}</div></div>\n'
             f'  <div class="story-txt"><span class="eyebrow">{esc(h["etiqueta"])} · {esc(h["fecha"])}</span>'
-            f'<h2 class="h-lg" id="st-{k}">{esc(h["titulo"])}</h2>{podios}<div class="prose">{texto}</div>{cita}{cifras}{pendiente(h.get("pendiente",""))}</div>\n'
+            f'<h2 class="h-lg" id="st-{k}">{esc(h["titulo"])}</h2>{podios}<div class="prose">{texto}</div>{cita}{cifras}{perfiles}{pendiente(h.get("pendiente",""))}</div>\n'
             f'</article>\n</template>')
+
+def player_photo(j, cls="pf-ph"):
+    """Foto del jugador; si aún no hay foto, sus iniciales."""
+    if (j.get("foto") or {}).get("src"):
+        return f'<span class="{cls}">{img(j["foto"])}</span>'
+    ini = "".join(w[0] for w in j["nombre"].split()[:2])
+    return f'<span class="{cls} ini" aria-hidden="true">{esc(ini)}</span>'
+
+def player_ig(j):
+    return f'<a class="member-ig" href="{esc(j["instagram"])}" target="_blank" rel="noopener">{ICONS["ig"]} {handle(j["instagram"])}</a>' if j.get("instagram") else ""
+
+def kings():
+    """Sección Kings League de Seven Colombia: texto, cifras y una tarjeta por jugador que abre su historia."""
+    h = tr(HISTORIAS["kings"])
+    texto = "".join(f"<p>{esc(x)}</p>" for x in h["texto"])
+    cifras = "".join(f'<li><b>{esc(c["valor"])}</b><span>{esc(c["texto"])}</span></li>' for c in h["cifras"])
+    cards = "".join(f'<a class="kplayer" href="#historia-kings" data-story="kings" data-to="j-{j["id"]}">{player_photo(j, "kp-ph")}'
+                    f'<span class="kp-in"><span class="k">{esc(j["clubes"])}</span><b>{esc(j["nombre"])}</b><small>{esc(j["titular"])}</small>'
+                    f'<span class="go">{t("read_his")} <i>{ICONS["arrow"]}</i></span></span></a>' for j in h["jugadores"])
+    return (f'<div class="kings"><div><span class="eyebrow">{esc(h["etiqueta"])}</span><h2 class="h-lg mt-s">{esc(h["titulo"])}</h2>'
+            f'<div class="prose mt-m kings-txt">{texto}</div></div><ul class="kings-stats">{cifras}</ul></div>'
+            f'<div class="more-head kings-head"><h3 class="h-md">{t("each_story")}</h3><p>{t("tap_player")}</p></div>'
+            f'<div class="kplayers" data-carousel aria-label="{t("each_story")}">{cards}</div>')
 
 def stories_for(html):
     """Agrega a la página las historias que abre (data-story="x"): se leen en una ventana, sin salir de la página."""
@@ -471,7 +513,7 @@ def reels(html):
 def expand(html):
     html = re.sub(r"\{\{include:([\w\-]+\.html)\}\}", lambda m: (SRC/m.group(1)).read_text(), html)
     html = re.sub(r"\{\{historias(?::([\w+]+))?\}\}", lambda m: story_cards(m.group(1) or ""), html)
-    html = html.replace("{{palmares}}", palmares()).replace("{{informes}}", informes())
+    html = html.replace("{{palmares}}", palmares()).replace("{{informes}}", informes()).replace("{{kings}}", kings())
     html += "\n" + stories_for(html)
     html = reels(html)
     html = re.sub(r"\{\{icon:(\w+)\}\}", lambda m: ICONS[m.group(1)], html)

@@ -193,18 +193,22 @@ document.querySelectorAll("[data-carousel]").forEach(track => {
   dotsBox.innerHTML = items.map((_, i) => `<button type="button" aria-label="${TX.goTo(i + 1, items.length)}"></button>`).join("");
   box.after(dotsBox);
   const dots = [...dotsBox.children];
-  const x0 = () => items[0].offsetLeft;
-  const go = i => { const it = items[Math.max(0, Math.min(items.length - 1, i))]; track.scrollTo({ left: it.offsetLeft - x0(), behavior: reduced ? "auto" : "smooth" }); };
-  const current = () => { const x = track.scrollLeft; let best = 0; items.forEach((it, i) => { if (Math.abs(it.offsetLeft - x0() - x) < Math.abs(items[best].offsetLeft - x0() - x)) best = i; }); return best; };
+  // solo cuentan las tarjetas visibles (la bitácora se filtra ocultando tarjetas)
+  const shown = () => items.filter(it => !it.hidden);
+  const x0 = () => (shown()[0] || items[0]).offsetLeft;
+  const go = i => { const s = shown(), it = s[Math.max(0, Math.min(s.length - 1, i))]; if (it) track.scrollTo({ left: it.offsetLeft - x0(), behavior: reduced ? "auto" : "smooth" }); };
+  const current = () => { const s = shown(), x = track.scrollLeft; let best = 0; s.forEach((it, i) => { if (Math.abs(it.offsetLeft - x0() - x) < Math.abs(s[best].offsetLeft - x0() - x)) best = i; }); return best; };
   const update = () => {
     const scrollable = track.scrollWidth > track.clientWidth + 4;
     box.classList.toggle("scrollable", scrollable);
     dotsBox.hidden = !scrollable;
-    const c = current(), end = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
-    dots.forEach((d, i) => d.setAttribute("aria-current", String(end ? i === items.length - 1 : i === c)));
+    dots.forEach((d, i) => d.hidden = items[i].hidden);
+    const vis = dots.filter(d => !d.hidden), c = current(), end = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    vis.forEach((d, i) => d.setAttribute("aria-current", String(end ? i === vis.length - 1 : i === c)));
     pv.disabled = track.scrollLeft <= 4; nx.disabled = end;
   };
-  dots.forEach((d, i) => d.addEventListener("click", () => go(i)));
+  track._refresh = () => { track.scrollLeft = 0; update(); };
+  dots.forEach((d, i) => d.addEventListener("click", () => go(shown().indexOf(items[i]))));
   pv.addEventListener("click", () => go(current() - 1));
   nx.addEventListener("click", () => go(current() + 1));
   track.addEventListener("keydown", e => {
@@ -294,7 +298,17 @@ function openStory(key, push = true) {
   body.querySelectorAll("[data-pc]").forEach(pc => { initPC(pc).near = true; pc._pc.refresh(); });
   return true;
 }
-document.querySelectorAll("[data-story]").forEach(a => a.addEventListener("click", e => { if (openStory(a.dataset.story)) e.preventDefault(); }));
+document.querySelectorAll("[data-story]").forEach(a => a.addEventListener("click", e => {
+  if (!openStory(a.dataset.story)) return;
+  e.preventDefault();
+  // data-to: dentro de la historia, baja hasta esa parte (p. ej. la historia de un jugador)
+  const to = a.dataset.to && dlgStory.querySelector("#" + a.dataset.to);
+  if (to) requestAnimationFrame(() => {
+    const box = dlgStory.querySelector(".sheet-in");
+    box.scrollTop = to.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop - 16;
+    to.classList.add("hi"); setTimeout(() => to.classList.remove("hi"), 1800);
+  });
+}));
 
 // Formulario: donar, apadrinar, patrocinar... se abre aquí mismo con la opción ya elegida
 const TIPOS = {
@@ -405,7 +419,14 @@ const fbtns = document.querySelectorAll(".filters button");
 fbtns.forEach(b => b.addEventListener("click", () => {
   fbtns.forEach(x => x.setAttribute("aria-pressed", x === b));
   const f = b.dataset.f;
-  document.querySelectorAll(".ev").forEach(ev => { ev.hidden = f !== "all" && !ev.dataset.tags.includes(f); if (!ev.hidden) refreshIn(ev); });
+  document.querySelectorAll(".evc").forEach(ev => { ev.hidden = f !== "all" && !ev.dataset.tags.split(" ").includes(f); });
+  const log = document.querySelector(".log2");
+  if (log && log._refresh) log._refresh();
+}));
+/* Bitácora: la foto de cada jornada abre todas sus fotos en el visor */
+document.querySelectorAll(".evc-ph[type=button]").forEach(b => b.addEventListener("click", () => {
+  const imgs = [...b.parentElement.querySelectorAll(".evc-photos img")];
+  if (imgs.length) openLB(imgs, 0, b);
 }));
 try { const f = new URLSearchParams(location.search).get("f"); const b = f && [...fbtns].find(x => x.dataset.f === f); if (b) b.click(); } catch {}
 
@@ -424,7 +445,7 @@ if (pnav && "IntersectionObserver" in window) {
 
 /* Aparición suave al hacer scroll: encabezados y tarjetas entran en escalonado */
 if ("IntersectionObserver" in window && !reduced) {
-  const sel = ".sec-head, .problem > *, .lines > *, .s7 > *, .territory > *, .car-wrap, .cta-band .in, .feature > *, .duo > *, .goals > *, .gives, .sponsor, .gways > *, .tax-note, .steps > *, .tl-item, .ev, .aval > li, .aval-why, .club-tabs, .club-panel, .backers > *, .logos > *, .orgs > *, .contact > *, .next-note, .mv > *, .values";
+  const sel = ".sec-head, .problem > *, .lines > *, .s7 > *, .territory > *, .car-wrap, .cta-band .in, .feature > *, .duo > *, .goals > *, .gives, .sponsor, .gways > *, .tax-note, .steps > *, .tl-item, .aval > li, .aval-why, .club-tabs, .club-panel, .backers > *, .logos > *, .orgs > *, .contact > *, .next-note, .mv > *, .values > li, .goals4 > li, .focus-strip, .kings > *";
   const els = [...document.querySelectorAll(sel)].filter(el => !el.closest("dialog, template") && el.getBoundingClientRect().top > innerHeight);
   const reveal = el => {
     if (!el.classList.contains("pre")) return;

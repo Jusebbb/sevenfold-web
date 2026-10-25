@@ -43,6 +43,21 @@ content:
         type: object
         list: true
         fields: [ { name: valor, label: Valor, type: string }, { name: texto, label: Texto, type: string } ]
+      - name: jugadores
+        label: "Jugadores (solo historia Kings League: una tarjeta y una historia por jugador)"
+        type: object
+        list: true
+        fields:
+          - { name: id, label: "Identificador (sin espacios, ej. brayan)", type: string }
+          - { name: nombre, label: Nombre, type: string }
+          - { name: titular, label: "Frase que lo describe", type: string }
+          - { name: clubes, label: "Clubes (ej. Raniza · Aniquiladores)", type: string }
+          - name: foto
+            label: "Foto (sin foto se muestran sus iniciales)"
+            type: object
+            fields: [ { name: src, label: Foto, type: image }, { name: alt, label: "Descripción de la foto", type: string }, { name: pos, label: Encuadre, type: string } ]
+          - { name: instagram, label: "Enlace de Instagram (opcional)", type: string }
+          - { name: texto, label: Historia, type: text }
       - { name: pendiente, label: "Nota de pendiente (visible; dejar vacío para ocultar)", type: string }
       - name: en
         label: "Inglés (versión /en)"
@@ -70,6 +85,11 @@ content:
             type: object
             list: true
             fields: [ { name: valor, label: Valor, type: string }, { name: texto, label: Texto, type: string } ]
+          - name: jugadores
+            label: "Jugadores (mismo orden)"
+            type: object
+            list: true
+            fields: [ { name: titular, label: Frase, type: string }, { name: clubes, label: "Clubes (si cambia en inglés)", type: string }, { name: alt, label: "Descripción de la foto", type: string }, { name: texto, label: Historia, type: text } ]
           - { name: pendiente, label: "Nota de pendiente", type: string }
   - name: palmares
     label: Palmarés

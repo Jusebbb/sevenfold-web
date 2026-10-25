@@ -51,6 +51,8 @@ Videos → Instagram
 Cada video del inicio lleva a Instagram y tiene el botón "Deja tu comentario".
 Cada uno abre su reel (enlace en data-ig="" de ese video en src/index.html y src/en/index.html, sin los
 parámetros de rastreo ?xtok=…). Si data-ig queda vacío, el video lleva al perfil @fundacion_sevenfold.
+Desde el 25 de octubre de 2026 cada video es un fragmento (7–8 s, sin sonido) de su propio reel, con un título
+sobre lo que se ve: assets/video/reel-*.mp4 y su imagen de portada reel-*.webp (540×960).
 
 Datos tomados del Portafolio Sevenfold 2026 (9 de octubre) — validar con la fundación
 -------------------------------------------------------------------------------------
@@ -66,19 +68,38 @@ Datos tomados del Portafolio Sevenfold 2026 (9 de octubre) — validar con la fu
 - "Superliga: subcampeones" (septiembre): confirmar con qué equipo.
 - "69 deportistas por Colombia": confirmado por la fundación.
 
-Pendientes que envía la fundación (actualizado el 19 de octubre de 2026)
+Pendientes que envía la fundación (actualizado el 25 de octubre de 2026)
 -----------------------------------------------------------------------
 El sitio no muestra notas de pendiente. Cuando llegue la información:
-1. Kings League: datos de los jugadores (sección #kings de Seven Colombia y content/historias/kings.json).
-2. Gol7 Colombia: texto, cifras, fotos y escudo (hoy: texto corto, foto de Florianópolis y monograma "G7").
+1. Kings League: textos y cifras listos (observaciones finales). Cada jugador está en "jugadores" de
+   content/historias/kings.json (nombre, frase, clubes, foto, Instagram e historia); la sección #kings de
+   Seven Colombia y la historia se arman solas. Faltan: fotos de Ronald Quintero y Brandon Rodríguez (hoy
+   muestran sus iniciales), fotos en alta de todos y el Instagram de Brayan, Axur, Ronald, Brandon y Veloza.
+   Las fotos se asignaron comparando caras con el afiche de Aniquiladores (Axur, Velandia, Brayan); la de
+   Veloza (camiseta de Cuervos) es por descarte: confirmar con la fundación.
+2. Gol7 Colombia: el escudo es la foto de perfil de @gol7colombia (100 px, assets/logos/gol7.webp); pedir el
+   logo en alta. Faltan también texto, cifras y más fotos.
 3. Natalia Riveros: foto y descripción. Su tarjeta se quitó de Nosotros; volver a agregarla en el carrusel
    del equipo (cargo: Presidenta · Selección Colombia de Fútbol 7 Femenino, @nataliariveros4).
 4. Fotos en alta resolución (19 de octubre): 48 fotos se reemplazaron por su original del Drive
    "05_Fotos_SevenColombia" (campamento, kits de febrero, Sub-13, Roma, Chocó, Curitiba, Juntos por Chocó).
-   Siguen en baja resolución porque no estaban en lo descargado: cierre 2025, Bogotá (bogota-*),
-   Seven Vaupés (vaupes-*), jóvenes de Mitú en el aeropuerto y en Mérida (mitu-*), Kings League (kings-*,
-   jugador-*) y kits de mayo. Para cambiarlas: misma foto, MISMO nombre de archivo en assets/img/,
+   El 25 de octubre las fotos de Bogotá en baja (bogota-*) se cambiaron por fotos en alta del campamento,
+   Curitiba y el encuentro Sub-13. Siguen en baja y en uso: cierre 2025 (cierre-*), Seven Vaupés (vaupes-*),
+   jóvenes de Mitú en el aeropuerto y en Mérida (mitu-aeropuerto*, mitu-avion, mitu-medallas, mitu-trofeo),
+   Kings League (kings-*, jugador-*), Juntos por Chocó (juntos-*, simon-bolivar2 y 3), fotos grupales del
+   Sub-13 (sub13-grupo*, sub13-premio), Florianópolis (floripa-*), Roma (roma-copa, roma-trofeo) y Chocó
+   (choco-acopio, choco-donaciones). Para cambiarlas: misma foto, MISMO nombre de archivo en assets/img/,
    y python3 build.py. Las versiones reducidas para celular van en assets/img/opt (lista en manifest.json).
+5. Observaciones finales (25 de octubre de 2026) que esperan respuesta de la fundación:
+   - Inicio, tarjetas de las tres líneas: "cambiar fotos por sugeridas" (enviará el enlace de imágenes).
+   - Seven Colombia, "El aval": la frase nueva para reemplazar "Del barrio a los grandes escenarios del
+     fútbol 7 profesional mundial" (el documento no la trae).
+   - Galería: más fotos de la Copa Trinche (hoy hay una sola).
+   - Educación (foto del encabezado), Ambiente (encabezado y carrusel) y Chocó: hoy usan fotos propias y
+     del banco de Unsplash; cambiarlas si el banco de imágenes de la fundación trae otras preferidas.
+   - Impacto: el documento dice "En Impacto debemos agregar:" sin decir qué; se agregó el bloque de
+     donación (sección #donar) que venía a continuación. Confirmar.
+   - "7 categorías deportivas": en Categorías se ven 6 (Sub 11, 13, 15, 17, Única femenina y masculina).
 6. Formulario (desde el 19 de octubre de 2026): los mensajes llegan directo a fundacionsevenfold@gmail.com
    por FormSubmit (formsubmit.co, gratis y sin cuenta), con el asunto "Sitio web · <tipo de apoyo> · <nombre>".
    La primera vez FormSubmit envía a ese correo un mensaje "Activate Form": darle clic una sola vez.

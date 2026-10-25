@@ -1396,3 +1396,144 @@ a.club{text-decoration:none;color:inherit;transition:transform .3s var(--ease),b
 @media (hover:hover){.lang-switch:hover{border-color:var(--sun);color:var(--sun)}}
 .site-head .bar .nav{margin-left:auto}
 @media (max-width:1180px){.lang-switch{margin-left:auto;position:relative;z-index:60}.site-head .bar{gap:12px}}
+
+/* ---------- 25 oct · observaciones finales ---------- */
+/* Escudo que llena el círculo (Gol7) */
+.crest.fill img{width:100%;height:100%;object-fit:cover}
+/* Educación: el texto de la tarjeta de kits no hereda la cifra grande */
+.action p b{font:inherit;font-weight:800;color:var(--ink)}
+
+/* Galería: cabe completa en la pantalla; los álbumes se deslizan en el celular */
+#galeria .album-tabs{justify-content:center}
+#galeria .pc-lg{width:min(100%,960px,calc((100svh - 300px) * 16 / 9));margin-inline:auto}
+@media (max-width:760px){
+  #galeria .album-tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut)}
+  #galeria .album-tabs::-webkit-scrollbar{display:none}
+  #galeria .album-tabs button{flex:none}
+}
+
+/* Categorías: seis tarjetas (Sub 11 a Única femenina y masculina) */
+@media (min-width:1101px){
+  .cats2{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .cats2 .cat2 b{font-size:clamp(1.9rem,2.6vw,2.6rem)}
+  .cats2 .cat2 .in{padding:16px}
+}
+
+/* Kings League: texto, cifras y una tarjeta por jugador */
+.kings{grid-template-columns:1.25fr .75fr;align-items:end}
+.kings-txt p:first-child{font-size:clamp(1.08rem,1.6vw,1.28rem);color:#D5DCE6}
+.kings-stats{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-d)}
+.kings-stats li{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line-d)}
+.kings-stats b{font:900 clamp(2.6rem,5vw,3.6rem)/1 var(--display);color:var(--sun);min-width:2.2ch}
+.kings-stats span{color:var(--muted-d)}
+.kings-head{margin:clamp(40px,6vw,64px) 0 20px}
+.kings-head p{color:var(--muted-d)}
+.kplayers{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 56px) / 5);gap:14px;overflow-x:auto}
+@media (max-width:1000px){.kplayers{grid-auto-columns:calc((100% - 28px) / 3)}}
+@media (max-width:640px){.kplayers{grid-auto-columns:64%}}
+.kplayer{display:flex;flex-direction:column;border-radius:var(--r);overflow:hidden;background:var(--ink-3);border:1px solid var(--line-d);text-decoration:none;color:var(--chalk);transition:transform .45s var(--ease),border-color .3s,box-shadow .45s}
+.kp-ph{display:block;aspect-ratio:3/4;overflow:hidden;background:#05080F}
+.kp-ph img{width:100%;height:100%;object-fit:cover;object-position:center 12%;transition:transform .8s var(--ease)}
+.kp-ph.ini,.pf-ph.ini{display:grid;place-items:center;font-family:var(--display);font-weight:900;color:var(--sun);letter-spacing:.04em;background:radial-gradient(circle at 30% 20%,var(--ink-3),#05080F 75%)}
+.kp-ph.ini{font-size:4.4rem}
+.kp-in{flex:1;display:flex;flex-direction:column;gap:6px;padding:16px}
+.kp-in .k{font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sun)}
+.kp-in b{font:900 1.45rem/1 var(--display);text-transform:uppercase}
+.kp-in small{color:var(--muted-d);font-size:.84rem;line-height:1.35}
+.kp-in .go{margin-top:auto;padding-top:8px}
+.kplayer:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+@media (hover:hover){.kplayer:hover{transform:translateY(-5px);border-color:rgba(242,196,15,.55);box-shadow:0 26px 50px -30px rgba(0,0,0,.8)}.kplayer:hover .kp-ph img{transform:scale(1.05)}}
+@media (max-width:900px){.kings{grid-template-columns:1fr;align-items:start}}
+/* La historia de cada jugador, dentro de la ventana */
+.profiles-title{font:900 1.6rem/1 var(--display);text-transform:uppercase;margin-top:8px;padding-top:20px;border-top:1px solid var(--line)}
+.profiles{display:grid;gap:12px}
+.profile{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;align-items:start;padding:14px;border-radius:12px;background:var(--paper);transition:box-shadow .5s}
+.profile.hi{box-shadow:0 0 0 3px var(--sun)}
+.pf-ph{display:block;width:96px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--ink)}
+.pf-ph img{width:100%;height:100%;object-fit:cover}
+.pf-ph.ini{font-size:2.2rem}
+.profile .k{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pitch)}
+.profile h4{font:900 1.5rem/1 var(--display);text-transform:uppercase;margin:4px 0}
+.profile .pf-sub{font-weight:700;color:var(--ink);font-size:.95rem;line-height:1.35;margin-bottom:6px}
+.profile p{color:var(--muted);font-size:.94rem}
+@media (max-width:560px){.profile{grid-template-columns:72px minmax(0,1fr);gap:12px;padding:12px}.pf-ph{width:72px}}
+
+/* Nosotros: valores con ícono (colores del aro del logo) y objetivos en tarjetas */
+ul.values.vcards{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;border-top:0}
+.vcards .value,.vcards .value + .value{position:relative;overflow:hidden;display:grid;gap:14px;align-content:start;justify-items:start;padding:22px 16px 24px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.vcards .value:nth-child(3n+1){--vc:var(--sun)}
+.vcards .value:nth-child(3n+2){--vc:var(--c-edu)}
+.vcards .value:nth-child(3n){--vc:var(--leaf)}
+.v-ico{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--vc);color:var(--ink);transition:transform .5s var(--ease)}
+.v-ico svg{width:26px;height:26px}
+ul.values.vcards .value b{font-size:1.3rem;line-height:1.05}
+.vcards .value::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--vc);transform:scaleX(.18);transform-origin:left;transition:transform .55s var(--ease)}
+@media (hover:hover){.vcards .value:hover{transform:translateY(-5px);box-shadow:0 22px 40px -26px rgba(11,19,32,.45)}.vcards .value:hover::after{transform:none}.vcards .value:hover .v-ico{transform:rotate(-8deg) scale(1.08)}}
+@media (max-width:960px){ul.values.vcards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){ul.values.vcards{grid-template-columns:1fr 1fr;gap:10px}.vcards .value,.vcards .value + .value{padding:18px 14px}}
+.goals4{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.goal4{position:relative;overflow:hidden;isolation:isolate;display:grid;gap:10px;align-content:start;padding:24px;border-radius:var(--r);background:var(--ink);color:var(--chalk);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.goal4:nth-child(4n+1){--gc:var(--sun)}
+.goal4:nth-child(4n+2){--gc:var(--c-edu)}
+.goal4:nth-child(4n+3){--gc:var(--leaf)}
+.goal4:nth-child(4n){--gc:var(--sun-2)}
+.goal4::before{content:"";position:absolute;right:-60px;bottom:-70px;z-index:-1;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--gc) 30%,transparent),transparent 70%);transition:transform .7s var(--ease)}
+.g-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.g-num{font:900 3rem/1 var(--display);color:var(--gc)}
+.g-ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.08);color:var(--gc);transition:background .3s,color .3s}
+.g-ico svg{width:24px;height:24px}
+.goal4 h3{font:900 1.45rem/1.05 var(--display);text-transform:uppercase}
+.goal4 p{color:var(--muted-d);font-size:.93rem}
+@media (hover:hover){.goal4:hover{transform:translateY(-5px);box-shadow:0 26px 50px -28px rgba(11,19,32,.6)}.goal4:hover::before{transform:scale(1.5)}.goal4:hover .g-ico{background:var(--gc);color:var(--ink)}}
+@media (max-width:900px){.goals4{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.goals4{grid-template-columns:1fr}}
+
+/* Educación: enfoques en una franja compacta, y logos de las alianzas */
+.focus-strip{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:center;padding:clamp(18px,2.5vw,26px) clamp(18px,3vw,32px);border-radius:var(--r);background:var(--chalk);border:1px solid var(--line);border-left:6px solid var(--lc)}
+.fs-head .k{display:flex;align-items:center;gap:.6em;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.fs-head h3{font:900 1.5rem/1 var(--display);text-transform:uppercase;margin-top:8px;max-width:14ch}
+.focus-strip ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.focus-strip li{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:var(--paper);font-weight:700;font-size:.9rem;line-height:1.25;transition:transform .35s var(--ease),background .3s}
+.focus-strip li i{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--lc) 35%,#fff);color:var(--ink)}
+.focus-strip li svg{width:20px;height:20px}
+@media (hover:hover){.focus-strip li:hover{transform:translateY(-3px);background:color-mix(in srgb,var(--lc) 18%,#fff)}}
+@media (max-width:900px){.focus-strip{grid-template-columns:1fr}.focus-strip ul{grid-template-columns:1fr 1fr}}
+.ally-logo{display:flex;align-items:center;height:72px;margin-bottom:8px}
+.ally-logo img{max-height:72px;width:auto;max-width:min(240px,100%);object-fit:contain}
+
+/* Ambiente: los programas con foto */
+.env-programs article{padding:0;gap:0;overflow:hidden;grid-template-rows:auto 1fr}
+.ep-ph{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .8s var(--ease)}
+.ep-in{display:grid;gap:10px;align-content:start;padding:22px 24px 26px}
+@media (hover:hover){.env-programs article:hover .ep-ph{transform:scale(1.04)}}
+
+/* Impacto: bitácora en tarjetas compactas que se deslizan */
+#bitacora .filters{margin-bottom:24px}
+.log2{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px) / 3);gap:18px;overflow-x:auto}
+@media (max-width:1000px){.log2{grid-auto-columns:calc((100% - 18px) / 2)}}
+@media (max-width:640px){.log2{grid-auto-columns:86%}}
+.evc{display:flex;flex-direction:column;min-width:0;border-radius:var(--r);overflow:hidden;background:var(--paper);border:1px solid var(--line)}
+.evc-ph{position:relative;display:block;width:100%;aspect-ratio:16/10;margin:0;padding:0;border:0;overflow:hidden;background:var(--ink);cursor:zoom-in}
+.evc-ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+@media (hover:hover){button.evc-ph:hover img{transform:scale(1.05)}}
+.evc-ph:focus-visible{outline:3px solid var(--sun);outline-offset:-3px}
+.evc-count{position:absolute;right:10px;bottom:10px;display:inline-flex;align-items:center;gap:6px;padding:.35rem .65rem;border-radius:999px;background:rgba(11,19,32,.74);color:#fff;font:700 .76rem var(--body)}
+.evc-count svg{width:15px;height:15px}
+.evc-ph.none{cursor:default;display:grid;place-items:center;align-content:center;gap:6px;color:var(--sun);background:radial-gradient(circle at 30% 20%,var(--ink-3),var(--ink) 70%)}
+.evc-ph.none svg{width:34px;height:34px}
+.evc-ph.none b{font:900 3.4rem/1 var(--display);color:var(--chalk)}
+.evc-ph.none span{color:var(--muted-d);font-weight:800;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
+.evc-in{flex:1;display:flex;flex-direction:column;gap:8px;padding:18px 20px 20px}
+.evc-when{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pitch)}
+.evc-in h3{font:900 1.55rem/1 var(--display);text-transform:uppercase}
+.evc-in p{color:var(--muted);font-size:.92rem}
+.evc-in p strong{color:var(--ink)}
+.evc-kpis{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.evc-kpis li{font-size:.8rem;color:var(--muted);background:var(--chalk);border:1px solid var(--line);border-radius:999px;padding:.3rem .7rem}
+.evc-kpis b{font-family:var(--display);font-size:1.05rem;font-weight:900;color:var(--ink);margin-right:.35em}
+.evc-in .link-arrow{margin-top:auto;align-self:flex-start;font-size:.92rem}
+@media (max-width:640px){.log2{align-items:start}}
+/* carruseles con muchas tarjetas: puntos más juntos para que quepan en una línea */
+.car-dots:has(button:nth-child(10)) button{width:24px}
+.cats2 .cat2{aspect-ratio:2/3}
+.kings-stats b{min-width:3ch}

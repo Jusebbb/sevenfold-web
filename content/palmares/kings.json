@@ -5,9 +5,9 @@
   "medalla": "Campeones",
   "color": "oro",
   "lugar": "Kings League Américas",
-  "fecha": "2025 · 2026",
+  "fecha": "2024 – 2026",
   "titulo": "Jugadores Seven en la Kings League",
-  "texto": "Más de cinco jugadores formados con nosotros, en uno de los torneos más innovadores del fútbol 7.",
+  "texto": "Más de cinco jugadores formados con nosotros en la Kings League Américas, y uno en la Kings League Italia.",
   "foto": {
     "src": "assets/img/kings-league.webp",
     "alt": "Jugadores formados en Seven, campeones de la Kings League"
@@ -17,7 +17,8 @@
     "medalla": "Champions",
     "lugar": "Kings League Americas",
     "titulo": "Seven players in the Kings League",
-    "texto": "More than five players trained with us, in one of the most innovative 7-a-side tournaments.",
+    "fecha": "2024 – 2026",
+    "texto": "More than five players trained with us in the Kings League Americas, and one in the Kings League Italy.",
     "foto": "Seven-trained players, Kings League champions"
   }
 }
