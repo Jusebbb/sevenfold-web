@@ -18,28 +18,32 @@
       "alt": "Afiche de Axur, Velandia y Brayan, jugadores formados en Seven, campeones con Aniquiladores"
     },
     {
-      "src": "assets/img/jugador-2.webp",
-      "alt": "Brayan González con la camiseta de Aniquiladores"
+      "src": "assets/img/kl-brayan-1.webp",
+      "alt": "Brayan González levanta el trofeo de campeón de la Kings League con Aniquiladores"
     },
     {
-      "src": "assets/img/jugador-3.webp",
-      "alt": "Axur Quintero con la camiseta de Aniquiladores"
+      "src": "assets/img/kl-velandia-2.webp",
+      "alt": "Steven Velandia sonríe con el trofeo de campeón y sus guantes de portero"
     },
     {
-      "src": "assets/img/jugador-1.webp",
-      "alt": "Steven Velandia, portero, con la camiseta de Aniquiladores"
+      "src": "assets/img/kl-axur-1.webp",
+      "alt": "Axur Quintero, MVP de la jornada 8 de la Kings League México con Aniquiladores"
     },
     {
-      "src": "assets/img/kings-3.webp",
-      "alt": "Sebastián Sáenz con la camiseta de West Santos FC"
+      "src": "assets/img/kl-saenz-1.webp",
+      "alt": "Sebastián Sáenz celebra el gol más rápido de la Kings League Américas"
+    },
+    {
+      "src": "assets/img/kl-ronald-1.webp",
+      "alt": "Afiche de bienvenida de Ronald Quintero a Aniquiladores"
+    },
+    {
+      "src": "assets/img/kl-brandon-1.webp",
+      "alt": "Afiche “Benvenuto” de Brandon Rodríguez para la Kings Cup Italia 2026"
     },
     {
       "src": "assets/img/kings-2.webp",
       "alt": "Sebastián Veloza con la camiseta de Cuervos"
-    },
-    {
-      "src": "assets/img/equipo-velandia.webp",
-      "alt": "Steven Velandia con el trofeo de campeón de la Kings League"
     }
   ],
   "texto": [
@@ -71,8 +75,30 @@
         "src": "assets/img/jugador-2.webp",
         "alt": "Brayan González con la camiseta de Aniquiladores"
       },
-      "instagram": "",
-      "texto": "Brayan empezó a jugar en Seven Bogotá cuando era un niño, y desde entonces no ha dejado de crecer. Su constancia lo llevó a la Selección Colombia de Fútbol 7 y a representar al país en distintas competencias internacionales. En 2024 debutó en la Kings League Américas con Raniza, y su nivel hizo que otros equipos se fijaran en él: en 2025 fichó con Aniquiladores, con quienes se coronó campeón, y en 2026 defiende los colores de Cuervos. Tres equipos en tres temporadas confirman lo que siempre supimos: es un jugador que marca la diferencia."
+      "instagram": "https://www.instagram.com/brayitangonzalez_/",
+      "texto": "Brayan empezó a jugar en Seven Bogotá cuando era un niño, y desde entonces no ha dejado de crecer. Su constancia lo llevó a la Selección Colombia de Fútbol 7 y a representar al país en distintas competencias internacionales. En 2024 debutó en la Kings League Américas con Raniza, y su nivel hizo que otros equipos se fijaran en él: en 2025 fichó con Aniquiladores, con quienes se coronó campeón, y en 2026 defiende los colores de Cuervos. Tres equipos en tres temporadas confirman lo que siempre supimos: es un jugador que marca la diferencia.",
+      "fotos": [
+        {
+          "src": "assets/img/kl-brayan-1.webp",
+          "alt": "Brayan González levanta el trofeo de campeón de la Kings League con Aniquiladores"
+        },
+        {
+          "src": "assets/img/kl-brayan-2.webp",
+          "alt": "Brayan González celebra un gol con la camiseta de Raniza"
+        },
+        {
+          "src": "assets/img/kl-brayan-3.webp",
+          "alt": "Brayan González conduce el balón en un partido con Raniza"
+        },
+        {
+          "src": "assets/img/kl-brayan-4.webp",
+          "alt": "Brayan González celebra el título con sus compañeros de Aniquiladores"
+        },
+        {
+          "src": "assets/img/kl-brayan-5.webp",
+          "alt": "Afiche “Bienvenido a la parvada” de Brayan González con Cuervos, Kings Cup México 2026"
+        }
+      ]
     },
     {
       "id": "axur",
@@ -80,11 +106,21 @@
       "titular": "La figura que hace levantar a la tribuna",
       "clubes": "Raniza · Aniquiladores",
       "foto": {
-        "src": "assets/img/jugador-3.webp",
-        "alt": "Axur Quintero con la camiseta de Aniquiladores"
+        "src": "assets/img/jugador-axur.webp",
+        "alt": "Axur Quintero con la camiseta de Raniza"
       },
       "instagram": "",
-      "texto": "Habilidad, desequilibrio y jugadas que se vuelven virales. Así es Axur, un jugador formado en Seven Bogotá desde la infancia y hoy integrante de la Selección Colombia de Fútbol 7. Llegó a la Kings League Américas en 2024 con Raniza, donde se ganó un nombre como figura en muchos partidos de la temporada. En 2025 dio el salto a Aniquiladores y celebró el título de campeón con el equipo en el que sigue brillando actualmente."
+      "texto": "Habilidad, desequilibrio y jugadas que se vuelven virales. Así es Axur, un jugador formado en Seven Bogotá desde la infancia y hoy integrante de la Selección Colombia de Fútbol 7. Llegó a la Kings League Américas en 2024 con Raniza, donde se ganó un nombre como figura en muchos partidos de la temporada. En 2025 dio el salto a Aniquiladores y celebró el título de campeón con el equipo en el que sigue brillando actualmente.",
+      "fotos": [
+        {
+          "src": "assets/img/kl-axur-1.webp",
+          "alt": "Axur Quintero, MVP de la jornada 8 de la Kings League México con Aniquiladores"
+        },
+        {
+          "src": "assets/img/kl-axur-2.webp",
+          "alt": "Axur Quintero con la camiseta de Raniza"
+        }
+      ]
     },
     {
       "id": "saenz",
@@ -96,16 +132,51 @@
         "alt": "Sebastián Sáenz con la camiseta de West Santos FC"
       },
       "instagram": "https://www.instagram.com/sebastiansaez97/",
-      "texto": "Sebastián conoce el camino porque lo recorrió paso a paso. Se formó en Seven Bogotá, llegó a la Selección Colombia de Fútbol 7 y compitió en el exterior representando al país. En 2024 fue fichado por West Santos FC en la Kings League Américas, y su gran desempeño lo llevó a Simios en 2025. Hoy pone toda esa experiencia y las victorias ganadas al servicio del club: lidera procesos de entrenamiento y acompaña deportivamente a nuestros niños y jóvenes, mostrándoles que el sueño sí es posible."
+      "texto": "Sebastián conoce el camino porque lo recorrió paso a paso. Se formó en Seven Bogotá, llegó a la Selección Colombia de Fútbol 7 y compitió en el exterior representando al país. En 2024 fue fichado por West Santos FC en la Kings League Américas, y su gran desempeño lo llevó a Simios en 2025. Hoy pone toda esa experiencia y las victorias ganadas al servicio del club: lidera procesos de entrenamiento y acompaña deportivamente a nuestros niños y jóvenes, mostrándoles que el sueño sí es posible.",
+      "fotos": [
+        {
+          "src": "assets/img/kl-saenz-1.webp",
+          "alt": "Sebastián Sáenz celebra el gol más rápido de la Kings League Américas"
+        },
+        {
+          "src": "assets/img/kl-saenz-2.webp",
+          "alt": "Sebastián Sáenz conduce el balón con la camiseta de West Santos"
+        },
+        {
+          "src": "assets/img/kl-saenz-3.webp",
+          "alt": "Sebastián Sáenz con la camiseta de Cuervos"
+        },
+        {
+          "src": "assets/img/kl-saenz-4.webp",
+          "alt": "Afiche de Club de Cuervos con Sebastián Sáenz"
+        },
+        {
+          "src": "assets/img/kl-saenz-5.webp",
+          "alt": "Camiseta número 28 de Sebastián Sáenz en el camerino"
+        }
+      ]
     },
     {
       "id": "ronald",
       "nombre": "Ronald Quintero",
       "titular": "Nueva ilusión en la Kings League",
       "clubes": "Aniquiladores",
-      "foto": null,
-      "instagram": "",
-      "texto": "Ronald ya sabe lo que es levantar un trofeo lejos de casa: fue campeón destacado en el Mundialito de Roma con la Selección Colombia de Fútbol 7. Formado en Seven Bogotá desde pequeño, su disciplina y su hambre de competir le abrieron las puertas de la Kings League Américas, donde en 2026 vive su primera temporada con Aniquiladores. Es el comienzo de una nueva etapa para un jugador al que sus sueños y su perseverancia hacen destacar."
+      "foto": {
+        "src": "assets/img/jugador-ronald.webp",
+        "alt": "Ronald Quintero con la camiseta de Aniquiladores"
+      },
+      "instagram": "https://www.instagram.com/r17.quintero/",
+      "texto": "Ronald ya sabe lo que es levantar un trofeo lejos de casa: fue campeón destacado en el Mundialito de Roma con la Selección Colombia de Fútbol 7. Formado en Seven Bogotá desde pequeño, su disciplina y su hambre de competir le abrieron las puertas de la Kings League Américas, donde en 2026 vive su primera temporada con Aniquiladores. Es el comienzo de una nueva etapa para un jugador al que sus sueños y su perseverancia hacen destacar.",
+      "fotos": [
+        {
+          "src": "assets/img/kl-ronald-1.webp",
+          "alt": "Afiche de bienvenida de Ronald Quintero a Aniquiladores"
+        },
+        {
+          "src": "assets/img/kl-ronald-2.webp",
+          "alt": "Ronald Quintero con la camiseta de Aniquiladores"
+        }
+      ]
     },
     {
       "id": "velandia",
@@ -117,16 +188,63 @@
         "alt": "Steven Velandia, portero, con la camiseta de Aniquiladores"
       },
       "instagram": "https://www.instagram.com/velandia_.12/",
-      "texto": "Steven es uno de los porteros más destacados que ha formado Seven Bogotá. Su crecimiento lo llevó a la Selección Colombia de Fútbol 7 y a competir en distintos países. En 2025 fichó con Aniquiladores en la Kings League Américas y fue pieza clave en la temporada en que el equipo se coronó campeón. Hoy regresa a casa con el propósito de liderar procesos de formación, competencia y acompañamiento internacional para los jóvenes del club, y sigue destacándose como portero de la Selección."
+      "texto": "Steven es uno de los porteros más destacados que ha formado Seven Bogotá. Su crecimiento lo llevó a la Selección Colombia de Fútbol 7 y a competir en distintos países. En 2025 fichó con Aniquiladores en la Kings League Américas y fue pieza clave en la temporada en que el equipo se coronó campeón. Hoy regresa a casa con el propósito de liderar procesos de formación, competencia y acompañamiento internacional para los jóvenes del club, y sigue destacándose como portero de la Selección.",
+      "fotos": [
+        {
+          "src": "assets/img/kl-velandia-1.webp",
+          "alt": "Steven Velandia besa el trofeo de campeón de la Kings League"
+        },
+        {
+          "src": "assets/img/kl-velandia-2.webp",
+          "alt": "Steven Velandia sonríe con el trofeo de campeón y sus guantes de portero"
+        },
+        {
+          "src": "assets/img/kl-velandia-3.webp",
+          "alt": "Steven Velandia celebra junto al trofeo de campeón"
+        },
+        {
+          "src": "assets/img/kl-velandia-4.webp",
+          "alt": "Steven Velandia, portero de Aniquiladores, con el balón en los pies"
+        },
+        {
+          "src": "assets/img/kl-velandia-5.webp",
+          "alt": "Afiche de Steven Velandia, campeón de la Kings League México con Aniquiladores"
+        }
+      ]
     },
     {
       "id": "brandon",
       "nombre": "Brandon Rodríguez",
       "titular": "Representante colombiano en la Kings League Italia",
       "clubes": "Kings League Italia",
-      "foto": null,
-      "instagram": "",
-      "texto": "Brandon abrió una puerta que ningún colombiano había cruzado. Formado en Seven Bogotá e integrante de la Selección Colombia de Fútbol 7, su actuación en la Copa del Mundo 2026 llamó la atención del fútbol europeo y le valió el fichaje en la Kings League Italia. Hoy inicia su primera temporada en esta competencia, convirtiéndose en un referente y en la prueba de que el talento formado en nuestras canchas puede llegar a cualquier parte del mundo."
+      "foto": {
+        "src": "assets/img/jugador-brandon.webp",
+        "alt": "Brandon Rodríguez celebra con la camiseta de Big Bro"
+      },
+      "instagram": "https://www.instagram.com/brandon_rodriguez1/",
+      "texto": "Brandon abrió una puerta que ningún colombiano había cruzado. Formado en Seven Bogotá e integrante de la Selección Colombia de Fútbol 7, su actuación en la Copa del Mundo 2026 llamó la atención del fútbol europeo y le valió el fichaje en la Kings League Italia. Hoy inicia su primera temporada en esta competencia, convirtiéndose en un referente y en la prueba de que el talento formado en nuestras canchas puede llegar a cualquier parte del mundo.",
+      "fotos": [
+        {
+          "src": "assets/img/kl-brandon-1.webp",
+          "alt": "Afiche “Benvenuto” de Brandon Rodríguez para la Kings Cup Italia 2026"
+        },
+        {
+          "src": "assets/img/kl-brandon-2.webp",
+          "alt": "Brandon Rodríguez celebra con la camiseta de Big Bro: 26 partidos, 10 goles y 7 asistencias"
+        },
+        {
+          "src": "assets/img/kl-brandon-3.webp",
+          "alt": "Brandon Rodríguez en la cancha con la camiseta blanca de Big Bro"
+        },
+        {
+          "src": "assets/img/kl-brandon-4.webp",
+          "alt": "Brandon Rodríguez celebra un gol con sus compañeros"
+        },
+        {
+          "src": "assets/img/kl-brandon-5.webp",
+          "alt": "Brandon Rodríguez y su equipo celebran en el estadio"
+        }
+      ]
     },
     {
       "id": "veloza",
@@ -137,8 +255,14 @@
         "src": "assets/img/kings-2.webp",
         "alt": "Sebastián Veloza con la camiseta de Cuervos"
       },
-      "instagram": "",
-      "texto": "Talento, carácter y compromiso con el país. Sebastián se formó en Seven Bogotá desde niño y se consolidó como jugador de la Selección Colombia de Fútbol 7, con la que ha representado al país en distintas competencias internacionales. En la temporada 2024/2025 vivió la experiencia de la Kings League Américas con Cuervos. Hoy sigue activo con la Selección, llevando el nombre del club a cada torneo en el que participa."
+      "instagram": "https://www.instagram.com/sebas_veloza/",
+      "texto": "Talento, carácter y compromiso con el país. Sebastián se formó en Seven Bogotá desde niño y se consolidó como jugador de la Selección Colombia de Fútbol 7, con la que ha representado al país en distintas competencias internacionales. En la temporada 2024/2025 vivió la experiencia de la Kings League Américas con Cuervos. Hoy sigue activo con la Selección, llevando el nombre del club a cada torneo en el que participa.",
+      "fotos": [
+        {
+          "src": "assets/img/kings-2.webp",
+          "alt": "Sebastián Veloza con la camiseta de Cuervos"
+        }
+      ]
     }
   ],
   "pendiente": "",
@@ -150,12 +274,13 @@
     "portada": "Poster of Axur, Velandia and Brayan, Seven-trained players and champions with Aniquiladores",
     "fotos": [
       "Poster of Axur, Velandia and Brayan, Seven-trained players and champions with Aniquiladores",
-      "Brayan González in the Aniquiladores jersey",
-      "Axur Quintero in the Aniquiladores jersey",
-      "Goalkeeper Steven Velandia in the Aniquiladores jersey",
-      "Sebastián Sáenz in the West Santos FC jersey",
-      "Sebastián Veloza in the Cuervos jersey",
-      "Steven Velandia with the Kings League champions' trophy"
+      "Brayan González lifts the Kings League champions' trophy with Aniquiladores",
+      "Steven Velandia smiles with the champions' trophy and his goalkeeper gloves",
+      "Axur Quintero, MVP of matchday 8 of the Kings League Mexico with Aniquiladores",
+      "Sebastián Sáenz celebrates the fastest goal in the Kings League Americas",
+      "Welcome poster for Ronald Quintero at Aniquiladores",
+      "“Benvenuto” poster for Brandon Rodríguez at the 2026 Kings Cup Italy",
+      "Sebastián Veloza in the Cuervos jersey"
     ],
     "texto": [
       "Young people who grew up in our sports programs now compete in the Kings League Americas, one of the most high-profile and most-watched 7-a-side tournaments in the world, and several have already been crowned champions.",
@@ -180,38 +305,79 @@
       {
         "titular": "Talent that stands out",
         "alt": "Brayan González in the Aniquiladores jersey",
-        "texto": "Brayan started playing at Seven Bogotá as a child and has never stopped growing since. His consistency took him to Colombia's 7-a-side national team and to represent the country in several international competitions. In 2024 he debuted in the Kings League Americas with Raniza, and his level caught other teams' attention: in 2025 he signed with Aniquiladores, winning the title with them, and in 2026 he plays for Cuervos. Three teams in three seasons confirm what we always knew: he's a player who makes a difference."
+        "texto": "Brayan started playing at Seven Bogotá as a child and has never stopped growing since. His consistency took him to Colombia's 7-a-side national team and to represent the country in several international competitions. In 2024 he debuted in the Kings League Americas with Raniza, and his level caught other teams' attention: in 2025 he signed with Aniquiladores, winning the title with them, and in 2026 he plays for Cuervos. Three teams in three seasons confirm what we always knew: he's a player who makes a difference.",
+        "fotos": [
+          "Brayan González lifts the Kings League champions' trophy with Aniquiladores",
+          "Brayan González celebrates a goal in the Raniza jersey",
+          "Brayan González on the ball in a match for Raniza",
+          "Brayan González celebrates the title with his Aniquiladores teammates",
+          "“Welcome to the flock” poster for Brayan González at Cuervos, 2026 Kings Cup Mexico"
+        ]
       },
       {
         "titular": "The star who gets the crowd on its feet",
-        "alt": "Axur Quintero in the Aniquiladores jersey",
-        "texto": "Skill, flair and plays that go viral. That's Axur, a player trained at Seven Bogotá since childhood and now a member of Colombia's 7-a-side national team. He arrived in the Kings League Americas in 2024 with Raniza, where he made a name for himself as a standout in many games of the season. In 2025 he made the jump to Aniquiladores and celebrated the championship with the team where he keeps shining today."
+        "alt": "Axur Quintero in the Raniza jersey",
+        "texto": "Skill, flair and plays that go viral. That's Axur, a player trained at Seven Bogotá since childhood and now a member of Colombia's 7-a-side national team. He arrived in the Kings League Americas in 2024 with Raniza, where he made a name for himself as a standout in many games of the season. In 2025 he made the jump to Aniquiladores and celebrated the championship with the team where he keeps shining today.",
+        "fotos": [
+          "Axur Quintero, MVP of matchday 8 of the Kings League Mexico with Aniquiladores",
+          "Axur Quintero in the Raniza jersey"
+        ]
       },
       {
         "titular": "Pro player and coach",
         "clubes": "West Santos · Simios",
         "alt": "Sebastián Sáenz in the West Santos FC jersey",
-        "texto": "Sebastián knows the path because he walked it step by step. He trained at Seven Bogotá, reached Colombia's 7-a-side national team and competed abroad representing the country. In 2024 he was signed by West Santos FC in the Kings League Americas, and his strong performances took him to Simios in 2025. Today he puts all that experience and those victories at the service of the club: he leads training programs and mentors our children and young players, showing them that the dream really is possible."
+        "texto": "Sebastián knows the path because he walked it step by step. He trained at Seven Bogotá, reached Colombia's 7-a-side national team and competed abroad representing the country. In 2024 he was signed by West Santos FC in the Kings League Americas, and his strong performances took him to Simios in 2025. Today he puts all that experience and those victories at the service of the club: he leads training programs and mentors our children and young players, showing them that the dream really is possible.",
+        "fotos": [
+          "Sebastián Sáenz celebrates the fastest goal in the Kings League Americas",
+          "Sebastián Sáenz on the ball in the West Santos jersey",
+          "Sebastián Sáenz in the Cuervos jersey",
+          "Club de Cuervos poster featuring Sebastián Sáenz",
+          "Sebastián Sáenz's number 28 jersey in the locker room"
+        ]
       },
       {
         "titular": "A new hope in the Kings League",
-        "texto": "Ronald already knows what it's like to lift a trophy far from home: he was a standout champion at the Rome Mundialito with Colombia's 7-a-side national team. Trained at Seven Bogotá since he was little, his discipline and hunger to compete opened the doors of the Kings League Americas, where in 2026 he is playing his first season with Aniquiladores. It's the start of a new chapter for a player whose dreams and perseverance make him stand out."
+        "texto": "Ronald already knows what it's like to lift a trophy far from home: he was a standout champion at the Rome Mundialito with Colombia's 7-a-side national team. Trained at Seven Bogotá since he was little, his discipline and hunger to compete opened the doors of the Kings League Americas, where in 2026 he is playing his first season with Aniquiladores. It's the start of a new chapter for a player whose dreams and perseverance make him stand out.",
+        "alt": "Ronald Quintero in the Aniquiladores jersey",
+        "fotos": [
+          "Welcome poster for Ronald Quintero at Aniquiladores",
+          "Ronald Quintero in the Aniquiladores jersey"
+        ]
       },
       {
         "titular": "Proof that goals can be reached and discipline goes a long way",
         "clubes": "Aniquiladores · Goalkeeper",
         "alt": "Goalkeeper Steven Velandia in the Aniquiladores jersey",
-        "texto": "Steven is one of the most outstanding goalkeepers Seven Bogotá has produced. His growth took him to Colombia's 7-a-side national team and to compete in several countries. In 2025 he signed with Aniquiladores in the Kings League Americas and was a key piece in the season the team was crowned champion. Today he's back home to lead training, competition and international programs for the club's young players, while still standing out as the national team's goalkeeper."
+        "texto": "Steven is one of the most outstanding goalkeepers Seven Bogotá has produced. His growth took him to Colombia's 7-a-side national team and to compete in several countries. In 2025 he signed with Aniquiladores in the Kings League Americas and was a key piece in the season the team was crowned champion. Today he's back home to lead training, competition and international programs for the club's young players, while still standing out as the national team's goalkeeper.",
+        "fotos": [
+          "Steven Velandia kisses the Kings League champions' trophy",
+          "Steven Velandia smiles with the champions' trophy and his goalkeeper gloves",
+          "Steven Velandia celebrates next to the champions' trophy",
+          "Steven Velandia, Aniquiladores goalkeeper, with the ball at his feet",
+          "Poster of Steven Velandia, Kings League Mexico champion with Aniquiladores"
+        ]
       },
       {
         "titular": "Colombia's representative in the Kings League Italy",
         "clubes": "Kings League Italy",
-        "texto": "Brandon opened a door no Colombian had walked through before. Trained at Seven Bogotá and a member of Colombia's 7-a-side national team, his performance at the 2026 World Cup caught the attention of European football and earned him a contract in the Kings League Italy. He is now starting his first season in the competition, becoming a role model and proof that talent trained on our pitches can reach any corner of the world."
+        "texto": "Brandon opened a door no Colombian had walked through before. Trained at Seven Bogotá and a member of Colombia's 7-a-side national team, his performance at the 2026 World Cup caught the attention of European football and earned him a contract in the Kings League Italy. He is now starting his first season in the competition, becoming a role model and proof that talent trained on our pitches can reach any corner of the world.",
+        "alt": "Brandon Rodríguez celebrates in the Big Bro jersey",
+        "fotos": [
+          "“Benvenuto” poster for Brandon Rodríguez at the 2026 Kings Cup Italy",
+          "Brandon Rodríguez celebrates in the Big Bro jersey: 26 games, 10 goals and 7 assists",
+          "Brandon Rodríguez on the pitch in Big Bro's white jersey",
+          "Brandon Rodríguez celebrates a goal with his teammates",
+          "Brandon Rodríguez and his team celebrate in the stadium"
+        ]
       },
       {
         "titular": "Still wearing Colombia's jersey with pride",
         "alt": "Sebastián Veloza in the Cuervos jersey",
-        "texto": "Talent, character and commitment to his country. Sebastián trained at Seven Bogotá from childhood and established himself as a player for Colombia's 7-a-side national team, representing the country in several international competitions. In the 2024/2025 season he lived the Kings League Americas experience with Cuervos. Today he remains active with the national team, carrying the club's name to every tournament he plays."
+        "texto": "Talent, character and commitment to his country. Sebastián trained at Seven Bogotá from childhood and established himself as a player for Colombia's 7-a-side national team, representing the country in several international competitions. In the 2024/2025 season he lived the Kings League Americas experience with Cuervos. Today he remains active with the national team, carrying the club's name to every tournament he plays.",
+        "fotos": [
+          "Sebastián Veloza in the Cuervos jersey"
+        ]
       }
     ],
     "pendiente": ""

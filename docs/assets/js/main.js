@@ -290,13 +290,31 @@ document.querySelectorAll("dialog.sheet").forEach(dlg => {
 function openStory(key, push = true) {
   const tpl = document.getElementById("story-" + key);
   if (!tpl || !dlgStory) return false;
+  const swap = dlgStory.open;  // ya abierta: se cambia de historia ahí mismo (p. ej. de un jugador al siguiente)
   const body = dlgStory.querySelector(".sheet-body");
   body.replaceChildren(tpl.content.cloneNode(true));
   const h = body.querySelector("h2[id]");
   if (h) dlgStory.setAttribute("aria-labelledby", h.id);
   if (!openSheet(dlgStory, push ? "#historia-" + key : null)) return false;
+  if (swap) {
+    if (push) history.replaceState(history.state, "", "#historia-" + key);
+    if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
+  }
   body.querySelectorAll("[data-pc]").forEach(pc => { initPC(pc).near = true; pc._pc.refresh(); });
   return true;
+}
+// enlaces dentro de una historia abierta (tarjetas y anterior / siguiente de cada jugador)
+if (dlgStory) {
+  dlgStory.addEventListener("click", e => {
+    const a = e.target.closest("[data-story]");
+    if (a && dlgStory.contains(a) && openStory(a.dataset.story)) e.preventDefault();
+  });
+  // flechas del teclado: jugador anterior / siguiente (salvo si se está moviendo el carrusel de fotos)
+  dlgStory.addEventListener("keydown", e => {
+    if ((e.key !== "ArrowLeft" && e.key !== "ArrowRight") || e.target.closest(".pc-track")) return;
+    const b = dlgStory.querySelectorAll(".pnav-btn")[e.key === "ArrowLeft" ? 0 : 1];
+    if (b) { e.preventDefault(); b.click(); }
+  });
 }
 document.querySelectorAll("[data-story]").forEach(a => a.addEventListener("click", e => {
   if (!openStory(a.dataset.story)) return;

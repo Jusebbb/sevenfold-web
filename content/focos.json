@@ -51,7 +51,6 @@
 "hero-seleccion": "50% 39%",
 "jugador-1": "50% 12%",
 "jugador-2": "50% 11%",
-"jugador-3": "50% 11%",
 "juntos-exfutbolistas": "50% 23%",
 "juntos-exjugadores": "53% 19%",
 "juntos-grupo": "50% 38%",
@@ -116,5 +115,8 @@
 "vaupes-dos": "51% 41%",
 "vaupes-grupo": "50% 15%",
 "vaupes-jovenes": "50% 0%",
-"vaupes-jugador": "53% 4%"
+"vaupes-jugador": "53% 4%",
+"jugador-axur": "50% 12%",
+"jugador-ronald": "50% 14%",
+"jugador-brandon": "56% 22%"
 }

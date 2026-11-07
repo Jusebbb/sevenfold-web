@@ -1540,3 +1540,72 @@ ul.values.vcards .value b{font-size:1.3rem;line-height:1.05}
 .cats2 .cat2.long b{font-size:clamp(1.7rem,2.1vw,2.1rem);line-height:.92}
 .kings-stats b{min-width:3ch}
 .cats2 .cat2.long::after{background:linear-gradient(180deg,rgba(11,19,32,0) 18%,rgba(11,19,32,.7) 45%,rgba(11,19,32,.95) 72%)}
+/* Kings League: una historia por jugador. En la historia general, tarjetas que abren la de cada uno;
+   en la de cada jugador, sus fotos, la fila de jugadores y anterior / siguiente (sin bajar por una lista) */
+.pt-hint{color:var(--muted);font-size:.92rem;margin-top:-6px}
+.ptiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+.ptile{display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:var(--ink);color:var(--chalk);text-decoration:none;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.pt-ph{display:block;aspect-ratio:3/4;overflow:hidden;background:#05080F}
+.pt-ph img{width:100%;height:100%;object-fit:cover;object-position:center 12%;transition:transform .7s var(--ease)}
+.pt-in{display:grid;gap:4px;padding:10px 10px 12px}
+.pt-in b{font:900 1.06rem/1 var(--display);text-transform:uppercase}
+.pt-in small{font-size:.7rem;line-height:1.3;color:var(--muted-d)}
+.ptile:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+@media (hover:hover){.ptile:hover{transform:translateY(-4px);box-shadow:0 18px 30px -18px rgba(11,19,32,.6)}.ptile:hover .pt-ph img{transform:scale(1.05)}}
+.player-sheet .story-txt{gap:14px}
+.player-sheet .h-lg{line-height:.95}
+.pstrip{display:flex;flex-wrap:wrap;gap:6px}
+@media (min-width:900px){.pstrip{padding-right:52px}}
+.ps-it{display:block;padding:2px;border-radius:50%;border:2px solid transparent;opacity:.5;transition:opacity .2s,border-color .2s,transform .2s var(--ease)}
+.ps-it[aria-current]{opacity:1;border-color:var(--sun)}
+.ps-ph{display:block;width:40px;height:40px;border-radius:50%;overflow:hidden;background:var(--ink)}
+.ps-ph img{width:100%;height:100%;object-fit:cover;object-position:center 14%}
+.ps-ph.ini{display:grid;place-items:center;font:900 .9rem/1 var(--display);color:var(--sun)}
+.ps-it:focus-visible{outline:3px solid var(--sun);outline-offset:2px;opacity:1}
+@media (hover:hover){.ps-it:hover{opacity:1;transform:translateY(-2px)}}
+.ps-n{color:var(--muted);font-weight:700;letter-spacing:.12em;white-space:nowrap}
+@media (max-width:480px){.ps-ph{width:34px;height:34px}.pstrip{gap:4px}}
+.pf-lead{font-weight:700;font-size:1.12rem;line-height:1.35;color:var(--ink)}
+.player-sheet .member-ig{min-height:0;justify-self:start}
+.pnav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;padding-top:16px;border-top:1px solid var(--line)}
+.pnav-btn{display:flex;align-items:center;gap:12px;min-height:58px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:800;font-size:.95rem;line-height:1.2;transition:border-color .2s,background .2s}
+.pnav-btn small{display:block;margin-bottom:3px;font-size:.64rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--pitch)}
+.pnav-btn i{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--chalk);transition:background .2s,color .2s}
+.pnav-btn svg{width:16px;height:16px}
+.pnav-btn.nx{justify-content:flex-end;text-align:right}
+.pnav-btn:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+@media (hover:hover){.pnav-btn:hover{border-color:var(--sun);background:#FFFBEA}.pnav-btn:hover i{background:var(--sun);color:var(--ink)}}
+.pnav-all{justify-self:start;font-size:.86rem;font-weight:700;color:var(--pitch);text-decoration:none;border-bottom:2px solid var(--sun);padding-bottom:2px}
+@media (max-width:420px){.pnav-btn{font-size:.86rem;gap:8px;padding:8px 10px}.pnav-btn i{width:30px;height:30px}}
+/* Alianzas educativas: logos sobre una misma línea; el del ITR (cuadrado) más grande para que se lea */
+.edu-allies .ally-logo{height:104px;align-items:flex-end}
+.ally-logo img.sq{width:104px;height:104px;max-height:none;border-radius:14px;box-shadow:0 10px 22px -14px rgba(11,19,32,.45)}
+/* Súmate: alcance en redes arriba, a la vista apenas se entra, con el logo de cada plataforma */
+.give-hero{padding-top:max(124px,calc(104px + env(safe-area-inset-top)));padding-bottom:clamp(40px,5vw,64px)}
+.reach-top{position:relative;margin-top:clamp(28px,3.4vw,40px)}
+.reach-k{font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sun);margin-bottom:14px}
+.reach2{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.reach2 li{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:var(--r);background:rgba(255,255,255,.05);border:1px solid var(--line-d)}
+.rlogo{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--chalk)}
+.rlogo svg{width:30px;height:30px}
+.reach2 div{display:grid;gap:4px;min-width:0}
+.reach2 b{font:900 clamp(2rem,3.2vw,2.7rem)/1 var(--display);color:var(--chalk)}
+.reach2 span{font-size:.84rem;line-height:1.35;color:var(--muted-d)}
+@media (max-width:900px){.reach2{grid-template-columns:1fr}.reach2 li{padding:14px 16px}}
+/* Dona · Apadrina · Patrocina (sin niveles ni precios) */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.trio-it{display:flex;flex-direction:column;gap:12px;padding:28px 26px;border-radius:var(--r);background:var(--ink-2);border:1px solid var(--line-d)}
+.trio-it .ico{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--sun);color:var(--ink)}
+.trio-it .ico svg{width:26px;height:26px}
+.trio-it h3{font:900 2.2rem/1 var(--display);text-transform:uppercase}
+.trio-it p{color:var(--muted-d);font-size:.97rem}
+.trio-it .btn{align-self:flex-start;margin-top:auto}
+@media (max-width:900px){.trio{grid-template-columns:1fr}}
+/* Elige cómo quieres ayudar: tarjetas más compactas, cada una cabe completa en la pantalla */
+.sponsor{min-height:0}
+.sponsor .in{padding:clamp(24px,3.4vw,48px);gap:12px}
+.sponsor h3{font-size:clamp(2rem,3.4vw,2.9rem)}
+.sponsor p{font-size:1rem}
+.sponsor .perks{gap:8px}
+.sponsor .btn{margin-top:6px}
+.story-txt h2[tabindex="-1"]:focus{outline:none}

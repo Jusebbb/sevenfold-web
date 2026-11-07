@@ -486,5 +486,65 @@
 "v": [
 800
 ]
+},
+"banco/amazonas-lancha": {
+"w": 1000,
+"v": [
+600
+]
+},
+"banco/amazonas-canoa": {
+"w": 1200,
+"v": [
+800
+]
+},
+"banco/amazonas-niebla": {
+"w": 1200,
+"v": [
+800
+]
+},
+"banco/comunidad-ninas": {
+"w": 1200,
+"v": [
+800
+]
+},
+"banco/amazonas-aereo": {
+"w": 1200,
+"v": [
+800
+]
+},
+"banco/rio-canoas": {
+"w": 1200,
+"v": [
+800
+]
+},
+"banco/rio-carga": {
+"w": 1200,
+"v": [
+800
+]
+},
+"banco/selva-luz": {
+"w": 1200,
+"v": [
+800
+]
+},
+"banco/voluntariado-siembra": {
+"w": 1200,
+"v": [
+800
+]
+},
+"banco/agroecologia-siembra": {
+"w": 1200,
+"v": [
+800
+]
 }
 }

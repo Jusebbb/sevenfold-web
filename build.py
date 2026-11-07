@@ -102,7 +102,8 @@ T = {
    send="Enviar mensaje", note="Te respondemos a tu correo. También puedes escribirnos a", ok="Abrimos tu aplicación de correo con el mensaje listo. Si no se abrió, escríbenos directamente a",
    direct="¿Prefieres escribir directo?", dlg_eyebrow="Súmate", dlg_title="Hablemos", dlg_text="Cuéntanos cómo quieres participar y te respondemos con una propuesta clara.",
    read_story="Leer historia", read_the_story="Leer la historia", see_photos="Ver fotos", pending="Pendiente", photos="Fotos", stories="Historias", palmares="Palmarés",
-   report_title="Informe de gestión y resultados", each_story="La historia de cada uno", tap_player="Toca un jugador para leer su historia.", read_his="Leer su historia"),
+   report_title="Informe de gestión y resultados", each_story="La historia de cada uno", tap_player="Toca un jugador para leer su historia.", read_his="Leer su historia",
+   players="Jugadores", prev_player="Anterior", next_player="Siguiente", all_players="Ver todos los jugadores"),
  "en": dict(skip="Skip to content", home_label="Fundación Sevenfold Colombia, home", logo_alt="Fundación Sevenfold · We believe in the future",
    nav="Main", open_menu="Open menu", close="Close", prev="Previous", next="Next", viewer="Photo viewer", story="Story",
    switch_label="Versión en español", switch="ES", locale="en_US", lang="en",
@@ -118,13 +119,15 @@ T = {
    send="Send message", note="We'll reply by email. You can also write to us at", ok="We opened your email app with the message ready. If it didn't open, write to us directly at",
    direct="Prefer to write directly?", dlg_eyebrow="Get involved", dlg_title="Let's talk", dlg_text="Tell us how you'd like to take part and we'll reply with a clear proposal.",
    read_story="Read story", read_the_story="Read the story", see_photos="See photos", pending="Pending", photos="Photos", stories="Stories", palmares="Track record",
-   report_title="Management and results report", each_story="Each player's story", tap_player="Tap a player to read his story.", read_his="Read his story"),
+   report_title="Management and results report", each_story="Each player's story", tap_player="Tap a player to read his story.", read_his="Read his story",
+   players="Players", prev_player="Previous", next_player="Next", all_players="See all players"),
 }
 FORM_VALUES = ["Donación","Apadrinar un talento","Patrocinio","Donación en especie","Alianza","Voluntariado","Inscripción de un deportista","Prensa","Otro"]
 INTEREST_VALUES = ["Seven Colombia","Educación","Ambiente","Bogotá","Vaupés","Chocó","Delegaciones internacionales"]
 
 ICONS = {
  "arrow":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+ "arrow_l":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
  "chev":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
  "ball":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l4.2 3-1.6 5h-5.2l-1.6-5z"/><path d="M12 3v4.5M20.4 9.6l-4.2 1M17.5 19.5l-2.9-4M6.5 19.5l2.9-4M3.6 9.6l4.2 1"/></svg>',
  "book":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg>',
@@ -365,7 +368,7 @@ def images(html):
         return tag.replace("<img ", f'<img style="object-position:{pos}" ', 1)
     def fix(m):
         tag = focus(m.group(0))
-        src = re.search(r'(data-src|src)="assets/img/([\w\-]+)\.webp"', tag)
+        src = re.search(r'(data-src|src)="assets/img/([\w\-/]+)\.webp"', tag)  # también subcarpetas (banco/…)
         if src and src.group(2) in OPT and "srcset" not in tag:
             o = OPT[src.group(2)]
             cands = ", ".join(f"assets/img/opt/{src.group(2)}-{w}.webp {w}w" for w in o["v"]) + f", assets/img/{src.group(2)}.webp {o['w']}w"
@@ -401,7 +404,9 @@ def tr(item):
         elif k in ("portada", "foto") and isinstance(v, str):
             out[k] = dict(item[k], alt=v)
         elif k == "jugadores":  # textos de cada jugador, en el mismo orden (nombre, foto e Instagram no cambian)
-            out[k] = [dict(j, **{x: y for x, y in e.items() if x != "alt"}, foto=dict(j["foto"], alt=e["alt"]) if j.get("foto") and e.get("alt") else j.get("foto"))
+            out[k] = [dict(j, **{x: y for x, y in e.items() if x not in ("alt", "fotos")},
+                           foto=dict(j["foto"], alt=e["alt"]) if j.get("foto") and e.get("alt") else j.get("foto"),
+                           fotos=[dict(f, alt=a) for f, a in zip(j["fotos"], e["fotos"])] if j.get("fotos") and e.get("fotos") else j.get("fotos", []))
                       for j, e in zip(item[k], v)]
         else:
             out[k] = v
@@ -436,10 +441,10 @@ def story_sheet(h):
     cita = f'<blockquote>“{esc(h["cita"]["texto"])}”<small>{esc(h["cita"]["fuente"])}</small></blockquote>' if h.get("cita") else ""
     cifras = ('<div class="stat-row">' + "".join(f'<div><b>{esc(c["valor"])}</b><span>{esc(c["texto"])}</span></div>' for c in h["cifras"]) + "</div>") if h.get("cifras") else ""
     perfiles = ""
-    if h.get("jugadores"):  # la historia de cada jugador, con su foto (Kings League)
-        perfiles = (f'<h3 class="profiles-title">{t("each_story")}</h3><div class="profiles">'
-                    + "".join(f'<article class="profile" id="j-{j["id"]}">{player_photo(j)}<div><span class="k">{esc(j["clubes"])}</span>'
-                              f'<h4>{esc(j["nombre"])}</h4><p class="pf-sub">{esc(j["titular"])}</p><p>{esc(j["texto"])}</p>{player_ig(j)}</div></article>'
+    if h.get("jugadores"):  # un jugador = una historia propia: aquí solo sus tarjetas, que la abren (Kings League)
+        perfiles = (f'<h3 class="profiles-title">{t("each_story")}</h3><p class="pt-hint">{t("tap_player")}</p><div class="ptiles">'
+                    + "".join(f'<a class="ptile" href="#historia-{k}-{j["id"]}" data-story="{k}-{j["id"]}">{player_photo(j, "pt-ph")}'
+                              f'<span class="pt-in"><b>{esc(j["nombre"])}</b><small>{esc(j["clubes"])}</small></span></a>'
                               for j in h["jugadores"]) + "</div>")
     ln = {"educacion": " ln-edu", "ambiente": " ln-amb"}.get(h["linea"], "")
     return (f'<template id="story-{k}">\n<article class="story-sheet{ln}">\n'
@@ -447,6 +452,30 @@ def story_sheet(h):
             f'  <div class="pc fit" data-pc aria-label="{t("photos")}: {esc(h["titulo"])}"><div class="pc-track">{fotos}</div></div>\n'
             f'  <div class="story-txt"><span class="eyebrow">{esc(h["etiqueta"])} · {esc(h["fecha"])}</span>'
             f'<h2 class="h-lg" id="st-{k}">{esc(h["titulo"])}</h2>{podios}<div class="prose">{texto}</div>{cita}{cifras}{perfiles}{pendiente(h.get("pendiente",""))}</div>\n'
+            f'</article>\n</template>')
+
+def player_sheet(h, i):
+    """Historia de un jugador en su propia ventana: sus fotos, su texto y paso al anterior / siguiente
+    (se cambia de jugador sin bajar por una lista larga)."""
+    h = tr(h)
+    k, js = h["id"], h["jugadores"]
+    j, n = js[i], len(js)
+    pid = f'{k}-{j["id"]}'
+    link = lambda x: f'href="#historia-{k}-{x["id"]}" data-story="{k}-{x["id"]}"'
+    fotos = j.get("fotos") or ([j["foto"]] if (j.get("foto") or {}).get("src") else [])
+    car = (f'  <div class="pc fit" data-pc aria-label="{t("photos")}: {esc(j["nombre"])}"><div class="pc-track">'
+           + "".join(f'<figure class="pc-slide">{img(f)}</figure>' for f in fotos) + '</div></div>\n') if fotos else ""
+    strip = "".join(f'<a class="ps-it" {link(x)} aria-label="{esc(x["nombre"])}"{" aria-current=\"true\"" if x is j else ""}>{player_photo(x, "ps-ph")}</a>' for x in js)
+    prev, nxt = js[(i - 1) % n], js[(i + 1) % n]
+    nav = (f'<nav class="pnav" aria-label="{t("players")}">'
+           f'<a class="pnav-btn" {link(prev)}><i>{ICONS["arrow_l"]}</i><span><small>{t("prev_player")}</small>{esc(prev["nombre"])}</span></a>'
+           f'<a class="pnav-btn nx" {link(nxt)}><span><small>{t("next_player")}</small>{esc(nxt["nombre"])}</span><i>{ICONS["arrow"]}</i></a></nav>'
+           f'<a class="pnav-all" href="#historia-{k}" data-story="{k}">{t("all_players")} <span aria-hidden="true">·</span> {esc(h["titulo"])}</a>')
+    return (f'<template id="story-{pid}">\n<article class="story-sheet player-sheet">\n{car}'
+            f'  <div class="story-txt"><div class="pstrip">{strip}</div>'
+            f'<span class="eyebrow">{"" if "Kings League" in j["clubes"] else "Kings League · "}{esc(j["clubes"])} <span class="ps-n">{i + 1} / {n}</span></span>'
+            f'<h2 class="h-lg" id="st-{pid}">{esc(j["nombre"])}</h2><p class="pf-lead">{esc(j["titular"])}</p>'
+            f'<div class="prose"><p>{esc(j["texto"])}</p></div>{player_ig(j)}{nav}</div>\n'
             f'</article>\n</template>')
 
 def player_photo(j, cls="pf-ph"):
@@ -464,7 +493,7 @@ def kings():
     h = tr(HISTORIAS["kings"])
     texto = "".join(f"<p>{esc(x)}</p>" for x in h["texto"])
     cifras = "".join(f'<li><b>{esc(c["valor"])}</b><span>{esc(c["texto"])}</span></li>' for c in h["cifras"])
-    cards = "".join(f'<a class="kplayer" href="#historia-kings" data-story="kings" data-to="j-{j["id"]}">{player_photo(j, "kp-ph")}'
+    cards = "".join(f'<a class="kplayer" href="#historia-kings-{j["id"]}" data-story="kings-{j["id"]}">{player_photo(j, "kp-ph")}'
                     f'<span class="kp-in"><span class="k">{esc(j["clubes"])}</span><b>{esc(j["nombre"])}</b><small>{esc(j["titular"])}</small>'
                     f'<span class="go">{t("read_his")} <i>{ICONS["arrow"]}</i></span></span></a>' for j in h["jugadores"])
     return (f'<div class="kings"><div><span class="eyebrow">{esc(h["etiqueta"])}</span><h2 class="h-lg mt-s">{esc(h["titulo"])}</h2>'
@@ -472,12 +501,20 @@ def kings():
             f'<div class="more-head kings-head"><h3 class="h-md">{t("each_story")}</h3><p>{t("tap_player")}</p></div>'
             f'<div class="kplayers" data-carousel aria-label="{t("each_story")}">{cards}</div>')
 
+# historia de cada jugador ("kings-brayan") -> la historia a la que pertenece ("kings")
+PLAYERS = {f'{h["id"]}-{j["id"]}': h["id"] for h in HISTORIAS.values() for j in h.get("jugadores", [])}
+
 def stories_for(html):
-    """Agrega a la página las historias que abre (data-story="x"): se leen en una ventana, sin salir de la página."""
-    keys = list(dict.fromkeys(re.findall(r'data-story="([\w-]+)"', html)))
+    """Agrega a la página las historias que abre (data-story="x"): se leen en una ventana, sin salir de la página.
+    Una historia con jugadores trae también la ventana de cada jugador (se pasa de una a otra ahí mismo)."""
+    keys = list(dict.fromkeys(PLAYERS.get(k, k) for k in re.findall(r'data-story="([\w-]+)"', html)))
     for k in keys:
         if k not in HISTORIAS: raise SystemExit(f"falta la historia '{k}' en content/historias")
-    return "\n".join(story_sheet(HISTORIAS[k]) for k in keys)
+    out = []
+    for k in keys:
+        out.append(story_sheet(HISTORIAS[k]))
+        out += [player_sheet(HISTORIAS[k], i) for i in range(len(HISTORIAS[k].get("jugadores", [])))]
+    return "\n".join(out)
 
 # Informes de gestión para descargar (assets/docs). Para sumar un año, agrega una fila.
 INFORMES = [

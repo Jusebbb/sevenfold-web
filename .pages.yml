@@ -58,6 +58,11 @@ content:
             fields: [ { name: src, label: Foto, type: image }, { name: alt, label: "Descripción de la foto", type: string }, { name: pos, label: Encuadre, type: string } ]
           - { name: instagram, label: "Enlace de Instagram (opcional)", type: string }
           - { name: texto, label: Historia, type: text }
+          - name: fotos
+            label: "Fotos de su historia (carrusel de la ventana del jugador)"
+            type: object
+            list: true
+            fields: [ { name: src, label: Foto, type: image }, { name: alt, label: "Descripción de la foto", type: string } ]
       - { name: pendiente, label: "Nota de pendiente (visible; dejar vacío para ocultar)", type: string }
       - name: en
         label: "Inglés (versión /en)"
@@ -89,7 +94,7 @@ content:
             label: "Jugadores (mismo orden)"
             type: object
             list: true
-            fields: [ { name: titular, label: Frase, type: string }, { name: clubes, label: "Clubes (si cambia en inglés)", type: string }, { name: alt, label: "Descripción de la foto", type: string }, { name: texto, label: Historia, type: text } ]
+            fields: [ { name: titular, label: Frase, type: string }, { name: clubes, label: "Clubes (si cambia en inglés)", type: string }, { name: alt, label: "Descripción de la foto", type: string }, { name: texto, label: Historia, type: text }, { name: fotos, label: "Descripciones de sus fotos (mismo orden)", type: string, list: true } ]
           - { name: pendiente, label: "Nota de pendiente", type: string }
   - name: palmares
     label: Palmarés
