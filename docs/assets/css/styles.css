@@ -1609,3 +1609,8 @@ ul.values.vcards .value b{font-size:1.3rem;line-height:1.05}
 .sponsor .perks{gap:8px}
 .sponsor .btn{margin-top:6px}
 .story-txt h2[tabindex="-1"]:focus{outline:none}
+/* Bitácora, Superliga: medalla de plata mientras llegan las fotos de la final */
+.evc-medal{gap:2px;grid-template-rows:auto auto auto;background:radial-gradient(circle at 50% 36%,rgba(205,214,226,.2),transparent 42%),radial-gradient(circle at 30% 20%,var(--ink-3),var(--ink) 70%)}
+.evc-ph.evc-medal svg.medal{width:auto;height:clamp(92px,9.5vw,118px);filter:drop-shadow(0 10px 16px rgba(0,0,0,.45))}
+.evc-ph.evc-medal b{font-size:clamp(1.6rem,2.4vw,2rem);text-transform:uppercase;margin-top:6px}
+.evc-ph.evc-medal span{color:#C9D2DC}
